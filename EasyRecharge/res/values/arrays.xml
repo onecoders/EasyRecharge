@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="menu_title">
+        <item>电费查询</item>
+        <item>充值</item>
+        <item>反馈</item>
+        <item>关于</item>
+    </string-array>
+
+    <integer-array name="menu_icon_id">
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+        <item>@drawable/ic_launcher</item>
+    </integer-array>
+
+</resources>
