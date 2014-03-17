@@ -2,6 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.view.MyDialog;
 import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -18,7 +19,7 @@ public abstract class ActBase extends SherlockActivity {
 		initActionBar();
 	}
 
-	private void initActionBar() {
+	public void initActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		// Get custom view
 		View customerView = loadABCustomView();
@@ -55,6 +56,10 @@ public abstract class ActBase extends SherlockActivity {
 
 	public void showToast(int resId) {
 		Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+	}
+
+	public void startActivity(Class<?> cls) {
+		startActivity(new Intent(this, cls));
 	}
 
 }

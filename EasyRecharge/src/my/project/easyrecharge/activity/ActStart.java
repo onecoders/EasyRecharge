@@ -19,19 +19,23 @@ public class ActStart extends SherlockActivity {
 	}
 
 	private void init() {
-		delayAndSwitchToMain();
+		delayAndSwitch2Main();
 	}
 
-	private void delayAndSwitchToMain() {
+	private void delayAndSwitch2Main() {
 		new Handler().postDelayed(new Runnable() {
 
 			@Override
 			public void run() {
-				Intent i = new Intent(ActStart.this, ActMain.class);
-				ActStart.this.startActivity(i);
-				ActStart.this.finish();
+				switch2Main();
 			}
 		}, DELAY_MILLIS);
+	}
+
+	private void switch2Main() {
+		Intent i = new Intent(ActStart.this, ActMain.class);
+		ActStart.this.startActivity(i);
+		ActStart.this.finish();
 	}
 
 	@Override
