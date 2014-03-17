@@ -3,16 +3,16 @@
 
     <string-array name="menu_title">
         <item>电费查询</item>
-        <item>充值</item>
-        <item>反馈</item>
-        <item>关于</item>
+        <item>充&#160;&#160;值</item>
+        <item>反&#160;&#160;馈</item>
+        <item>关&#160;&#160;于</item>
     </string-array>
 
     <integer-array name="menu_icon_id">
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
-        <item>@drawable/ic_launcher</item>
+        <item>@drawable/inquiry</item>
+        <item>@drawable/recharge</item>
+        <item>@drawable/feedback</item>
+        <item>@drawable/about</item>
     </integer-array>
 
 </resources>
