@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- main activity menu -->
     <string-array name="menu_title">
         <item>电费查询</item>
-        <item>充&#160;&#160;值</item>
-        <item>反&#160;&#160;馈</item>
+        <item>快捷充值</item>
+        <item>问题反馈</item>
         <item>关&#160;&#160;于</item>
     </string-array>
 

@@ -4,12 +4,32 @@
     android:layout_height="match_parent"
     android:background="@color/ab_main_bg" >
 
+    <ImageButton
+        android:id="@+id/ab_left_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:background="@drawable/ab_back_bg_selector"
+        android:contentDescription="@string/contentDescription"
+        android:src="@drawable/ab_back_img"
+        android:visibility="gone" />
+
     <TextView
+        android:id="@+id/ab_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:text="@string/app_name"
         android:textColor="@android:color/white"
         android:textSize="18sp" />
+
+    <ImageButton
+        android:id="@+id/ab_right_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:contentDescription="@string/contentDescription"
+        android:visibility="gone" />
 
 </RelativeLayout>

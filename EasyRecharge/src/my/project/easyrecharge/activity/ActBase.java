@@ -1,17 +1,24 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.R;
 import my.project.easyrecharge.view.MyDialog;
 import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 
 public abstract class ActBase extends SherlockActivity {
+
+	private TextView title;
+	protected ImageButton abLeftBtn, abRightBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +34,17 @@ public abstract class ActBase extends SherlockActivity {
 		initActionBarAndSetCustomView(actionBar, customerView);
 	}
 
-	protected abstract View loadABCustomView();
+	private View loadABCustomView() {
+		View abView = LayoutInflater.from(this).inflate(R.layout.ab_main, null);
+		abLeftBtn = (ImageButton) abView.findViewById(R.id.ab_left_btn);
+		title = (TextView) abView.findViewById(R.id.ab_title);
+		abRightBtn = (ImageButton) abView.findViewById(R.id.ab_right_btn);
+		return abView;
+	}
+
+	protected void setAbTitle(int resid) {
+		title.setText(resid);
+	}
 
 	private static void initActionBarAndSetCustomView(ActionBar actionBar,
 			View customerView) {

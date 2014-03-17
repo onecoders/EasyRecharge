@@ -42,6 +42,22 @@
             android:screenOrientation="portrait" >
         </activity>
         <activity
+            android:name=".activity.ActInquiry"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ActRecharge"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ActFeedback"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
+            android:name=".activity.ActAbout"
+            android:screenOrientation="portrait" >
+        </activity>
+        <activity
             android:name="com.alipay.android.app.sdk.WapPayActivity"
             android:screenOrientation="portrait" >
         </activity>

@@ -6,7 +6,6 @@ import my.project.easyrecharge.model.IndexMenu;
 import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.AdapterView;
@@ -15,6 +14,11 @@ import android.widget.GridView;
 
 public class ActMain extends ActBase implements OnClickListener,
 		OnItemClickListener {
+
+	private static final int INQUIRY = 0;
+	private static final int RECHARGE = 1;
+	private static final int FEEDBACK = 2;
+	private static final int ABOUT = 3;
 
 	private GridView gridMenu;
 	private IndexMenu[] menus;
@@ -27,6 +31,7 @@ public class ActMain extends ActBase implements OnClickListener,
 	}
 
 	private void init() {
+		setAbTitle(R.string.app_name);
 		initMenuList();
 		initGridMenu();
 	}
@@ -50,14 +55,28 @@ public class ActMain extends ActBase implements OnClickListener,
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-
-	}
-
-	@Override
-	protected View loadABCustomView() {
-		View abView = LayoutInflater.from(this).inflate(R.layout.ab_main, null);
-		return abView;
+	public void onItemClick(AdapterView<?> arg0, View arg1, int position,
+			long arg3) {
+		Class<?> cls = null;
+		switch (position) {
+		case INQUIRY:
+			cls = ActInquiry.class;
+			break;
+		case RECHARGE:
+			cls = ActRecharge.class;
+			break;
+		case FEEDBACK:
+			cls = ActFeedback.class;
+			break;
+		case ABOUT:
+			cls = ActAbout.class;
+			break;
+		default:
+			break;
+		}
+		if (cls != null) {
+			startActivity(cls);
+		}
 	}
 
 	@Override
