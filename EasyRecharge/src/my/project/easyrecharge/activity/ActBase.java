@@ -8,17 +8,18 @@ import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageButton;
+import android.view.View.OnClickListener;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 
-public abstract class ActBase extends SherlockActivity {
+public class ActBase extends SherlockActivity implements OnClickListener {
 
 	private TextView title;
-	protected ImageButton abLeftBtn, abRightBtn;
+	protected Button abLeftBtn, abRightBtn;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -36,10 +37,18 @@ public abstract class ActBase extends SherlockActivity {
 
 	private View loadABCustomView() {
 		View abView = LayoutInflater.from(this).inflate(R.layout.ab_main, null);
-		abLeftBtn = (ImageButton) abView.findViewById(R.id.ab_left_btn);
+		abLeftBtn = (Button) abView.findViewById(R.id.ab_left_btn);
+		abLeftBtn.setOnClickListener(this);
 		title = (TextView) abView.findViewById(R.id.ab_title);
-		abRightBtn = (ImageButton) abView.findViewById(R.id.ab_right_btn);
+		abRightBtn = (Button) abView.findViewById(R.id.ab_right_btn);
 		return abView;
+	}
+
+	@Override
+	public void onClick(View v) {
+		if (v.getId() == R.id.ab_left_btn) {
+			onBackPressed();
+		}
 	}
 
 	protected void setAbTitle(int resid) {

@@ -10,10 +10,10 @@
     </string-array>
 
     <integer-array name="menu_icon_id">
-        <item>@drawable/inquiry</item>
-        <item>@drawable/recharge</item>
-        <item>@drawable/feedback</item>
-        <item>@drawable/about</item>
+        <item>@drawable/ic_inquiry</item>
+        <item>@drawable/ic_recharge</item>
+        <item>@drawable/ic_feedback</item>
+        <item>@drawable/ic_about</item>
     </integer-array>
 
 </resources>

@@ -4,26 +4,29 @@
     android:layout_height="match_parent"
     android:background="@color/ab_main_bg" >
 
-    <ImageButton
+    <Button
         android:id="@+id/ab_left_btn"
         android:layout_width="wrap_content"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:background="@drawable/ab_back_bg_selector"
-        android:contentDescription="@string/contentDescription"
-        android:src="@drawable/ab_back_img"
-        android:visibility="gone" />
+        android:layout_margin="6dip"
+        android:background="@drawable/back_btn_bg"
+        android:gravity="center"
+        android:paddingLeft="5dip"
+        android:text="@string/back"
+        android:textColor="@color/white"
+        android:textSize="15sp" />
 
     <TextView
         android:id="@+id/ab_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:textColor="@android:color/white"
-        android:textSize="18sp" />
+        android:textColor="@color/white"
+        android:textSize="20sp" />
 
-    <ImageButton
+    <Button
         android:id="@+id/ab_right_btn"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
