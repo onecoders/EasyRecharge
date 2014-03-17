@@ -5,6 +5,7 @@ import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -50,6 +51,10 @@ public abstract class ActBase extends SherlockActivity {
 		dialog.setMessage(msgId);
 		dialog.setOnOKClickListener(listener);
 		dialog.show();
+	}
+
+	public void showToast(int resId) {
+		Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
 	}
 
 }
