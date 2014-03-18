@@ -85,6 +85,9 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 
 	public void startActivity(Class<?> cls) {
 		startActivity(new Intent(this, cls));
+		// 设置切换动画，从右边进入，左边退出,带动态效果
+		overridePendingTransition(R.anim.new_dync_in_from_right,
+				R.anim.new_dync_out_to_left);
 	}
 
 }
