@@ -21,6 +21,8 @@
     <string name="title_setting">设&#160;&#160;&#160;置</string>
     <!-- inquiry activity -->
     <!-- recharge activity -->
+    <!-- setting activity -->
+    <string name="already_newest">已是最新版本</string>
     <!-- feedback activity -->
     <!-- about activity -->
 

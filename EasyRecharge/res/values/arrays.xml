@@ -2,18 +2,25 @@
 <resources>
 
     <!-- main activity menu -->
-    <string-array name="menu_title">
+    <string-array name="menu_titles">
         <item>用户绑定</item>
         <item>电费查询</item>
         <item>快捷充值</item>
         <item>设&#160;&#160;&#160;&#160;置</item>
     </string-array>
 
-    <integer-array name="menu_icon_id">
+    <integer-array name="menu_icon_ids">
         <item>@drawable/ic_bind</item>
         <item>@drawable/ic_inquiry</item>
         <item>@drawable/ic_recharge</item>
         <item>@drawable/ic_setting</item>
     </integer-array>
+
+    <!-- setting list -->
+    <string-array name="setting_list">
+        <item>问题反馈</item>
+        <item>关&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;于</item>
+        <item>版本检测</item>
+    </string-array>
 
 </resources>

@@ -33,9 +33,9 @@ public class ActMain extends ActBase implements OnItemClickListener {
 	}
 
 	private void initMenuList() {
-		String[] menuTitles = getResources().getStringArray(R.array.menu_title);
+		String[] menuTitles = getResources().getStringArray(R.array.menu_titles);
 		TypedArray iconArray = getResources().obtainTypedArray(
-				R.array.menu_icon_id);
+				R.array.menu_icon_ids);
 		menus = new IndexMenu[menuTitles.length];
 		for (int i = 0; i < menus.length; i++) {
 			menus[i] = new IndexMenu(iconArray.getResourceId(i, 0),

@@ -1,6 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.util.MToast;
 import my.project.easyrecharge.view.MyDialog;
 import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
 import android.content.Intent;
@@ -11,7 +12,6 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
@@ -80,7 +80,7 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 	}
 
 	public void showToast(int resId) {
-		Toast.makeText(this, resId, Toast.LENGTH_SHORT).show();
+		MToast.showText(this, resId);
 	}
 
 	public void startActivity(Class<?> cls) {
