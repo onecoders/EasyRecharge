@@ -31,6 +31,7 @@ public class ActMain extends ActBase implements OnClickListener,
 	}
 
 	private void init() {
+		initActionBar();
 		setAbTitle(R.string.app_name);
 		abLeftBtn.setVisibility(View.GONE);
 		initMenuList();

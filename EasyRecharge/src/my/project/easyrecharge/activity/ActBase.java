@@ -24,10 +24,9 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		initActionBar();
 	}
 
-	public void initActionBar() {
+	protected void initActionBar() {
 		ActionBar actionBar = getSupportActionBar();
 		// Get custom view
 		View customerView = loadABCustomView();

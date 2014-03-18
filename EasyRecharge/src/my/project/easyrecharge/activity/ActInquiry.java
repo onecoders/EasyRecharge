@@ -13,6 +13,7 @@ public class ActInquiry extends ActBase {
 	}
 
 	private void init() {
+		initActionBar();
 		setAbTitle(R.string.title_inquiry);
 	}
 

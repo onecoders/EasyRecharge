@@ -13,6 +13,7 @@ public class ActAbout extends ActBase {
 	}
 
 	private void init() {
+		initActionBar();
 		setAbTitle(R.string.title_about);
 	}
 

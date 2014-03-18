@@ -1,13 +1,10 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
-import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.actionbarsherlock.app.SherlockActivity;
-
-public class ActStart extends SherlockActivity {
+public class ActStart extends ActBase {
 
 	private static final int DELAY_MILLIS = 3000;
 
@@ -33,9 +30,8 @@ public class ActStart extends SherlockActivity {
 	}
 
 	private void switch2Main() {
-		Intent i = new Intent(ActStart.this, ActMain.class);
-		ActStart.this.startActivity(i);
-		ActStart.this.finish();
+		startActivity(ActMain.class);
+		finish();
 	}
 
 	@Override
