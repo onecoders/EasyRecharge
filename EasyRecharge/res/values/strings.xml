@@ -25,5 +25,7 @@
     <string name="already_newest">已是最新版本</string>
     <!-- feedback activity -->
     <!-- about activity -->
+    <string name="about_version">校电翼查充(YH)Android版V1.0.0</string>
+    <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;校电翼查充(YH)，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
 
 </resources>
