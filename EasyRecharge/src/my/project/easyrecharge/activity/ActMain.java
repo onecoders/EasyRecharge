@@ -65,11 +65,8 @@ public class ActMain extends ActBase implements OnItemClickListener {
 		case RECHARGE:
 			cls = ActRecharge.class;
 			break;
-		case FEEDBACK:
-			cls = ActFeedback.class;
-			break;
-		case ABOUT:
-			cls = ActAbout.class;
+		case SETTING:
+			cls = ActSetting.class;
 			break;
 		default:
 			break;

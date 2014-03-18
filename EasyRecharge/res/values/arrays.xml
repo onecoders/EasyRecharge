@@ -13,7 +13,7 @@
         <item>@drawable/ic_bind</item>
         <item>@drawable/ic_inquiry</item>
         <item>@drawable/ic_recharge</item>
-        <item>@drawable/ic_feedback</item>
+        <item>@drawable/ic_setting</item>
     </integer-array>
 
 </resources>
