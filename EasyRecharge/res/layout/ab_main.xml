@@ -13,8 +13,8 @@
         android:layout_marginLeft="6dip"
         android:background="@drawable/back_btn_bg"
         android:gravity="center"
-        android:paddingLeft="5dip"
-        android:text="@string/back"
+        android:paddingLeft="6dip"
+        android:text="@string/txt_back_btn"
         android:textColor="@color/white"
         android:textSize="13sp" />
 

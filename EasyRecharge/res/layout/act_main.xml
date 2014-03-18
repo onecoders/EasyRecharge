@@ -15,7 +15,8 @@
         android:layout_height="match_parent"
         android:horizontalSpacing="15dip"
         android:listSelector="@android:color/transparent"
-        android:numColumns="2"
+        android:numColumns="auto_fit"
+        android:scrollbars="none"
         android:stretchMode="columnWidth"
         android:verticalSpacing="20dip" >
     </GridView>

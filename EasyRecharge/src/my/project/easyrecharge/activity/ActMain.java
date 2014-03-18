@@ -3,22 +3,16 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
+import my.project.easyrecharge.model.IndexMenu.Act;
 import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
-public class ActMain extends ActBase implements OnClickListener,
-		OnItemClickListener {
-
-	private static final int INQUIRY = 0;
-	private static final int RECHARGE = 1;
-	private static final int FEEDBACK = 2;
-	private static final int ABOUT = 3;
+public class ActMain extends ActBase implements OnItemClickListener {
 
 	private GridView gridMenu;
 	private IndexMenu[] menus;
@@ -33,7 +27,7 @@ public class ActMain extends ActBase implements OnClickListener,
 	private void init() {
 		initActionBar();
 		setAbTitle(R.string.app_name);
-		abLeftBtn.setVisibility(View.GONE);
+		abLeftBtn.setText(R.string.txt_exit_btn);
 		initMenuList();
 		initGridMenu();
 	}
@@ -46,6 +40,7 @@ public class ActMain extends ActBase implements OnClickListener,
 		for (int i = 0; i < menus.length; i++) {
 			menus[i] = new IndexMenu(iconArray.getResourceId(i, 0),
 					menuTitles[i]);
+			menus[i].setAct(Act.values()[i]);
 		}
 		iconArray.recycle();
 	}
@@ -60,7 +55,10 @@ public class ActMain extends ActBase implements OnClickListener,
 	public void onItemClick(AdapterView<?> arg0, View arg1, int position,
 			long arg3) {
 		Class<?> cls = null;
-		switch (position) {
+		switch (menus[position].getAct()) {
+		case BIND:
+			cls = ActBind.class;
+			break;
 		case INQUIRY:
 			cls = ActInquiry.class;
 			break;
@@ -79,11 +77,6 @@ public class ActMain extends ActBase implements OnClickListener,
 		if (cls != null) {
 			startActivity(cls);
 		}
-	}
-
-	@Override
-	public void onClick(View v) {
-
 	}
 
 	@Override

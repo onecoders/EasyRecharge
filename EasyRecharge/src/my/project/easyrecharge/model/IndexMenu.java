@@ -2,8 +2,13 @@ package my.project.easyrecharge.model;
 
 public class IndexMenu {
 
+	public enum Act {
+		BIND, INQUIRY, RECHARGE, FEEDBACK, ABOUT
+	}
+
 	private int iconId;
 	private String title;
+	private Act act;
 
 	public IndexMenu(int iconId, String title) {
 		this.iconId = iconId;
@@ -24,6 +29,14 @@ public class IndexMenu {
 
 	public void setTitle(String title) {
 		this.title = title;
+	}
+
+	public Act getAct() {
+		return act;
+	}
+
+	public void setAct(Act act) {
+		this.act = act;
 	}
 
 }
