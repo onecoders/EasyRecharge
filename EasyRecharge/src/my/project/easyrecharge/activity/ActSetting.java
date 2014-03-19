@@ -46,10 +46,10 @@ public class ActSetting extends ActBase implements ClickListener {
 	public void onClick(int index) {
 		switch (SetAct.values()[index]) {
 		case FEEDBACK:
-			startActivity(ActFeedback.class);
+			switchActivity(ActFeedback.class);
 			break;
 		case ABOUT:
-			startActivity(ActAbout.class);
+			switchActivity(ActAbout.class);
 			break;
 		case VERSION_CHECK:
 			showToast(R.string.already_newest);

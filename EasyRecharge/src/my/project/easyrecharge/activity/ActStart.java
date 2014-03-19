@@ -30,7 +30,7 @@ public class ActStart extends ActBase {
 	}
 
 	private void switch2Main() {
-		startActivity(ActMain.class);
+		switchActivity(ActMain.class);
 		finish();
 	}
 

@@ -73,7 +73,7 @@ public class ActMain extends ActBase implements OnItemClickListener {
 			break;
 		}
 		if (cls != null) {
-			startActivity(cls);
+			switchActivity(cls);
 		}
 	}
 

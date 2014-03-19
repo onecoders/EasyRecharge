@@ -87,7 +87,7 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 		actionBar.setCustomView(customerView, params);
 	}
 
-	public void showDialog(int titleId, int msgId, OnOKClickListener listener) {
+	protected void showDialog(int titleId, int msgId, OnOKClickListener listener) {
 		MyDialog dialog = new MyDialog(this);
 		dialog.setTitle(titleId);
 		dialog.setMessage(msgId);
@@ -95,12 +95,23 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 		dialog.show();
 	}
 
-	public void showToast(int resId) {
+	protected void showToast(int resId) {
 		MToast.showText(this, resId);
 	}
 
-	public void startActivity(Class<?> cls) {
+	protected void switchActivity(Class<?> cls) {
 		startActivity(new Intent(this, cls));
+		actAnimate();
+	}
+
+	protected void switchActivityReorder2Front(Class<?> cls) {
+		Intent intent = new Intent(this, cls);
+		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+		startActivity(intent);
+		actAnimate();
+	}
+
+	private void actAnimate() {
 		// 设置切换动画，从右边进入，左边退出,带动态效果
 		overridePendingTransition(R.anim.new_dync_in_from_right,
 				R.anim.new_dync_out_to_left);

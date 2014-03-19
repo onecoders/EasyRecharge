@@ -25,7 +25,7 @@ public class ActRecharge extends ActBase {
 	public void onClick(View v) {
 		super.onClick(v);
 		if (v.getId() == R.id.ab_right_btn) {
-			startActivity(ActInquiry.class);
+			switchActivityReorder2Front(ActInquiry.class);
 		}
 	}
 
