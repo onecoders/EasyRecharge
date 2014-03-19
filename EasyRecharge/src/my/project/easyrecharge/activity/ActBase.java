@@ -50,8 +50,24 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 		}
 	}
 
+	protected void setAbLeftBtnText(int resid) {
+		abLeftBtn.setText(resid);
+	}
+
 	protected void setAbTitle(int resid) {
 		title.setText(resid);
+	}
+
+	protected void showAbRightBtn() {
+		abRightBtn.setVisibility(View.VISIBLE);
+	}
+
+	protected void setAbRightBtnText(int resid) {
+		abRightBtn.setText(resid);
+	}
+
+	protected void setAbRightBtnClickListener(OnClickListener listener) {
+		abRightBtn.setOnClickListener(listener);
 	}
 
 	private static void initActionBarAndSetCustomView(ActionBar actionBar,

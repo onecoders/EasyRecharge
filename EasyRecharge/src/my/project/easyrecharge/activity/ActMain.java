@@ -27,13 +27,14 @@ public class ActMain extends ActBase implements OnItemClickListener {
 	private void init() {
 		initActionBar();
 		setAbTitle(R.string.app_name);
-		abLeftBtn.setText(R.string.txt_exit_btn);
+		setAbLeftBtnText(R.string.txt_exit_btn);
 		initMenuList();
 		initGridMenu();
 	}
 
 	private void initMenuList() {
-		String[] menuTitles = getResources().getStringArray(R.array.menu_titles);
+		String[] menuTitles = getResources()
+				.getStringArray(R.array.menu_titles);
 		TypedArray iconArray = getResources().obtainTypedArray(
 				R.array.menu_icon_ids);
 		menus = new IndexMenu[menuTitles.length];

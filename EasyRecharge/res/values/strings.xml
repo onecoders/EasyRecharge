@@ -20,7 +20,9 @@
     <string name="title_about">关&#160;&#160;&#160;于</string>
     <string name="title_setting">设&#160;&#160;&#160;置</string>
     <!-- inquiry activity -->
+    <string name="inquiry_right_btn_text">充&#160;&#160;&#160;值</string>
     <!-- recharge activity -->
+    <string name="recharge_right_btn_text">查&#160;&#160;&#160;询</string>
     <!-- setting activity -->
     <string name="already_newest">已是最新版本</string>
     <!-- feedback activity -->

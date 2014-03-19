@@ -2,7 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_bg" >
+    android:background="@drawable/ab_bg" >
 
     <Button
         android:id="@+id/ab_left_btn"
@@ -11,7 +11,7 @@
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
         android:layout_marginLeft="6dip"
-        android:background="@drawable/back_btn_bg"
+        android:background="@drawable/ic_back_btn_bg"
         android:gravity="center"
         android:paddingLeft="6dip"
         android:text="@string/txt_back_btn"
@@ -32,7 +32,12 @@
         android:layout_height="match_parent"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
+        android:layout_marginRight="6dip"
+        android:background="@drawable/ic_button_bg"
         android:contentDescription="@string/contentDescription"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="13sp"
         android:visibility="gone" />
 
 </RelativeLayout>
