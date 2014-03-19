@@ -50,24 +50,22 @@
         android:layout_marginRight="10dip" >
 
         <Button
-            android:id="@+id/OkButton"
+            android:id="@+id/left_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dip"
             android:layout_weight="1"
             android:background="@drawable/exit_dialog_btn_selector"
-            android:text="@string/confirm"
             android:textColor="#FFFFFF" >
         </Button>
 
         <Button
-            android:id="@+id/cancelButton"
+            android:id="@+id/right_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dip"
             android:layout_weight="1"
             android:background="@drawable/exit_dialog_btn_selector"
-            android:text="@string/cancel"
             android:textColor="#FFFFFF" >
         </Button>
     </LinearLayout>

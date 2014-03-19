@@ -2,8 +2,8 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
-import my.project.easyrecharge.view.MyDialog;
-import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
+import my.project.easyrecharge.view.CustomDialog;
+import my.project.easyrecharge.view.CustomDialog.OnLeftBtnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -87,11 +87,30 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 		actionBar.setCustomView(customerView, params);
 	}
 
-	protected void showDialog(int titleId, int msgId, OnOKClickListener listener) {
-		MyDialog dialog = new MyDialog(this);
+	protected void showDialog(int titleId, int msgId, int leftBtnText,
+			int rightBtnText, OnLeftBtnClickListener listener) {
+		CustomDialog dialog = new CustomDialog(this);
 		dialog.setTitle(titleId);
 		dialog.setMessage(msgId);
-		dialog.setOnOKClickListener(listener);
+		dialog.setLeftBtnText(leftBtnText);
+		dialog.setRightBtnText(rightBtnText);
+		dialog.setOnLeftBtnClickListener(listener);
+		dialog.show();
+	}
+
+	protected void showDialog(int titleId, String msg, int leftBtnText,
+			boolean hideRightBtn, int rightBtnText,
+			OnLeftBtnClickListener listener) {
+		CustomDialog dialog = new CustomDialog(this);
+		dialog.setTitle(titleId);
+		dialog.setLeftBtnText(leftBtnText);
+		if (hideRightBtn) {
+			dialog.hideRightBtn();
+		} else {
+			dialog.setRightBtnText(rightBtnText);
+		}
+		dialog.setMessage(msg);
+		dialog.setOnLeftBtnClickListener(listener);
 		dialog.show();
 	}
 

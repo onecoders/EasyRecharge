@@ -10,23 +10,23 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class MyDialog extends Dialog implements OnClickListener {
+public class CustomDialog extends Dialog implements OnClickListener {
 
-	public interface OnOKClickListener {
-		public void onOKClick();
+	public interface OnLeftBtnClickListener {
+		public void onLeftBtnClick();
 	}
 
-	private Button okBtn;
-	private Button cancelBtn;
+	private Button leftBtn;
+	private Button rightBtn;
 	private TextView mTitle;
 	private TextView mMessage;
 	private View v;
 
 	private Context mContext;
 
-	private OnOKClickListener listener;
+	private OnLeftBtnClickListener listener;
 
-	public MyDialog(Context context) {
+	public CustomDialog(Context context) {
 		super(context);
 		mContext = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -35,19 +35,20 @@ public class MyDialog extends Dialog implements OnClickListener {
 		v.setBackgroundResource(android.R.color.transparent);
 		mTitle = (TextView) findViewById(R.id.dialogTitle);
 		mMessage = (TextView) findViewById(R.id.dialogMessage);
-		okBtn = (Button) findViewById(R.id.OkButton);
-		okBtn.setOnClickListener(this);
-		cancelBtn = (Button) findViewById(R.id.cancelButton);
-		cancelBtn.setOnClickListener(this);
+		leftBtn = (Button) findViewById(R.id.left_btn);
+		leftBtn.setOnClickListener(this);
+		rightBtn = (Button) findViewById(R.id.right_btn);
+		rightBtn.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.OkButton:
-			listener.onOKClick();
-			break;
-		case R.id.cancelButton:
+		case R.id.left_btn:
+			if (listener != null) {
+				listener.onLeftBtnClick();
+			}
+		case R.id.right_btn:
 			dismiss();
 			break;
 		default:
@@ -77,7 +78,19 @@ public class MyDialog extends Dialog implements OnClickListener {
 		mMessage.setMovementMethod(ScrollingMovementMethod.getInstance());
 	}
 
-	public void setOnOKClickListener(OnOKClickListener listener) {
+	public void setLeftBtnText(int resid) {
+		leftBtn.setText(resid);
+	}
+
+	public void setRightBtnText(int resid) {
+		rightBtn.setText(resid);
+	}
+
+	public void hideRightBtn() {
+		rightBtn.setVisibility(View.GONE);
+	}
+
+	public void setOnLeftBtnClickListener(OnLeftBtnClickListener listener) {
 		this.listener = listener;
 	}
 

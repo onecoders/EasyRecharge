@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
 import my.project.easyrecharge.model.IndexMenu.Act;
-import my.project.easyrecharge.view.MyDialog.OnOKClickListener;
+import my.project.easyrecharge.view.CustomDialog.OnLeftBtnClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;
@@ -80,10 +80,11 @@ public class ActMain extends ActBase implements OnItemClickListener {
 	@Override
 	public void onBackPressed() {
 		showDialog(R.string.exit_dialog_title, R.string.exit_dialog_message,
-				new OnOKClickListener() {
+				R.string.confirm, R.string.cancel,
+				new OnLeftBtnClickListener() {
 
 					@Override
-					public void onOKClick() {
+					public void onLeftBtnClick() {
 						exit();
 					}
 				});
