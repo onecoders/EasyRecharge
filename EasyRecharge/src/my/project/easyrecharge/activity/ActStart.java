@@ -6,7 +6,7 @@ import android.os.Handler;
 
 public class ActStart extends ActBase {
 
-	private static final int DELAY_MILLIS = 3000;
+	private static final long DELAY_MILLIS = 3 * 1000;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
