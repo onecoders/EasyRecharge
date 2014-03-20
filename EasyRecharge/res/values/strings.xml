@@ -26,8 +26,8 @@
     <!-- setting activity -->
     <string name="update_dialog_title">软&#160;件&#160;更&#160;新</string>
     <string name="already_newest_message">当前已是最新版本,无需更新！</string>
-    <string name="find_new_version_message">发现新版本,是否更新？</string>
-    <string name="update_now">好</string>
+    <string name="find_new_version_message">发现新版本，是否更新？</string>
+    <string name="update_now">更&#160;&#160;&#160;新</string>
     <string name="update_not_now">暂时不</string>
     <string name="downloading">正在下载&#8230;</string>
     <string name="please_wait">请稍候&#8230;</string>
