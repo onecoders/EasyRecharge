@@ -36,7 +36,6 @@ public class ActSetting extends ActBase implements ClickListener {
 	public ProgressDialog pBar;
 
 	private int verCode, newVerCode = 0;
-	private String verName, newVerName = "";
 
 	private boolean needUpdate;
 
@@ -83,13 +82,14 @@ public class ActSetting extends ActBase implements ClickListener {
 			break;
 		case VERSION_CHECK:
 			// checkUpdate();
-			showToast(R.string.already_newest);
+			notNewVersionShow();
 			break;
 		default:
 			break;
 		}
 	}
 
+	// check update info from server
 	private void checkUpdate() {
 		new GetServerVersionTask().execute(F.APK_CHECK_VERSON_URL);
 	}
@@ -97,7 +97,6 @@ public class ActSetting extends ActBase implements ClickListener {
 	private void getVerCode() {
 		try {
 			verCode = VersionUtil.getVersionCode(this);
-			verName = VersionUtil.getVersionName(this);
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
@@ -139,7 +138,6 @@ public class ActSetting extends ActBase implements ClickListener {
 			String verjson = HttpUtil.getContent(url);
 			JSONObject obj = new JSONObject(verjson);
 			newVerCode = Integer.parseInt(obj.getString("verCode"));
-			newVerName = obj.getString("verName");
 			return true;
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -168,21 +166,8 @@ public class ActSetting extends ActBase implements ClickListener {
 	}
 
 	private String getUpdateInfo() {
-		StringBuffer sb = new StringBuffer();
-		sb.append(getString(R.string.current_version));
-		sb.append(verName);
-		sb.append(getString(R.string.version_code));
-		sb.append(verCode);
-		if (needUpdate) {
-			sb.append(getString(R.string.find_new_version));
-			sb.append(newVerName);
-			sb.append(getString(R.string.version_code));
-			sb.append(newVerCode);
-			sb.append(getString(R.string.update_or_not));
-		} else {
-			sb.append(getString(R.string.no_need_to_update));
-		}
-		return sb.toString();
+		return getString(needUpdate ? R.string.find_new_version_message
+				: R.string.already_newest_message);
 	}
 
 	private void doUpdate() {

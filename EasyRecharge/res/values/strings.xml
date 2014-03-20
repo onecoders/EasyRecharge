@@ -24,20 +24,16 @@
     <!-- recharge activity -->
     <string name="recharge_right_btn_text">查&#160;&#160;&#160;询</string>
     <!-- setting activity -->
-    <string name="current_version">当前版本&#58;</string>
-    <string name="version_code">,&#160;Version&#58;</string>
-    <string name="already_newest">当前已是最新版本,无需更新&#33;</string>
-    <string name="no_need_to_update">,\n已是最新版本,无需更新&#33;</string>
     <string name="update_dialog_title">软&#160;件&#160;更&#160;新</string>
-    <string name="find_new_version">,&#160;发现新版本&#58;</string>
-    <string name="update_or_not">,&#160;是否更新&#63;</string>
-    <string name="update_now">更&#160;&#160;&#160;新</string>
-    <string name="update_not_now">暂不更新</string>
+    <string name="already_newest_message">当前已是最新版本,无需更新！</string>
+    <string name="find_new_version_message">发现新版本,是否更新？</string>
+    <string name="update_now">好</string>
+    <string name="update_not_now">暂时不</string>
     <string name="downloading">正在下载&#8230;</string>
     <string name="please_wait">请稍候&#8230;</string>
     <!-- feedback activity -->
     <!-- about activity -->
-    <string name="about_version">校电翼查充(YH)&#160;Android版V1.0.0</string>
+    <string name="about_version">校电翼查充(YH)\nAndroid版V1.0.0</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;校电翼查充(YH)，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
 
 </resources>

@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="6dip"
+        android:layout_marginLeft="3dip"
         android:background="@drawable/ic_back_btn_bg"
         android:gravity="center"
         android:paddingLeft="6dip"
