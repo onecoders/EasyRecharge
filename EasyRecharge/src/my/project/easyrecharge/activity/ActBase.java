@@ -89,13 +89,8 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 
 	protected void showDialog(int titleId, int msgId, int leftBtnText,
 			int rightBtnText, OnLeftBtnClickListener listener) {
-		CustomDialog dialog = new CustomDialog(this);
-		dialog.setTitle(titleId);
-		dialog.setMessage(msgId);
-		dialog.setLeftBtnText(leftBtnText);
-		dialog.setRightBtnText(rightBtnText);
-		dialog.setOnLeftBtnClickListener(listener);
-		dialog.show();
+		showDialog(titleId, getString(msgId), leftBtnText, false, rightBtnText,
+				listener);
 	}
 
 	protected void showDialog(int titleId, String msg, int leftBtnText,
@@ -103,14 +98,14 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 			OnLeftBtnClickListener listener) {
 		CustomDialog dialog = new CustomDialog(this);
 		dialog.setTitle(titleId);
+		dialog.setMessage(msg);
 		dialog.setLeftBtnText(leftBtnText);
+		dialog.setOnLeftBtnClickListener(listener);
 		if (hideRightBtn) {
 			dialog.hideRightBtn();
 		} else {
 			dialog.setRightBtnText(rightBtnText);
 		}
-		dialog.setMessage(msg);
-		dialog.setOnLeftBtnClickListener(listener);
 		dialog.show();
 	}
 
