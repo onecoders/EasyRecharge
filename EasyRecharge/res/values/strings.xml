@@ -4,6 +4,8 @@
     <string name="app_name">YH校电翼查充</string>
     <string name="action_settings">Settings</string>
     <string name="contentDescription"></string>
+    <!-- modify if new version -->
+    <string name="default_version_name">1.0.0</string>
     <!-- back button -->
     <string name="txt_back_btn">返&#160;&#160;&#160;回</string>
     <string name="txt_exit_btn">退&#160;&#160;&#160;出</string>
@@ -33,7 +35,7 @@
     <string name="please_wait">请稍候&#8230;</string>
     <!-- feedback activity -->
     <!-- about activity -->
-    <string name="about_version">校电翼查充(YH)\nAndroid版V1.0.0</string>
+    <string name="about_version">校电翼查充(YH)\nAndroid版V</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;校电翼查充(YH)，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
 
 </resources>

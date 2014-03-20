@@ -23,6 +23,7 @@
             android:src="@drawable/ic_act_about" />
 
         <TextView
+            android:id="@+id/app_info"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="18dip"
@@ -32,6 +33,7 @@
             android:textSize="18sp" />
 
         <TextView
+            android:id="@+id/app_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dip"
