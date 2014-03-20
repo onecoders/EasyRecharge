@@ -4,6 +4,13 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * 起始欢迎页
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActStart extends ActBase {
 
 	private static final long DELAY_MILLIS = 3 * 1000;

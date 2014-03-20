@@ -16,6 +16,13 @@ import android.widget.TextView;
 import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 
+/**
+ * 基类
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActBase extends SherlockActivity implements OnClickListener {
 
 	private TextView title;

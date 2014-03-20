@@ -12,6 +12,13 @@ import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
+/**
+ * 应用首页（导航页）
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActMain extends ActBase implements OnItemClickListener {
 
 	private GridView gridMenu;

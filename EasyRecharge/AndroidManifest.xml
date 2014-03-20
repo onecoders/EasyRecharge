@@ -67,6 +67,10 @@
             android:name=".activity.ActAbout"
             android:screenOrientation="portrait" >
         </activity>
+        <activity
+            android:name=".activity.ActNotice"
+            android:screenOrientation="portrait" >
+        </activity>
         <!-- alipay activity -->
         <activity
             android:name="com.alipay.android.app.sdk.WapPayActivity"

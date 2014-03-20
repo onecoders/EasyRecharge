@@ -29,6 +29,13 @@ import br.com.dina.ui.model.BasicItem;
 import br.com.dina.ui.widget.UITableView;
 import br.com.dina.ui.widget.UITableView.ClickListener;
 
+/**
+ * 设置
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActSetting extends ActBase implements ClickListener {
 
 	private UITableView tableView;

@@ -5,6 +5,13 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.widget.TextView;
 
+/**
+ * 关于
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActAbout extends ActBase {
 
 	private TextView appInfo;

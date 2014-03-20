@@ -4,13 +4,13 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 用户绑定
+ * 用户须知
  * 
  * @author roy
  * @email onecoders@gmail.com
  */
 
-public class ActBind extends ActBase {
+public class ActNotice extends ActBase {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class ActBind extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.title_bind);
+		setAbTitle(R.string.title_notice);
 	}
 
 }

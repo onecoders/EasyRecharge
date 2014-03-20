@@ -21,6 +21,7 @@
     <string name="title_feedback">问题反馈</string>
     <string name="title_about">关&#160;&#160;&#160;于</string>
     <string name="title_setting">设&#160;&#160;&#160;置</string>
+    <string name="title_notice">用户须知</string>
     <!-- inquiry activity -->
     <string name="inquiry_right_btn_text">充&#160;&#160;&#160;值</string>
     <!-- recharge activity -->
@@ -37,5 +38,7 @@
     <!-- about activity -->
     <string name="about_version">校电翼查充(YH)\nAndroid版V</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;校电翼查充(YH)，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
+    <!-- notice activity -->
+    <string name="title_notice">用户须知</string>
 
 </resources>

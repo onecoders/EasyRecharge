@@ -4,6 +4,13 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
 
+/**
+ * 电费查询
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActInquiry extends ActBase {
 
 	@Override
