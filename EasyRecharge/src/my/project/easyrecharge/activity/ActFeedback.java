@@ -1,10 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.view.ProgressHUD;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.DialogInterface.OnCancelListener;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -77,45 +74,37 @@ public class ActFeedback extends ActBase {
 		new SubmitTask().execute(input);
 	}
 
-	class SubmitTask extends AsyncTask<String, Void, Boolean> implements
-			OnCancelListener {
-
-		private ProgressHUD mProgressHUD;
+	class SubmitTask extends AsyncTask<String, Void, Boolean> {
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			mProgressHUD = ProgressHUD.show(ActFeedback.this,
-					getString(R.string.hint_submiting), true, false, this);
+			showProgressHUD();
 		}
 
 		@Override
 		protected Boolean doInBackground(String... params) {
-			submit(params[0]);
 			// simulation
 			try {
 				Thread.sleep(3000);
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
+			// do real things
+			submit(params[0]);
 			return true;
 		}
 
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			mProgressHUD.dismiss();
+			dismissProgressHUD();
 			if (result) {
 				clearEdittext();
 				showToast(R.string.hint_feedback_succeed);
 			} else {
 				showToast(R.string.hint_feedback_failed);
 			}
-		}
-
-		@Override
-		public void onCancel(DialogInterface dialog) {
-			mProgressHUD.dismiss();
 		}
 
 	}

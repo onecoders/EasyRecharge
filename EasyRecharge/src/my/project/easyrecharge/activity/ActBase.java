@@ -4,6 +4,9 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
 import my.project.easyrecharge.view.NewAlertDialog;
 import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
+import my.project.easyrecharge.view.ProgressHUD;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -23,10 +26,13 @@ import com.actionbarsherlock.app.SherlockActivity;
  * @email onecoders@gmail.com
  */
 
-public class ActBase extends SherlockActivity implements OnClickListener {
+public class ActBase extends SherlockActivity implements OnClickListener,
+		OnCancelListener {
 
 	private TextView title;
 	protected Button abLeftBtn, abRightBtn;
+
+	private ProgressHUD mProgressHUD;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -114,6 +120,20 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 			dialog.setRightBtnText(rightBtnText);
 		}
 		dialog.show();
+	}
+
+	protected void showProgressHUD() {
+		mProgressHUD = ProgressHUD.show(this,
+				getString(R.string.hint_when_loading), true, false, this);
+	}
+
+	@Override
+	public void onCancel(DialogInterface dialog) {
+		mProgressHUD.dismiss();
+	}
+
+	protected void dismissProgressHUD() {
+		mProgressHUD.dismiss();
 	}
 
 	protected void showToast(int resId) {

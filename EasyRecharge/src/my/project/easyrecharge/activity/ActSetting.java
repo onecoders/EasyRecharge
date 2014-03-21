@@ -88,8 +88,7 @@ public class ActSetting extends ActBase implements ClickListener {
 			switchActivity(ActAbout.class);
 			break;
 		case VERSION_CHECK:
-			// checkUpdate();
-			notNewVersionShow();
+			checkUpdate();
 			break;
 		default:
 			break;
@@ -101,34 +100,34 @@ public class ActSetting extends ActBase implements ClickListener {
 		new GetServerVersionTask().execute(F.APK_CHECK_VERSON_URL);
 	}
 
-	private void getVerCode() {
-		try {
-			verCode = VersionUtil.getVersionCode(this);
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-	}
-
 	class GetServerVersionTask extends AsyncTask<String, Void, Boolean> {
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			showProgressBar();
+			showProgressHUD();
 		}
 
 		@Override
 		protected Boolean doInBackground(String... params) {
-			getVerCode();
-			return getServerVerCode(params[0]);
+			// simulation
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			return true;
+			// do real things
+			// return checkVersion(params[0]);
 		}
 
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			dismissProgressBar();
+			dismissProgressHUD();
 			if (result) {
-				needUpdate = newVerCode > verCode;
+				// needUpdate = newVerCode > verCode;
+				needUpdate = false;
 				if (needUpdate) {
 					doNewVersionUpdate();
 				} else {
@@ -137,6 +136,20 @@ public class ActSetting extends ActBase implements ClickListener {
 			}
 		}
 
+	}
+
+	private boolean checkVersion(String url) {
+		return getVerCode() && getServerVerCode(url);
+	}
+
+	private boolean getVerCode() {
+		try {
+			verCode = VersionUtil.getVersionCode(this);
+			return true;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 
 	private boolean getServerVerCode(String url) {
@@ -149,8 +162,8 @@ public class ActSetting extends ActBase implements ClickListener {
 		} catch (Exception e) {
 			e.printStackTrace();
 			newVerCode = -1;
-			return false;
 		}
+		return false;
 	}
 
 	private void notNewVersionShow() {
@@ -186,7 +199,7 @@ public class ActSetting extends ActBase implements ClickListener {
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			showProgressBar();
+			showProgressHUD();
 		}
 
 		@Override
@@ -198,7 +211,7 @@ public class ActSetting extends ActBase implements ClickListener {
 		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
-			dismissProgressBar();
+			dismissProgressHUD();
 			update();
 		}
 
@@ -238,18 +251,6 @@ public class ActSetting extends ActBase implements ClickListener {
 		File apkFile = new File(Environment.getExternalStorageDirectory(),
 				F.UPDATE_SAVE_NAME);
 		ApkUtil.installApk(this, apkFile);
-	}
-
-	private void showProgressBar() {
-		pBar = new ProgressDialog(this);
-		pBar.setTitle(R.string.downloading);
-		pBar.setMessage(getString(R.string.please_wait));
-		pBar.setProgressStyle(ProgressDialog.STYLE_SPINNER);
-		pBar.show();
-	}
-
-	private void dismissProgressBar() {
-		pBar.dismiss();
 	}
 
 }
