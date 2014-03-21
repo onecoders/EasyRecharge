@@ -36,7 +36,7 @@ public class ActFeedback extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.title_feedback);
+		setAbTitle(R.string.activity_title_feedback);
 		initViews();
 	}
 

@@ -4,24 +4,29 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 用户绑定
+ * 学校选择
  * 
  * @author roy
  * @email onecoders@gmail.com
  */
 
-public class ActBind extends ActBase {
+public class ActChooseSchool extends ActBase {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.act_bind);
+		// setContentView(layoutResId);
 		init();
 	}
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_bind);
+		setAbTitle(R.string.activity_title_school_chosen);
+		loadContent();
+	}
+
+	private void loadContent() {
+
 	}
 
 }

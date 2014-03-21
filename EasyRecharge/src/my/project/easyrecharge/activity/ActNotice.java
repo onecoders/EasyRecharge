@@ -21,7 +21,7 @@ public class ActNotice extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.title_notice);
+		setAbTitle(R.string.activity_title_notice);
 	}
 
 }

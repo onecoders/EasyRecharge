@@ -22,7 +22,7 @@ public class ActRecharge extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.title_recharge);
+		setAbTitle(R.string.activity_title_recharge);
 		showAbRightBtn();
 		setAbRightBtnText(R.string.recharge_right_btn_text);
 		setAbRightBtnClickListener(this);

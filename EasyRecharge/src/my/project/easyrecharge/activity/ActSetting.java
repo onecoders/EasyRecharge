@@ -59,7 +59,7 @@ public class ActSetting extends ActBase implements ClickListener {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.title_setting);
+		setAbTitle(R.string.activity_title_setting);
 		initUITableView();
 	}
 
