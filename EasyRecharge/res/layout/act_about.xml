@@ -16,8 +16,8 @@
         android:orientation="vertical" >
 
         <ImageView
-            android:layout_width="125dip"
-            android:layout_height="125dip"
+            android:layout_width="@dimen/about_icon_show_side"
+            android:layout_height="@dimen/about_icon_show_side"
             android:contentDescription="@string/contentDescription"
             android:scaleType="fitXY"
             android:src="@drawable/ic_act_about" />
@@ -27,19 +27,19 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="18dip"
-            android:layout_marginTop="40dip"
+            android:layout_marginTop="@dimen/about_app_info_margin_top"
             android:gravity="center"
             android:text="@string/about_version"
-            android:textSize="18sp" />
+            android:textSize="@dimen/about_app_info_txt" />
 
         <TextView
             android:id="@+id/app_introduction"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="20dip"
-            android:layout_marginTop="25dip"
+            android:layout_marginBottom="@dimen/about_app_introduction_margin_bottom"
+            android:layout_marginTop="@dimen/about_app_introduction_margin_top"
             android:text="@string/about_introduction"
-            android:textSize="14sp" />
+            android:textSize="@dimen/about_app_introduction_txt" />
     </LinearLayout>
 
 </RelativeLayout>

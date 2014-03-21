@@ -6,10 +6,10 @@
 
     <ImageView
         android:id="@+id/menu_icon"
-        android:layout_width="100dip"
-        android:layout_height="100dip"
+        android:layout_width="@dimen/main_menu_side"
+        android:layout_height="@dimen/main_menu_side"
         android:layout_gravity="center_horizontal"
-        android:layout_margin="5dip"
+        android:layout_margin="@dimen/main_menu_icon_margin"
         android:contentDescription="@string/contentDescription" />
 
     <TextView
@@ -17,10 +17,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dip"
-        android:layout_marginTop="5dip"
+        android:layout_marginBottom="@dimen/main_menu_title_margin"
+        android:layout_marginTop="@dimen/main_menu_title_margin"
         android:gravity="center"
         android:textColor="@drawable/text_color"
-        android:textSize="16sp" />
+        android:textSize="@dimen/main_menu_title_txt" />
 
 </LinearLayout>

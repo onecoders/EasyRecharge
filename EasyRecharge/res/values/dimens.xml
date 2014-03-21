@@ -4,4 +4,40 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
+    <!-- about activity -->
+    <dimen name="about_icon_show_side">125dip</dimen>
+    <dimen name="about_app_info_margin_top">40dip</dimen>
+    <dimen name="about_app_introduction_margin_top">25dip</dimen>
+    <dimen name="about_app_introduction_margin_bottom">20dip</dimen>
+
+    <!-- main activity -->
+    <dimen name="main_menu_side">100dip</dimen>
+    <dimen name="main_menu_icon_margin">5dip</dimen>
+    <dimen name="main_menu_title_margin">5dip</dimen>
+
+    <!-- feedback activity -->
+    <dimen name="feedback_hint_input_advice_margin">8dip</dimen>
+    <dimen name="feedback_edittext_container_margin">5dip</dimen>
+    <dimen name="feedback_edittext_container_padding">8dip</dimen>
+    <dimen name="feedback_submit_btn_margin">15dip</dimen>
+
+    <!-- new alert dialog -->
+    <dimen name="dialog_title_margin_top">20dip</dimen>
+    <dimen name="dialog_message_margin">5dip</dimen>
+    <dimen name="dialog_message_padding">10dip</dimen>
+    <dimen name="dialog_btn_container_margin">10dip</dimen>
+    <dimen name="dialog_btn_margin">5dip</dimen>
+
+    <!-- text size -->
+    <dimen name="ab_title_txt">20sp</dimen>
+    <dimen name="ab_btn_txt">13sp</dimen>
+    <dimen name="about_app_info_txt">18sp</dimen>
+    <dimen name="about_app_introduction_txt">14sp</dimen>
+    <dimen name="main_menu_title_txt">16sp</dimen>
+    <dimen name="feedback_hint_input_advice_txt">18sp</dimen>
+    <dimen name="feedback_edittext_txt">16sp</dimen>
+    <dimen name="dialog_title_txt">22sp</dimen>
+    <dimen name="dialog_message_txt">18sp</dimen>
+    <dimen name="dialog_btn_txt">15sp</dimen>
+
 </resources>
