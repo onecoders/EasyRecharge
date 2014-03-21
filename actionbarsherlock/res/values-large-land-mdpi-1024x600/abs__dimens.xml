@@ -18,6 +18,7 @@
 */
 -->
 <resources>
+
     <!-- Default height of an action bar. -->
     <dimen name="abs__action_bar_default_height">48dip</dimen>
     <!-- Vertical padding around action bar icons. -->
@@ -30,4 +31,5 @@
     <dimen name="abs__action_bar_subtitle_top_margin">-3dp</dimen>
     <!-- Bottom margin for action bar subtitles -->
     <dimen name="abs__action_bar_subtitle_bottom_margin">5dip</dimen>
+
 </resources>

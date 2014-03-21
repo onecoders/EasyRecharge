@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2010 The Android Open Source Project
+<!--
+     Copyright (C) 2010 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,6 +15,7 @@
      limitations under the License.
 -->
 
+
 <!--
 This is an optimized layout for a screen with
 the Action Bar enabled overlaying application content.
@@ -23,38 +25,49 @@ the Action Bar enabled overlaying application content.
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    android:splitMotionEvents="false">
-    <com.actionbarsherlock.internal.nineoldandroids.widget.NineFrameLayout android:id="@+id/abs__content"
+    android:splitMotionEvents="false" >
+
+    <com.actionbarsherlock.internal.nineoldandroids.widget.NineFrameLayout
+        android:id="@+id/abs__content"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
-    <com.actionbarsherlock.internal.widget.ActionBarContainer android:id="@+id/abs__action_bar_container"
+
+    <com.actionbarsherlock.internal.widget.ActionBarContainer
+        android:id="@+id/abs__action_bar_container"
+        style="?attr/actionBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
-        style="?attr/actionBarStyle"
-        android:gravity="top">
+        android:gravity="top" >
+
         <com.actionbarsherlock.internal.widget.ActionBarView
             android:id="@+id/abs__action_bar"
+            style="?attr/actionBarStyle"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            style="?attr/actionBarStyle" />
+            android:layout_height="wrap_content" />
+
         <com.actionbarsherlock.internal.widget.ActionBarContextView
             android:id="@+id/abs__action_context_bar"
+            style="?attr/actionModeStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:visibility="gone"
-            style="?attr/actionModeStyle" />
+            android:visibility="gone" />
     </com.actionbarsherlock.internal.widget.ActionBarContainer>
-    <ImageView android:src="?attr/windowContentOverlay"
-               android:scaleType="fitXY"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               android:layout_below="@id/abs__action_bar_container" />
-    <com.actionbarsherlock.internal.widget.ActionBarContainer android:id="@+id/abs__split_action_bar"
-                  android:layout_width="match_parent"
-                  android:layout_height="wrap_content"
-                  android:layout_gravity="bottom"
-                  style="?attr/actionBarSplitStyle"
-                  android:visibility="gone"
-                  android:gravity="center"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/abs__action_bar_container"
+        android:scaleType="fitXY"
+        android:src="?attr/windowContentOverlay" />
+
+    <com.actionbarsherlock.internal.widget.ActionBarContainer
+        android:id="@+id/abs__split_action_bar"
+        style="?attr/actionBarSplitStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:gravity="center"
+        android:visibility="gone" />
+
 </FrameLayout>

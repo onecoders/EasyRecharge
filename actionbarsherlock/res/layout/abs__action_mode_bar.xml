@@ -16,9 +16,8 @@
 ** limitations under the License.
 */
 -->
-<com.actionbarsherlock.internal.widget.ActionBarContextView
-     xmlns:android="http://schemas.android.com/apk/res/android"
-     android:layout_width="fill_parent"
-     android:layout_height="wrap_content"
-     android:visibility="gone"
-     style="?attr/actionModeStyle" />
+<com.actionbarsherlock.internal.widget.ActionBarContextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?attr/actionModeStyle"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:visibility="gone" />

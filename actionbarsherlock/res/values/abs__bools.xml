@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2011 The Android Open Source Project
+<!--
+     Copyright (C) 2011 The Android Open Source Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,8 +16,10 @@
 -->
 
 <resources>
+
     <bool name="abs__action_bar_embed_tabs">false</bool>
     <bool name="abs__split_action_bar_is_narrow">true</bool>
     <bool name="abs__action_bar_expanded_action_views_exclusive">true</bool>
-    <!--bool name="target_honeycomb_needs_options_menu">true</bool-->
+    <!-- bool name="target_honeycomb_needs_options_menu">true</bool -->
+
 </resources>
