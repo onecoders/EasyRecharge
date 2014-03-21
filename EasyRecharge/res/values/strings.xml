@@ -36,8 +36,12 @@
     <string name="please_wait">请稍候&#8230;</string>
     <!-- feedback activity -->
     <string name="hint_input_advice">请填写您的意见或建议：</string>
-    <string name="hint_input_here">在此输入&#8230;</string>
+    <string name="hint_input_here">输入意见和建议&#8230;</string>
     <string name="submit_advice">提交反馈</string>
+    <string name="hint_feedback_succeed">反馈成功</string>
+    <string name="hint_feedback_failed">反馈失败，请重试！</string>
+    <string name="hint_submiting">反馈提交中&#8230;</string>
+    <string name="hint_input_invalid">输入的内容无效！</string>
     <!-- about activity -->
     <string name="about_version">校电翼查充(YH)\nAndroid版&#160;&#160;V</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;校电翼查充(YH)，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
