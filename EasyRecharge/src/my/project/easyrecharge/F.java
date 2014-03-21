@@ -6,6 +6,8 @@ import android.content.pm.PackageManager.NameNotFoundException;
 
 public class F {
 
+	public static final String BASIC_PATH = "";
+
 	public static final String APK_CHECK_VERSON_URL = "";
 	public static final String APK_DOWNLOAD_URL = "";
 	public static final String UPDATE_SAVE_NAME = "easyrecharge.apk";
