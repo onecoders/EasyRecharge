@@ -129,7 +129,7 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 
 	@Override
 	public void onCancel(DialogInterface dialog) {
-		mProgressHUD.dismiss();
+		dismissProgressHUD();
 	}
 
 	protected void dismissProgressHUD() {
