@@ -16,7 +16,7 @@ public class ActInquiry extends ActBase {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(layoutResId);
+		setContentView(R.layout.act_inquiry);
 		init();
 	}
 
