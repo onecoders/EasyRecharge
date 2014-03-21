@@ -4,9 +4,13 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
+    android:layout_margin="0dip"
     android:background="@drawable/alert_bg"
     android:orientation="vertical"
-    android:paddingBottom="15dip" >
+    android:paddingBottom="15dip"
+    android:paddingLeft="0dip"
+    android:paddingRight="0dip"
+    android:paddingTop="0dip" >
 
     <TextView
         android:id="@+id/dialogTitle"
