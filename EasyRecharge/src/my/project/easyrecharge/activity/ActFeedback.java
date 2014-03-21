@@ -15,7 +15,7 @@ public class ActFeedback extends ActBase {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(layoutResId);
+		setContentView(R.layout.act_feedback);
 		init();
 	}
 

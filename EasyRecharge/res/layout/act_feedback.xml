@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dip" >
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:text="@string/hint_input_advice"
+        android:textSize="18sp" />
+
+    <EditText
+        android:id="@+id/txt_feedback"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:background="@drawable/advice_input_bg"
+        android:gravity="left|top"
+        android:hint="@string/hint_input_here"
+        android:inputType="textMultiLine"
+        android:lines="10"
+        android:padding="5dip"
+        android:textSize="15sp" />
+
+    <Button
+        style="@style/btnStyleAcapulco"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dip"
+        android:text="@string/submit_advice" />
+
+</LinearLayout>
