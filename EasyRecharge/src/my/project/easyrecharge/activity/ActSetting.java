@@ -10,7 +10,7 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.ApkUtil;
 import my.project.easyrecharge.util.HttpUtil;
 import my.project.easyrecharge.util.VersionUtil;
-import my.project.easyrecharge.view.CustomDialog.OnLeftBtnClickListener;
+import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;

@@ -4,13 +4,9 @@
     android:layout_width="fill_parent"
     android:layout_height="wrap_content"
     android:layout_gravity="center"
-    android:layout_margin="0dip"
     android:background="@drawable/alert_bg"
     android:orientation="vertical"
-    android:paddingBottom="15dip"
-    android:paddingLeft="0dip"
-    android:paddingRight="0dip"
-    android:paddingTop="0dip" >
+    android:paddingBottom="15dip" >
 
     <TextView
         android:id="@+id/dialogTitle"
@@ -19,7 +15,6 @@
         android:layout_marginTop="20dip"
         android:background="#00000000"
         android:gravity="center"
-        android:text=""
         android:textColor="#fff"
         android:textSize="22sp"
         android:textStyle="bold" >
@@ -38,7 +33,6 @@
         android:maxLines="10"
         android:padding="10dip"
         android:scrollbars="vertical"
-        android:text=""
         android:textColor="#fff"
         android:textSize="18sp" >
     </TextView>
@@ -55,7 +49,7 @@
             android:id="@+id/left_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginRight="5dip"
+            android:layout_margin="5dip"
             android:layout_weight="1"
             android:background="@drawable/exit_dialog_btn_selector"
             android:textColor="#FFFFFF" >
@@ -65,7 +59,7 @@
             android:id="@+id/right_btn"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="5dip"
+            android:layout_margin="5dip"
             android:layout_weight="1"
             android:background="@drawable/exit_dialog_btn_selector"
             android:textColor="#FFFFFF" >

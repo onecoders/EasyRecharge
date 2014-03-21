@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
 import my.project.easyrecharge.model.IndexMenu.Act;
-import my.project.easyrecharge.view.CustomDialog.OnLeftBtnClickListener;
+import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.View;

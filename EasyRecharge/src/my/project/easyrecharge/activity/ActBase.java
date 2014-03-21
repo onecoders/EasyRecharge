@@ -2,8 +2,8 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
-import my.project.easyrecharge.view.CustomDialog;
-import my.project.easyrecharge.view.CustomDialog.OnLeftBtnClickListener;
+import my.project.easyrecharge.view.NewAlertDialog;
+import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -103,7 +103,7 @@ public class ActBase extends SherlockActivity implements OnClickListener {
 	protected void showDialog(int titleId, String msg, int leftBtnText,
 			boolean hideRightBtn, int rightBtnText,
 			OnLeftBtnClickListener listener) {
-		CustomDialog dialog = new CustomDialog(this);
+		NewAlertDialog dialog = new NewAlertDialog(this);
 		dialog.setTitle(titleId);
 		dialog.setMessage(msg);
 		dialog.setLeftBtnText(leftBtnText);

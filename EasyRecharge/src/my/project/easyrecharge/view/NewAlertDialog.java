@@ -10,11 +10,13 @@ import android.view.Window;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class CustomDialog extends Dialog implements OnClickListener {
+public class NewAlertDialog extends Dialog implements OnClickListener {
 
 	public interface OnLeftBtnClickListener {
 		public void onLeftBtnClick();
 	}
+
+	private Context mContext;
 
 	private Button leftBtn;
 	private Button rightBtn;
@@ -22,15 +24,13 @@ public class CustomDialog extends Dialog implements OnClickListener {
 	private TextView mMessage;
 	private View v;
 
-	private Context mContext;
-
 	private OnLeftBtnClickListener listener;
 
-	public CustomDialog(Context context) {
+	public NewAlertDialog(Context context) {
 		super(context);
 		mContext = context;
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		setContentView(R.layout.custom_dialog);
+		setContentView(R.layout.new_alert_dialog);
 		v = getWindow().getDecorView();
 		v.setBackgroundResource(android.R.color.transparent);
 		mTitle = (TextView) findViewById(R.id.dialogTitle);
