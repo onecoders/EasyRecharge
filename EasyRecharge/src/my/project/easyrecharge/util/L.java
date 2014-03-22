@@ -15,6 +15,7 @@
  *******************************************************************************/
 package my.project.easyrecharge.util;
 
+import my.project.easyrecharge.F;
 import android.util.Log;
 
 /**
@@ -84,6 +85,6 @@ public final class L {
 			String logBody = Log.getStackTraceString(ex);
 			log = String.format(LOG_FORMAT, logMessage, logBody);
 		}
-		Log.println(priority, "TAG", log);
+		Log.println(priority, F.TAG, log);
 	}
 }
