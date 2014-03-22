@@ -13,7 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 /**
- * 应用首页（导航页）
+ * 应用首页（导航页：电费查询/快捷充值/用户绑定/充值记录/设置）
  * 
  * @author roy
  * @email onecoders@gmail.com
@@ -64,14 +64,17 @@ public class ActMain extends ActBase implements OnItemClickListener {
 			long arg3) {
 		Class<?> cls = null;
 		switch (menus[position].getAct()) {
-		case BIND:
-			cls = ActBind.class;
-			break;
 		case INQUIRY:
 			cls = ActInquiry.class;
 			break;
 		case RECHARGE:
 			cls = ActRecharge.class;
+			break;
+		case BIND:
+			cls = ActBind.class;
+			break;
+		case RECORD:
+			cls = ActRecord.class;
 			break;
 		case SETTING:
 			cls = ActSetting.class;

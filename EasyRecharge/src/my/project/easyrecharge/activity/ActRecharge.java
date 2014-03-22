@@ -9,6 +9,8 @@ import android.view.View;
  * 
  * @author roy
  * @email onecoders@gmail.com
+ * 
+ * @notice Keys中的值不固定，根据用户选择的学校，先从服务器端获取，后去执行支付操作
  */
 
 public class ActRecharge extends ActBase {

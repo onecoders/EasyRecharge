@@ -9,6 +9,8 @@ import android.os.Bundle;
  * 
  * @author roy
  * @email onecoders@gmail.com
+ * 
+ * @TODO invoke setResult() after chosen before return
  */
 
 public class ActChooseBuilding extends ActBase {

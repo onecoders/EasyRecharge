@@ -4,15 +4,13 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 学校选择
+ * 充值记录
  * 
  * @author roy
  * @email onecoders@gmail.com
- * 
- * @TODO invoke setResult() after chosen before return
  */
 
-public class ActChooseSchool extends ActBase {
+public class ActRecord extends ActBase {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -23,12 +21,7 @@ public class ActChooseSchool extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_school_chosen);
-		loadContent();
-	}
-
-	private void loadContent() {
-
+		setAbTitle(R.string.activity_title_record);
 	}
 
 }

@@ -27,6 +27,8 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/Theme.Sherlock.Light" >
+
+        <!-- 起始欢迎页 -->
         <activity
             android:name=".activity.ActStart"
             android:screenOrientation="portrait"
@@ -37,50 +39,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <!-- 首页菜单页 -->
         <activity
             android:name=".activity.ActMain"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- second level -->
-        <activity
-            android:name=".activity.ActBind"
-            android:screenOrientation="portrait" >
-        </activity>
+        <!-- 电费查询 -->
         <activity
             android:name=".activity.ActInquiry"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 快捷充值 -->
         <activity
             android:name=".activity.ActRecharge"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 用户绑定 -->
+        <activity
+            android:name=".activity.ActBind"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 充值记录 -->
+        <activity
+            android:name=".activity.ActRecord"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 设   置 -->
         <activity
             android:name=".activity.ActSetting"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- third level -->
+        <!-- 学校选择 -->
         <activity
             android:name=".activity.ActSchoolChosen"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 楼号选择 -->
         <activity
             android:name=".activity.ActBuildingChosen"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 用户反馈 -->
         <activity
             android:name=".activity.ActFeedback"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 关   于 -->
         <activity
             android:name=".activity.ActAbout"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- forth level -->
+        <!-- 用户须知 -->
         <activity
             android:name=".activity.ActNotice"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- alipay activity -->
+        <!-- 支付宝支付页面 -->
         <activity
             android:name="com.alipay.android.app.sdk.WapPayActivity"
             android:screenOrientation="portrait" >
