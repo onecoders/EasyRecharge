@@ -22,6 +22,7 @@ import org.json.JSONObject;
 
 import android.app.ProgressDialog;
 import android.content.pm.PackageManager.NameNotFoundException;
+import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Environment;
@@ -72,10 +73,19 @@ public class ActSetting extends ActBase implements ClickListener {
 
 	private void createMenuList() {
 		String[] menuTitles = getResources().getStringArray(
-				R.array.setting_list);
-		for (String string : menuTitles) {
-			tableView.addBasicItem(new BasicItem(string));
+				R.array.setting_title_list);
+		TypedArray iconArray = getResources().obtainTypedArray(
+				R.array.setting_icon_list);
+		for (int i = 0; i < menuTitles.length; i++) {
+			BasicItem item = new BasicItem(menuTitles[i]);
+			item.setDrawable(iconArray.getResourceId(i, 0));
+			if (i == menuTitles.length - 1) {
+				item.setSubtitle(getString(R.string.current_version)
+						+ F.VERSION_NAME);
+			}
+			tableView.addBasicItem(item);
 		}
+		iconArray.recycle();
 	}
 
 	@Override

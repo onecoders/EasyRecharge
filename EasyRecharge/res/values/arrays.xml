@@ -19,10 +19,16 @@
     </integer-array>
 
     <!-- setting list -->
-    <string-array name="setting_list">
+    <string-array name="setting_title_list">
         <item>反&#160;&#160;&#160;&#160;&#160;&#160;馈</item>
         <item>关&#160;&#160;&#160;&#160;&#160;&#160;于</item>
         <item>版本检测</item>
     </string-array>
+
+    <integer-array name="setting_icon_list">
+        <item>@drawable/ic_setting_feedback</item>
+        <item>@drawable/ic_setting_about</item>
+        <item>@drawable/ic_setting_check_version</item>
+    </integer-array>
 
 </resources>

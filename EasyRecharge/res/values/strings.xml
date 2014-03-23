@@ -40,6 +40,7 @@
     <!-- bind activity -->
     <string name="btn_bind_txt">绑&#160;&#160;&#160;&#160;&#160;&#160;定</string>
     <!-- setting activity -->
+    <string name="current_version">当前版本&#160;&#160;V</string>
     <string name="update_dialog_title">版&#160;本&#160;更&#160;新</string>
     <string name="already_newest_message">当前已是最新版本，无需更新！</string>
     <string name="find_new_version_message">发现新版本，是否更新？</string>
