@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * 充值订单信息
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class Order {
 
 	private static final String SUBJECT = "智电宝电费充值";
@@ -13,6 +20,7 @@ public class Order {
 	// 充值金额
 	private int price;
 
+	// 获取学校
 	public School getSchool() {
 		return school;
 	}
@@ -21,6 +29,7 @@ public class Order {
 		this.school = school;
 	}
 
+	// 获取楼号
 	public int getBuildingNo() {
 		return buildingNo;
 	}
@@ -29,6 +38,7 @@ public class Order {
 		this.buildingNo = buildingNo;
 	}
 
+	// 获取房间号
 	public int getRoomNo() {
 		return roomNo;
 	}
@@ -37,6 +47,7 @@ public class Order {
 		this.roomNo = roomNo;
 	}
 
+	// 支付金额
 	public int getPrice() {
 		return price;
 	}
@@ -55,6 +66,26 @@ public class Order {
 		return "电费充值详情" + " 学校：" + this.school.getName() + "，楼号："
 				+ this.buildingNo + "，房间号：" + this.roomNo + "，充值金额："
 				+ this.price;
+	}
+
+	// 获取partner id
+	public String getPartnerId() {
+		return school.getPartnerId();
+	}
+
+	// 获取支付宝帐号
+	public String getSellerAccount() {
+		return school.getSellerAccount();
+	}
+
+	// 获取private key
+	public String getPrivateKey() {
+		return school.getPrivateKey();
+	}
+
+	// 获取公钥
+	public String getPublicKey() {
+		return school.getPublicKey();
 	}
 
 }

@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * 用户选择学校信息
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class School {
 
 	// 学校id，唯一
@@ -8,13 +15,9 @@ public class School {
 	private String name;
 	// 学校校徽图片地址
 	private String icon;
-	// 合作身份者id，以2088开头的16位纯数字
-	private String partnerId;
-	// 收款支付宝账号
-	private String sellerAccount;
-	// 商户私钥，自助生成
-	private String privateKey;
-	
+	// 学校对应的支付宝信息
+	private AlipayInfo alipayInfo;
+
 	public int getId() {
 		return id;
 	}
@@ -39,28 +42,40 @@ public class School {
 		this.icon = icon;
 	}
 
+	public AlipayInfo getAlipayInfo() {
+		return alipayInfo;
+	}
+
+	public void setAlipayInfo(AlipayInfo alipayInfo) {
+		this.alipayInfo = alipayInfo;
+	}
+
 	public String getPartnerId() {
-		return partnerId;
+		return alipayInfo.getPartnerId();
 	}
 
 	public void setPartnerId(String partnerId) {
-		this.partnerId = partnerId;
+		alipayInfo.setPartnerId(partnerId);
 	}
 
 	public String getSellerAccount() {
-		return sellerAccount;
+		return alipayInfo.getSellerAccount();
 	}
 
 	public void setSellerAccount(String sellerAccount) {
-		this.sellerAccount = sellerAccount;
+		alipayInfo.setSellerAccount(sellerAccount);
 	}
 
 	public String getPrivateKey() {
-		return privateKey;
+		return alipayInfo.getPrivateKey();
 	}
 
 	public void setPrivateKey(String privateKey) {
-		this.privateKey = privateKey;
+		alipayInfo.setPrivateKey(privateKey);
+	}
+
+	public String getPublicKey() {
+		return alipayInfo.getPublicKey();
 	}
 
 }

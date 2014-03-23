@@ -142,20 +142,28 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 
 	protected void switchActivity(Class<?> cls) {
 		startActivity(new Intent(this, cls));
-		actAnimate();
+		actDyncAnimate();
 	}
 
 	protected void switchActivityReorder2Front(Class<?> cls) {
 		Intent intent = new Intent(this, cls);
 		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		startActivity(intent);
-		actAnimate();
+		actDyncAnimate();
 	}
 
-	private void actAnimate() {
+	private void actDyncAnimate() {
 		// 设置切换动画，从右边进入，左边退出,带动态效果
 		overridePendingTransition(R.anim.new_dync_in_from_right,
 				R.anim.new_dync_out_to_left);
+	}
+
+	protected void actFadeAnimate() {
+		overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+	}
+
+	protected void actZoomAnimate() {
+		overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
 	}
 
 }

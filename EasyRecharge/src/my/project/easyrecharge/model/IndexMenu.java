@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * 首页导航菜单
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class IndexMenu {
 
 	public enum Act {

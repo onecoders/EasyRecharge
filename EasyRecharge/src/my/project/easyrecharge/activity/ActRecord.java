@@ -15,7 +15,7 @@ public class ActRecord extends ActBase {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		// setContentView(layoutResId);
+		setContentView(R.layout.act_record);
 		init();
 	}
 
