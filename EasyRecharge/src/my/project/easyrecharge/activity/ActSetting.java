@@ -76,10 +76,11 @@ public class ActSetting extends ActBase implements ClickListener {
 				R.array.setting_title_list);
 		TypedArray iconArray = getResources().obtainTypedArray(
 				R.array.setting_icon_list);
-		for (int i = 0; i < menuTitles.length; i++) {
+		int count = menuTitles.length;
+		for (int i = 0; i < count; i++) {
 			BasicItem item = new BasicItem(menuTitles[i]);
 			item.setDrawable(iconArray.getResourceId(i, 0));
-			if (i == menuTitles.length - 1) {
+			if (i == count - 1) {
 				item.setSubtitle(getString(R.string.current_version)
 						+ F.VERSION_NAME);
 			}

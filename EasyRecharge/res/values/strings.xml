@@ -49,7 +49,7 @@
     <string name="downloading">正在下载&#8230;</string>
     <!-- feedback activity -->
     <string name="hint_input_advice">请填写您的意见或建议：</string>
-    <string name="hint_input_here">输入意见和建议&#8230;</string>
+    <string name="hint_input_here">输入意见或建议&#8230;</string>
     <string name="submit_advice">提交反馈</string>
     <string name="hint_feedback_succeed">反馈成功</string>
     <string name="hint_feedback_failed">反馈失败，请重试！</string>

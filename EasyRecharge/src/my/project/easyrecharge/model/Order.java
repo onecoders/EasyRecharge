@@ -3,6 +3,8 @@ package my.project.easyrecharge.model;
 /**
  * 充值订单信息
  * 
+ * 用户选择后，设置相应属性
+ * 
  * @author roy
  * @email onecoders@gmail.com
  */

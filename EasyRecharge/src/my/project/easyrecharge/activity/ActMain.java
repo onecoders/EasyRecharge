@@ -3,7 +3,7 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
-import my.project.easyrecharge.model.IndexMenu.Act;
+import my.project.easyrecharge.model.IndexMenu.ActName;
 import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -44,11 +44,12 @@ public class ActMain extends ActBase implements OnItemClickListener {
 				.getStringArray(R.array.menu_titles);
 		TypedArray iconArray = getResources().obtainTypedArray(
 				R.array.menu_icon_ids);
-		menus = new IndexMenu[menuTitles.length];
-		for (int i = 0; i < menus.length; i++) {
+		int menuCount = menuTitles.length;
+		menus = new IndexMenu[menuCount];
+		for (int i = 0; i < menuCount; i++) {
 			menus[i] = new IndexMenu(iconArray.getResourceId(i, 0),
 					menuTitles[i]);
-			menus[i].setAct(Act.values()[i]);
+			menus[i].setAct(ActName.values()[i]);
 		}
 		iconArray.recycle();
 	}

@@ -1,7 +1,9 @@
 package my.project.easyrecharge.model;
 
 /**
- * 用户选择学校信息
+ * 学校信息
+ * 
+ * 包括学校基本信息和学校支付宝信息，从服务器端获取数据
  * 
  * @author roy
  * @email onecoders@gmail.com
@@ -50,30 +52,22 @@ public class School {
 		this.alipayInfo = alipayInfo;
 	}
 
+	// 获取partner id
 	public String getPartnerId() {
 		return alipayInfo.getPartnerId();
 	}
 
-	public void setPartnerId(String partnerId) {
-		alipayInfo.setPartnerId(partnerId);
-	}
-
+	// 获取支付宝帐号
 	public String getSellerAccount() {
 		return alipayInfo.getSellerAccount();
 	}
 
-	public void setSellerAccount(String sellerAccount) {
-		alipayInfo.setSellerAccount(sellerAccount);
-	}
-
+	// 获取私钥
 	public String getPrivateKey() {
 		return alipayInfo.getPrivateKey();
 	}
 
-	public void setPrivateKey(String privateKey) {
-		alipayInfo.setPrivateKey(privateKey);
-	}
-
+	// 获取公钥
 	public String getPublicKey() {
 		return alipayInfo.getPublicKey();
 	}
