@@ -11,7 +11,7 @@ import android.os.Handler;
  * @email onecoders@gmail.com
  */
 
-public class ActStart extends ActBase {
+public class ActStart extends ActUpdateApk {
 
 	private static final long DELAY_MILLIS = 3 * 1000;
 
@@ -23,7 +23,16 @@ public class ActStart extends ActBase {
 	}
 
 	private void init() {
+		getNoticeAndUpdateInfo();
 		delayAndSwitch2Main();
+	}
+
+	private void getNoticeAndUpdateInfo() {
+		// 没有网络时提示没有网络，直接进应用
+		// 有网络，获取通知信息和更新信息
+		// 通知信息对话框，用户按确定后进入主界面
+		// 更新信息，点击更新，下载更新，不进入主界面
+		// 点击不更新，直接进入主界面
 	}
 
 	private void delayAndSwitch2Main() {

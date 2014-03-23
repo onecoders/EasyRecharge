@@ -46,7 +46,9 @@
     <string name="find_new_version_message">发现新版本，是否更新？</string>
     <string name="update_now">更&#160;&#160;&#160;新</string>
     <string name="update_not_now">暂时不</string>
-    <string name="downloading">正在下载&#8230;</string>
+    <!-- download -->
+    <string name="downloading">下载中:</string>
+    <string name="download_finish">下载完毕</string>
     <!-- feedback activity -->
     <string name="hint_input_advice">请填写您的意见或建议：</string>
     <string name="hint_input_here">输入意见或建议&#8230;</string>

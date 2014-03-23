@@ -1,23 +1,11 @@
 package my.project.easyrecharge.activity;
 
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.util.ApkUtil;
 import my.project.easyrecharge.util.HttpUtil;
 import my.project.easyrecharge.util.VersionUtil;
 import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 
-import org.apache.http.HttpEntity;
-import org.apache.http.HttpResponse;
-import org.apache.http.client.ClientProtocolException;
-import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpGet;
-import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONObject;
 
 import android.app.ProgressDialog;
@@ -25,7 +13,6 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.TypedArray;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.os.Environment;
 import br.com.dina.ui.model.BasicItem;
 import br.com.dina.ui.widget.UITableView;
 import br.com.dina.ui.widget.UITableView.ClickListener;
@@ -33,11 +20,13 @@ import br.com.dina.ui.widget.UITableView.ClickListener;
 /**
  * 设置
  * 
+ * 主要有检测版本操作
+ * 
  * @author roy
  * @email onecoders@gmail.com
  */
 
-public class ActSetting extends ActBase implements ClickListener {
+public class ActSetting extends ActUpdateApk implements ClickListener {
 
 	private UITableView tableView;
 
@@ -108,10 +97,10 @@ public class ActSetting extends ActBase implements ClickListener {
 
 	// check update info from server
 	private void checkUpdate() {
-		new GetServerVersionTask().execute(F.APK_CHECK_VERSON_URL);
+		new CheckVersionTask().execute(F.APK_CHECK_VERSON_URL);
 	}
 
-	class GetServerVersionTask extends AsyncTask<String, Void, Boolean> {
+	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
 
 		@Override
 		protected void onPreExecute() {
@@ -153,6 +142,7 @@ public class ActSetting extends ActBase implements ClickListener {
 		return getVerCode() && getServerVerCode(url);
 	}
 
+	// 获取本地安装包的版本号
 	private boolean getVerCode() {
 		try {
 			verCode = VersionUtil.getVersionCode(this);
@@ -163,6 +153,7 @@ public class ActSetting extends ActBase implements ClickListener {
 		return false;
 	}
 
+	// 获取服务器端上安装包的版本号
 	private boolean getServerVerCode(String url) {
 		// [{"appname":"jtapp12","apkname":"jtapp-12-updateapksamples.apk","verName":1.0.1,"verCode":2}]
 		try {
@@ -177,12 +168,14 @@ public class ActSetting extends ActBase implements ClickListener {
 		return false;
 	}
 
+	// 没有发现新版本
 	private void notNewVersionShow() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.confirm,
 				true, 0, null);
 	}
 
+	// 发现新版本
 	private void doNewVersionUpdate() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.update_now,
@@ -199,69 +192,6 @@ public class ActSetting extends ActBase implements ClickListener {
 	private String getUpdateInfo() {
 		return getString(needUpdate ? R.string.find_new_version_message
 				: R.string.already_newest_message);
-	}
-
-	private void doUpdate() {
-		new DownloadFileAsyncTask().execute(F.APK_DOWNLOAD_URL);
-	}
-
-	class DownloadFileAsyncTask extends AsyncTask<String, Void, Void> {
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressHUD();
-		}
-
-		@Override
-		protected Void doInBackground(String... params) {
-			downloadFile(params[0], F.UPDATE_SAVE_NAME);
-			return null;
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
-			super.onPostExecute(result);
-			dismissProgressHUD();
-			update();
-		}
-
-	}
-
-	private void downloadFile(String url, String savePath) {
-		HttpClient client = new DefaultHttpClient();
-		HttpGet get = new HttpGet(url);
-		HttpResponse response;
-		try {
-			response = client.execute(get);
-			HttpEntity entity = response.getEntity();
-			InputStream is = entity.getContent();
-			FileOutputStream fileOutputStream = null;
-			if (is != null) {
-				File file = new File(Environment.getExternalStorageDirectory(),
-						savePath);
-				fileOutputStream = new FileOutputStream(file);
-				byte[] buf = new byte[1024];
-				int ch = -1;
-				while ((ch = is.read(buf)) != -1) {
-					fileOutputStream.write(buf, 0, ch);
-				}
-			}
-			fileOutputStream.flush();
-			if (fileOutputStream != null) {
-				fileOutputStream.close();
-			}
-		} catch (ClientProtocolException e) {
-			e.printStackTrace();
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-	}
-
-	private void update() {
-		File apkFile = new File(Environment.getExternalStorageDirectory(),
-				F.UPDATE_SAVE_NAME);
-		ApkUtil.installApk(this, apkFile);
 	}
 
 }

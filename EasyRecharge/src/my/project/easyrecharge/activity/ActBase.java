@@ -127,6 +127,14 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 				getString(R.string.hint_when_loading), true, false, this);
 	}
 
+	protected void setMessage(String message) {
+		mProgressHUD.setMessage(message);
+	}
+
+	protected void updateMessage(float progress) {
+		setMessage(getString(R.string.downloading) + progress + "%");
+	}
+
 	@Override
 	public void onCancel(DialogInterface dialog) {
 		dismissProgressHUD();
