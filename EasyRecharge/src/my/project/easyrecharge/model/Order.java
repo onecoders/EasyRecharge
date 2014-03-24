@@ -14,14 +14,6 @@ public abstract class Order {
 	// 充值金额
 	protected int price;
 
-	public void setPrice(int price) {
-		this.price = price;
-	}
-
-	public int getPrice() {
-		return price;
-	}
-
 	public abstract void setSchool(School school);
 
 	// 获取学校id
@@ -39,6 +31,16 @@ public abstract class Order {
 	public abstract int getRoomNo();
 
 	public abstract void setRoomNo(int roomNo);
+
+	// 设置充值金额
+	public void setPrice(int price) {
+		this.price = price;
+	}
+
+	// 获取充值金额
+	public int getPrice() {
+		return price;
+	}
 
 	// 支付主题（用于支付说明）
 	public String getSubject() {

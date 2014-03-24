@@ -12,65 +12,65 @@ package my.project.easyrecharge.model;
 public class OrderWithBind extends Order {
 
 	// 绑定用户
-	private User user;
+	private BindInfo bindInfo;
 
-	public void setUser(User user) {
-		this.user = user;
+	public void setUser(BindInfo Binder) {
+		this.bindInfo = Binder;
 	}
 
 	@Override
 	public void setSchool(School school) {
-		user.setSchool(school);
+		bindInfo.setSchool(school);
 	}
 
 	@Override
 	public int getSchoolId() {
-		return user.getSchoolId();
+		return bindInfo.getSchoolId();
 	}
 
 	@Override
 	public String getSchoolName() {
-		return user.getSchoolName();
+		return bindInfo.getSchoolName();
 	}
 
 	@Override
 	public int getBuildingNo() {
-		return user.getBuildingNo();
+		return bindInfo.getBuildingNo();
 	}
 
 	@Override
 	public void setBuildingNo(int buildingNo) {
-		user.setBuildingNo(buildingNo);
+		bindInfo.setBuildingNo(buildingNo);
 	}
 
 	@Override
 	public int getRoomNo() {
-		return user.getRoomNo();
+		return bindInfo.getRoomNo();
 	}
 
 	@Override
 	public void setRoomNo(int roomNo) {
-		user.setRoomNo(roomNo);
+		bindInfo.setRoomNo(roomNo);
 	}
 
 	@Override
 	public String getPartnerId() {
-		return user.getPartnerId();
+		return bindInfo.getPartnerId();
 	}
 
 	@Override
 	public String getSellerAccount() {
-		return user.getSellerAccount();
+		return bindInfo.getSellerAccount();
 	}
 
 	@Override
 	public String getPrivateKey() {
-		return user.getPrivateKey();
+		return bindInfo.getPrivateKey();
 	}
 
 	@Override
 	public String getPublicKey() {
-		return user.getPublicKey();
+		return bindInfo.getPublicKey();
 	}
 
 }

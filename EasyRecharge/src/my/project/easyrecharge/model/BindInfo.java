@@ -7,7 +7,7 @@ package my.project.easyrecharge.model;
  * @email onecoders@gmail.com
  */
 
-public class User {
+public class BindInfo {
 
 	// 学校
 	private School school;
