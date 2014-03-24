@@ -80,4 +80,11 @@ public class BindInfo {
 		this.isBind = isBind;
 	}
 
+	public void updateBindInfo(BindInfo bindInfo) {
+		setSchool(bindInfo.getSchool());
+		setBuildingNo(bindInfo.getBuildingNo());
+		setRoomNo(bindInfo.getRoomNo());
+		setBind(bindInfo.isBind());
+	}
+
 }
