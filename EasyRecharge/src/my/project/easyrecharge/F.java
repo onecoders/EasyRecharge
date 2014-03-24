@@ -66,8 +66,16 @@ public class F {
 				BindInfo.class);
 	}
 
+	public static void bind(BindInfo bindInfo) {
+		saveBindInfo(bindInfo);
+	}
+
+	public static void unbind() {
+		saveBindInfo(new BindInfo());
+	}
+
 	// 绑定或解绑时保存绑定信息
-	public static void saveBindInfo(BindInfo bindInfo) {
+	private static void saveBindInfo(BindInfo bindInfo) {
 		mBindInfo.updateBindInfo(bindInfo);
 		String json = mGson.toJson(bindInfo);
 		saveString(KEY_BIND_INFO, json);
