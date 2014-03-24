@@ -1,62 +1,44 @@
 package my.project.easyrecharge.model;
 
 /**
- * 充值订单信息
- * 
- * 用户选择后，设置相应属性
+ * 充值订单抽象类
  * 
  * @author roy
  * @email onecoders@gmail.com
  */
 
-public class Order {
+public abstract class Order {
 
-	private static final String SUBJECT = "智电宝电费充值";
+	protected static final String SUBJECT = "智电宝电费充值";
 
-	// 学校
-	private School school;
-	// 楼号
-	private int buildingNo;
-	// 房间号
-	private int roomNo;
 	// 充值金额
-	private int price;
-
-	// 获取学校
-	public School getSchool() {
-		return school;
-	}
-
-	public void setSchool(School school) {
-		this.school = school;
-	}
-
-	// 获取楼号
-	public int getBuildingNo() {
-		return buildingNo;
-	}
-
-	public void setBuildingNo(int buildingNo) {
-		this.buildingNo = buildingNo;
-	}
-
-	// 获取房间号
-	public int getRoomNo() {
-		return roomNo;
-	}
-
-	public void setRoomNo(int roomNo) {
-		this.roomNo = roomNo;
-	}
-
-	// 支付金额
-	public int getPrice() {
-		return price;
-	}
+	protected int price;
 
 	public void setPrice(int price) {
 		this.price = price;
 	}
+
+	public int getPrice() {
+		return price;
+	}
+
+	public abstract void setSchool(School school);
+
+	// 获取学校id
+	public abstract int getSchoolId();
+
+	// 获取学校名称
+	public abstract String getSchoolName();
+
+	// 获取楼号
+	public abstract int getBuildingNo();
+
+	public abstract void setBuildingNo(int buildingNo);
+
+	// 获取房间号
+	public abstract int getRoomNo();
+
+	public abstract void setRoomNo(int roomNo);
 
 	// 支付主题（用于支付说明）
 	public String getSubject() {
@@ -65,29 +47,20 @@ public class Order {
 
 	// 支付信息描述（用于支付说明）
 	public String getBody() {
-		return "电费充值详情" + " 学校：" + this.school.getName() + "，楼号："
-				+ this.buildingNo + "，房间号：" + this.roomNo + "，充值金额："
-				+ this.price;
+		return "电费充值详情" + " 学校：" + getSchoolName() + "，楼号：" + getBuildingNo()
+				+ "，房间号：" + getRoomNo() + "，充值金额：" + this.price;
 	}
 
 	// 获取partner id
-	public String getPartnerId() {
-		return school.getPartnerId();
-	}
+	public abstract String getPartnerId();
 
 	// 获取支付宝帐号
-	public String getSellerAccount() {
-		return school.getSellerAccount();
-	}
+	public abstract String getSellerAccount();
 
 	// 获取private key
-	public String getPrivateKey() {
-		return school.getPrivateKey();
-	}
+	public abstract String getPrivateKey();
 
 	// 获取公钥
-	public String getPublicKey() {
-		return school.getPublicKey();
-	}
+	public abstract String getPublicKey();
 
 }
