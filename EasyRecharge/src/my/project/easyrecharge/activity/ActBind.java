@@ -9,6 +9,8 @@ import android.os.Bundle;
  * 
  * @author roy
  * @email onecoders@gmail.com
+ * 
+ * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行绑定
  */
 
 public class ActBind extends ActBase {

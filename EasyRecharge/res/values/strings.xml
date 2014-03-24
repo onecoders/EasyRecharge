@@ -67,7 +67,6 @@
     <string name="about_version">YH智电宝\nAndroid版&#160;&#160;V</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;YH智电宝，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
     <!-- notice activity -->
-    <string name="activity_title_notice">用户须知</string>
     <!-- school chosen activity -->
     <!-- building chosen activity -->
     <!-- record activity -->

@@ -12,6 +12,7 @@ import android.widget.TextView;
  * @email onecoders@gmail.com
  * 
  * @notice Keys中的值不固定，根据用户选择的学校，先从服务器端获取，后去执行支付操作
+ * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行充值
  */
 
 public class ActRecharge extends ActBase {
