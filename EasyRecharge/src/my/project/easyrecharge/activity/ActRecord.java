@@ -22,6 +22,7 @@ public class ActRecord extends ActBase {
 	private void init() {
 		initActionBar();
 		setAbTitle(R.string.activity_title_record);
+		showToast(R.string.no_record);
 	}
 
 }

@@ -3,6 +3,7 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 /**
  * 支付充值
@@ -15,6 +16,8 @@ import android.view.View;
 
 public class ActRecharge extends ActBase {
 
+	private TextView txtNotice;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -26,15 +29,28 @@ public class ActRecharge extends ActBase {
 		initActionBar();
 		setAbTitle(R.string.activity_title_recharge);
 		showAbRightBtn();
-		setAbRightBtnText(R.string.recharge_right_btn_text);
+		setAbRightBtnText(R.string.txt_inquiry);
 		setAbRightBtnClickListener(this);
+		initView();
+	}
+
+	private void initView() {
+		txtNotice = (TextView) findViewById(R.id.txt_notice);
+		txtNotice.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
-		if (v.getId() == R.id.ab_right_btn) {
+		switch (v.getId()) {
+		case R.id.ab_right_btn:
 			switchActivityReorder2Front(ActInquiry.class);
+			break;
+		case R.id.txt_notice:
+			switchActivity(ActNotice.class);
+			break;
+		default:
+			break;
 		}
 	}
 

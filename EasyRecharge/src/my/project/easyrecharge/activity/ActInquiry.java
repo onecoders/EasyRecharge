@@ -24,7 +24,7 @@ public class ActInquiry extends ActBase {
 		initActionBar();
 		setAbTitle(R.string.activity_title_inquiry);
 		showAbRightBtn();
-		setAbRightBtnText(R.string.inquiry_right_btn_text);
+		setAbRightBtnText(R.string.txt_recharge);
 		setAbRightBtnClickListener(this);
 	}
 

@@ -3,7 +3,6 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
-import android.widget.Toast;
 
 /**
  * 用户绑定
@@ -25,7 +24,7 @@ public class ActBind extends ActBase {
 		initActionBar();
 		setAbTitle(R.string.activity_title_bind);
 		if (!F.mBindInfo.isBind()) {
-			Toast.makeText(this, "用户未绑定相关信息", Toast.LENGTH_SHORT).show();
+			showToast(R.string.no_bind);
 		}
 	}
 

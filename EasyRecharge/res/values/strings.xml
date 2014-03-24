@@ -23,7 +23,7 @@
     <string name="activity_title_setting">设&#160;&#160;&#160;置</string>
     <string name="activity_title_feedback">反&#160;&#160;&#160;馈</string>
     <string name="activity_title_about">关&#160;&#160;&#160;于</string>
-    <string name="activity_title_notice">用户须知</string>
+    <string name="activity_title_notice">《使用注意事项》</string>
     <string name="activity_title_school_chosen">请选择学校</string>
     <string name="activity_title_building_chosen">请选择楼号</string>
     <!-- same strings in inquiry, recharge, bind activities -->
@@ -32,13 +32,20 @@
     <string name="hint_input_room_no">请输入房间号</string>
     <string name="btn_inquiry_txt">查&#160;&#160;&#160;&#160;&#160;&#160;询</string>
     <!-- inquiry activity -->
-    <string name="inquiry_right_btn_text">充&#160;&#160;&#160;值</string>
-    <string name="hint_why_need_inquiry_first">提示：为了保证充值的准确性，请先查询所需充值的房间是否存在，然后在进行操作。</string>
+    <string name="hint_choose_school">学校</string>
+    <string name="hint_choose_building">楼号</string>
+    <string name="hint_input_room">请输入房间号</string>
+    <string name="hint_choose_price">充值金额</string>
+    <string name="txt_notice">《使用注意事项》</string>
+    <string name="txt_recharge">充&#160;&#160;&#160;值</string>
+    <string name="hint_why_need_inquiry_first">提示：为了保证充值的准确性，请先查询所需充值的房间是否存在，然后在进行充值操作。</string>
     <!-- recharge activity -->
-    <string name="recharge_right_btn_text">查&#160;&#160;&#160;询</string>
+    <string name="txt_inquiry">查&#160;&#160;&#160;询</string>
+    <string name="txt_agree">已阅读</string>
     <string name="btn_recharge_txt">充&#160;&#160;&#160;&#160;&#160;&#160;值</string>
     <!-- bind activity -->
     <string name="btn_bind_txt">绑&#160;&#160;&#160;&#160;&#160;&#160;定</string>
+    <string name="no_bind">用户未绑定相关信息</string>
     <!-- setting activity -->
     <string name="current_version">当前版本&#160;&#160;V</string>
     <string name="update_dialog_title">版&#160;本&#160;更&#160;新</string>
@@ -63,5 +70,7 @@
     <string name="activity_title_notice">用户须知</string>
     <!-- school chosen activity -->
     <!-- building chosen activity -->
+    <!-- record activity -->
+    <string name="no_record">尚无充值记录</string>
 
 </resources>

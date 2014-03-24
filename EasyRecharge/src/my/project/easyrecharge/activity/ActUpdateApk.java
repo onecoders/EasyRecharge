@@ -6,6 +6,13 @@ import my.project.easyrecharge.util.UpdateApkUtil;
 import android.content.Context;
 import android.os.AsyncTask;
 
+/**
+ * 更新类基类
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActUpdateApk extends ActBase {
 
 	// 更新操作，下载apk并安装

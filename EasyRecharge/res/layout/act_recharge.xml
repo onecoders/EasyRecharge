@@ -3,10 +3,169 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/main_bg"
-    android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/main_bg" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- 选择学校 -->
+
+            <RelativeLayout
+                android:id="@+id/r_choose_school"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_margin="8dip"
+                android:background="@drawable/info_bg"
+                android:clickable="true"
+                android:paddingLeft="15dip" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/contentDescription"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/right_arrow" />
+
+                <TextView
+                    android:id="@+id/txt_school"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:duplicateParentState="true"
+                    android:hint="@string/hint_choose_school"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- 选择楼号 -->
+
+            <RelativeLayout
+                android:id="@+id/r_choose_building"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_margin="8dip"
+                android:background="@drawable/info_bg"
+                android:clickable="true"
+                android:paddingLeft="15dip" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/contentDescription"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/right_arrow" />
+
+                <TextView
+                    android:id="@+id/txt_building"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:duplicateParentState="true"
+                    android:hint="@string/hint_choose_building"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- 输入房间号 -->
+
+            <RelativeLayout
+                android:id="@+id/r_choose_room"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_margin="8dip"
+                android:background="@drawable/info_bg"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:paddingLeft="15dip" >
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:background="@null"
+                    android:hint="@string/hint_input_room"
+                    android:inputType="number"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- 充值金额 -->
+
+            <RelativeLayout
+                android:id="@+id/r_choose_price"
+                android:layout_width="match_parent"
+                android:layout_height="55dip"
+                android:layout_margin="8dip"
+                android:background="@drawable/info_bg"
+                android:clickable="true"
+                android:paddingLeft="15dip" >
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/contentDescription"
+                    android:duplicateParentState="true"
+                    android:src="@drawable/right_arrow" />
+
+                <TextView
+                    android:id="@+id/txt_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentLeft="true"
+                    android:layout_centerVertical="true"
+                    android:duplicateParentState="true"
+                    android:hint="@string/hint_choose_price"
+                    android:textSize="16sp" />
+            </RelativeLayout>
+
+            <!-- 注意事项 -->
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dip"
+                android:orientation="horizontal" >
+
+                <CheckBox
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/txt_agree"
+                    android:textSize="16sp" />
+
+                <TextView
+                    android:id="@+id/txt_notice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_notice"
+                    android:textColor="@color/blue"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <!-- 充值按钮 -->
+
+            <Button
+                style="@style/btnStylesorbus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dip"
+                android:layout_marginRight="15dip"
+                android:text="@string/txt_recharge" />
+        </LinearLayout>
+    </ScrollView>
 
 </LinearLayout>
