@@ -62,8 +62,7 @@ public class F {
 
 	private static void loadBindInfo() {
 		String json = getString(KEY_BIND_INFO);
-		mBindInfo = json == null ? new BindInfo() : mGson.fromJson(json,
-				BindInfo.class);
+		mBindInfo = mGson.fromJson(json, BindInfo.class);
 	}
 
 	public static void bind(BindInfo bindInfo) {
@@ -86,7 +85,7 @@ public class F {
 	}
 
 	private static String getString(String key) {
-		return mPrefs.getString(key, null);
+		return mPrefs.getString(key, mGson.toJson(new BindInfo()));
 	}
 
 }
