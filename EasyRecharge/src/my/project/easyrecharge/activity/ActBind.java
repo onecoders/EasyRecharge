@@ -1,5 +1,6 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 
@@ -22,6 +23,9 @@ public class ActBind extends ActBase {
 	private void init() {
 		initActionBar();
 		setAbTitle(R.string.activity_title_bind);
+		if (F.mBindInfo.isBind()) {
+
+		}
 	}
 
 }

@@ -3,6 +3,8 @@ package my.project.easyrecharge.model;
 /**
  * 用户绑定类
  * 
+ * 保存到本地，进入应用读取
+ * 
  * @author roy
  * @email onecoders@gmail.com
  */
@@ -15,6 +17,8 @@ public class BindInfo {
 	private int buildingNo;
 	// 房间号
 	private int roomNo;
+	// 是否绑定
+	private boolean isBind;
 
 	public School getSchool() {
 		return school;
@@ -66,6 +70,14 @@ public class BindInfo {
 	// 获取公钥
 	public String getPublicKey() {
 		return school.getPublicKey();
+	}
+
+	public boolean isBind() {
+		return isBind;
+	}
+
+	public void setBind(boolean isBind) {
+		this.isBind = isBind;
 	}
 
 }
