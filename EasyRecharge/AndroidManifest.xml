@@ -71,12 +71,12 @@
         </activity>
         <!-- 学校选择 -->
         <activity
-            android:name=".activity.ActSchoolChosen"
+            android:name=".activity.ActChooseSchool"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 楼号选择 -->
         <activity
-            android:name=".activity.ActBuildingChosen"
+            android:name=".activity.ActChooseBuilding"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 用户反馈 -->

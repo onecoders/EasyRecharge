@@ -8,7 +8,6 @@
     android:paddingTop="@dimen/activity_vertical_margin" >
 
     <ScrollView
-        android:id="@+id/scrollView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/main_bg" >
@@ -18,95 +17,11 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
-            <!-- 选择学校 -->
+            <!-- basic info layout -->
 
-            <RelativeLayout
-                android:id="@+id/inquiry_choose_school_container"
-                android:layout_width="match_parent"
-                android:layout_height="55dip"
-                android:layout_margin="8dip"
-                android:background="@drawable/single_bg"
-                android:clickable="true"
-                android:paddingLeft="15dip" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15dip"
-                    android:contentDescription="@string/contentDescription"
-                    android:duplicateParentState="true"
-                    android:src="@drawable/chevron" />
-
-                <TextView
-                    android:id="@+id/txt_school"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:duplicateParentState="true"
-                    android:hint="@string/hint_choose_school"
-                    android:textColor="@color/text_color_selector"
-                    android:textSize="18sp" />
-            </RelativeLayout>
-
-            <!-- 选择楼号 -->
-
-            <RelativeLayout
-                android:id="@+id/inquiry_choose_building_container"
-                android:layout_width="match_parent"
-                android:layout_height="55dip"
-                android:layout_margin="8dip"
-                android:background="@drawable/single_bg"
-                android:clickable="true"
-                android:paddingLeft="15dip" >
-
-                <ImageView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="15dip"
-                    android:contentDescription="@string/contentDescription"
-                    android:duplicateParentState="true"
-                    android:src="@drawable/chevron" />
-
-                <TextView
-                    android:id="@+id/txt_building"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:duplicateParentState="true"
-                    android:hint="@string/hint_choose_building"
-                    android:textColor="@color/text_color_selector"
-                    android:textSize="18sp" />
-            </RelativeLayout>
-
-            <!-- 输入房间号 -->
-
-            <RelativeLayout
-                android:id="@+id/inquiry_input_room_container"
-                android:layout_width="match_parent"
-                android:layout_height="55dip"
-                android:layout_margin="8dip"
-                android:background="@drawable/single_bg"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:paddingLeft="15dip" >
-
-                <EditText
-                    android:id="@+id/inquiry_edit_room"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentLeft="true"
-                    android:layout_centerVertical="true"
-                    android:background="@null"
-                    android:hint="@string/hint_input_room"
-                    android:inputType="number"
-                    android:textSize="18sp" />
-            </RelativeLayout>
+            <include
+                android:id="@+id/inquiry_basic_info"
+                layout="@layout/basic_info" />
 
             <!-- 查询按钮 -->
 

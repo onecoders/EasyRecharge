@@ -3,7 +3,8 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
+import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -17,11 +18,12 @@ import android.widget.TextView;
  * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行充值
  */
 
-public class ActRecharge extends ActEdittextFocus {
+public class ActRecharge extends ActBasicInfo {
 
-	private TextView txtNotice;
-	private RelativeLayout roomContainer;
-	private EditText roomEdit;
+	private RelativeLayout priceContainer;
+	private TextView priceTextView, noticeTextView;
+	private CheckBox noticeCheckbox;
+	private Button btnRecharge;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -40,11 +42,20 @@ public class ActRecharge extends ActEdittextFocus {
 	}
 
 	private void initViews() {
-		txtNotice = (TextView) findViewById(R.id.txt_notice);
-		txtNotice.setOnClickListener(this);
-		roomContainer = (RelativeLayout) findViewById(R.id.recharge_input_room_container);
-		roomEdit = (EditText) findViewById(R.id.recharge_edit_room);
-		setEdittextFocus(roomContainer, roomEdit);
+		// basic info
+		View basicInfoView = findViewById(R.id.recharge_basic_info);
+		initBasicInfoViews(basicInfoView);
+		// price
+		priceContainer = (RelativeLayout) findViewById(R.id.price_container);
+		priceTextView = (TextView) findViewById(R.id.price_textview);
+		// checkbox
+		noticeCheckbox = (CheckBox) findViewById(R.id.notice_checkbox);
+		// notice
+		noticeTextView = (TextView) findViewById(R.id.notice_textview);
+		noticeTextView.setOnClickListener(this);
+		// recharge button
+		btnRecharge = (Button) findViewById(R.id.btn_recharge);
+		btnRecharge.setOnClickListener(this);
 	}
 
 	@Override
@@ -54,8 +65,11 @@ public class ActRecharge extends ActEdittextFocus {
 		case R.id.ab_right_btn:
 			switchActivityReorder2Front(ActInquiry.class);
 			break;
-		case R.id.txt_notice:
+		case R.id.notice_textview:
 			switchActivity(ActNotice.class);
+			break;
+		case R.id.btn_recharge:
+
 			break;
 		default:
 			break;

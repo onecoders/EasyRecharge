@@ -3,8 +3,7 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.widget.Button;
 
 /**
  * 电费查询
@@ -13,10 +12,9 @@ import android.widget.RelativeLayout;
  * @email onecoders@gmail.com
  */
 
-public class ActInquiry extends ActEdittextFocus {
+public class ActInquiry extends ActBasicInfo {
 
-	private RelativeLayout roomContainer;
-	private EditText roomEdit;
+	private Button btnInquiry;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -43,9 +41,11 @@ public class ActInquiry extends ActEdittextFocus {
 	}
 
 	private void initViews() {
-		roomContainer = (RelativeLayout) findViewById(R.id.inquiry_input_room_container);
-		roomEdit = (EditText) findViewById(R.id.inquiry_edit_room);
-		setEdittextFocus(roomContainer, roomEdit);
+		View basicInfoView = findViewById(R.id.inquiry_basic_info);
+		initBasicInfoViews(basicInfoView);
+		// inquiry button
+		btnInquiry = (Button) findViewById(R.id.btn_inquiry);
+		btnInquiry.setOnClickListener(this);
 	}
 
 }

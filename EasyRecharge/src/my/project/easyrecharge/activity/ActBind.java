@@ -3,8 +3,8 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
-import android.widget.EditText;
-import android.widget.RelativeLayout;
+import android.view.View;
+import android.widget.Button;
 
 /**
  * 用户绑定
@@ -15,10 +15,9 @@ import android.widget.RelativeLayout;
  * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行绑定
  */
 
-public class ActBind extends ActEdittextFocus {
+public class ActBind extends ActBasicInfo {
 
-	private RelativeLayout roomContainer;
-	private EditText roomEdit;
+	private Button btnBind;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +36,24 @@ public class ActBind extends ActEdittextFocus {
 	}
 
 	private void initViews() {
-		roomContainer = (RelativeLayout) findViewById(R.id.bind_input_room_container);
-		roomEdit = (EditText) findViewById(R.id.bind_edit_room);
-		setEdittextFocus(roomContainer, roomEdit);
+		// basic info
+		View basicInfoView = findViewById(R.id.bind_basic_info);
+		initBasicInfoViews(basicInfoView);
+		// bind button
+		btnBind = (Button) findViewById(R.id.btn_bind);
+		btnBind.setOnClickListener(this);
+	}
+
+	@Override
+	public void onClick(View v) {
+		super.onClick(v);
+		switch (v.getId()) {
+		case R.id.btn_bind:
+
+			break;
+		default:
+			break;
+		}
 	}
 
 }
