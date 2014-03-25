@@ -67,11 +67,6 @@ public class BindInfo {
 		return school.getPrivateKey();
 	}
 
-	// 获取公钥
-	public String getPublicKey() {
-		return school.getPublicKey();
-	}
-
 	public boolean isBind() {
 		return isBind;
 	}

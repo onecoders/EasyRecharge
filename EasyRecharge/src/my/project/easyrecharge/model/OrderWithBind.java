@@ -68,9 +68,4 @@ public class OrderWithBind extends Order {
 		return bindInfo.getPrivateKey();
 	}
 
-	@Override
-	public String getPublicKey() {
-		return bindInfo.getPublicKey();
-	}
-
 }

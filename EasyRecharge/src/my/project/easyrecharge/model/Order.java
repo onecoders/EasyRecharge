@@ -62,7 +62,4 @@ public abstract class Order {
 	// 获取private key
 	public abstract String getPrivateKey();
 
-	// 获取公钥
-	public abstract String getPublicKey();
-
 }

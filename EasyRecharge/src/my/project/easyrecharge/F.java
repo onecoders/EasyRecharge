@@ -28,7 +28,7 @@ public class F {
 	private static SharedPreferences mPrefs;
 	private static Editor mEditor;
 
-	private static final String PREFS_BIND_INFO = "prefs_bind_info";
+	private static final String PREFS_NAME = "easy_recharge";
 	private static final String KEY_BIND_INFO = "key_bind_info";
 	private static Gson mGson;
 
@@ -39,8 +39,7 @@ public class F {
 	}
 
 	private static void initPrefAndGson(Context context) {
-		mPrefs = context.getSharedPreferences(PREFS_BIND_INFO,
-				Context.MODE_PRIVATE);
+		mPrefs = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE);
 		mEditor = mPrefs.edit();
 		mGson = new Gson();
 	}

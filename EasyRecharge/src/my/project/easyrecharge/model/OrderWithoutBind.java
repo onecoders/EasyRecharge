@@ -68,9 +68,4 @@ public class OrderWithoutBind extends Order {
 		return school.getPrivateKey();
 	}
 
-	@Override
-	public String getPublicKey() {
-		return school.getPublicKey();
-	}
-
 }

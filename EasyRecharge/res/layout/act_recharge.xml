@@ -25,7 +25,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
-                android:background="@drawable/background_view_rounded_single"
+                android:background="@drawable/single_bg"
                 android:clickable="true"
                 android:paddingLeft="15dip" >
 
@@ -58,7 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
-                android:background="@drawable/background_view_rounded_single"
+                android:background="@drawable/single_bg"
                 android:clickable="true"
                 android:paddingLeft="15dip" >
 
@@ -91,7 +91,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
-                android:background="@drawable/background_view_rounded_single"
+                android:background="@drawable/single_bg"
                 android:focusable="true"
                 android:focusableInTouchMode="true"
                 android:paddingLeft="15dip" >
@@ -115,7 +115,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
-                android:background="@drawable/background_view_rounded_single"
+                android:background="@drawable/single_bg"
                 android:clickable="true"
                 android:paddingLeft="15dip" >
 

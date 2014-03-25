@@ -67,9 +67,4 @@ public class School {
 		return alipayInfo.getPrivateKey();
 	}
 
-	// 获取公钥
-	public String getPublicKey() {
-		return alipayInfo.getPublicKey();
-	}
-
 }
