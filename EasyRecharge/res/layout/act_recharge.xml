@@ -28,8 +28,8 @@
             <RelativeLayout
                 android:id="@+id/price_container"
                 android:layout_width="match_parent"
-                android:layout_height="55dip"
-                android:layout_margin="8dip"
+                android:layout_height="@dimen/container_height"
+                android:layout_margin="@dimen/container_margin"
                 android:background="@drawable/single_bg"
                 android:clickable="true"
                 android:paddingLeft="15dip" >
@@ -53,7 +53,7 @@
                     android:duplicateParentState="true"
                     android:hint="@string/hint_choose_price"
                     android:textColor="@color/text_color_selector"
-                    android:textSize="18sp" />
+                    android:textSize="@dimen/basic_info_txt" />
             </RelativeLayout>
 
             <!-- 注意事项 -->
@@ -62,6 +62,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dip"
+                android:gravity="center_vertical"
                 android:orientation="horizontal" >
 
                 <CheckBox
@@ -70,7 +71,7 @@
                     android:layout_height="wrap_content"
                     android:checked="true"
                     android:text="@string/txt_agree"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/notice_txt" />
 
                 <TextView
                     android:id="@+id/notice_textview"
@@ -78,7 +79,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/txt_notice"
                     android:textColor="@drawable/notice_text_color"
-                    android:textSize="16sp" />
+                    android:textSize="@dimen/notice_txt" />
             </LinearLayout>
 
             <!-- 充值按钮 -->

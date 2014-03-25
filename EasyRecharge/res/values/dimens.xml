@@ -28,6 +28,10 @@
     <dimen name="dialog_btn_container_margin">10dip</dimen>
     <dimen name="dialog_btn_margin">5dip</dimen>
 
+    <!-- basic info -->
+    <dimen name="container_height">55dip</dimen>
+    <dimen name="container_margin">8dip</dimen>
+
     <!-- text size -->
     <dimen name="ab_title_txt">20sp</dimen>
     <dimen name="ab_btn_txt">13sp</dimen>
@@ -39,5 +43,7 @@
     <dimen name="dialog_title_txt">22sp</dimen>
     <dimen name="dialog_message_txt">18sp</dimen>
     <dimen name="dialog_btn_txt">15sp</dimen>
+    <dimen name="basic_info_txt">18sp</dimen>
+    <dimen name="notice_txt">16sp</dimen>
 
 </resources>

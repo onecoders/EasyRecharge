@@ -9,8 +9,8 @@
     <RelativeLayout
         android:id="@+id/school_container"
         android:layout_width="match_parent"
-        android:layout_height="55dip"
-        android:layout_margin="8dip"
+        android:layout_height="@dimen/container_height"
+        android:layout_margin="@dimen/container_margin"
         android:background="@drawable/single_bg"
         android:clickable="true"
         android:paddingLeft="15dip" >
@@ -34,7 +34,7 @@
             android:duplicateParentState="true"
             android:hint="@string/hint_choose_school"
             android:textColor="@color/text_color_selector"
-            android:textSize="18sp" />
+            android:textSize="@dimen/basic_info_txt" />
     </RelativeLayout>
 
     <!-- 选择楼号 -->
@@ -42,8 +42,8 @@
     <RelativeLayout
         android:id="@+id/building_container"
         android:layout_width="match_parent"
-        android:layout_height="55dip"
-        android:layout_margin="8dip"
+        android:layout_height="@dimen/container_height"
+        android:layout_margin="@dimen/container_margin"
         android:background="@drawable/single_bg"
         android:clickable="true"
         android:paddingLeft="15dip" >
@@ -67,7 +67,7 @@
             android:duplicateParentState="true"
             android:hint="@string/hint_choose_building"
             android:textColor="@color/text_color_selector"
-            android:textSize="18sp" />
+            android:textSize="@dimen/basic_info_txt" />
     </RelativeLayout>
 
     <!-- 输入房间号 -->
@@ -75,8 +75,8 @@
     <RelativeLayout
         android:id="@+id/room_container"
         android:layout_width="match_parent"
-        android:layout_height="55dip"
-        android:layout_margin="8dip"
+        android:layout_height="@dimen/container_height"
+        android:layout_margin="@dimen/container_margin"
         android:background="@drawable/single_bg"
         android:focusable="true"
         android:focusableInTouchMode="true"
@@ -91,7 +91,7 @@
             android:background="@null"
             android:hint="@string/hint_input_room"
             android:inputType="number"
-            android:textSize="18sp" />
+            android:textSize="@dimen/basic_info_txt" />
     </RelativeLayout>
 
 </LinearLayout>
