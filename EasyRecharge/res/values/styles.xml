@@ -28,7 +28,7 @@
     </style>
 
     <style name="btnStyleAcapulco" parent="@android:style/Widget.Button">
-        <item name="android:textSize">15sp</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">#FFFFFF</item>
         <item name="android:gravity">center</item>
@@ -41,7 +41,7 @@
     </style>
     
     <style name="btnStylesorbus" parent="@android:style/Widget.Button">
-       <item name="android:textSize">15sp</item>
+       <item name="android:textSize">18sp</item>
        <item name="android:textStyle">bold</item>
        <item name="android:textColor">#FFFFFF</item>
        <item name="android:gravity">center</item>

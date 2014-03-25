@@ -21,7 +21,7 @@
             <!-- 选择学校 -->
 
             <RelativeLayout
-                android:id="@+id/r_choose_school"
+                android:id="@+id/recharge_choose_school_container"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
@@ -46,13 +46,13 @@
                     android:layout_centerVertical="true"
                     android:duplicateParentState="true"
                     android:hint="@string/hint_choose_school"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <!-- 选择楼号 -->
 
             <RelativeLayout
-                android:id="@+id/r_choose_building"
+                android:id="@+id/recharge_choose_building_container"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
@@ -77,13 +77,13 @@
                     android:layout_centerVertical="true"
                     android:duplicateParentState="true"
                     android:hint="@string/hint_choose_building"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <!-- 输入房间号 -->
 
             <RelativeLayout
-                android:id="@+id/r_choose_room"
+                android:id="@+id/recharge_input_room_container"
                 android:layout_width="match_parent"
                 android:layout_height="55dip"
                 android:layout_margin="8dip"
@@ -93,6 +93,7 @@
                 android:paddingLeft="15dip" >
 
                 <EditText
+                    android:id="@+id/recharge_edit_room"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_alignParentLeft="true"
@@ -100,7 +101,7 @@
                     android:background="@null"
                     android:hint="@string/hint_input_room"
                     android:inputType="number"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <!-- 充值金额 -->
@@ -131,7 +132,7 @@
                     android:layout_centerVertical="true"
                     android:duplicateParentState="true"
                     android:hint="@string/hint_choose_price"
-                    android:textSize="16sp" />
+                    android:textSize="18sp" />
             </RelativeLayout>
 
             <!-- 注意事项 -->

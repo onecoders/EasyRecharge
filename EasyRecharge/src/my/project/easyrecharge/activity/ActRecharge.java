@@ -3,6 +3,8 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
@@ -15,9 +17,11 @@ import android.widget.TextView;
  * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行充值
  */
 
-public class ActRecharge extends ActBase {
+public class ActRecharge extends ActEdittextFocus {
 
 	private TextView txtNotice;
+	private RelativeLayout roomContainer;
+	private EditText roomEdit;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,12 +36,15 @@ public class ActRecharge extends ActBase {
 		showAbRightBtn();
 		setAbRightBtnText(R.string.txt_inquiry);
 		setAbRightBtnClickListener(this);
-		initView();
+		initViews();
 	}
 
-	private void initView() {
+	private void initViews() {
 		txtNotice = (TextView) findViewById(R.id.txt_notice);
 		txtNotice.setOnClickListener(this);
+		roomContainer = (RelativeLayout) findViewById(R.id.recharge_input_room_container);
+		roomEdit = (EditText) findViewById(R.id.recharge_edit_room);
+		setEdittextFocus(roomContainer, roomEdit);
 	}
 
 	@Override

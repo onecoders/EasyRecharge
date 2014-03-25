@@ -77,10 +77,10 @@ public class F {
 	private static void saveBindInfo(BindInfo bindInfo) {
 		mBindInfo.updateBindInfo(bindInfo);
 		String json = toJson(bindInfo);
-		saveString(KEY_BIND_INFO, json);
+		putString(KEY_BIND_INFO, json);
 	}
 
-	public static void saveString(String key, String value) {
+	public static void putString(String key, String value) {
 		mEditor.putString(key, value).commit();
 	}
 

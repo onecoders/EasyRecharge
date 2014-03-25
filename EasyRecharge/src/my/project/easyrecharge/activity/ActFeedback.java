@@ -1,15 +1,10 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
-import android.content.Context;
-import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnTouchListener;
-import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -21,7 +16,7 @@ import android.widget.LinearLayout;
  * @email onecoders@gmail.com
  */
 
-public class ActFeedback extends ActBase {
+public class ActFeedback extends ActEdittextFocus {
 
 	private LinearLayout container;
 	private EditText txtFeedback;
@@ -43,7 +38,7 @@ public class ActFeedback extends ActBase {
 	private void initViews() {
 		container = (LinearLayout) findViewById(R.id.feedback_container);
 		txtFeedback = (EditText) findViewById(R.id.txt_feedback);
-		setEdittextFocus();
+		setEdittextFocus(container, txtFeedback);
 		submit = (Button) findViewById(R.id.btn_submit);
 		submit.setOnClickListener(this);
 	}
@@ -115,29 +110,6 @@ public class ActFeedback extends ActBase {
 
 	private void clearEdittext() {
 		txtFeedback.setText("");
-	}
-
-	private void setEdittextFocus() {
-		container.setOnTouchListener(new OnTouchListener() {
-			@Override
-			public boolean onTouch(View v, MotionEvent event) {
-				if (event.getAction() == MotionEvent.ACTION_DOWN) {
-					if (txtFeedback.isFocused()) {
-						Rect outRect = new Rect();
-						txtFeedback.getGlobalVisibleRect(outRect);
-						if (!outRect.contains((int) event.getRawX(),
-								(int) event.getRawY())) {
-							txtFeedback.clearFocus();
-							InputMethodManager imm = (InputMethodManager) v
-									.getContext().getSystemService(
-											Context.INPUT_METHOD_SERVICE);
-							imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
-						}
-					}
-				}
-				return false;
-			}
-		});
 	}
 
 }
