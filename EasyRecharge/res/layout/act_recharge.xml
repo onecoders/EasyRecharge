@@ -34,9 +34,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
                     android:contentDescription="@string/contentDescription"
                     android:duplicateParentState="true"
-                    android:src="@drawable/ic_right_arrow" />
+                    android:src="@drawable/chevron" />
 
                 <TextView
                     android:id="@+id/txt_school"
@@ -65,9 +66,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
                     android:contentDescription="@string/contentDescription"
                     android:duplicateParentState="true"
-                    android:src="@drawable/ic_right_arrow" />
+                    android:src="@drawable/chevron" />
 
                 <TextView
                     android:id="@+id/txt_building"
@@ -120,9 +122,10 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="15dip"
                     android:contentDescription="@string/contentDescription"
                     android:duplicateParentState="true"
-                    android:src="@drawable/ic_right_arrow" />
+                    android:src="@drawable/chevron" />
 
                 <TextView
                     android:id="@+id/txt_price"
