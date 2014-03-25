@@ -61,8 +61,8 @@ public class F {
 	}
 
 	private static void loadBindInfo() {
-		String json = getString(KEY_BIND_INFO);
-		mBindInfo = mGson.fromJson(json, BindInfo.class);
+		String json = getString(KEY_BIND_INFO, toJson(new BindInfo()));
+		mBindInfo = fromJson(json, BindInfo.class);
 	}
 
 	public static void bind(BindInfo bindInfo) {
@@ -76,16 +76,24 @@ public class F {
 	// 绑定或解绑时保存绑定信息
 	private static void saveBindInfo(BindInfo bindInfo) {
 		mBindInfo.updateBindInfo(bindInfo);
-		String json = mGson.toJson(bindInfo);
+		String json = toJson(bindInfo);
 		saveString(KEY_BIND_INFO, json);
 	}
 
-	private static void saveString(String key, String value) {
+	public static void saveString(String key, String value) {
 		mEditor.putString(key, value).commit();
 	}
 
-	private static String getString(String key) {
-		return mPrefs.getString(key, mGson.toJson(new BindInfo()));
+	public static String getString(String key, String defValue) {
+		return mPrefs.getString(key, defValue);
+	}
+
+	public static String toJson(Object src) {
+		return mGson.toJson(src);
+	}
+
+	public static <T> T fromJson(String json, Class<T> classOfT) {
+		return mGson.fromJson(json, classOfT);
 	}
 
 }
