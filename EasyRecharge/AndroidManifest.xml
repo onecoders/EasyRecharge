@@ -49,14 +49,29 @@
             android:name=".activity.ActInquiry"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 电费查询结果 -->
+        <activity
+            android:name=".activity.ActResultInquiry"
+            android:screenOrientation="portrait" >
+        </activity>
         <!-- 快捷充值 -->
         <activity
             android:name=".activity.ActRecharge"
             android:screenOrientation="portrait" >
         </activity>
+        <!-- 快捷充值结果 -->
+        <activity
+            android:name=".activity.ActResultRecharge"
+            android:screenOrientation="portrait" >
+        </activity>
         <!-- 用户绑定 -->
         <activity
             android:name=".activity.ActBind"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 用户绑定结果 -->
+        <activity
+            android:name=".activity.ActResultBind"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 充值记录 -->

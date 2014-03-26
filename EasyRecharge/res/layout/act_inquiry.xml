@@ -23,14 +23,14 @@
                 android:id="@+id/inquiry_basic_info"
                 layout="@layout/basic_info" />
 
-            <!-- 查询按钮 -->
+            <!-- inquiry button -->
 
             <Button
                 android:id="@+id/btn_inquiry"
                 style="@style/btnStyleAcapulco"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="15dip"
+                android:layout_margin="@dimen/btn_margin"
                 android:text="@string/txt_inquiry" />
         </LinearLayout>
     </ScrollView>

@@ -69,7 +69,6 @@
                     android:id="@+id/notice_checkbox"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:checked="true"
                     android:text="@string/txt_agree"
                     android:textSize="@dimen/notice_txt" />
 
@@ -82,15 +81,14 @@
                     android:textSize="@dimen/notice_txt" />
             </LinearLayout>
 
-            <!-- 充值按钮 -->
+            <!-- recharge button -->
 
             <Button
                 android:id="@+id/btn_recharge"
                 style="@style/btnStylesorbus"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="15dip"
-                android:layout_marginRight="15dip"
+                android:layout_margin="@dimen/btn_margin"
                 android:text="@string/txt_recharge" />
         </LinearLayout>
     </ScrollView>
