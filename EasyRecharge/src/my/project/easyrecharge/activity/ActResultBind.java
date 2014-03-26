@@ -22,7 +22,8 @@ public class ActResultBind extends ActBase {
 	}
 
 	private void init() {
-
+		initActionBar();
+		setAbTitle(R.string.result_bind);
 	}
 
 }

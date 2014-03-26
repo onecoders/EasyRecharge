@@ -71,5 +71,9 @@
     <!-- building chosen activity -->
     <!-- record activity -->
     <string name="no_record">尚无充值记录</string>
+    <!-- result activity -->
+    <string name="result_bind">绑定结果</string>
+    <string name="result_inquiry">查询结果</string>
+    <string name="result_recharge">充值结果</string>
 
 </resources>

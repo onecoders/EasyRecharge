@@ -22,7 +22,8 @@ public class ActResultRecharge extends ActBase {
 	}
 
 	private void init() {
-
+		initActionBar();
+		setAbTitle(R.string.result_recharge);
 	}
 
 }

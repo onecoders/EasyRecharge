@@ -22,7 +22,8 @@ public class ActResultInquiry extends ActBase {
 	}
 
 	private void init() {
-
+		initActionBar();
+		setAbTitle(R.string.result_inquiry);
 	}
 
 }
