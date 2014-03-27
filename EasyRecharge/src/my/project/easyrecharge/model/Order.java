@@ -23,14 +23,14 @@ public abstract class Order {
 	public abstract String getSchoolName();
 
 	// 获取楼号
-	public abstract int getBuildingNo();
+	public abstract String getBuildingNo();
 
-	public abstract void setBuildingNo(int buildingNo);
+	public abstract void setBuildingNo(String buildingNo);
 
 	// 获取房间号
-	public abstract int getRoomNo();
+	public abstract String getRoomNo();
 
-	public abstract void setRoomNo(int roomNo);
+	public abstract void setRoomNo(String roomNo);
 
 	// 设置充值金额
 	public void setPrice(int price) {

@@ -14,9 +14,9 @@ public class OrderWithoutBind extends Order {
 	// 学校
 	private School school;
 	// 楼号
-	private int buildingNo;
+	private String buildingNo;
 	// 房间号
-	private int roomNo;
+	private String roomNo;
 
 	@Override
 	public void setSchool(School school) {
@@ -34,22 +34,22 @@ public class OrderWithoutBind extends Order {
 	}
 
 	@Override
-	public int getBuildingNo() {
+	public String getBuildingNo() {
 		return buildingNo;
 	}
 
 	@Override
-	public void setBuildingNo(int buildingNo) {
+	public void setBuildingNo(String buildingNo) {
 		this.buildingNo = buildingNo;
 	}
 
 	@Override
-	public int getRoomNo() {
+	public String getRoomNo() {
 		return roomNo;
 	}
 
 	@Override
-	public void setRoomNo(int roomNo) {
+	public void setRoomNo(String roomNo) {
 		this.roomNo = roomNo;
 	}
 

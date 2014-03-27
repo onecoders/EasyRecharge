@@ -34,22 +34,22 @@ public class OrderWithBind extends Order {
 	}
 
 	@Override
-	public int getBuildingNo() {
+	public String getBuildingNo() {
 		return bindInfo.getBuildingNo();
 	}
 
 	@Override
-	public void setBuildingNo(int buildingNo) {
+	public void setBuildingNo(String buildingNo) {
 		bindInfo.setBuildingNo(buildingNo);
 	}
 
 	@Override
-	public int getRoomNo() {
+	public String getRoomNo() {
 		return bindInfo.getRoomNo();
 	}
 
 	@Override
-	public void setRoomNo(int roomNo) {
+	public void setRoomNo(String roomNo) {
 		bindInfo.setRoomNo(roomNo);
 	}
 

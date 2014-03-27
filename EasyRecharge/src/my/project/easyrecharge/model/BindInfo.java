@@ -14,9 +14,9 @@ public class BindInfo {
 	// 学校
 	private School school;
 	// 楼号
-	private int buildingNo;
+	private String buildingNo;
 	// 房间号
-	private int roomNo;
+	private String roomNo;
 	// 是否绑定
 	private boolean isBind;
 
@@ -36,19 +36,19 @@ public class BindInfo {
 		return school.getName();
 	}
 
-	public int getBuildingNo() {
+	public String getBuildingNo() {
 		return buildingNo;
 	}
 
-	public void setBuildingNo(int buildingNo) {
+	public void setBuildingNo(String buildingNo) {
 		this.buildingNo = buildingNo;
 	}
 
-	public int getRoomNo() {
+	public String getRoomNo() {
 		return roomNo;
 	}
 
-	public void setRoomNo(int roomNo) {
+	public void setRoomNo(String roomNo) {
 		this.roomNo = roomNo;
 	}
 

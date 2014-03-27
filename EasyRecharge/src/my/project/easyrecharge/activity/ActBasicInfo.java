@@ -1,7 +1,9 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
+import my.project.easyrecharge.model.School;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
 import android.text.Editable;
@@ -17,7 +19,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	protected TextView schoolTextView, buildingTextView;
 	protected ClearEditText roomEdit;
 
-	protected String school, building, room;
+	protected School school;
+	protected String buildingNo, roomNo;
 
 	protected void initBasicInfoViews(View basicInfoView) {
 		findView(basicInfoView);
@@ -81,10 +84,12 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
 			case RequestCode.CHOOSE_SCHOOL:
-
+				school = data.getParcelableExtra(Key.SCHOOL);
+				schoolTextView.setText(school.getName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:
-
+				buildingNo = data.getStringExtra(Key.BUILDING);
+				buildingTextView.setText(buildingNo);
 				break;
 			default:
 				break;
@@ -114,10 +119,9 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	}
 
 	private boolean isBasicInfoEmpty() {
-		school = schoolTextView.getText().toString();
-		building = buildingTextView.getText().toString();
-		room = roomEdit.getText().toString();
-		return isEmpty(school) || isEmpty(building) || isEmpty(room);
+		buildingNo = buildingTextView.getText().toString();
+		roomNo = roomEdit.getText().toString();
+		return school == null || isEmpty(buildingNo) || isEmpty(roomNo);
 	}
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);

@@ -31,4 +31,13 @@
         <item>@drawable/ic_setting_check_version</item>
     </integer-array>
 
+    <!-- recharge price list -->
+    <string-array name="recharge_price_list">
+        <item>5元</item>
+        <item>10元</item>
+        <item>20元</item>
+        <item>50元</item>
+        <item>100元</item>
+    </string-array>
+
 </resources>

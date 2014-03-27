@@ -41,6 +41,7 @@
     <string name="hint_why_need_inquiry_first">提示：为了保证充值的准确性，请先查询所需充值的房间是否存在，然后在进行充值操作。</string>
     <!-- recharge activity -->
     <string name="txt_inquiry">查&#160;&#160;&#160;询</string>
+    <string name="choose_price">请选择充值金额</string>
     <string name="txt_agree">已阅读</string>
     <string name="btn_recharge_txt">充&#160;&#160;&#160;&#160;&#160;&#160;值</string>
     <!-- bind activity -->
