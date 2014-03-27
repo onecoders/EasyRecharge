@@ -47,6 +47,8 @@
     <!-- bind activity -->
     <string name="btn_bind_txt">绑&#160;&#160;&#160;&#160;&#160;&#160;定</string>
     <string name="no_bind">用户未绑定相关信息</string>
+    <string name="bind_info_ok">绑定成功</string>
+    <string name="bind_info_wrong">绑定信息不正确，请核实</string>
     <!-- setting activity -->
     <string name="current_version">当前版本&#160;&#160;V</string>
     <string name="update_dialog_title">版&#160;本&#160;更&#160;新</string>

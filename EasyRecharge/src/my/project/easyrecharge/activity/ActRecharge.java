@@ -146,7 +146,20 @@ public class ActRecharge extends ActBasicInfo implements
 	}
 
 	private void go2Pay() {
-		
+		if (F.mBindInfo.isBind()) {
+			doPay();
+		} else {
+			checkFirst();
+		}
+	}
+
+	@Override
+	protected void doAfterCheckOK() {
+		doPay();
+	}
+
+	private void doPay() {
+		// invoke alipay method
 	}
 
 	@Override

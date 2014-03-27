@@ -6,6 +6,7 @@ import my.project.easyrecharge.contants.RequestCode;
 import my.project.easyrecharge.model.School;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -125,5 +126,42 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	}
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);
+
+	protected void checkFirst() {
+		new CheckExistTask().execute();
+	}
+
+	class CheckExistTask extends AsyncTask<Void, Void, Boolean> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			showProgressHUD();
+		}
+
+		@Override
+		protected Boolean doInBackground(Void... params) {
+			return checkExist();
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			super.onPostExecute(result);
+			dismissProgressHUD();
+			if (result) {
+				doAfterCheckOK();
+			} else {
+				showToast(R.string.bind_info_wrong);
+			}
+		}
+
+	}
+
+	private boolean checkExist() {
+		// do real check
+		return false;
+	}
+
+	protected abstract void doAfterCheckOK();
 
 }

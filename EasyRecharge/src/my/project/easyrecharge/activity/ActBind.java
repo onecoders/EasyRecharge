@@ -2,6 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.model.BindInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,8 @@ import android.widget.Button;
  * @email onecoders@gmail.com
  * 
  * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行绑定
+ * @TODO 是否绑定，如果绑定，显示解绑；如果未绑定，显示绑定
+ * @TODO 绑定成功，显示解绑界面；解绑成功，显示绑定页面
  */
 
 public class ActBind extends ActBasicInfo {
@@ -61,11 +64,26 @@ public class ActBind extends ActBasicInfo {
 		super.onClick(v);
 		switch (v.getId()) {
 		case R.id.btn_bind:
-
+			doBind();
 			break;
 		default:
 			break;
 		}
+	}
+
+	private void doBind() {
+		checkFirst();
+	}
+
+	@Override
+	protected void doAfterCheckOK() {
+		BindInfo bindInfo = new BindInfo();
+		bindInfo.setSchool(school);
+		bindInfo.setBuildingNo(buildingNo);
+		bindInfo.setRoomNo(roomNo);
+		F.bind(bindInfo);
+		showToast(R.string.bind_info_ok);
+		// 显示绑定页面，隐藏选择页面
 	}
 
 	@Override

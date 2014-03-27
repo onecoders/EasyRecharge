@@ -1,5 +1,6 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.view.View;
@@ -55,9 +56,33 @@ public class ActInquiry extends ActBasicInfo {
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
-		if (v.getId() == R.id.ab_right_btn) {
+		switch (v.getId()) {
+		case R.id.ab_right_btn:
 			switchActivityReorder2Front(ActRecharge.class);
+			break;
+		case R.id.btn_inquiry:
+			go2Inquiry();
+			break;
+		default:
+			break;
 		}
+	}
+
+	private void go2Inquiry() {
+		if (F.mBindInfo.isBind()) {
+			doInquiry();
+		} else {
+			checkFirst();
+		}
+	}
+
+	@Override
+	protected void doAfterCheckOK() {
+		doInquiry();
+	}
+
+	private void doInquiry() {
+		// do real inquiry
 	}
 
 	@Override
