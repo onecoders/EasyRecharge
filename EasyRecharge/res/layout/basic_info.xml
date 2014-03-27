@@ -82,7 +82,7 @@
         android:focusableInTouchMode="true"
         android:paddingLeft="15dip" >
 
-        <EditText
+        <my.project.easyrecharge.view.ClearEditText
             android:id="@+id/room_edittext"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

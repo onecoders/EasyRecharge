@@ -2,9 +2,9 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.RequestCode;
+import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
 import android.view.View;
-import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -12,7 +12,7 @@ public class ActBasicInfo extends ActEdittextFocus {
 
 	protected RelativeLayout roomContainer, schoolContainer, buildingContainer;
 	protected TextView schoolTextView, buildingTextView;
-	protected EditText roomEdit;
+	protected ClearEditText roomEdit;
 
 	protected void initBasicInfoViews(View basicInfoView) {
 		// school
@@ -31,7 +31,8 @@ public class ActBasicInfo extends ActEdittextFocus {
 		roomContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.room_container);
 		roomContainer.setOnClickListener(this);
-		roomEdit = (EditText) basicInfoView.findViewById(R.id.room_edittext);
+		roomEdit = (ClearEditText) basicInfoView
+				.findViewById(R.id.room_edittext);
 		setEdittextFocus(roomContainer, roomEdit);
 	}
 
