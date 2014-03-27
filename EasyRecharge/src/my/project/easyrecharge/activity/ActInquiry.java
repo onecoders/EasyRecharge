@@ -25,11 +25,31 @@ public class ActInquiry extends ActBasicInfo {
 
 	private void init() {
 		initActionBar();
+		initViews();
+	}
+
+	@Override
+	protected void initAbContent() {
 		setAbTitle(R.string.activity_title_inquiry);
 		showAbRightBtn();
 		setAbRightBtnText(R.string.txt_recharge);
 		setAbRightBtnClickListener(this);
-		initViews();
+	}
+
+	private void initViews() {
+		View basicInfoView = findViewById(R.id.inquiry_basic_info);
+		initBasicInfoViews(basicInfoView);
+	}
+
+	@Override
+	protected void findExtraView() {
+		// inquiry button
+		btnInquiry = (Button) findViewById(R.id.btn_inquiry);
+	}
+
+	@Override
+	protected void setExtraListener() {
+		btnInquiry.setOnClickListener(this);
 	}
 
 	@Override
@@ -40,12 +60,11 @@ public class ActInquiry extends ActBasicInfo {
 		}
 	}
 
-	private void initViews() {
-		View basicInfoView = findViewById(R.id.inquiry_basic_info);
-		initBasicInfoViews(basicInfoView);
-		// inquiry button
-		btnInquiry = (Button) findViewById(R.id.btn_inquiry);
-		btnInquiry.setOnClickListener(this);
+	@Override
+	protected void resetButtonEnabled(boolean basicInfoNotEmpty) {
+		// inquiry button enabled
+		boolean enabled = !(basicInfoNotEmpty);
+		btnInquiry.setEnabled(enabled);
 	}
 
 }

@@ -5,6 +5,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
+import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -18,12 +20,15 @@ import android.widget.TextView;
  * @TODO 充值前，先去服务器验证，输入房间号是否存在，存在，则进行充值
  */
 
-public class ActRecharge extends ActBasicInfo {
+public class ActRecharge extends ActBasicInfo implements
+		OnCheckedChangeListener {
 
 	private RelativeLayout priceContainer;
 	private TextView priceTextView, noticeTextView;
 	private CheckBox noticeCheckbox;
 	private Button btnRecharge;
+
+	private String price;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,17 +39,25 @@ public class ActRecharge extends ActBasicInfo {
 
 	private void init() {
 		initActionBar();
+		initViews();
+	}
+
+	@Override
+	protected void initAbContent() {
 		setAbTitle(R.string.activity_title_recharge);
 		showAbRightBtn();
 		setAbRightBtnText(R.string.txt_inquiry);
 		setAbRightBtnClickListener(this);
-		initViews();
 	}
 
 	private void initViews() {
 		// basic info
 		View basicInfoView = findViewById(R.id.recharge_basic_info);
 		initBasicInfoViews(basicInfoView);
+	}
+
+	@Override
+	protected void findExtraView() {
 		// price
 		priceContainer = (RelativeLayout) findViewById(R.id.price_container);
 		priceTextView = (TextView) findViewById(R.id.price_textview);
@@ -52,9 +65,15 @@ public class ActRecharge extends ActBasicInfo {
 		noticeCheckbox = (CheckBox) findViewById(R.id.notice_checkbox);
 		// notice
 		noticeTextView = (TextView) findViewById(R.id.notice_textview);
-		noticeTextView.setOnClickListener(this);
 		// recharge button
 		btnRecharge = (Button) findViewById(R.id.btn_recharge);
+	}
+
+	@Override
+	protected void setExtraListener() {
+		noticeCheckbox.setOnCheckedChangeListener(this);
+		noticeTextView.setOnClickListener(this);
+		priceTextView.setOnClickListener(this);
 		btnRecharge.setOnClickListener(this);
 	}
 
@@ -65,6 +84,9 @@ public class ActRecharge extends ActBasicInfo {
 		case R.id.ab_right_btn:
 			switchActivityReorder2Front(ActInquiry.class);
 			break;
+		case R.id.price_container:
+
+			break;
 		case R.id.notice_textview:
 			switchActivity(ActNotice.class);
 			break;
@@ -74,6 +96,20 @@ public class ActRecharge extends ActBasicInfo {
 		default:
 			break;
 		}
+	}
+
+	@Override
+	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+		resetButtonEnabled();
+	}
+
+	@Override
+	protected void resetButtonEnabled(boolean isBasicInfoEmpty) {
+		price = priceTextView.getText().toString();
+		boolean isChecked = noticeCheckbox.isChecked();
+		// recharge button enabled
+		boolean enabled = !(isBasicInfoEmpty || isEmpty(price) || isChecked);
+		btnRecharge.setEnabled(enabled);
 	}
 
 }

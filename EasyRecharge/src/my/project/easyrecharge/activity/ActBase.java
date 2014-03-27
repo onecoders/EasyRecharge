@@ -9,6 +9,7 @@ import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -26,8 +27,8 @@ import com.actionbarsherlock.app.SherlockActivity;
  * @email onecoders@gmail.com
  */
 
-public class ActBase extends SherlockActivity implements OnClickListener,
-		OnCancelListener {
+public abstract class ActBase extends SherlockActivity implements
+		OnClickListener, OnCancelListener {
 
 	private TextView title;
 	protected Button abLeftBtn, abRightBtn;
@@ -45,6 +46,8 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		View customerView = loadABCustomView();
 		// Now set custom view
 		initActionBarAndSetCustomView(actionBar, customerView);
+		// init actionbar content
+		initAbContent();
 	}
 
 	private View loadABCustomView() {
@@ -100,6 +103,8 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		actionBar.setCustomView(customerView, params);
 	}
 
+	protected abstract void initAbContent();
+
 	protected void showDialog(int titleId, int msgId, int leftBtnText,
 			int rightBtnText, OnLeftBtnClickListener listener) {
 		showDialog(titleId, getString(msgId), leftBtnText, false, rightBtnText,
@@ -153,6 +158,16 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		actDyncAnimate();
 	}
 
+	protected void switchActivityForResult(Class<?> cls, int requestCode,
+			Bundle extras) {
+		Intent intent = new Intent(this, cls);
+		if (extras != null) {
+			intent.putExtras(extras);
+		}
+		startActivityForResult(intent, requestCode);
+		actDyncAnimate();
+	}
+
 	protected void switchActivityReorder2Front(Class<?> cls) {
 		Intent intent = new Intent(this, cls);
 		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
@@ -172,6 +187,10 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 
 	protected void actZoomAnimate() {
 		overridePendingTransition(R.anim.zoom_enter, R.anim.zoom_exit);
+	}
+
+	protected boolean isEmpty(String str) {
+		return TextUtils.isEmpty(str);
 	}
 
 }

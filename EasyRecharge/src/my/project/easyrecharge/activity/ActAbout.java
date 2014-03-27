@@ -25,8 +25,12 @@ public class ActAbout extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_about);
 		initAppInfo();
+	}
+
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.activity_title_about);
 	}
 
 	private void initAppInfo() {

@@ -49,8 +49,12 @@ public class ActSetting extends ActUpdateApk implements ClickListener {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_setting);
 		initUITableView();
+	}
+
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.activity_title_setting);
 	}
 
 	private void initUITableView() {

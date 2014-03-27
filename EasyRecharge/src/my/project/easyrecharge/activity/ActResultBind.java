@@ -23,6 +23,10 @@ public class ActResultBind extends ActBase {
 
 	private void init() {
 		initActionBar();
+	}
+
+	@Override
+	protected void initAbContent() {
 		setAbTitle(R.string.result_bind);
 	}
 

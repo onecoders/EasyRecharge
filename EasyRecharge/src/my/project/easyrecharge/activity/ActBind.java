@@ -28,19 +28,31 @@ public class ActBind extends ActBasicInfo {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_bind);
 		if (!F.mBindInfo.isBind()) {
 			showToast(R.string.no_bind);
 		}
 		initViews();
 	}
 
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.activity_title_bind);
+	}
+
 	private void initViews() {
 		// basic info
 		View basicInfoView = findViewById(R.id.bind_basic_info);
 		initBasicInfoViews(basicInfoView);
+	}
+
+	@Override
+	protected void findExtraView() {
 		// bind button
 		btnBind = (Button) findViewById(R.id.btn_bind);
+	}
+
+	@Override
+	protected void setExtraListener() {
 		btnBind.setOnClickListener(this);
 	}
 
@@ -54,6 +66,13 @@ public class ActBind extends ActBasicInfo {
 		default:
 			break;
 		}
+	}
+
+	@Override
+	protected void resetButtonEnabled(boolean basicInfoNotEmpty) {
+		// bind button enabled
+		boolean enabled = !(basicInfoNotEmpty);
+		btnBind.setEnabled(enabled);
 	}
 
 }

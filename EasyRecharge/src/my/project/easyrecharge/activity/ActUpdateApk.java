@@ -13,7 +13,7 @@ import android.os.AsyncTask;
  * @email onecoders@gmail.com
  */
 
-public class ActUpdateApk extends ActBase {
+public abstract class ActUpdateApk extends ActBase {
 
 	// 更新操作，下载apk并安装
 	protected void doUpdate() {

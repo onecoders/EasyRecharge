@@ -31,8 +31,12 @@ public class ActFeedback extends ActEdittextFocus {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_feedback);
 		initViews();
+	}
+
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.activity_title_feedback);
 	}
 
 	private void initViews() {

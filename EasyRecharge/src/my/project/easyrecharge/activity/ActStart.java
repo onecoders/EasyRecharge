@@ -55,4 +55,9 @@ public class ActStart extends ActUpdateApk {
 
 	}
 
+	@Override
+	protected void initAbContent() {
+
+	}
+
 }

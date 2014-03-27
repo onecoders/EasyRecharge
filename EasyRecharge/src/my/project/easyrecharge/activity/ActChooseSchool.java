@@ -23,8 +23,12 @@ public class ActChooseSchool extends ActBase {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.activity_title_school_chosen);
 		loadContent();
+	}
+
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.activity_title_school_chosen);
 	}
 
 	private void loadContent() {

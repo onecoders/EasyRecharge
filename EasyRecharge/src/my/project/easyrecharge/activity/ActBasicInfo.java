@@ -4,17 +4,27 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.RequestCode;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class ActBasicInfo extends ActEdittextFocus {
+public abstract class ActBasicInfo extends ActEdittextFocus implements
+		TextWatcher {
 
 	protected RelativeLayout roomContainer, schoolContainer, buildingContainer;
 	protected TextView schoolTextView, buildingTextView;
 	protected ClearEditText roomEdit;
 
+	protected String school, building, room;
+
 	protected void initBasicInfoViews(View basicInfoView) {
+		findView(basicInfoView);
+		setListener();
+	}
+
+	protected void findView(View basicInfoView) {
 		// school
 		schoolContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.school_container);
@@ -33,18 +43,32 @@ public class ActBasicInfo extends ActEdittextFocus {
 		roomContainer.setOnClickListener(this);
 		roomEdit = (ClearEditText) basicInfoView
 				.findViewById(R.id.room_edittext);
-		setEdittextFocus(roomContainer, roomEdit);
+		findExtraView();
 	}
+
+	protected abstract void findExtraView();
+
+	protected void setListener() {
+		setEdittextFocus(roomContainer, roomEdit);
+		schoolTextView.addTextChangedListener(this);
+		buildingTextView.addTextChangedListener(this);
+		roomEdit.addTextChangedListener(this);
+		setExtraListener();
+	}
+
+	protected abstract void setExtraListener();
 
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
 		switch (v.getId()) {
 		case R.id.school_container:
-			switchActivity(ActChooseSchool.class);
+			switchActivityForResult(ActChooseSchool.class,
+					RequestCode.CHOOSE_SCHOOL, null);
 			break;
 		case R.id.building_container:
-			switchActivity(ActChooseBuilding.class);
+			switchActivityForResult(ActChooseBuilding.class,
+					RequestCode.CHOOSE_BUILDING, null);
 			break;
 		default:
 			break;
@@ -67,5 +91,35 @@ public class ActBasicInfo extends ActEdittextFocus {
 			}
 		}
 	}
+
+	@Override
+	public void beforeTextChanged(CharSequence s, int start, int count,
+			int after) {
+
+	}
+
+	@Override
+	public void afterTextChanged(Editable s) {
+
+	}
+
+	@Override
+	public void onTextChanged(CharSequence s, int start, int before, int count) {
+		resetButtonEnabled();
+	}
+
+	protected void resetButtonEnabled() {
+		boolean isBasicInfoEmpty = isBasicInfoEmpty();
+		resetButtonEnabled(isBasicInfoEmpty);
+	}
+
+	private boolean isBasicInfoEmpty() {
+		school = schoolTextView.getText().toString();
+		building = buildingTextView.getText().toString();
+		room = roomEdit.getText().toString();
+		return isEmpty(school) || isEmpty(building) || isEmpty(room);
+	}
+
+	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);
 
 }

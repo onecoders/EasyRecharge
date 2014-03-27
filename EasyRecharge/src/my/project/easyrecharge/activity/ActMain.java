@@ -33,10 +33,14 @@ public class ActMain extends ActBase implements OnItemClickListener {
 
 	private void init() {
 		initActionBar();
-		setAbTitle(R.string.app_name);
-		setAbLeftBtnText(R.string.txt_exit_btn);
 		initMenuList();
 		initGridMenu();
+	}
+
+	@Override
+	protected void initAbContent() {
+		setAbTitle(R.string.app_name);
+		setAbLeftBtnText(R.string.txt_exit_btn);
 	}
 
 	private void initMenuList() {

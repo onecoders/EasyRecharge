@@ -8,7 +8,7 @@ import android.view.View.OnTouchListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
-public class ActEdittextFocus extends ActBase {
+public abstract class ActEdittextFocus extends ActBase {
 
 	protected void setEdittextFocus(View container, final EditText edittext) {
 		container.setOnTouchListener(new OnTouchListener() {
