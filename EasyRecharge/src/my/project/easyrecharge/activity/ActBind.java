@@ -77,13 +77,19 @@ public class ActBind extends ActBasicInfo {
 
 	@Override
 	protected void doAfterCheckOK() {
+		BindInfo bindInfo = initBindInfo();
+		F.bind(bindInfo);
+		showToast(R.string.bind_info_ok);
+		// 显示绑定页面，隐藏选择页面
+	}
+
+	private BindInfo initBindInfo() {
 		BindInfo bindInfo = new BindInfo();
 		bindInfo.setSchool(school);
 		bindInfo.setBuildingNo(buildingNo);
 		bindInfo.setRoomNo(roomNo);
-		F.bind(bindInfo);
-		showToast(R.string.bind_info_ok);
-		// 显示绑定页面，隐藏选择页面
+		bindInfo.setBind(true);
+		return bindInfo;
 	}
 
 	@Override

@@ -127,9 +127,13 @@ public abstract class ActBase extends SherlockActivity implements
 		dialog.show();
 	}
 
+	protected void showProgressHUD(int resid) {
+		mProgressHUD = ProgressHUD.show(this, getString(resid), true, false,
+				this);
+	}
+
 	protected void showProgressHUD() {
-		mProgressHUD = ProgressHUD.show(this,
-				getString(R.string.hint_when_loading), true, false, this);
+		showProgressHUD(R.string.hint_when_loading);
 	}
 
 	protected void setMessage(String message) {

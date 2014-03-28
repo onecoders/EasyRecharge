@@ -3,7 +3,6 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -66,7 +65,7 @@ public class ActFeedback extends ActEdittextFocus {
 	}
 
 	private boolean checkInput(String input) {
-		return !TextUtils.isEmpty(input.trim());
+		return !isEmpty(input.trim());
 	}
 
 	private void doSubmit(String input) {

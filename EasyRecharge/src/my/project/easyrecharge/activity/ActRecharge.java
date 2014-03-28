@@ -99,7 +99,7 @@ public class ActRecharge extends ActBasicInfo implements
 			switchActivityReorder2Front(ActInquiry.class);
 			break;
 		case R.id.price_container:
-			showPriceChoose();
+			showPriceChooseDialog();
 			break;
 		case R.id.notice_textview:
 			switchActivity(ActNotice.class);
@@ -112,7 +112,7 @@ public class ActRecharge extends ActBasicInfo implements
 		}
 	}
 
-	private void showPriceChoose() {
+	private void showPriceChooseDialog() {
 		AlertDialog.Builder builder = new AlertDialog.Builder(this);
 		builder.setTitle(R.string.choose_price);
 		builder.setSingleChoiceItems(priceList, checkedItem,

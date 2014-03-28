@@ -36,6 +36,11 @@ public class ProgressHUD extends Dialog {
 		}
 	}
 
+	public void setMessage(int resId) {
+		String message = getContext().getString(resId);
+		setMessage(message);
+	}
+
 	public static ProgressHUD show(Context context, CharSequence message,
 			boolean indeterminate, boolean cancelable,
 			OnCancelListener cancelListener) {
