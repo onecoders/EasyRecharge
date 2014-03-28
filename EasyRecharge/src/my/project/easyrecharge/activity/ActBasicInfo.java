@@ -32,19 +32,16 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		// school
 		schoolContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.school_container);
-		schoolContainer.setOnClickListener(this);
 		schoolTextView = (TextView) basicInfoView
 				.findViewById(R.id.school_textview);
 		// building
 		buildingContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.building_container);
-		buildingContainer.setOnClickListener(this);
 		buildingTextView = (TextView) basicInfoView
 				.findViewById(R.id.building_textview);
 		// room
 		roomContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.room_container);
-		roomContainer.setOnClickListener(this);
 		roomEdit = (ClearEditText) basicInfoView
 				.findViewById(R.id.room_edittext);
 		findExtraView();
@@ -53,6 +50,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	protected abstract void findExtraView();
 
 	protected void setListener() {
+		schoolContainer.setOnClickListener(this);
+		buildingContainer.setOnClickListener(this);
 		setEdittextFocus(roomContainer, roomEdit);
 		schoolTextView.addTextChangedListener(this);
 		buildingTextView.addTextChangedListener(this);

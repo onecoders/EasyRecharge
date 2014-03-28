@@ -38,6 +38,14 @@
             android:inputType="textMultiLine"
             android:lines="10"
             android:textSize="@dimen/feedback_edittext_txt" />
+
+        <TextView
+            android:id="@+id/txt_left_indicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="right"
+            android:layout_marginBottom="@dimen/feedback_edittext_margin"
+            android:layout_marginRight="@dimen/feedback_edittext_margin" />
     </LinearLayout>
 
     <Button
