@@ -22,7 +22,7 @@
     <!-- feedback activity -->
     <dimen name="feedback_hint_input_advice_margin">15dip</dimen>
     <dimen name="feedback_edittext_container_margin">9dip</dimen>
-    <dimen name="feedback_edittext_container_padding">15dip</dimen>
+    <dimen name="feedback_edittext_margin">15dip</dimen>
     <dimen name="btn_margin">28dip</dimen>
 
     <!-- new alert dialog -->
