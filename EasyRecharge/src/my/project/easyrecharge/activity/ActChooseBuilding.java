@@ -10,6 +10,7 @@ import android.os.Bundle;
  * @author roy
  * @email onecoders@gmail.com
  * 
+ * @TODO 根据选择的school的id获取所有的楼号，用于显示和选择
  * @TODO invoke setResult() after chosen before return
  */
 

@@ -8,6 +8,14 @@ import android.view.View.OnTouchListener;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
+/**
+ * 抽象类，提供edittext的焦点设置的方法
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ * 
+ */
+
 public abstract class ActEdittextFocus extends ActBase {
 
 	protected void setEdittextFocus(View container, final EditText edittext) {

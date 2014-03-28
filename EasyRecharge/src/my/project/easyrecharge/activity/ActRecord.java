@@ -8,6 +8,8 @@ import android.os.Bundle;
  * 
  * @author roy
  * @email onecoders@gmail.com
+ * 
+ * @TODO listview显示充值记录，没有时显示empty view
  */
 
 public class ActRecord extends ActBase {

@@ -7,7 +7,7 @@ import android.content.Context;
 import android.os.AsyncTask;
 
 /**
- * 更新类基类
+ * 抽象类，用于应用更新时下载apk和完成后安装
  * 
  * @author roy
  * @email onecoders@gmail.com

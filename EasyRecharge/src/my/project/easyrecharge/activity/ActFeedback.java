@@ -20,11 +20,12 @@ import android.widget.TextView;
 
 public class ActFeedback extends ActEdittextFocus {
 
+	private static final int LIMIT_SIZE = 200;
+
 	private LinearLayout container;
 	private EditText mContent;
 	private Button submit;
 	private TextView mHasNum;
-	private static final int LIMIT_SIZE = 200;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,45 +58,43 @@ public class ActFeedback extends ActEdittextFocus {
 	}
 
 	private void setListener() {
-		setTextChangedListener();
+		mContent.addTextChangedListener(textWatcher);
 		setEdittextFocus(container, mContent);
 		submit.setOnClickListener(this);
 	}
 
-	private void setTextChangedListener() {
-		mContent.addTextChangedListener(new TextWatcher() {
+	private TextWatcher textWatcher = new TextWatcher() {
 
-			private CharSequence mTemp;
-			private int mSelectionStart;
-			private int mSelectionEnd;
+		private CharSequence mTemp;
+		private int mSelectionStart;
+		private int mSelectionEnd;
 
-			@Override
-			public void onTextChanged(CharSequence charSequence, int start,
-					int before, int count) {
-				mTemp = charSequence;
+		@Override
+		public void onTextChanged(CharSequence charSequence, int start,
+				int before, int count) {
+			mTemp = charSequence;
+		}
+
+		@Override
+		public void beforeTextChanged(CharSequence s, int start, int count,
+				int after) {
+
+		}
+
+		@Override
+		public void afterTextChanged(Editable editable) {
+			int number = LIMIT_SIZE - editable.length();
+			mHasNum.setText(String.valueOf(number));
+			mSelectionStart = mContent.getSelectionStart();
+			mSelectionEnd = mContent.getSelectionEnd();
+			if (mTemp.length() > LIMIT_SIZE) {
+				editable.delete(mSelectionStart - 1, mSelectionEnd);// 删掉多输入的文字
+				int tempSelection = mSelectionEnd;
+				mContent.setText(editable);
+				mContent.setSelection(tempSelection);
 			}
-
-			@Override
-			public void beforeTextChanged(CharSequence s, int start, int count,
-					int after) {
-
-			}
-
-			@Override
-			public void afterTextChanged(Editable editable) {
-				int number = LIMIT_SIZE - editable.length();
-				mHasNum.setText(String.valueOf(number));
-				mSelectionStart = mContent.getSelectionStart();
-				mSelectionEnd = mContent.getSelectionEnd();
-				if (mTemp.length() > LIMIT_SIZE) {
-					editable.delete(mSelectionStart - 1, mSelectionEnd);// 删掉多输入的文字
-					int tempSelection = mSelectionEnd;
-					mContent.setText(editable);
-					mContent.setSelection(tempSelection);
-				}
-			}
-		});
-	}
+		}
+	};
 
 	@Override
 	public void onClick(View v) {

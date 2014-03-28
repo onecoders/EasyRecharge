@@ -13,6 +13,15 @@ import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+/**
+ * 抽象类，包括选择学校/选择楼号/房间
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ * 
+ * @TODO 先获取school的id/name/icon信息，支付时，获取所选的alipay信息
+ */
+
 public abstract class ActBasicInfo extends ActEdittextFocus implements
 		TextWatcher {
 
