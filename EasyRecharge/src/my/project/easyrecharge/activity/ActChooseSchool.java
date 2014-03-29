@@ -57,6 +57,7 @@ public class ActChooseSchool extends ActBase implements OnItemClickListener {
 		Intent intent = new Intent();
 		intent.putExtra(Key.SCHOOL_JSON, F.toJson(school));
 		setResult(RESULT_OK, intent);
+		finish();
 	}
 
 	private void loadContent() {
