@@ -1,5 +1,7 @@
 package my.project.easyrecharge;
 
+import java.lang.reflect.Type;
+
 import my.project.easyrecharge.model.BindInfo;
 import my.project.easyrecharge.util.VersionUtil;
 import android.content.Context;
@@ -93,6 +95,10 @@ public class F {
 
 	public static <T> T fromJson(String json, Class<T> classOfT) {
 		return mGson.fromJson(json, classOfT);
+	}
+
+	public static <T> T fromJson(String json, Type typeOfT) {
+		return mGson.fromJson(json, typeOfT);
 	}
 
 }

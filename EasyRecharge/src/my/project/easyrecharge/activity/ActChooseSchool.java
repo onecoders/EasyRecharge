@@ -1,7 +1,17 @@
 package my.project.easyrecharge.activity;
 
+import java.util.List;
+
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.contants.Key;
+import my.project.easyrecharge.model.School;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ListView;
 
 /**
  * 学校选择
@@ -13,7 +23,10 @@ import android.os.Bundle;
  * @TODO invoke setResult() after chosen before return
  */
 
-public class ActChooseSchool extends ActBase {
+public class ActChooseSchool extends ActBase implements OnItemClickListener {
+
+	private ListView schoolListView;
+	private List<School> schoolList;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -24,6 +37,7 @@ public class ActChooseSchool extends ActBase {
 
 	private void init() {
 		initActionBar();
+		initViews();
 		loadContent();
 	}
 
@@ -32,8 +46,24 @@ public class ActChooseSchool extends ActBase {
 		setAbTitle(R.string.activity_title_school_chosen);
 	}
 
-	private void loadContent() {
+	private void initViews() {
+		schoolListView = (ListView) findViewById(R.id.school_list);
+		schoolListView.setOnItemClickListener(this);
+	}
 
+	@Override
+	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+		School school = schoolList.get(arg2);
+		Intent intent = new Intent();
+		intent.putExtra(Key.SCHOOL_JSON, F.toJson(school));
+		setResult(RESULT_OK, intent);
+	}
+
+	private void loadContent() {
+		// 请求数据
+		// schoolList = newSchoolList
+		// 刷新school listview
+		// schoolListView.setAdapter(new AdaSchool(this, schoolList));
 	}
 
 }

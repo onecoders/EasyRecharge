@@ -1,5 +1,6 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
@@ -93,11 +94,12 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		if (resultCode == RESULT_OK) {
 			switch (requestCode) {
 			case RequestCode.CHOOSE_SCHOOL:
-				school = data.getParcelableExtra(Key.SCHOOL);
+				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
+				school = F.fromJson(schoolJson, School.class);
 				schoolTextView.setText(school.getName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:
-				buildingNo = data.getStringExtra(Key.BUILDING);
+				buildingNo = data.getStringExtra(Key.BUILDING_NO);
 				buildingTextView.setText(buildingNo);
 				break;
 			default:
