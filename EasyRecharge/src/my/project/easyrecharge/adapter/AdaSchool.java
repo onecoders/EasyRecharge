@@ -4,6 +4,7 @@ import java.util.List;
 
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.model.School;
+import my.project.easyrecharge.util.ImageUtil;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,14 +21,15 @@ public class AdaSchool extends ArrayAdapter<School> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
+		School item = getItem(position);
 		if (convertView == null) {
 			convertView = LayoutInflater.from(getContext()).inflate(
 					R.layout.item_school, null);
 		}
 		ImageView img = (ImageView) convertView.findViewById(R.id.school_img);
-		//
+		ImageUtil.display(getContext(), item.getIcon(), img);
 		TextView name = (TextView) convertView.findViewById(R.id.school_name);
-		//
+		name.setText(item.getName());
 		return convertView;
 	}
 
