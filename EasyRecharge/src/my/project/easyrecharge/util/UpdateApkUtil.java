@@ -18,7 +18,7 @@ import android.os.Environment;
 public class UpdateApkUtil {
 
 	public interface OnUpdateProgressListener {
-		public void updateProgress(float progress);
+		public void updateProgress(int progress);
 	}
 
 	private OnUpdateProgressListener listener;
@@ -43,6 +43,9 @@ public class UpdateApkUtil {
 			if (is != null) {
 				File file = new File(Environment.getExternalStorageDirectory(),
 						savePath);
+				if (!file.exists()) {
+					file.createNewFile();
+				}
 				fileOutputStream = new FileOutputStream(file);
 				byte[] buf = new byte[1024];
 				int ch = -1;
@@ -51,7 +54,7 @@ public class UpdateApkUtil {
 					fileOutputStream.write(buf, 0, ch);
 					progress += ch;
 					if (listener != null) {
-						listener.updateProgress(progress * 100F / length);
+						listener.updateProgress((int) (progress * 100 / length));
 					}
 				}
 			}
@@ -70,14 +73,6 @@ public class UpdateApkUtil {
 		File apkFile = new File(Environment.getExternalStorageDirectory(),
 				savePath);
 		ApkUtil.installApk(context, apkFile);
-	}
-
-	public OnUpdateProgressListener getListener() {
-		return listener;
-	}
-
-	public void setListener(OnUpdateProgressListener listener) {
-		this.listener = listener;
 	}
 
 }

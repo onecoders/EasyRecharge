@@ -21,7 +21,7 @@ public abstract class ActUpdateApk extends ActBase {
 				F.UPDATE_SAVE_NAME);
 	}
 
-	class UpdateAsyncTask extends AsyncTask<String, Void, Void> implements
+	class UpdateAsyncTask extends AsyncTask<String, Integer, Void> implements
 			UpdateApkUtil.OnUpdateProgressListener {
 
 		private Context context;
@@ -45,6 +45,12 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 
 		@Override
+		protected void onProgressUpdate(Integer... values) {
+			super.onProgressUpdate(values);
+			updateMessage(values[0]);
+		}
+
+		@Override
 		protected void onPostExecute(Void result) {
 			super.onPostExecute(result);
 			setMessage(getString(R.string.download_finish));
@@ -53,8 +59,8 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 
 		@Override
-		public void updateProgress(float progress) {
-			updateMessage(progress);
+		public void updateProgress(int progress) {
+			publishProgress(progress);
 		}
 
 	}

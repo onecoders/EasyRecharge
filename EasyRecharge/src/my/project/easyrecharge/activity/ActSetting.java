@@ -92,7 +92,8 @@ public class ActSetting extends ActUpdateApk implements ClickListener {
 			switchActivity(ActAbout.class);
 			break;
 		case VERSION_CHECK:
-			checkUpdate();
+			//checkUpdate();
+			doUpdate();
 			break;
 		default:
 			break;

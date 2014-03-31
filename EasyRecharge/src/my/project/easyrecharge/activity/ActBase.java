@@ -140,7 +140,7 @@ public abstract class ActBase extends SherlockActivity implements
 		mProgressHUD.setMessage(message);
 	}
 
-	protected void updateMessage(float progress) {
+	protected void updateMessage(int progress) {
 		setMessage(getString(R.string.downloading) + progress + "%");
 	}
 
