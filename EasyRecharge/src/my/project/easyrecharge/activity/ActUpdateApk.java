@@ -35,7 +35,7 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 	}
 
-	class UpdateAsyncTask extends AsyncTask<String, Integer, Void> implements
+	class UpdateAsyncTask extends AsyncTask<String, Integer, Boolean> implements
 			UpdateApkUtil.OnUpdateProgressListener {
 
 		private Context context;
@@ -53,11 +53,8 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 
 		@Override
-		protected Void doInBackground(String... params) {
-			while (!isCancelled()) {
-				updateUtil.downloadFile(params[0], params[1]);
-			}
-			return null;
+		protected Boolean doInBackground(String... params) {
+			return updateUtil.downloadFile(params[0], params[1]);
 		}
 
 		@Override
@@ -67,19 +64,15 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 
 		@Override
-		protected void onCancelled() {
-			super.onCancelled();
-			updateUtil.cancelDownload();
-			setMessage(getString(R.string.download_canceled));
-			dismissProgressHUD();
-		}
-
-		@Override
-		protected void onPostExecute(Void result) {
+		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			setMessage(getString(R.string.download_finish));
+
+			setMessage(getString(result ? R.string.download_finish
+					: R.string.download_canceled));
 			dismissProgressHUD();
-			updateUtil.installApk(context);
+			if (result) {
+				updateUtil.installApk(context);
+			}
 		}
 
 		@Override
