@@ -17,6 +17,8 @@ import android.os.Environment;
 
 public class UpdateApkUtil {
 
+	private HttpClient client;
+
 	public interface OnUpdateProgressListener {
 		public void updateProgress(int progress);
 	}
@@ -31,7 +33,7 @@ public class UpdateApkUtil {
 
 	public void downloadFile(String url, String savePath) {
 		this.savePath = savePath;
-		HttpClient client = new DefaultHttpClient();
+		client = new DefaultHttpClient();
 		HttpGet get = new HttpGet(url);
 		HttpResponse response;
 		try {
@@ -69,10 +71,18 @@ public class UpdateApkUtil {
 		}
 	}
 
+	public void cancelDownload() {
+		if (client != null) {
+			client.getConnectionManager().shutdown();
+		}
+	}
+
 	public void installApk(Context context) {
 		File apkFile = new File(Environment.getExternalStorageDirectory(),
 				savePath);
-		ApkUtil.installApk(context, apkFile);
+		if (apkFile.exists()) {
+			ApkUtil.installApk(context, apkFile);
+		}
 	}
 
 }

@@ -2,12 +2,17 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
+import my.project.easyrecharge.util.NetworkUtil;
 import my.project.easyrecharge.view.NewAlertDialog;
 import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
 import my.project.easyrecharge.view.ProgressHUD;
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnCancelListener;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -35,9 +40,32 @@ public abstract class ActBase extends SherlockActivity implements
 
 	private ProgressHUD mProgressHUD;
 
+	private boolean currentConnected;
+
+	private BroadcastReceiver receiver = new BroadcastReceiver() {
+
+		@Override
+		public void onReceive(Context context, Intent intent) {
+			boolean conneced = isNetworkConnected();
+			if (currentConnected && !conneced) {
+				onNetworkInterupt();
+			} else if (!currentConnected && conneced) {
+				onNetworkConnect();
+			}
+			currentConnected = conneced;
+		}
+
+	};
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		init();
+	}
+
+	private void init() {
+		currentConnected = isNetworkConnected();
+		registerReceiver();
 	}
 
 	protected void initActionBar() {
@@ -195,6 +223,40 @@ public abstract class ActBase extends SherlockActivity implements
 
 	protected boolean isEmpty(String str) {
 		return TextUtils.isEmpty(str);
+	}
+
+	// 网络连接时调用
+	protected void onNetworkConnect() {
+		showToast(R.string.network_connect);
+	}
+
+	// 网络断开时调用
+	protected void onNetworkInterupt() {
+		showToast(R.string.network_interupt);
+	}
+
+	protected boolean isNetworkConnected() {
+		return NetworkUtil.isNetworkConnected(this);
+	}
+
+	@Override
+	protected void onDestroy() {
+		unregisterReceiver();
+		super.onDestroy();
+	}
+
+	private void registerReceiver() {
+		IntentFilter filter = new IntentFilter();
+		filter.addAction(ConnectivityManager.CONNECTIVITY_ACTION);
+		if (null != receiver) {
+			registerReceiver(receiver, filter);
+		}
+	}
+
+	private void unregisterReceiver() {
+		if (null != receiver) {
+			unregisterReceiver(receiver);
+		}
 	}
 
 }

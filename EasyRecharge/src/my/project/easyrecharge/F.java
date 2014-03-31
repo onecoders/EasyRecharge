@@ -18,7 +18,7 @@ public class F {
 	public static final String BASIC_PATH = "";
 
 	public static final String APK_CHECK_VERSON_URL = "";
-	public static final String APK_DOWNLOAD_URL = "";
+	public static final String APK_DOWNLOAD_URL = "http://gdown.baidu.com/data/wisegame/86a348e7b70205f8/VOAyingyu_18.apk";
 	public static final String UPDATE_SAVE_NAME = "easyrecharge.apk";
 
 	// 版本信息，进入应用时读取

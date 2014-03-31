@@ -15,10 +15,24 @@ import android.os.AsyncTask;
 
 public abstract class ActUpdateApk extends ActBase {
 
+	private UpdateAsyncTask task;
+
+	@Override
+	protected void onNetworkInterupt() {
+		super.onNetworkInterupt();
+		if (task != null) {
+			task.cancel(true);
+		}
+	}
+
 	// 更新操作，下载apk并安装
 	protected void doUpdate() {
-		new UpdateAsyncTask(this).execute(F.APK_DOWNLOAD_URL,
-				F.UPDATE_SAVE_NAME);
+		task = new UpdateAsyncTask(this);
+		if (isNetworkConnected()) {
+			task.execute(F.APK_DOWNLOAD_URL, F.UPDATE_SAVE_NAME);
+		} else {
+			showToast(R.string.network_ungelivable);
+		}
 	}
 
 	class UpdateAsyncTask extends AsyncTask<String, Integer, Void> implements
@@ -40,7 +54,9 @@ public abstract class ActUpdateApk extends ActBase {
 
 		@Override
 		protected Void doInBackground(String... params) {
-			updateUtil.downloadFile(params[0], params[1]);
+			while (!isCancelled()) {
+				updateUtil.downloadFile(params[0], params[1]);
+			}
 			return null;
 		}
 
@@ -48,6 +64,14 @@ public abstract class ActUpdateApk extends ActBase {
 		protected void onProgressUpdate(Integer... values) {
 			super.onProgressUpdate(values);
 			updateMessage(values[0]);
+		}
+
+		@Override
+		protected void onCancelled() {
+			super.onCancelled();
+			updateUtil.cancelDownload();
+			setMessage(getString(R.string.download_canceled));
+			dismissProgressHUD();
 		}
 
 		@Override
