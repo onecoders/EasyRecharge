@@ -68,7 +68,7 @@ public class UpdateApkUtil {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-		get.abort();
+		client.getConnectionManager().shutdown();
 		return false;
 	}
 

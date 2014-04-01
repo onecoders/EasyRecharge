@@ -15,15 +15,8 @@ import android.os.AsyncTask;
 
 public abstract class ActUpdateApk extends ActBase {
 
+	// 如果下载中取消，调用task.cancel(true)，并重写onCancelled()方法
 	private UpdateAsyncTask task;
-
-	@Override
-	protected void onNetworkInterupt() {
-		super.onNetworkInterupt();
-		if (task != null) {
-			task.cancel(true);
-		}
-	}
 
 	// 更新操作，下载apk并安装
 	protected void doUpdate() {
@@ -66,9 +59,8 @@ public abstract class ActUpdateApk extends ActBase {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-
 			setMessage(getString(result ? R.string.download_finish
-					: R.string.download_canceled));
+					: R.string.download_failed));
 			dismissProgressHUD();
 			if (result) {
 				updateUtil.installApk(context);
