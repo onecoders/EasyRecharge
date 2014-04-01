@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
 import my.project.easyrecharge.util.NetworkUtil;
 import my.project.easyrecharge.view.NewAlertDialog;
-import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
+import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
 import my.project.easyrecharge.view.ProgressHUD;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -134,19 +134,19 @@ public abstract class ActBase extends SherlockActivity implements
 	protected abstract void initAbContent();
 
 	protected void showDialog(int titleId, int msgId, int leftBtnText,
-			int rightBtnText, OnLeftBtnClickListener listener) {
+			int rightBtnText, OnDialogBtnClickListener listener) {
 		showDialog(titleId, getString(msgId), leftBtnText, false, rightBtnText,
 				listener);
 	}
 
 	protected void showDialog(int titleId, String msg, int leftBtnText,
 			boolean hideRightBtn, int rightBtnText,
-			OnLeftBtnClickListener listener) {
+			OnDialogBtnClickListener listener) {
 		NewAlertDialog dialog = new NewAlertDialog(this);
 		dialog.setTitle(titleId);
 		dialog.setMessage(msg);
 		dialog.setLeftBtnText(leftBtnText);
-		dialog.setOnLeftBtnClickListener(listener);
+		dialog.setDialogBtnClickListener(listener);
 		if (hideRightBtn) {
 			dialog.hideRightBtn();
 		} else {

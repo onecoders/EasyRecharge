@@ -2,16 +2,8 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.util.HttpUtil;
-import my.project.easyrecharge.util.VersionUtil;
-import my.project.easyrecharge.view.NewAlertDialog.OnLeftBtnClickListener;
-
-import org.json.JSONObject;
-
 import android.app.ProgressDialog;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.content.res.TypedArray;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import br.com.dina.ui.model.BasicItem;
 import br.com.dina.ui.widget.UITableView;
@@ -31,10 +23,6 @@ public class ActSetting extends ActUpdateApk implements ClickListener {
 	private UITableView tableView;
 
 	public ProgressDialog pBar;
-
-	private int verCode, newVerCode = 0;
-
-	private boolean needUpdate;
 
 	private enum SetAct {
 		FEEDBACK, ABOUT, VERSION_CHECK
@@ -92,111 +80,11 @@ public class ActSetting extends ActUpdateApk implements ClickListener {
 			switchActivity(ActAbout.class);
 			break;
 		case VERSION_CHECK:
-			//checkUpdate();
-			doUpdate();
+			checkUpdate();
 			break;
 		default:
 			break;
 		}
-	}
-
-	// check update info from server
-	private void checkUpdate() {
-		new CheckVersionTask().execute(F.APK_CHECK_VERSON_URL);
-	}
-
-	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressHUD();
-		}
-
-		@Override
-		protected Boolean doInBackground(String... params) {
-			// simulation
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			return true;
-			// do real things
-			// return checkVersion(params[0]);
-		}
-
-		@Override
-		protected void onPostExecute(Boolean result) {
-			super.onPostExecute(result);
-			dismissProgressHUD();
-			if (result) {
-				// needUpdate = newVerCode > verCode;
-				needUpdate = false;
-				if (needUpdate) {
-					doNewVersionUpdate();
-				} else {
-					notNewVersionShow();
-				}
-			}
-		}
-
-	}
-
-	private boolean checkVersion(String url) {
-		return getVerCode() && getServerVerCode(url);
-	}
-
-	// 获取本地安装包的版本号
-	private boolean getVerCode() {
-		try {
-			verCode = VersionUtil.getVersionCode(this);
-			return true;
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-		return false;
-	}
-
-	// 获取服务器端上安装包的版本号
-	private boolean getServerVerCode(String url) {
-		// [{"appname":"jtapp12","apkname":"jtapp-12-updateapksamples.apk","verName":1.0.1,"verCode":2}]
-		try {
-			String verjson = HttpUtil.getContent(url);
-			JSONObject obj = new JSONObject(verjson);
-			newVerCode = Integer.parseInt(obj.getString("verCode"));
-			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			newVerCode = -1;
-		}
-		return false;
-	}
-
-	// 没有发现新版本
-	private void notNewVersionShow() {
-		String message = getUpdateInfo();
-		showDialog(R.string.update_dialog_title, message, R.string.confirm,
-				true, 0, null);
-	}
-
-	// 发现新版本
-	private void doNewVersionUpdate() {
-		String message = getUpdateInfo();
-		showDialog(R.string.update_dialog_title, message, R.string.update_now,
-				false, R.string.update_not_now, new OnLeftBtnClickListener() {
-
-					@Override
-					public void onLeftBtnClick() {
-						doUpdate();
-					}
-
-				});
-	}
-
-	private String getUpdateInfo() {
-		return getString(needUpdate ? R.string.find_new_version_message
-				: R.string.already_newest_message);
 	}
 
 }

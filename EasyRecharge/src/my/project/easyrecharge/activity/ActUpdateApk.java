@@ -2,8 +2,15 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.util.HttpUtil;
 import my.project.easyrecharge.util.UpdateApkUtil;
+import my.project.easyrecharge.util.VersionUtil;
+import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
+
+import org.json.JSONObject;
+
 import android.content.Context;
+import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 
 /**
@@ -15,12 +22,127 @@ import android.os.AsyncTask;
 
 public abstract class ActUpdateApk extends ActBase {
 
-	// 如果下载中取消，调用task.cancel(true)，并重写onCancelled()方法
-	private UpdateAsyncTask task;
+	// cancel download task by invoking task.cancel(true)
+	// and override onCancelled()
+	private DownloadTask task;
+
+	private int verCode, newVerCode = 0;
+
+	private boolean needUpdate;
+
+	// check update info from server
+	protected void checkUpdate() {
+		new CheckVersionTask().execute(F.APK_CHECK_VERSON_URL);
+	}
+
+	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			showProgressHUD();
+		}
+
+		@Override
+		protected Boolean doInBackground(String... params) {
+			// simulation
+			try {
+				Thread.sleep(3000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+			return true;
+			// do real things
+			// return checkVersion(params[0]);
+			// return if check version succeed
+		}
+
+		@Override
+		protected void onPostExecute(Boolean result) {
+			super.onPostExecute(result);
+			dismissProgressHUD();
+			if (result) {
+				// needUpdate = newVerCode > verCode;
+				// assume needUpdate is true
+				needUpdate = true;
+				if (needUpdate) {
+					doNewVersionUpdate();
+				} else {
+					noNewVersion();
+				}
+			}
+		}
+
+	}
+
+	private boolean checkVersion(String url) {
+		return getVerCode() && getServerVerCode(url);
+	}
+
+	// get local app's version info
+	private boolean getVerCode() {
+		try {
+			verCode = VersionUtil.getVersionCode(this);
+			return true;
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
+	// get version info from server
+	private boolean getServerVerCode(String url) {
+		// [{"appname":"jtapp12","apkname":"jtapp-12-updateapksamples.apk","verName":1.0.1,"verCode":2}]
+		try {
+			String verjson = HttpUtil.getContent(url);
+			JSONObject obj = new JSONObject(verjson);
+			newVerCode = Integer.parseInt(obj.getString("verCode"));
+			return true;
+		} catch (Exception e) {
+			e.printStackTrace();
+			newVerCode = -1;
+		}
+		return false;
+	}
+
+	// 没有发现新版本
+	protected void noNewVersion() {
+		String message = getUpdateInfo();
+		showDialog(R.string.update_dialog_title, message, R.string.confirm,
+				true, 0, null);
+	}
+
+	// 发现新版本
+	private void doNewVersionUpdate() {
+		String message = getUpdateInfo();
+		showDialog(R.string.update_dialog_title, message, R.string.update_now,
+				false, R.string.update_not_now, new OnDialogBtnClickListener() {
+
+					@Override
+					public void onLeftBtnClick() {
+						doUpdate();
+					}
+
+					@Override
+					public void onRightBtnClick() {
+						notUpdateNow();
+					}
+
+				});
+	}
+
+	private String getUpdateInfo() {
+		return getString(needUpdate ? R.string.find_new_version_message
+				: R.string.already_newest_message);
+	}
+
+	protected void notUpdateNow() {
+
+	}
 
 	// 更新操作，下载apk并安装
 	protected void doUpdate() {
-		task = new UpdateAsyncTask(this);
+		task = new DownloadTask(this);
 		if (isNetworkConnected()) {
 			task.execute(F.APK_DOWNLOAD_URL, F.UPDATE_SAVE_NAME);
 		} else {
@@ -28,13 +150,13 @@ public abstract class ActUpdateApk extends ActBase {
 		}
 	}
 
-	class UpdateAsyncTask extends AsyncTask<String, Integer, Boolean> implements
+	class DownloadTask extends AsyncTask<String, Integer, Boolean> implements
 			UpdateApkUtil.OnUpdateProgressListener {
 
 		private Context context;
 		private UpdateApkUtil updateUtil;
 
-		public UpdateAsyncTask(Context context) {
+		public DownloadTask(Context context) {
 			this.context = context;
 		}
 
@@ -63,6 +185,7 @@ public abstract class ActUpdateApk extends ActBase {
 					: R.string.download_failed));
 			dismissProgressHUD();
 			if (result) {
+				// install apk
 				updateUtil.installApk(context);
 			}
 		}

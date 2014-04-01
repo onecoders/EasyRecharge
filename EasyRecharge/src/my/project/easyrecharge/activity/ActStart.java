@@ -24,15 +24,29 @@ public class ActStart extends ActUpdateApk {
 
 	private void init() {
 		getNoticeAndUpdateInfo();
-		delayAndSwitch2Main();
 	}
 
 	private void getNoticeAndUpdateInfo() {
+		if (isNetworkConnected()) {
+			checkUpdate();
+		} else {
+			delayAndSwitch2Main();
+		}
 		// 没有网络时提示没有网络，直接进应用
 		// 有网络，获取通知信息和更新信息
 		// 通知信息对话框，用户按确定后进入主界面
 		// 更新信息，点击更新，下载更新，不进入主界面
 		// 点击不更新，直接进入主界面
+	}
+
+	@Override
+	protected void noNewVersion() {
+		switch2Main();
+	}
+
+	@Override
+	protected void notUpdateNow() {
+		switch2Main();
 	}
 
 	private void delayAndSwitch2Main() {

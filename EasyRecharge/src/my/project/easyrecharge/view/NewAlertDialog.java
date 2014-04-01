@@ -12,8 +12,12 @@ import android.widget.TextView;
 
 public class NewAlertDialog extends Dialog implements OnClickListener {
 
-	public interface OnLeftBtnClickListener {
+	public interface OnDialogBtnClickListener {
+
 		public void onLeftBtnClick();
+
+		public void onRightBtnClick();
+
 	}
 
 	private Context mContext;
@@ -24,7 +28,7 @@ public class NewAlertDialog extends Dialog implements OnClickListener {
 	private TextView mMessage;
 	private View v;
 
-	private OnLeftBtnClickListener listener;
+	private OnDialogBtnClickListener listener;
 
 	public NewAlertDialog(Context context) {
 		super(context);
@@ -43,17 +47,21 @@ public class NewAlertDialog extends Dialog implements OnClickListener {
 
 	@Override
 	public void onClick(View v) {
+		if (listener == null) {
+			dismiss();
+			return;
+		}
 		switch (v.getId()) {
 		case R.id.left_btn:
-			if (listener != null) {
-				listener.onLeftBtnClick();
-			}
+			listener.onLeftBtnClick();
+			break;
 		case R.id.right_btn:
-			dismiss();
+			listener.onRightBtnClick();
 			break;
 		default:
 			break;
 		}
+		dismiss();
 	}
 
 	@Override
@@ -90,7 +98,7 @@ public class NewAlertDialog extends Dialog implements OnClickListener {
 		rightBtn.setVisibility(View.GONE);
 	}
 
-	public void setOnLeftBtnClickListener(OnLeftBtnClickListener listener) {
+	public void setDialogBtnClickListener(OnDialogBtnClickListener listener) {
 		this.listener = listener;
 	}
 
