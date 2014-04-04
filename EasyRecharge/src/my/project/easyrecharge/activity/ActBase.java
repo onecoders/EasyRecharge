@@ -187,6 +187,10 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		MToast.showText(this, resId);
 	}
 
+	protected void showToast(String msg) {
+		MToast.showText(this, msg);
+	}
+
 	protected void switchActivity(Class<?> cls) {
 		startActivity(new Intent(this, cls));
 		actDyncAnimate();

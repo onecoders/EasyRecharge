@@ -12,7 +12,7 @@ import android.os.Bundle;
  * @TODO listview显示充值记录，没有时显示empty view
  */
 
-public class ActRecord extends ActBase {
+public class ActRecord extends ActDataload {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

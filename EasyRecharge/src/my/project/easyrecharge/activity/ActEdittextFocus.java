@@ -16,7 +16,7 @@ import android.widget.EditText;
  * 
  */
 
-public class ActEdittextFocus extends ActBase {
+public class ActEdittextFocus extends ActDataload {
 
 	protected void setEdittextFocus(View container, final EditText edittext) {
 		container.setOnTouchListener(new OnTouchListener() {

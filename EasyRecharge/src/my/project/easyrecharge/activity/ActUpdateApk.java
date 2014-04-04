@@ -20,7 +20,7 @@ import android.os.AsyncTask;
  * @email onecoders@gmail.com
  */
 
-public class ActUpdateApk extends ActBase {
+public class ActUpdateApk extends ActDataload {
 
 	// cancel download task by invoking task.cancel(true)
 	// and override onCancelled()

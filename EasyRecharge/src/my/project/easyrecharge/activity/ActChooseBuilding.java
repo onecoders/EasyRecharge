@@ -14,7 +14,7 @@ import android.os.Bundle;
  * @TODO invoke setResult() after chosen before return
  */
 
-public class ActChooseBuilding extends ActBase {
+public class ActChooseBuilding extends ActDataload {
 
 	private int schoolId;
 

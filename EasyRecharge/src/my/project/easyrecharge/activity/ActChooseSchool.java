@@ -23,7 +23,7 @@ import android.widget.ListView;
  * @TODO invoke setResult() after chosen before return
  */
 
-public class ActChooseSchool extends ActBase implements OnItemClickListener {
+public class ActChooseSchool extends ActDataload implements OnItemClickListener {
 
 	private ListView schoolListView;
 	private List<School> schoolList;
