@@ -72,7 +72,7 @@ public class ActDataload extends ActBase {
 		return null;
 	}
 
-	// subclass invoke after respond OK
+	// subclass invoke after respond OK, content is json string
 	protected void disposeResult(String content) {
 
 	}
