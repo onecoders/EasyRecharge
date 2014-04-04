@@ -32,8 +32,8 @@ import com.actionbarsherlock.app.SherlockActivity;
  * @email onecoders@gmail.com
  */
 
-public abstract class ActBase extends SherlockActivity implements
-		OnClickListener, OnCancelListener {
+public class ActBase extends SherlockActivity implements OnClickListener,
+		OnCancelListener {
 
 	private TextView title;
 	protected Button abLeftBtn, abRightBtn;
@@ -131,7 +131,9 @@ public abstract class ActBase extends SherlockActivity implements
 		actionBar.setCustomView(customerView, params);
 	}
 
-	protected abstract void initAbContent();
+	protected void initAbContent() {
+
+	}
 
 	protected void showDialog(int titleId, int msgId, int leftBtnText,
 			int rightBtnText, OnDialogBtnClickListener listener) {

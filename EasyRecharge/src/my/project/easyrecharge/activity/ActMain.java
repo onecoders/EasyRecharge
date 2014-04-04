@@ -19,7 +19,7 @@ import android.widget.GridView;
  * @email onecoders@gmail.com
  */
 
-public class ActMain extends ActBase implements OnItemClickListener {
+public class ActMain extends ActUpdateApk implements OnItemClickListener {
 
 	private GridView gridMenu;
 	private IndexMenu[] menus;
@@ -32,9 +32,16 @@ public class ActMain extends ActBase implements OnItemClickListener {
 	}
 
 	private void init() {
+		checkVersion();
 		initActionBar();
 		initMenuList();
 		initGridMenu();
+	}
+
+	private void checkVersion() {
+		if (isNetworkConnected()) {
+			checkUpdate();
+		}
 	}
 
 	@Override

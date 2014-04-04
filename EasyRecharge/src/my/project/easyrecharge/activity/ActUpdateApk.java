@@ -20,7 +20,7 @@ import android.os.AsyncTask;
  * @email onecoders@gmail.com
  */
 
-public abstract class ActUpdateApk extends ActBase {
+public class ActUpdateApk extends ActBase {
 
 	// cancel download task by invoking task.cancel(true)
 	// and override onCancelled()
@@ -92,7 +92,6 @@ public abstract class ActUpdateApk extends ActBase {
 
 	// get version info from server
 	private boolean getServerVerCode(String url) {
-		// [{"appname":"jtapp12","apkname":"jtapp-12-updateapksamples.apk","verName":1.0.1,"verCode":2}]
 		try {
 			String verjson = HttpUtil.getContent(url);
 			JSONObject obj = new JSONObject(verjson);
@@ -106,7 +105,7 @@ public abstract class ActUpdateApk extends ActBase {
 	}
 
 	// 没有发现新版本
-	protected void noNewVersion() {
+	private void noNewVersion() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.confirm,
 				true, 0, null);
@@ -125,7 +124,7 @@ public abstract class ActUpdateApk extends ActBase {
 
 					@Override
 					public void onRightBtnClick() {
-						notUpdateNow();
+
 					}
 
 				});
@@ -134,10 +133,6 @@ public abstract class ActUpdateApk extends ActBase {
 	private String getUpdateInfo() {
 		return getString(needUpdate ? R.string.find_new_version_message
 				: R.string.already_newest_message);
-	}
-
-	protected void notUpdateNow() {
-
 	}
 
 	// 更新操作，下载apk并安装
