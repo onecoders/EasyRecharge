@@ -47,7 +47,7 @@ public class ActChooseSchool extends ActDataload implements OnItemClickListener 
 	}
 
 	private void initViews() {
-		schoolListView = (ListView) findViewById(R.id.school_list);
+		schoolListView = (ListView) findViewById(R.id.listview_school);
 		schoolListView.setOnItemClickListener(this);
 	}
 
