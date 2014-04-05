@@ -13,10 +13,6 @@ import org.apache.http.params.HttpParams;
 
 public class HttpUtil {
 
-	private HttpUtil() {
-
-	}
-
 	public static String getContent(String url) throws Exception {
 		StringBuilder sb = new StringBuilder();
 		HttpClient client = new DefaultHttpClient();

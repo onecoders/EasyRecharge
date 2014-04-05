@@ -103,6 +103,7 @@ public class ActUpdateApk extends ActDataload {
 	// get version info from server
 	private boolean getServerVerCode(String url) {
 		try {
+			// use xml rpc instead
 			String verjson = HttpUtil.getContent(url);
 			JSONObject obj = new JSONObject(verjson);
 			newVerCode = Integer.parseInt(obj.getString("verCode"));
@@ -114,7 +115,7 @@ public class ActUpdateApk extends ActDataload {
 		return false;
 	}
 
-	// 没有发现新版本
+	// 未发现新版本
 	private void noNewVersion() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.confirm,
