@@ -2,7 +2,7 @@
 
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
-    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>
 
     <!-- about activity -->
     <dimen name="about_icon_show_side">125dip</dimen>
@@ -11,9 +11,10 @@
     <dimen name="about_app_introduction_margin_bottom">20dip</dimen>
 
     <!-- main activity -->
-    <dimen name="main_menu_side">95dip</dimen>
+    <dimen name="main_menu_side">100dip</dimen>
     <dimen name="main_menu_icon_margin">5dip</dimen>
     <dimen name="main_menu_title_margin">5dip</dimen>
+    <dimen name="gridview_vertical_spacing">10dip</dimen>
 
     <!-- feedback activity -->
     <dimen name="feedback_hint_input_advice_margin">8dip</dimen>

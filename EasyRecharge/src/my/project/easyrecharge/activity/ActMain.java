@@ -40,7 +40,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 
 	private void checkVersion() {
 		if (isNetworkConnected()) {
-			checkUpdate();
+			checkUpdate(false);
 		}
 	}
 

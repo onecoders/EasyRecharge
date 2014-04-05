@@ -18,6 +18,7 @@
     <dimen name="main_menu_side">150dip</dimen>
     <dimen name="main_menu_icon_margin">10dip</dimen>
     <dimen name="main_menu_title_margin">10dip</dimen>
+    <dimen name="gridview_vertical_spacing">20dip</dimen>
 
     <!-- feedback activity -->
     <dimen name="feedback_hint_input_advice_margin">15dip</dimen>

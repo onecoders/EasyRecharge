@@ -31,16 +31,24 @@ public class ActUpdateApk extends ActDataload {
 	private boolean needUpdate;
 
 	// check update info from server
-	protected void checkUpdate() {
-		new CheckVersionTask().execute(F.APK_CHECK_VERSON_URL);
+	protected void checkUpdate(boolean showProgressHUD) {
+		new CheckVersionTask(showProgressHUD).execute(F.APK_CHECK_VERSON_URL);
 	}
 
 	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
 
+		private boolean showProgressHUD;
+
+		public CheckVersionTask(boolean showProgressHUD) {
+			this.showProgressHUD = showProgressHUD;
+		}
+
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			showProgressHUD();
+			if (showProgressHUD) {
+				showProgressHUD();
+			}
 		}
 
 		@Override
@@ -60,7 +68,9 @@ public class ActUpdateApk extends ActDataload {
 		@Override
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
-			dismissProgressHUD();
+			if (showProgressHUD) {
+				dismissProgressHUD();
+			}
 			if (result) {
 				// needUpdate = newVerCode > verCode;
 				// assume needUpdate is true
