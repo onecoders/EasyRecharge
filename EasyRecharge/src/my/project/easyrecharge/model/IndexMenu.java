@@ -10,7 +10,7 @@ package my.project.easyrecharge.model;
 public class IndexMenu {
 
 	public enum ActName {
-		INQUIRY, RECHARGE, BIND, RECORD, SETTING
+		INQUIRY, RECHARGE, RECORD, BIND, INFORMATION, SETTING
 	}
 
 	private int iconId;

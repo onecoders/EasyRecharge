@@ -11,7 +11,7 @@
     <dimen name="about_app_introduction_margin_bottom">20dip</dimen>
 
     <!-- main activity -->
-    <dimen name="main_menu_side">100dip</dimen>
+    <dimen name="main_menu_side">95dip</dimen>
     <dimen name="main_menu_icon_margin">5dip</dimen>
     <dimen name="main_menu_title_margin">5dip</dimen>
 

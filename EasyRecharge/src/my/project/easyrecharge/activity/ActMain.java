@@ -13,7 +13,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 /**
- * 应用首页（导航页：电费查询/快捷充值/用户绑定/充值记录/设置）
+ * 应用首页（导航页：电费查询/快捷充值/充值记录/用户绑定/通知信息/设置）
  * 
  * @author roy
  * @email onecoders@gmail.com
@@ -82,11 +82,14 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 		case RECHARGE:
 			cls = ActRecharge.class;
 			break;
+		case RECORD:
+			cls = ActRecord.class;
+			break;
 		case BIND:
 			cls = ActBind.class;
 			break;
-		case RECORD:
-			cls = ActRecord.class;
+		case INFORMATION:
+			cls = ActInformation.class;
 			break;
 		case SETTING:
 			cls = ActSetting.class;
