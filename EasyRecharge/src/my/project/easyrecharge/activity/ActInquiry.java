@@ -7,7 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * 电费查询
+ * Inquiry Page
  * 
  * @author roy
  * @email onecoders@gmail.com

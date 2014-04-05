@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.Button;
 
 /**
- * 用户绑定（帐号管理）
+ * Account Manager Page
  * 
  * @author roy
  * @email onecoders@gmail.com

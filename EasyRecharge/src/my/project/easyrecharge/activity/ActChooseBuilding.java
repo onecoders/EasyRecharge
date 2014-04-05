@@ -5,7 +5,7 @@ import my.project.easyrecharge.contants.Key;
 import android.os.Bundle;
 
 /**
- * 楼号选择
+ * Apart Choose Page
  * 
  * @author roy
  * @email onecoders@gmail.com

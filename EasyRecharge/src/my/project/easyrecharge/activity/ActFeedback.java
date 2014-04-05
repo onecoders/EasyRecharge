@@ -12,7 +12,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 /**
- * 问题反馈
+ * Feedback Page
  * 
  * @author roy
  * @email onecoders@gmail.com

@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 绑定结果显示
+ * Inquiry Result Page
  * 
  * 查询页面先进行查询操作（AsyncTask），查询成功后跳至此页面，不成功在原来页面提示
  * 

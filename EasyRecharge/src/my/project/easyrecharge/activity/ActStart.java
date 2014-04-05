@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 /**
- * 起始欢迎页
+ * Welcome Page
  * 
  * @author roy
  * @email onecoders@gmail.com

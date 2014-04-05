@@ -26,7 +26,7 @@ import com.actionbarsherlock.app.ActionBar;
 import com.actionbarsherlock.app.SherlockActivity;
 
 /**
- * 基类
+ * Base Activity
  * 
  * @author roy
  * @email onecoders@gmail.com

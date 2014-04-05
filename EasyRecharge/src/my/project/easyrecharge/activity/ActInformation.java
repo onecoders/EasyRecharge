@@ -3,6 +3,13 @@ package my.project.easyrecharge.activity;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 
+/**
+ * Information Page
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ActInformation extends ActDataload {
 
 	@Override

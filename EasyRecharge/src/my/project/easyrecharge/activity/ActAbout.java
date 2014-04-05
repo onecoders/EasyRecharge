@@ -6,7 +6,7 @@ import android.os.Bundle;
 import android.widget.TextView;
 
 /**
- * 关于
+ * About Page
  * 
  * @author roy
  * @email onecoders@gmail.com

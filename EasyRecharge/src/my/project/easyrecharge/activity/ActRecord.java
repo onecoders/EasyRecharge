@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 充值记录
+ * Records
  * 
  * @author roy
  * @email onecoders@gmail.com

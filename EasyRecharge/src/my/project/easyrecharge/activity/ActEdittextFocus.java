@@ -9,7 +9,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 
 /**
- * 抽象类，提供edittext的焦点设置的方法
+ * EditText Focus Setting Activity
  * 
  * @author roy
  * @email onecoders@gmail.com

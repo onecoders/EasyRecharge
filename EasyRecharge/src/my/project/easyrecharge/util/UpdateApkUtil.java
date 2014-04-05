@@ -30,6 +30,9 @@ public class UpdateApkUtil {
 	}
 
 	public boolean downloadFile(String url, String savePath) {
+		if (!hasSDCard()) {
+			return false;
+		}
 		this.savePath = savePath;
 		HttpClient client = new DefaultHttpClient();
 		HttpGet get = new HttpGet(url);
@@ -70,6 +73,11 @@ public class UpdateApkUtil {
 		}
 		client.getConnectionManager().shutdown();
 		return false;
+	}
+
+	private static boolean hasSDCard() {
+		return Environment.MEDIA_MOUNTED.equals(Environment
+				.getExternalStorageState());
 	}
 
 	public void installApk(Context context) {

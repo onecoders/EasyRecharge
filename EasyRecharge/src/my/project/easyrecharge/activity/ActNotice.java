@@ -4,7 +4,7 @@ import my.project.easyrecharge.R;
 import android.os.Bundle;
 
 /**
- * 使用注意事项
+ * Notice Page
  * 
  * @author roy
  * @email onecoders@gmail.com

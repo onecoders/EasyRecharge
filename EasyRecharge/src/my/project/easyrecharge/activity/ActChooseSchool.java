@@ -14,7 +14,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 
 /**
- * 学校选择
+ * School Choose Page
  * 
  * @author roy
  * @email onecoders@gmail.com

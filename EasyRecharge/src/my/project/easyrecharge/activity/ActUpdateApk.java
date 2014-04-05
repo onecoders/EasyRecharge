@@ -14,7 +14,7 @@ import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 
 /**
- * 抽象类，用于应用更新时下载apk和完成后安装
+ * Update app(Download and install)
  * 
  * @author roy
  * @email onecoders@gmail.com
@@ -32,7 +32,13 @@ public class ActUpdateApk extends ActDataload {
 
 	// check update info from server
 	protected void checkUpdate(boolean showProgressHUD) {
-		new CheckVersionTask(showProgressHUD).execute(F.APK_CHECK_VERSON_URL);
+		if (isNetworkConnected()) {
+			new CheckVersionTask(showProgressHUD)
+					.execute(F.APK_CHECK_VERSON_URL);
+		} else {
+			// hint in dataload method instead
+			showToast(R.string.network_ungelivable);
+		}
 	}
 
 	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
@@ -60,9 +66,8 @@ public class ActUpdateApk extends ActDataload {
 				e.printStackTrace();
 			}
 			return true;
-			// do real things
-			// return checkVersion(params[0]);
 			// return if check version succeed
+			// return checkVersion(params[0]);
 		}
 
 		@Override
@@ -85,6 +90,7 @@ public class ActUpdateApk extends ActDataload {
 
 	}
 
+	// do real check
 	private boolean checkVersion(String url) {
 		return getVerCode() && getServerVerCode(url);
 	}
@@ -115,14 +121,14 @@ public class ActUpdateApk extends ActDataload {
 		return false;
 	}
 
-	// 未发现新版本
+	// no new version available
 	private void noNewVersion() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.confirm,
 				true, 0, null);
 	}
 
-	// 发现新版本
+	// new version available on server
 	private void doNewVersionUpdate() {
 		String message = getUpdateInfo();
 		showDialog(R.string.update_dialog_title, message, R.string.update_now,
@@ -146,7 +152,7 @@ public class ActUpdateApk extends ActDataload {
 				: R.string.already_newest_message);
 	}
 
-	// 更新操作，下载apk并安装
+	// update app, download apk and install
 	protected void doUpdate() {
 		task = new DownloadTask(this);
 		if (isNetworkConnected()) {

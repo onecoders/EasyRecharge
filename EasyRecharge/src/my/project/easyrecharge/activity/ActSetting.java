@@ -10,9 +10,7 @@ import br.com.dina.ui.widget.UITableView;
 import br.com.dina.ui.widget.UITableView.ClickListener;
 
 /**
- * 设置
- * 
- * 主要有检测版本操作
+ * Setting Page
  * 
  * @author roy
  * @email onecoders@gmail.com

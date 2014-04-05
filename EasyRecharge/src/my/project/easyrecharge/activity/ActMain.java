@@ -13,7 +13,9 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 
 /**
- * 应用首页（导航页：电费查询/快捷充值/充值记录/用户绑定/通知信息/设置）
+ * Index Page
+ * 
+ * @include Inquiry/Recharges/Record/Bind/Information/Setting
  * 
  * @author roy
  * @email onecoders@gmail.com
@@ -32,16 +34,10 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 	}
 
 	private void init() {
-		checkVersion();
+		checkUpdate(false);
 		initActionBar();
 		initMenuList();
 		initGridMenu();
-	}
-
-	private void checkVersion() {
-		if (isNetworkConnected()) {
-			checkUpdate(false);
-		}
 	}
 
 	@Override

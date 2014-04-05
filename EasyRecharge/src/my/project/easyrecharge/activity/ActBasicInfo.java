@@ -15,7 +15,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * 抽象类，包括选择学校/选择楼号/房间
+ * Basic Information Choose Page, including School/Apart/Room
  * 
  * @author roy
  * @email onecoders@gmail.com

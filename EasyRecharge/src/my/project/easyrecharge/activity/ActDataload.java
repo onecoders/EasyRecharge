@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import my.project.easyrecharge.F;
+import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.EResult;
 import android.os.AsyncTask;
@@ -11,11 +12,23 @@ import de.timroes.axmlrpc.XMLRPCClient;
 import de.timroes.axmlrpc.XMLRPCException;
 import de.timroes.axmlrpc.XMLRPCServerException;
 
+/**
+ * Data Load Activity
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ * 
+ */
+
 public class ActDataload extends ActBase {
 
 	// subclass invoke this method to request data
 	protected void loadData(String apiName, Object... params) {
-		new RequestTask(apiName).execute(params);
+		if (isNetworkConnected()) {
+			new RequestTask(apiName).execute(params);
+		} else {
+			showToast(R.string.network_ungelivable);
+		}
 	}
 
 	// asynctask,invoke request method in other thread
@@ -42,7 +55,7 @@ public class ActDataload extends ActBase {
 		protected void onPostExecute(EResult result) {
 			super.onPostExecute(result);
 			dismissProgressHUD();
-			if (result.isSuccess()) {
+			if (result != null && result.isSuccess()) {
 				disposeResult(result.getMessage());
 			} else {
 				showToast(result.getDescription());
@@ -53,15 +66,15 @@ public class ActDataload extends ActBase {
 
 	// do really request
 	private EResult request(String apiName, Object... arg1) {
+		EResult eResult = null;
 		try {
 			XMLRPCClient client = new XMLRPCClient(new URL(F.REQUEST_URL));
 			HashMap<String, String> result = (HashMap<String, String>) client
 					.call(apiName, arg1);
-			EResult eResult = new EResult();
+			eResult = new EResult();
 			eResult.setResult(result.get(Key.RESULT));
 			eResult.setMessage(result.get(Key.MESSAGE));
 			eResult.setDescription(result.get(Key.DESCRIPTION));
-			return eResult;
 		} catch (XMLRPCServerException ex) {
 			// The server throw an error.
 		} catch (XMLRPCException ex) {
@@ -69,7 +82,7 @@ public class ActDataload extends ActBase {
 		} catch (Exception ex) {
 			// Any other exception
 		}
-		return null;
+		return eResult;
 	}
 
 	// subclass invoke after respond OK, content is json string

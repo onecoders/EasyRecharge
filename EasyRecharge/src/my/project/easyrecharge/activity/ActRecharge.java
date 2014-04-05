@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 /**
- * 支付充值
+ * Recharge Page
  * 
  * @author roy
  * @email onecoders@gmail.com
