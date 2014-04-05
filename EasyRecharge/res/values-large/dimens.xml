@@ -50,5 +50,7 @@
     <dimen name="dialog_btn_txt">20sp</dimen>
     <dimen name="basic_info_txt">22sp</dimen>
     <dimen name="notice_txt">20sp</dimen>
+    <dimen name="notice_title_txt">25sp</dimen>
+    <dimen name="notice_content_txt">20sp</dimen>
 
 </resources>
