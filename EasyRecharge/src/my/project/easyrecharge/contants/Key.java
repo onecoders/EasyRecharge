@@ -2,6 +2,10 @@ package my.project.easyrecharge.contants;
 
 public class Key {
 
+	public static final String SHOW_IMAGE_1 = "show_image_1";
+
+	public static final String BIND_INFO = "bind_info";
+
 	public static final String RESULT = "result";
 
 	public static final String MESSAGE = "message";

@@ -2,6 +2,7 @@ package my.project.easyrecharge;
 
 import java.lang.reflect.Type;
 
+import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
 import my.project.easyrecharge.util.VersionUtil;
 import android.content.Context;
@@ -25,18 +26,20 @@ public class F {
 	public static String VERSION_NAME;
 	// 用户绑定信息，用户绑定时保存，进入应用时读取
 	public static BindInfo mBindInfo;
+	// 是否显示start_image_1
+	public static boolean isShowImage1;
 
 	// shared preferences for saving bind info
 	private static SharedPreferences mPrefs;
 	private static Editor mEditor;
 
 	private static final String PREFS_NAME = "easy_recharge";
-	private static final String KEY_BIND_INFO = "key_bind_info";
 	private static Gson mGson;
 
 	public static void init(Context context) {
 		initPrefAndGson(context);
 		initVersionInfo(context);
+		loadShowImage1();
 		loadBindInfo();
 	}
 
@@ -61,8 +64,16 @@ public class F {
 		return versionName;
 	}
 
+	private static void loadShowImage1() {
+		isShowImage1 = getBoolean(Key.SHOW_IMAGE_1, true);
+	}
+
+	public static void saveIsShowImage1() {
+		putBoolean(Key.SHOW_IMAGE_1, !isShowImage1);
+	}
+
 	private static void loadBindInfo() {
-		String json = getString(KEY_BIND_INFO, toJson(new BindInfo()));
+		String json = getString(Key.BIND_INFO, toJson(new BindInfo()));
 		mBindInfo = fromJson(json, BindInfo.class);
 	}
 
@@ -78,7 +89,7 @@ public class F {
 	private static void saveBindInfo(BindInfo bindInfo) {
 		mBindInfo.updateBindInfo(bindInfo);
 		String json = toJson(bindInfo);
-		putString(KEY_BIND_INFO, json);
+		putString(Key.BIND_INFO, json);
 	}
 
 	public static void putString(String key, String value) {
@@ -87,6 +98,14 @@ public class F {
 
 	public static String getString(String key, String defValue) {
 		return mPrefs.getString(key, defValue);
+	}
+
+	public static void putBoolean(String key, boolean value) {
+		mEditor.putBoolean(key, value).commit();
+	}
+
+	public static boolean getBoolean(String key, boolean defValue) {
+		return mPrefs.getBoolean(key, defValue);
 	}
 
 	public static String toJson(Object src) {

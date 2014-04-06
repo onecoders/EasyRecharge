@@ -1,8 +1,10 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.View;
 
 /**
  * Welcome Page
@@ -23,7 +25,16 @@ public class ActStart extends ActUpdateApk {
 	}
 
 	private void init() {
+		setBackground();
 		delayAndSwitch2Main();
+	}
+
+	private void setBackground() {
+		View startPage = findViewById(R.id.start_page);
+		int bgResId = F.isShowImage1 ? R.drawable.start_image_1
+				: R.drawable.start_image_2;
+		startPage.setBackgroundResource(bgResId);
+		F.saveIsShowImage1();
 	}
 
 	private void delayAndSwitch2Main() {
