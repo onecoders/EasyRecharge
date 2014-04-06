@@ -18,7 +18,7 @@
     <!-- activity title -->
     <string name="activity_title_inquiry">电费查询</string>
     <string name="activity_title_recharge">快捷充值</string>
-    <string name="activity_title_bind">账户管理</string>
+    <string name="activity_title_bind">帐户管理</string>
     <string name="activity_title_record">充值记录</string>
     <string name="activity_title_setting">设&#160;&#160;&#160;置</string>
     <string name="activity_title_feedback">反&#160;&#160;&#160;馈</string>
