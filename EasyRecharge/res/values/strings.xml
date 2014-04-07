@@ -61,7 +61,7 @@
     <string name="downloading">下载中:</string>
     <string name="download_finish">下载完毕</string>
     <string name="download_failed">下载失败</string>
-    <string name="network_ungelivable">网络不给力</string>
+    <string name="network_ungelivable">网络不给力，请稍后重试！</string>
     <string name="network_connect">网络已连接</string>
     <string name="network_interupt">网络已断开</string>
     <!-- feedback activity -->
