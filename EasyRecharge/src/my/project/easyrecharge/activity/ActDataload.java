@@ -55,10 +55,14 @@ public class ActDataload extends ActBase {
 		protected void onPostExecute(EResult result) {
 			super.onPostExecute(result);
 			dismissProgressHUD();
-			if (result != null && result.isSuccess()) {
-				disposeResult(result.getMessage());
+			if (result != null) {
+				if (result.isSuccess()) {
+					disposeResult(result.getMessage());
+				} else {
+					showToast(result.getDescription());
+				}
 			} else {
-				showToast(result.getDescription());
+				showToast(R.string.request_failed);
 			}
 		}
 

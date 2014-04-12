@@ -170,12 +170,12 @@ public class ActUpdateApk extends ActDataload {
 
 		public DownloadTask(Context context) {
 			this.context = context;
+			this.updateUtil = new UpdateApkUtil(this);
 		}
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			updateUtil = new UpdateApkUtil(this);
 			showProgressHUD();
 		}
 
