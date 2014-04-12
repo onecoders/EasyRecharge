@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 用户绑定类
+ * Bind Info
  * 
  * 保存到本地，进入应用读取
  * 

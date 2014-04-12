@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 未绑定用户充值订单信息
+ * Recharge order Without Bind
  * 
  * 用户选择后，设置相应属性
  * 

@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 首页导航菜单
+ * Index Menu
  * 
  * @author roy
  * @email onecoders@gmail.com

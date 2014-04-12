@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 学校信息
+ * School
  * 
  * 包括学校基本信息和学校支付宝信息，从服务器端获取数据
  * 

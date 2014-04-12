@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 充值订单抽象类
+ * Recharge order
  * 
  * @author roy
  * @email onecoders@gmail.com

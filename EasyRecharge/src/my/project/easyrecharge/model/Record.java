@@ -1,9 +1,9 @@
 package my.project.easyrecharge.model;
 
 /**
- * 充值记录类
+ * Recharge Record
  * 
- * 根据学校&楼号&房间号查询，以list数据返回，解析后以ListView显示
+ * 根据 学校 & 楼号 & 房间号 查询，以list数据返回，解析后以ListView显示
  * 
  * @author roy
  * @email onecoders@gmail.com

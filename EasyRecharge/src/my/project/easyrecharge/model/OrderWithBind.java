@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 绑定用户充值订单信息
+ * Recharge order with Bind
  * 
  * 用户绑定后，保存User属性
  * 

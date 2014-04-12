@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * 相应学校支付宝信息
+ * Corresponding Alipay Info of School
  * 
  * @author roy
  * @email onecoders@gmail.com
