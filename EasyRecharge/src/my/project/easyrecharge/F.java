@@ -16,10 +16,22 @@ public class F {
 
 	public static final String TAG = "easy-recharge";
 
-	public static final String REQUEST_URL = "http://58.241.60.41:8002/api";
+	private static final String BASIC_URL = "http://58.241.60.41:8080/";
 
-	public static final String APK_CHECK_VERSON_URL = "";
-	public static final String APK_DOWNLOAD_URL = "http://gdown.baidu.com/data/wisegame/86a348e7b70205f8/VOAyingyu_18.apk";
+	public static final String XML_RPC_REQUEST_URL = BASIC_URL + "api";
+
+	public static final String HTTP_REQUEST_URL = BASIC_URL + "client/";
+
+	public static class METHOD {
+
+		public static final String QUERY = "query";
+
+		public static final String QUERY_VERSION = "version";
+
+		public static final String QUERY_SHCOOL = "school";
+
+	}
+
 	public static final String UPDATE_SAVE_NAME = "easyrecharge.apk";
 
 	// 版本信息，进入应用时读取

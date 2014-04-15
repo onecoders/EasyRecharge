@@ -7,6 +7,7 @@ import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.EResult;
+import my.project.easyrecharge.util.HttpUtil;
 import android.os.AsyncTask;
 import de.timroes.axmlrpc.XMLRPCClient;
 import de.timroes.axmlrpc.XMLRPCException;
@@ -22,21 +23,21 @@ import de.timroes.axmlrpc.XMLRPCServerException;
 
 public class ActDataload extends ActBase {
 
-	// subclass invoke this method to request data
-	protected void loadData(String apiName, Object... params) {
+	// subclass invoke this method to request data with xml rpc
+	protected void loadDataXMLRPC(String apiName, Object... params) {
 		if (isNetworkConnected()) {
-			new RequestTask(apiName).execute(params);
+			new XMLRPCRequestTask(apiName).execute(params);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
 	}
 
 	// asynctask,invoke request method in other thread
-	class RequestTask extends AsyncTask<Object, Void, EResult> {
+	class XMLRPCRequestTask extends AsyncTask<Object, Void, EResult> {
 
 		private String apiName;
 
-		public RequestTask(String apiName) {
+		public XMLRPCRequestTask(String apiName) {
 			this.apiName = apiName;
 		}
 
@@ -48,7 +49,7 @@ public class ActDataload extends ActBase {
 
 		@Override
 		protected EResult doInBackground(Object... params) {
-			return request(apiName, params);
+			return xmlrpcRequest(apiName, params);
 		}
 
 		@Override
@@ -68,11 +69,12 @@ public class ActDataload extends ActBase {
 
 	}
 
-	// do really request
-	private EResult request(String apiName, Object... arg1) {
+	// request with xml rpc
+	private EResult xmlrpcRequest(String apiName, Object... arg1) {
 		EResult eResult = null;
 		try {
-			XMLRPCClient client = new XMLRPCClient(new URL(F.REQUEST_URL));
+			XMLRPCClient client = new XMLRPCClient(new URL(
+					F.XML_RPC_REQUEST_URL));
 			HashMap<String, String> result = (HashMap<String, String>) client
 					.call(apiName, arg1);
 			eResult = new EResult();
@@ -87,6 +89,34 @@ public class ActDataload extends ActBase {
 			// Any other exception
 		}
 		return eResult;
+	}
+
+	// subclass invoke this method to request data with http
+	protected String loadDataHttp(String apiName, String params) {
+		String url = getHttpRequestUrl(apiName, params);
+		if (isNetworkConnected()) {
+			return httpRequest(url);
+		} else {
+			showToast(R.string.network_ungelivable);
+		}
+		return null;
+	}
+
+	private String getHttpRequestUrl(String apiName, String params) {
+		StringBuilder sb = new StringBuilder();
+		sb.append(F.HTTP_REQUEST_URL);
+		sb.append(apiName);
+		sb.append(params);
+		return sb.toString();
+	}
+
+	private String httpRequest(String url) {
+		try {
+			return HttpUtil.getContent(url);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return null;
 	}
 
 	// subclass invoke after respond OK, content is json string

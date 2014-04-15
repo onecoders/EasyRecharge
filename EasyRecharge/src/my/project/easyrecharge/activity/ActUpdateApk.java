@@ -1,17 +1,16 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
+import my.project.easyrecharge.F.METHOD;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.util.HttpUtil;
+import my.project.easyrecharge.model.VersionServer;
 import my.project.easyrecharge.util.UpdateApkUtil;
 import my.project.easyrecharge.util.VersionUtil;
 import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
-
-import org.json.JSONObject;
-
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
+import android.util.Log;
 
 /**
  * Update app(Download and install)
@@ -27,14 +26,14 @@ public class ActUpdateApk extends ActDataload {
 	private DownloadTask task;
 
 	private int verCode, newVerCode = 0;
-
 	private boolean needUpdate;
+	private String apkDownloadUrl;
 
 	// check update info from server
 	protected void checkUpdate(boolean showProgressHUD) {
 		if (isNetworkConnected()) {
-			new CheckVersionTask(showProgressHUD)
-					.execute(F.APK_CHECK_VERSON_URL);
+			new CheckVersionTask(showProgressHUD).execute(METHOD.QUERY_VERSION,
+					"");
 		} else {
 			// hint in dataload method instead
 			showToast(R.string.network_ungelivable);
@@ -59,15 +58,8 @@ public class ActUpdateApk extends ActDataload {
 
 		@Override
 		protected Boolean doInBackground(String... params) {
-			// simulation
-			try {
-				Thread.sleep(3000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-			return true;
 			// return if check version succeed
-			// return checkVersion(params[0]);
+			return checkVersion(params[0], params[1]);
 		}
 
 		@Override
@@ -77,13 +69,13 @@ public class ActUpdateApk extends ActDataload {
 				dismissProgressHUD();
 			}
 			if (result) {
-				// needUpdate = newVerCode > verCode;
-				// assume needUpdate is true
-				needUpdate = true;
+				needUpdate = newVerCode > verCode;
 				if (needUpdate) {
 					doNewVersionUpdate();
 				} else {
-					noNewVersion();
+					if (showProgressHUD) {
+						noNewVersion();
+					}
 				}
 			}
 		}
@@ -91,8 +83,8 @@ public class ActUpdateApk extends ActDataload {
 	}
 
 	// do real check
-	private boolean checkVersion(String url) {
-		return getVerCode() && getServerVerCode(url);
+	private boolean checkVersion(String apiName, String params) {
+		return getVerCode() && getServerVerCode(apiName, params);
 	}
 
 	// get local app's version info
@@ -107,16 +99,14 @@ public class ActUpdateApk extends ActDataload {
 	}
 
 	// get version info from server
-	private boolean getServerVerCode(String url) {
-		try {
-			// use xml rpc instead
-			String verjson = HttpUtil.getContent(url);
-			JSONObject obj = new JSONObject(verjson);
-			newVerCode = Integer.parseInt(obj.getString("verCode"));
+	private boolean getServerVerCode(String apiName, String params) {
+		String verJson = loadDataHttp(apiName, params);
+		Log.d(F.TAG, verJson);
+		if (verJson != null) {
+			VersionServer version = F.fromJson(verJson, VersionServer.class);
+			newVerCode = version.getIinfo();
+			apkDownloadUrl = version.getCinfo();
 			return true;
-		} catch (Exception e) {
-			e.printStackTrace();
-			newVerCode = -1;
 		}
 		return false;
 	}
@@ -156,7 +146,7 @@ public class ActUpdateApk extends ActDataload {
 	protected void doUpdate() {
 		task = new DownloadTask(this);
 		if (isNetworkConnected()) {
-			task.execute(F.APK_DOWNLOAD_URL, F.UPDATE_SAVE_NAME);
+			task.execute(apkDownloadUrl, F.UPDATE_SAVE_NAME);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
