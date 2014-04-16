@@ -1,18 +1,11 @@
 package my.project.easyrecharge.activity;
 
-import java.net.URL;
-import java.util.HashMap;
-
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.EResult;
-import my.project.easyrecharge.util.HttpUtil;
+import my.project.easyrecharge.util.RequestUtil;
 import android.os.AsyncTask;
 import android.util.Log;
-import de.timroes.axmlrpc.XMLRPCClient;
-import de.timroes.axmlrpc.XMLRPCException;
-import de.timroes.axmlrpc.XMLRPCServerException;
 
 /**
  * Data Load Activity
@@ -72,24 +65,12 @@ public class ActDataload extends ActBase {
 
 	// request with xml rpc
 	private EResult xmlrpcRequest(String apiName, Object... arg1) {
-		EResult eResult = null;
 		try {
-			XMLRPCClient client = new XMLRPCClient(new URL(
-					F.XML_RPC_REQUEST_URL));
-			HashMap<String, String> result = (HashMap<String, String>) client
-					.call(apiName, arg1);
-			eResult = new EResult();
-			eResult.setResult(result.get(Key.RESULT));
-			eResult.setMessage(result.get(Key.MESSAGE));
-			eResult.setDescription(result.get(Key.DESCRIPTION));
-		} catch (XMLRPCServerException ex) {
-			// The server throw an error.
-		} catch (XMLRPCException ex) {
-			// An error occured in the client.
-		} catch (Exception ex) {
-			// Any other exception
+			return RequestUtil.xmlrpcRequest(apiName, arg1);
+		} catch (Exception e) {
+			e.printStackTrace();
 		}
-		return eResult;
+		return null;
 	}
 
 	// subclass invoke this method to request data with http
@@ -150,7 +131,7 @@ public class ActDataload extends ActBase {
 	// request with http
 	private String httpRequest(String url) {
 		try {
-			return HttpUtil.getContent(url);
+			return RequestUtil.httpRequest(url);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

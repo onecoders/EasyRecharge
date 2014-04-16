@@ -32,8 +32,6 @@ public class F {
 
 	}
 
-	public static final String UPDATE_SAVE_NAME = "easyrecharge.apk";
-
 	// 版本信息，进入应用时读取
 	public static String VERSION_NAME;
 	// 用户绑定信息，用户绑定时保存，进入应用时读取

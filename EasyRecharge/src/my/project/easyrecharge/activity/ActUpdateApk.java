@@ -20,6 +20,8 @@ import android.os.AsyncTask;
 
 public class ActUpdateApk extends ActDataload {
 
+	public static final String APK_SAVE_NAME = "easyrecharge.apk";
+
 	private boolean needUpdate;
 	private VersionServer version;
 	private boolean needHint;
@@ -31,12 +33,7 @@ public class ActUpdateApk extends ActDataload {
 	// check update info from server
 	protected void checkUpdate(boolean needHint) {
 		this.needHint = needHint;
-		if (isNetworkConnected()) {
-			loadDataHttp(needHint, METHOD.QUERY_VERSION, "");
-		} else {
-			// hint in dataload method instead
-			showToast(R.string.network_ungelivable);
-		}
+		loadDataHttp(needHint, METHOD.QUERY_VERSION, "");
 	}
 
 	@Override
@@ -98,7 +95,7 @@ public class ActUpdateApk extends ActDataload {
 	protected void doUpdate() {
 		task = new DownloadTask(this);
 		if (isNetworkConnected()) {
-			task.execute(version.getCinfo(), F.UPDATE_SAVE_NAME);
+			task.execute(version.getCinfo(), APK_SAVE_NAME);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
