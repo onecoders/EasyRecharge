@@ -113,16 +113,16 @@ public class ActDataload extends ActBase {
 	// asynctask with http request
 	class HttpRequestTask extends AsyncTask<String, Void, String> {
 
-		private boolean showProgressHUD;
+		private boolean needHint;
 
-		public HttpRequestTask(boolean showProgressHUD) {
-			this.showProgressHUD = showProgressHUD;
+		public HttpRequestTask(boolean needHint) {
+			this.needHint = needHint;
 		}
 
 		@Override
 		protected void onPreExecute() {
 			super.onPreExecute();
-			if (showProgressHUD) {
+			if (needHint) {
 				showProgressHUD();
 			}
 		}
@@ -135,7 +135,7 @@ public class ActDataload extends ActBase {
 		@Override
 		protected void onPostExecute(String result) {
 			super.onPostExecute(result);
-			if (showProgressHUD) {
+			if (needHint) {
 				dismissProgressHUD();
 			}
 			if (result != null) {
