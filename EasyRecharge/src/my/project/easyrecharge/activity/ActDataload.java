@@ -9,6 +9,7 @@ import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.EResult;
 import my.project.easyrecharge.util.HttpUtil;
 import android.os.AsyncTask;
+import android.util.Log;
 import de.timroes.axmlrpc.XMLRPCClient;
 import de.timroes.axmlrpc.XMLRPCException;
 import de.timroes.axmlrpc.XMLRPCServerException;
@@ -32,7 +33,7 @@ public class ActDataload extends ActBase {
 		}
 	}
 
-	// asynctask,invoke request method in other thread
+	// asynctask with xml rpc request
 	class XMLRPCRequestTask extends AsyncTask<Object, Void, EResult> {
 
 		private String apiName;
@@ -92,14 +93,13 @@ public class ActDataload extends ActBase {
 	}
 
 	// subclass invoke this method to request data with http
-	protected String loadDataHttp(String apiName, String params) {
+	protected void loadDataHttp(boolean needHint, String apiName, String params) {
 		String url = getHttpRequestUrl(apiName, params);
 		if (isNetworkConnected()) {
-			return httpRequest(url);
+			new HttpRequestTask(needHint).execute(url);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
-		return null;
 	}
 
 	private String getHttpRequestUrl(String apiName, String params) {
@@ -110,6 +110,44 @@ public class ActDataload extends ActBase {
 		return sb.toString();
 	}
 
+	// asynctask with http request
+	class HttpRequestTask extends AsyncTask<String, Void, String> {
+
+		private boolean showProgressHUD;
+
+		public HttpRequestTask(boolean showProgressHUD) {
+			this.showProgressHUD = showProgressHUD;
+		}
+
+		@Override
+		protected void onPreExecute() {
+			super.onPreExecute();
+			if (showProgressHUD) {
+				showProgressHUD();
+			}
+		}
+
+		@Override
+		protected String doInBackground(String... params) {
+			return httpRequest(params[0]);
+		}
+
+		@Override
+		protected void onPostExecute(String result) {
+			super.onPostExecute(result);
+			if (showProgressHUD) {
+				dismissProgressHUD();
+			}
+			if (result != null) {
+				disposeResult(result);
+			} else {
+				showToast(R.string.request_failed);
+			}
+		}
+
+	}
+
+	// request with http
 	private String httpRequest(String url) {
 		try {
 			return HttpUtil.getContent(url);
@@ -121,7 +159,7 @@ public class ActDataload extends ActBase {
 
 	// subclass invoke after respond OK, content is json string
 	protected void disposeResult(String content) {
-
+		Log.d(F.TAG, content);
 	}
 
 }

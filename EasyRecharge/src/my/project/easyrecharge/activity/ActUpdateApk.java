@@ -10,7 +10,6 @@ import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
 import android.content.Context;
 import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
-import android.util.Log;
 
 /**
  * Update app(Download and install)
@@ -21,94 +20,47 @@ import android.util.Log;
 
 public class ActUpdateApk extends ActDataload {
 
+	private boolean needUpdate;
+	private VersionServer version;
+	private boolean needHint;
+
 	// cancel download task by invoking task.cancel(true)
 	// and override onCancelled()
 	private DownloadTask task;
 
-	private int verCode, newVerCode = 0;
-	private boolean needUpdate;
-	private String apkDownloadUrl;
-
 	// check update info from server
-	protected void checkUpdate(boolean showProgressHUD) {
+	protected void checkUpdate(boolean needHint) {
+		this.needHint = needHint;
 		if (isNetworkConnected()) {
-			new CheckVersionTask(showProgressHUD).execute(METHOD.QUERY_VERSION,
-					"");
+			loadDataHttp(needHint, METHOD.QUERY_VERSION, "");
 		} else {
 			// hint in dataload method instead
 			showToast(R.string.network_ungelivable);
 		}
 	}
 
-	class CheckVersionTask extends AsyncTask<String, Void, Boolean> {
-
-		private boolean showProgressHUD;
-
-		public CheckVersionTask(boolean showProgressHUD) {
-			this.showProgressHUD = showProgressHUD;
-		}
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			if (showProgressHUD) {
-				showProgressHUD();
+	@Override
+	protected void disposeResult(String content) {
+		super.disposeResult(content);
+		version = F.fromJson(content, VersionServer.class);
+		needUpdate = version.getIinfo() > getVerCode();
+		if (needUpdate) {
+			doNewVersionUpdate();
+		} else {
+			if (needHint) {
+				noNewVersion();
 			}
 		}
-
-		@Override
-		protected Boolean doInBackground(String... params) {
-			// return if check version succeed
-			return checkVersion(params[0], params[1]);
-		}
-
-		@Override
-		protected void onPostExecute(Boolean result) {
-			super.onPostExecute(result);
-			if (showProgressHUD) {
-				dismissProgressHUD();
-			}
-			if (result) {
-				needUpdate = newVerCode > verCode;
-				if (needUpdate) {
-					doNewVersionUpdate();
-				} else {
-					if (showProgressHUD) {
-						noNewVersion();
-					}
-				}
-			}
-		}
-
-	}
-
-	// do real check
-	private boolean checkVersion(String apiName, String params) {
-		return getVerCode() && getServerVerCode(apiName, params);
 	}
 
 	// get local app's version info
-	private boolean getVerCode() {
+	private int getVerCode() {
 		try {
-			verCode = VersionUtil.getVersionCode(this);
-			return true;
+			return VersionUtil.getVersionCode(this);
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
 		}
-		return false;
-	}
-
-	// get version info from server
-	private boolean getServerVerCode(String apiName, String params) {
-		String verJson = loadDataHttp(apiName, params);
-		Log.d(F.TAG, verJson);
-		if (verJson != null) {
-			VersionServer version = F.fromJson(verJson, VersionServer.class);
-			newVerCode = version.getIinfo();
-			apkDownloadUrl = version.getCinfo();
-			return true;
-		}
-		return false;
+		return 1;
 	}
 
 	// no new version available
@@ -146,7 +98,7 @@ public class ActUpdateApk extends ActDataload {
 	protected void doUpdate() {
 		task = new DownloadTask(this);
 		if (isNetworkConnected()) {
-			task.execute(apkDownloadUrl, F.UPDATE_SAVE_NAME);
+			task.execute(version.getCinfo(), F.UPDATE_SAVE_NAME);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
