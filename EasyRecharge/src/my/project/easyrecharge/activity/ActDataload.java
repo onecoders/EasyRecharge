@@ -76,6 +76,7 @@ public class ActDataload extends ActBase {
 	// subclass invoke this method to request data with http
 	protected void loadDataHttp(boolean needHint, String apiName, String params) {
 		String url = getHttpRequestUrl(apiName, params);
+		Log.d("Request", url);
 		if (isNetworkConnected()) {
 			new HttpRequestTask(needHint).execute(url);
 		} else {
@@ -140,7 +141,7 @@ public class ActDataload extends ActBase {
 
 	// subclass invoke after respond OK, content is json string
 	protected void disposeResult(String content) {
-		Log.d(F.TAG, content);
+		Log.d("Response", content);
 	}
 
 }

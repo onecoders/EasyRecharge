@@ -86,7 +86,7 @@ public class ActBind extends ActBasicInfo {
 	private BindInfo initBindInfo() {
 		BindInfo bindInfo = new BindInfo();
 		bindInfo.setSchool(school);
-		bindInfo.setBuildingNo(buildingNo);
+		bindInfo.setApart(apart);
 		bindInfo.setRoomNo(roomNo);
 		bindInfo.setBind(true);
 		return bindInfo;

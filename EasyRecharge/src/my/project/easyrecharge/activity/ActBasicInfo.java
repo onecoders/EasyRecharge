@@ -4,10 +4,12 @@ import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
+import my.project.easyrecharge.model.Apart;
 import my.project.easyrecharge.model.School;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
 import android.os.AsyncTask;
+import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -26,12 +28,13 @@ import android.widget.TextView;
 public abstract class ActBasicInfo extends ActEdittextFocus implements
 		TextWatcher {
 
-	protected RelativeLayout roomContainer, schoolContainer, buildingContainer;
-	protected TextView schoolTextView, buildingTextView;
+	protected RelativeLayout roomContainer, schoolContainer, apartContainer;
+	protected TextView schoolTextView, apartTextView;
 	protected ClearEditText roomEdit;
 
 	protected School school;
-	protected String buildingNo, roomNo;
+	protected Apart apart;
+	protected String roomNo;
 
 	protected void initBasicInfoViews(View basicInfoView) {
 		findView(basicInfoView);
@@ -44,11 +47,11 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				.findViewById(R.id.school_container);
 		schoolTextView = (TextView) basicInfoView
 				.findViewById(R.id.school_textview);
-		// building
-		buildingContainer = (RelativeLayout) basicInfoView
-				.findViewById(R.id.building_container);
-		buildingTextView = (TextView) basicInfoView
-				.findViewById(R.id.building_textview);
+		// apart
+		apartContainer = (RelativeLayout) basicInfoView
+				.findViewById(R.id.apart_container);
+		apartTextView = (TextView) basicInfoView
+				.findViewById(R.id.apart_textview);
 		// room
 		roomContainer = (RelativeLayout) basicInfoView
 				.findViewById(R.id.room_container);
@@ -61,10 +64,10 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	protected void setListener() {
 		schoolContainer.setOnClickListener(this);
-		buildingContainer.setOnClickListener(this);
+		apartContainer.setOnClickListener(this);
 		setEdittextFocus(roomContainer, roomEdit);
 		schoolTextView.addTextChangedListener(this);
-		buildingTextView.addTextChangedListener(this);
+		apartTextView.addTextChangedListener(this);
 		roomEdit.addTextChangedListener(this);
 		setExtraListener();
 	}
@@ -79,8 +82,14 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			switchActivityForResult(ActChooseSchool.class,
 					RequestCode.CHOOSE_SCHOOL, null);
 			break;
-		case R.id.building_container:
-			switchActivityForResult(ActChooseBuilding.class,
+		case R.id.apart_container:
+			if (school == null) {
+				showToast(R.string.hint_choose_school_first);
+				return;
+			}
+			Bundle extra = new Bundle();
+			extra.putString(Key.SCHOOL_ID, school.getSchoolID());
+			switchActivityForResult(ActChooseApart.class,
 					RequestCode.CHOOSE_BUILDING, null);
 			break;
 		default:
@@ -98,14 +107,16 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				School selectSchool = F.fromJson(schoolJson, School.class);
 				if (school != null
 						&& selectSchool.getSchoolID() != school.getSchoolID()) {
-					buildingTextView.setText("");
+					apart = null;
+					apartTextView.setText("");
 				}
 				school = selectSchool;
 				schoolTextView.setText(school.getSchoolName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:
-				buildingNo = data.getStringExtra(Key.BUILDING_NO);
-				buildingTextView.setText(buildingNo);
+				String apartJson = data.getStringExtra(Key.APART_JSON);
+				Apart selectApart = F.fromJson(apartJson, Apart.class);
+				apartTextView.setText(selectApart.getApartName());
 				break;
 			default:
 				break;
@@ -135,9 +146,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	}
 
 	private boolean isBasicInfoEmpty() {
-		buildingNo = buildingTextView.getText().toString();
 		roomNo = roomEdit.getText().toString();
-		return school == null || isEmpty(buildingNo) || isEmpty(roomNo);
+		return school == null || apart == null || isEmpty(roomNo);
 	}
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);

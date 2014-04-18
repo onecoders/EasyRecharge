@@ -13,8 +13,8 @@ public class OrderWithoutBind extends Order {
 
 	// 学校
 	private School school;
-	// 楼号
-	private String buildingNo;
+	// 公寓
+	private Apart apart;
 	// 房间号
 	private String roomNo;
 
@@ -24,7 +24,7 @@ public class OrderWithoutBind extends Order {
 	}
 
 	@Override
-	public int getSchoolId() {
+	public String getSchoolId() {
 		return school.getSchoolID();
 	}
 
@@ -34,22 +34,27 @@ public class OrderWithoutBind extends Order {
 	}
 
 	@Override
-	public String getBuildingNo() {
-		return buildingNo;
+	public void setApart(Apart apart) {
+		this.apart = apart;
 	}
 
 	@Override
-	public void setBuildingNo(String buildingNo) {
-		this.buildingNo = buildingNo;
+	public String getApartId() {
+		return apart.getApartID();
 	}
 
 	@Override
-	public String getRoomNo() {
+	public String getApartName() {
+		return apart.getApartName();
+	}
+
+	@Override
+	public String getRoomNum() {
 		return roomNo;
 	}
 
 	@Override
-	public void setRoomNo(String roomNo) {
+	public void setRoomNum(String roomNo) {
 		this.roomNo = roomNo;
 	}
 

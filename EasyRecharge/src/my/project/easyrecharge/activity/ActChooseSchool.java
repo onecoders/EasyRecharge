@@ -72,12 +72,6 @@ public class ActChooseSchool extends ActDataload implements
 	}
 
 	@Override
-	protected void onResume() {
-		super.onResume();
-		loadContent();
-	}
-
-	@Override
 	protected void initAbContent() {
 		setAbTitle(R.string.activity_title_school_chosen);
 	}
@@ -109,12 +103,19 @@ public class ActChooseSchool extends ActDataload implements
 	}
 
 	@Override
-	public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
-		School school = list.get(arg2);
+	public void onItemClick(AdapterView<?> parent, View view, int position,
+			long id) {
+		School school = list.get(position);
 		Intent intent = new Intent();
 		intent.putExtra(Key.SCHOOL_JSON, F.toJson(school));
 		setResult(RESULT_OK, intent);
 		finish();
+	}
+
+	@Override
+	protected void onResume() {
+		super.onResume();
+		loadContent();
 	}
 
 	private void loadContent() {
@@ -125,10 +126,14 @@ public class ActChooseSchool extends ActDataload implements
 	protected void disposeResult(String content) {
 		super.disposeResult(content);
 		list.clear();
-		Type collectionType = new TypeToken<List<School>>() {
-		}.getType();
-		List<School> newList = F.fromJson(content, collectionType);
-		list.addAll(newList);
+		try {
+			Type collectionType = new TypeToken<List<School>>() {
+			}.getType();
+			List<School> newList = F.fromJson(content, collectionType);
+			list.addAll(newList);
+		} catch (Exception e) {
+			showToast(R.string.error_data);
+		}
 		if (list.size() > 0) {
 			Collections.sort(list, comparator);
 			initAlphaIndexer();

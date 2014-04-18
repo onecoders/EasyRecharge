@@ -30,6 +30,8 @@ public class F {
 
 		public static final String QUERY_SHCOOL = "school";
 
+		public static final String QUERY_APART = "apart";
+
 	}
 
 	// 版本信息，进入应用时读取

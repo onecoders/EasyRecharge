@@ -13,8 +13,8 @@ public class BindInfo {
 
 	// 学校
 	private School school;
-	// 楼号
-	private String buildingNo;
+	// 公寓
+	private Apart apart;
 	// 房间号
 	private String roomNo;
 	// 是否绑定
@@ -28,7 +28,7 @@ public class BindInfo {
 		this.school = school;
 	}
 
-	public int getSchoolId() {
+	public String getSchoolId() {
 		return school.getSchoolID();
 	}
 
@@ -36,12 +36,20 @@ public class BindInfo {
 		return school.getSchoolName();
 	}
 
-	public String getBuildingNo() {
-		return buildingNo;
+	public Apart getApart() {
+		return apart;
 	}
 
-	public void setBuildingNo(String buildingNo) {
-		this.buildingNo = buildingNo;
+	public void setApart(Apart apart) {
+		this.apart = apart;
+	}
+
+	public String getApartId() {
+		return apart.getApartID();
+	}
+
+	public String getApartName() {
+		return apart.getApartName();
 	}
 
 	public String getRoomNo() {
@@ -77,7 +85,7 @@ public class BindInfo {
 
 	public void updateBindInfo(BindInfo bindInfo) {
 		setSchool(bindInfo.getSchool());
-		setBuildingNo(bindInfo.getBuildingNo());
+		setApart(bindInfo.getApart());
 		setRoomNo(bindInfo.getRoomNo());
 		setBind(bindInfo.isBind());
 	}

@@ -37,6 +37,7 @@
     <string name="hint_choose_building">楼号</string>
     <string name="hint_input_room">请输入房间号</string>
     <string name="hint_choose_price">充值金额</string>
+    <string name="hint_choose_school_first">请先选择学校</string>
     <string name="txt_notice">《使用注意事项》</string>
     <string name="txt_recharge">充&#160;&#160;&#160;值</string>
     <string name="hint_why_need_inquiry_first">提示：为了保证充值的准确性，请先查询所需充值的房间是否存在，然后在进行充值操作。</string>
@@ -66,6 +67,7 @@
     <string name="network_connect">网络已连接</string>
     <string name="network_interupt">网络已断开</string>
     <string name="request_failed">获取信息失败！</string>
+    <string name="error_data">数据错误！</string>
     <!-- feedback activity -->
     <string name="hint_input_advice">请填写您的意见或建议：</string>
     <string name="hint_input_here">输入意见或建议&#8230;</string>

@@ -139,8 +139,8 @@ public class ActRecharge extends ActBasicInfo implements
 		} else {
 			order = new OrderWithoutBind();
 			order.setSchool(school);
-			order.setBuildingNo(buildingNo);
-			order.setRoomNo(roomNo);
+			order.setApart(apart);
+			order.setRoomNum(roomNo);
 		}
 		order.setPrice(priceArr[checkedItem]);
 	}

@@ -15,29 +15,22 @@ import my.project.easyrecharge.util.LetterUtil;
 
 public class School {
 
-	private int ID;
 	// 学校id，唯一
-	private int SchoolID;
+	private String SchoolID;
 	// 学校名称
 	private String SchoolName;
+	//
 	private String ZFBAccount;
 	// 学校对应的支付宝信息
 	private AlipayInfo alipayInfo;
+	// 首字母
 	private String alpha;
 
-	public int getID() {
-		return ID;
-	}
-
-	public void setID(int iD) {
-		ID = iD;
-	}
-
-	public int getSchoolID() {
+	public String getSchoolID() {
 		return SchoolID;
 	}
 
-	public void setSchoolID(int schoolID) {
+	public void setSchoolID(String schoolID) {
 		SchoolID = schoolID;
 	}
 
