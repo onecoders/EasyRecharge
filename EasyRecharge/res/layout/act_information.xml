@@ -8,8 +8,14 @@
     android:paddingTop="@dimen/activity_vertical_margin" >
 
     <ListView
-        android:id="@+id/listview_information"
+        android:id="@+id/listview_info"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="wrap_content"
+        android:cacheColorHint="#00000000"
+        android:divider="@null"
+        android:dividerHeight="0.0px"
+        android:fadingEdgeLength="0dip"
+        android:listSelector="@null"
+        android:scrollbars="none" />
 
 </LinearLayout>

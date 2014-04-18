@@ -32,6 +32,8 @@ public class F {
 
 		public static final String QUERY_APART = "apart";
 
+		public static final String QUERY_ANNOUNCEMENT = "announcement";
+
 	}
 
 	// 版本信息，进入应用时读取
