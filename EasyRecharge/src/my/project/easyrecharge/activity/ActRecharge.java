@@ -160,7 +160,7 @@ public class ActRecharge extends ActBasicInfo implements
 
 	private void doPay() {
 		// invoke alipay method
-		
+
 	}
 
 	@Override
@@ -171,9 +171,9 @@ public class ActRecharge extends ActBasicInfo implements
 	@Override
 	protected void resetButtonEnabled(boolean isBasicInfoEmpty) {
 		price = priceTextView.getText().toString();
-		boolean isChecked = noticeCheckbox.isChecked();
+		boolean isUnchecked = !noticeCheckbox.isChecked();
 		// recharge button enabled
-		boolean enabled = !(isBasicInfoEmpty || isEmpty(price) || isChecked);
+		boolean enabled = !(isBasicInfoEmpty || isEmpty(price) || isUnchecked);
 		btnRecharge.setEnabled(enabled);
 	}
 
