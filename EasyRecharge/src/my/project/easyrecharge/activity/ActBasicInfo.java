@@ -90,7 +90,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			Bundle extra = new Bundle();
 			extra.putString(Key.SCHOOL_ID, school.getSchoolID());
 			switchActivityForResult(ActChooseApart.class,
-					RequestCode.CHOOSE_BUILDING, null);
+					RequestCode.CHOOSE_BUILDING, extra);
 			break;
 		default:
 			break;
@@ -115,8 +115,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				String apartJson = data.getStringExtra(Key.APART_JSON);
-				Apart selectApart = F.fromJson(apartJson, Apart.class);
-				apartTextView.setText(selectApart.getApartName());
+				apart = F.fromJson(apartJson, Apart.class);
+				apartTextView.setText(apart.getApartName());
 				break;
 			default:
 				break;

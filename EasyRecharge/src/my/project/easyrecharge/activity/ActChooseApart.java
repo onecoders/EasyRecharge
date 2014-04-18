@@ -29,10 +29,9 @@ import com.google.gson.reflect.TypeToken;
  * @TODO invoke setResult() after chosen before return
  */
 
-public class ActChooseApart extends ActDataload implements
-		OnItemClickListener {
+public class ActChooseApart extends ActDataload implements OnItemClickListener {
 
-	private int schoolId;
+	private String schoolId;
 
 	private ListView listView;
 	private List<Apart> list;
@@ -80,7 +79,7 @@ public class ActChooseApart extends ActDataload implements
 	private void loadContent() {
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			schoolId = bundle.getInt(Key.SCHOOL_ID);
+			schoolId = bundle.getString(Key.SCHOOL_ID);
 			loadBuildingInfo();
 		}
 	}
