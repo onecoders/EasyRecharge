@@ -7,7 +7,7 @@ import java.util.HashMap;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.contants.Key;
-import my.project.easyrecharge.model.EResult;
+import my.project.easyrecharge.model.ElecResult;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,12 +21,12 @@ import de.timroes.axmlrpc.XMLRPCClient;
 
 public class RequestUtil {
 
-	public static EResult xmlrpcRequest(String apiName, Object... arg1)
+	public static ElecResult xmlrpcRequest(String apiName, Object... arg1)
 			throws Exception {
 		XMLRPCClient client = new XMLRPCClient(new URL(F.XML_RPC_REQUEST_URL));
 		HashMap<String, String> result = (HashMap<String, String>) client.call(
 				apiName, arg1);
-		EResult eResult = new EResult();
+		ElecResult eResult = new ElecResult();
 		eResult.setResult(result.get(Key.RESULT));
 		eResult.setMessage(result.get(Key.MESSAGE));
 		eResult.setDescription(result.get(Key.DESCRIPTION));

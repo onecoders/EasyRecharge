@@ -7,7 +7,7 @@ package my.project.easyrecharge.model;
  * @email onecoders@gmail.com
  */
 
-public class EResult {
+public class ElecResult {
 
 	private String result;
 	private String message;

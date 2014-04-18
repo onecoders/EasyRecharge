@@ -2,7 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.model.EResult;
+import my.project.easyrecharge.model.ElecResult;
 import my.project.easyrecharge.util.RequestUtil;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -27,7 +27,7 @@ public class ActDataload extends ActBase {
 	}
 
 	// asynctask with xml rpc request
-	class XMLRPCRequestTask extends AsyncTask<Object, Void, EResult> {
+	class XMLRPCRequestTask extends AsyncTask<Object, Void, ElecResult> {
 
 		private String apiName;
 
@@ -42,12 +42,12 @@ public class ActDataload extends ActBase {
 		}
 
 		@Override
-		protected EResult doInBackground(Object... params) {
+		protected ElecResult doInBackground(Object... params) {
 			return xmlrpcRequest(apiName, params);
 		}
 
 		@Override
-		protected void onPostExecute(EResult result) {
+		protected void onPostExecute(ElecResult result) {
 			super.onPostExecute(result);
 			dismissProgressHUD();
 			if (result != null) {
@@ -64,7 +64,7 @@ public class ActDataload extends ActBase {
 	}
 
 	// request with xml rpc
-	private EResult xmlrpcRequest(String apiName, Object... arg1) {
+	private ElecResult xmlrpcRequest(String apiName, Object... arg1) {
 		try {
 			return RequestUtil.xmlrpcRequest(apiName, arg1);
 		} catch (Exception e) {

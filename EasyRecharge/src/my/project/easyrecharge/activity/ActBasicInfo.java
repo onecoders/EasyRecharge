@@ -95,7 +95,12 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			switch (requestCode) {
 			case RequestCode.CHOOSE_SCHOOL:
 				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
-				school = F.fromJson(schoolJson, School.class);
+				School selectSchool = F.fromJson(schoolJson, School.class);
+				if (school != null
+						&& selectSchool.getSchoolID() != school.getSchoolID()) {
+					buildingTextView.setText("");
+				}
+				school = selectSchool;
 				schoolTextView.setText(school.getSchoolName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:

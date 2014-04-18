@@ -160,6 +160,7 @@ public class ActRecharge extends ActBasicInfo implements
 
 	private void doPay() {
 		// invoke alipay method
+		
 	}
 
 	@Override
