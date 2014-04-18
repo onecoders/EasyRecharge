@@ -32,7 +32,6 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 /**
@@ -128,18 +127,10 @@ public class ActChooseSchool extends ActDataload implements
 		list.clear();
 		Type collectionType = new TypeToken<List<School>>() {
 		}.getType();
-		List<School> newList = new Gson().fromJson(content, collectionType);
+		List<School> newList = F.fromJson(content, collectionType);
 		list.addAll(newList);
 		if (list.size() > 0) {
-			Collections.sort(list, new Comparator<School>() {
-
-				@Override
-				public int compare(School arg0, School arg1) {
-					return Collator.getInstance(Locale.CHINESE).compare(
-							arg0.getSchoolName(), arg1.getSchoolName());
-				}
-
-			});
+			Collections.sort(list, comparator);
 			initAlphaIndexer();
 			setAdatper();
 		}
@@ -190,6 +181,16 @@ public class ActChooseSchool extends ActDataload implements
 			}
 		}
 	}
+
+	private Comparator<School> comparator = new Comparator<School>() {
+
+		@Override
+		public int compare(School arg0, School arg1) {
+			return Collator.getInstance(Locale.CHINESE).compare(
+					arg0.getSchoolName(), arg1.getSchoolName());
+		}
+
+	};
 
 	@Override
 	protected void onDestroy() {

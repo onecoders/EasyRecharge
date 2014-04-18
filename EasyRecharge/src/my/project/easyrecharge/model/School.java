@@ -2,6 +2,8 @@ package my.project.easyrecharge.model;
 
 import java.util.regex.Pattern;
 
+import my.project.easyrecharge.util.LetterUtil;
+
 /**
  * School
  * 
@@ -89,7 +91,8 @@ public class School {
 		if (str.trim().length() == 0) {
 			return "#";
 		}
-		char c = str.trim().substring(0, 1).charAt(0);
+		String letter = LetterUtil.getFirstLetter(str.trim().substring(0, 1));
+		char c = letter.charAt(0);
 		Pattern pattern = Pattern.compile("^[A-Za-z]+$");
 		if (pattern.matcher(c + "").matches()) {
 			return (c + "").toUpperCase();
