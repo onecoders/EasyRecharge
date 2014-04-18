@@ -96,7 +96,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			case RequestCode.CHOOSE_SCHOOL:
 				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
 				school = F.fromJson(schoolJson, School.class);
-				schoolTextView.setText(school.getName());
+				schoolTextView.setText(school.getSchoolName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				buildingNo = data.getStringExtra(Key.BUILDING_NO);

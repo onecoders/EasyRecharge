@@ -29,11 +29,11 @@ public class BindInfo {
 	}
 
 	public int getSchoolId() {
-		return school.getId();
+		return school.getSchoolID();
 	}
 
 	public String getSchoolName() {
-		return school.getName();
+		return school.getSchoolName();
 	}
 
 	public String getBuildingNo() {

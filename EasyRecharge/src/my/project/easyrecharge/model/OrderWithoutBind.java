@@ -25,12 +25,12 @@ public class OrderWithoutBind extends Order {
 
 	@Override
 	public int getSchoolId() {
-		return school.getId();
+		return school.getSchoolID();
 	}
 
 	@Override
 	public String getSchoolName() {
-		return school.getName();
+		return school.getSchoolName();
 	}
 
 	@Override

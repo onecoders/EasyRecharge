@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import java.util.regex.Pattern;
+
 /**
  * School
  * 
@@ -11,37 +13,46 @@ package my.project.easyrecharge.model;
 
 public class School {
 
+	private int ID;
 	// 学校id，唯一
-	private int id;
+	private int SchoolID;
 	// 学校名称
-	private String name;
-	// 学校校徽图片地址
-	private String icon;
+	private String SchoolName;
+	private String ZFBAccount;
 	// 学校对应的支付宝信息
 	private AlipayInfo alipayInfo;
+	private String alpha;
 
-	public int getId() {
-		return id;
+	public int getID() {
+		return ID;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setID(int iD) {
+		ID = iD;
 	}
 
-	public String getName() {
-		return name;
+	public int getSchoolID() {
+		return SchoolID;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setSchoolID(int schoolID) {
+		SchoolID = schoolID;
 	}
 
-	public String getIcon() {
-		return icon;
+	public String getSchoolName() {
+		return SchoolName;
 	}
 
-	public void setIcon(String icon) {
-		this.icon = icon;
+	public void setSchoolName(String schoolName) {
+		SchoolName = schoolName;
+	}
+
+	public String getZFBAccount() {
+		return ZFBAccount;
+	}
+
+	public void setZFBAccount(String zFBAccount) {
+		ZFBAccount = zFBAccount;
 	}
 
 	public AlipayInfo getAlipayInfo() {
@@ -65,6 +76,26 @@ public class School {
 	// 获取私钥
 	public String getPrivateKey() {
 		return alipayInfo.getPrivateKey();
+	}
+
+	public String getAlpha() {
+		return formatAlpha(SchoolName);
+	}
+
+	private String formatAlpha(String str) {
+		if (str == null) {
+			return "#";
+		}
+		if (str.trim().length() == 0) {
+			return "#";
+		}
+		char c = str.trim().substring(0, 1).charAt(0);
+		Pattern pattern = Pattern.compile("^[A-Za-z]+$");
+		if (pattern.matcher(c + "").matches()) {
+			return (c + "").toUpperCase();
+		} else {
+			return "#";
+		}
 	}
 
 }
