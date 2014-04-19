@@ -82,7 +82,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 			int i = 1;
 			sb.append("----------------------\n");
 			for (Information info : newInfos) {
-				sb.append("*" + info.getMessage() + "\n");
+				sb.append(info.getMessage() + "\n");
 				i++;
 			}
 			sb.append("----------------------");
@@ -145,7 +145,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 			break;
 		}
 		if (cls != null) {
-			switchActivity(cls);
+			switchActivity(cls, null);
 		}
 	}
 

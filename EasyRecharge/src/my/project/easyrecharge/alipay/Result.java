@@ -43,7 +43,7 @@ public class Result {
 		return getContent(src, "memo=", ";result");
 	}
 
-	public  void parseResult() {
+	public void parseResult() {
 		
 		try {
 			String src = mResult.replace("{", "");

@@ -191,9 +191,12 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		MToast.showText(this, msg);
 	}
 
-	protected void switchActivity(Class<?> cls) {
-		startActivity(new Intent(this, cls));
-		actDyncAnimate();
+	protected void switchActivity(Class<?> cls, Bundle extras) {
+		Intent intent = new Intent(this, cls);
+		if (extras != null) {
+			intent.putExtras(extras);
+		}
+		startActivity(intent);
 	}
 
 	protected void switchActivityForResult(Class<?> cls, int requestCode,
@@ -203,17 +206,15 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 			intent.putExtras(extras);
 		}
 		startActivityForResult(intent, requestCode);
-		actDyncAnimate();
 	}
 
 	protected void switchActivityReorder2Front(Class<?> cls) {
 		Intent intent = new Intent(this, cls);
 		intent.addFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
 		startActivity(intent);
-		actDyncAnimate();
 	}
 
-	private void actDyncAnimate() {
+	protected void actDyncAnimate() {
 		// 设置切换动画，从右边进入，左边退出,带动态效果
 		overridePendingTransition(R.anim.new_dync_in_from_right,
 				R.anim.new_dync_out_to_left);

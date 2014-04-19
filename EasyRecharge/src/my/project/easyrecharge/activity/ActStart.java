@@ -48,7 +48,7 @@ public class ActStart extends ActUpdateApk {
 	}
 
 	private void switch2Main() {
-		switchActivity(ActMain.class);
+		switchActivity(ActMain.class, null);
 		finish();
 	}
 

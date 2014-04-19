@@ -117,7 +117,7 @@ public class ActRecharge extends ActBasicInfo implements
 			showPriceChooseDialog();
 			break;
 		case R.id.notice_textview:
-			switchActivity(ActNotice.class);
+			switchActivity(ActNotice.class, null);
 			break;
 		case R.id.btn_recharge:
 			doRecharge();
@@ -262,6 +262,10 @@ public class ActRecharge extends ActBasicInfo implements
 			case RQF_PAY:
 				Toast.makeText(ActRecharge.this, result.getResult(),
 						Toast.LENGTH_SHORT).show();
+				boolean success = false;
+				if (success) {
+					switchActivity(ActResultRecharge.class, null);
+				}
 				break;
 			default:
 				break;

@@ -72,10 +72,10 @@ public class ActSetting extends ActUpdateApk implements ClickListener {
 	public void onClick(int index) {
 		switch (SetAct.values()[index]) {
 		case FEEDBACK:
-			switchActivity(ActFeedback.class);
+			switchActivity(ActFeedback.class, null);
 			break;
 		case ABOUT:
-			switchActivity(ActAbout.class);
+			switchActivity(ActAbout.class, null);
 			break;
 		case VERSION_CHECK:
 			checkUpdate(true);
