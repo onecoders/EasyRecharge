@@ -199,6 +199,11 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		startActivity(intent);
 	}
 
+	protected void switchActivityAndFinish(Class<?> cls, Bundle extras) {
+		switchActivity(cls, extras);
+		finish();
+	}
+
 	protected void switchActivityForResult(Class<?> cls, int requestCode,
 			Bundle extras) {
 		Intent intent = new Intent(this, cls);

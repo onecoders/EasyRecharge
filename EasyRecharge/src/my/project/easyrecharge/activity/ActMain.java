@@ -57,34 +57,29 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_ANNOUNCEMENT)) {
+		if (!apiName.equals(METHOD.QUERY_ANNOUNCEMENT))
 			return;
-		}
 		try {
 			Type collectionType = new TypeToken<List<Information>>() {
 			}.getType();
-			F.infoList = F.fromJson(content, collectionType);
-			initInfoDialog();
+			List<Information> infoList = F.fromJson(content, collectionType);
+			initInfoDialog(infoList);
 		} catch (Exception e) {
 			showToast(R.string.error_data);
 		}
 	}
 
-	private void initInfoDialog() {
+	private void initInfoDialog(List<Information> infoList) {
 		List<Information> newInfos = new ArrayList<Information>();
-		for (Information info : F.infoList) {
-			if (info.isNewFlag()) {
+		for (Information info : infoList) {
+			if (info.isNewFlag())
 				newInfos.add(info);
-			}
 		}
 		if (newInfos.size() > 0) {
 			StringBuilder sb = new StringBuilder();
-			int i = 1;
 			sb.append("----------------------\n");
-			for (Information info : newInfos) {
+			for (Information info : newInfos)
 				sb.append(info.getMessage() + "\n");
-				i++;
-			}
 			sb.append("----------------------");
 			showDialog(R.string.exit_dialog_title, sb.toString(),
 					R.string.confirm, true, 0, null);

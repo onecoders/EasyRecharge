@@ -39,18 +39,16 @@ public class ActUpdateApk extends ActDataload {
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_VERSION)) {
+		if (!apiName.equals(METHOD.QUERY_VERSION))
 			return;
-		}
 		try {
 			version = F.fromJson(content, VersionServer.class);
 			needUpdate = version.getIinfo() > getVerCode();
 			if (needUpdate) {
 				doNewVersionUpdate();
 			} else {
-				if (needHint) {
+				if (needHint)
 					noNewVersion();
-				}
 			}
 		} catch (Exception e) {
 			showToast(R.string.error_data);

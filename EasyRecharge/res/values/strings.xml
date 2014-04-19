@@ -93,8 +93,11 @@
     <!-- record activity -->
     <string name="no_record">尚无充值记录</string>
     <!-- result activity -->
-    <string name="result_bind">绑定结果</string>
-    <string name="result_inquiry">查询结果</string>
-    <string name="result_recharge">充值结果</string>
+    <string name="result_bind">绑定成功</string>
+    <string name="result_inquiry">电费信息</string>
+    <string name="result_recharge">充值成功</string>
+    <string name="txt_pay_success">您已成功支付：</string>
+    <string name="rmb">元</string>
+    <string name="txt_pay_hint">（注：支付成功后，由于充值操作需要花费一些时间，电费无法立即到帐，请稍后查询，若多次查询后仍未到帐的，请及时询问学校宿舍管理员。）</string>
 
 </resources>

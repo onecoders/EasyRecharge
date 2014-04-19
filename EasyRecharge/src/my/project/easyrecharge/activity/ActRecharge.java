@@ -9,6 +9,7 @@ import my.project.easyrecharge.R;
 import my.project.easyrecharge.alipay.Keys;
 import my.project.easyrecharge.alipay.Result;
 import my.project.easyrecharge.alipay.Rsa;
+import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Order;
 import my.project.easyrecharge.model.OrderWithBind;
 import my.project.easyrecharge.model.OrderWithoutBind;
@@ -264,7 +265,9 @@ public class ActRecharge extends ActBasicInfo implements
 						Toast.LENGTH_SHORT).show();
 				boolean success = false;
 				if (success) {
-					switchActivity(ActResultRecharge.class, null);
+					Bundle bundle = new Bundle();
+					bundle.putInt(Key.PAY_PRICE, order.getPrice());
+					switchActivityAndFinish(ActResultRecharge.class, bundle);
 				}
 				break;
 			default:
