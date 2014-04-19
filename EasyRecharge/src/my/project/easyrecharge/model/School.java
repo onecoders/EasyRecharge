@@ -22,7 +22,7 @@ public class School {
 	//
 	private String ZFBAccount;
 	// 学校对应的支付宝信息
-	private AlipayInfo alipayInfo;
+	private AlipayInfo alipayInfo = new AlipayInfo();
 	// 首字母
 	private String alpha;
 

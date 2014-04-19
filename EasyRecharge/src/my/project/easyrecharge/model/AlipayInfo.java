@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import my.project.easyrecharge.alipay.Keys;
+
 /**
  * Corresponding Alipay Info of School
  * 
@@ -10,11 +12,11 @@ package my.project.easyrecharge.model;
 public class AlipayInfo {
 
 	// 合作身份者id，以2088开头的16位纯数字
-	private String partnerId;
+	private String partnerId = Keys.DEFAULT_PARTNER;
 	// 收款支付宝账号
-	private String sellerAccount;
+	private String sellerAccount = Keys.DEFAULT_SELLER;
 	// 商户私钥，自助生成
-	private String privateKey;
+	private String privateKey = Keys.PRIVATE;
 
 	public AlipayInfo() {
 		// default constructor

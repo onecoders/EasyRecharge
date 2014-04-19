@@ -1,7 +1,14 @@
 package my.project.easyrecharge.activity;
 
+import java.net.URLEncoder;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.alipay.Keys;
+import my.project.easyrecharge.alipay.Result;
+import my.project.easyrecharge.alipay.Rsa;
 import my.project.easyrecharge.model.Order;
 import my.project.easyrecharge.model.OrderWithBind;
 import my.project.easyrecharge.model.OrderWithoutBind;
@@ -9,6 +16,9 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -16,6 +26,9 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import com.alipay.android.app.sdk.AliPay;
 
 /**
  * Recharge Page
@@ -29,6 +42,8 @@ import android.widget.TextView;
 
 public class ActRecharge extends ActBasicInfo implements
 		OnCheckedChangeListener {
+
+	private static final int RQF_PAY = 1;
 
 	private RelativeLayout priceContainer;
 	private TextView priceTextView, noticeTextView;
@@ -130,7 +145,8 @@ public class ActRecharge extends ActBasicInfo implements
 
 	private void doRecharge() {
 		initOrder();
-		go2Pay();
+		// go2Pay();// must check first
+		doPay();
 	}
 
 	private void initOrder() {
@@ -159,9 +175,99 @@ public class ActRecharge extends ActBasicInfo implements
 	}
 
 	private void doPay() {
-		// invoke alipay method
+		try {
+			String info = getNewOrderInfo();
+			String sign = Rsa.sign(info, Keys.PRIVATE);
+			sign = URLEncoder.encode(sign);
+			info += "&sign=\"" + sign + "\"&" + getSignType();
+			Log.i(F.TAG, "start pay");
+			// start the pay.
+			Log.i(F.TAG, "info = " + info);
+			final String orderInfo = info;
+			new Thread() {
 
+				public void run() {
+					AliPay alipay = new AliPay(ActRecharge.this, mHandler);
+
+					// 设置为沙箱模式，不设置默认为线上环境
+					// alipay.setSandBox(true);
+
+					String result = alipay.pay(orderInfo);
+					Log.i(F.TAG, "result = " + result);
+					Message msg = new Message();
+					msg.what = RQF_PAY;
+					msg.obj = result;
+					mHandler.sendMessage(msg);
+				}
+			}.start();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+			Toast.makeText(this, R.string.remote_call_failed,
+					Toast.LENGTH_SHORT).show();
+		}
 	}
+
+	private String getNewOrderInfo() {
+		StringBuilder sb = new StringBuilder();
+		sb.append("partner=\"");
+		sb.append(order.getPartnerId());
+		sb.append("\"&out_trade_no=\"");
+		sb.append(getOutTradeNo());
+		sb.append("\"&subject=\"");
+		sb.append(order.getSubject());
+		sb.append("\"&body=\"");
+		sb.append(order.getBody());
+		sb.append("\"&total_fee=\"");
+		sb.append(order.getPrice());
+		sb.append("\"&notify_url=\"");
+
+		// 网址需要做URL编码
+		sb.append(URLEncoder.encode("http://notify.java.jpxx.org/index.jsp"));
+		sb.append("\"&service=\"mobile.securitypay.pay");
+		sb.append("\"&_input_charset=\"UTF-8");
+		sb.append("\"&return_url=\"");
+		sb.append(URLEncoder.encode("http://m.alipay.com"));
+		sb.append("\"&payment_type=\"1");
+		sb.append("\"&seller_id=\"");
+		sb.append(order.getSellerAccount());
+
+		// 如果show_url值为空，可不传
+		// sb.append("\"&show_url=\"");
+		sb.append("\"&it_b_pay=\"1m");
+		sb.append("\"");
+
+		return new String(sb);
+	}
+
+	private String getOutTradeNo() {
+		SimpleDateFormat format = new SimpleDateFormat("MMddHHmmss");
+		Date date = new Date();
+		String key = format.format(date);
+
+		java.util.Random r = new java.util.Random();
+		key += r.nextInt();
+		key = key.substring(0, 15);
+		Log.d(F.TAG, "outTradeNo: " + key);
+		return key;
+	}
+
+	private String getSignType() {
+		return "sign_type=\"RSA\"";
+	}
+
+	Handler mHandler = new Handler() {
+		public void handleMessage(android.os.Message msg) {
+			Result result = new Result((String) msg.obj);
+			switch (msg.what) {
+			case RQF_PAY:
+				Toast.makeText(ActRecharge.this, result.getResult(),
+						Toast.LENGTH_SHORT).show();
+				break;
+			default:
+				break;
+			}
+		};
+	};
 
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {

@@ -19,6 +19,7 @@ public class ActDataload extends ActBase {
 
 	// subclass invoke this method to request data with xml rpc
 	protected void loadDataXMLRPC(String apiName, Object... params) {
+		Log.d("XMLRPCRequest", apiName + params.toString());
 		if (isNetworkConnected()) {
 			new XMLRPCRequestTask(apiName).execute(params);
 		} else {
@@ -76,7 +77,7 @@ public class ActDataload extends ActBase {
 	// subclass invoke this method to request data with http
 	protected void loadDataHttp(boolean needHint, String apiName, String params) {
 		String url = getHttpRequestUrl(apiName, params);
-		Log.d("Request", url);
+		Log.d("HttpRequest", url);
 		if (isNetworkConnected()) {
 			new HttpRequestTask(needHint, apiName).execute(url);
 		} else {
