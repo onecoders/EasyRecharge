@@ -106,7 +106,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
 				School selectSchool = F.fromJson(schoolJson, School.class);
 				if (school != null
-						&& selectSchool.getSchoolID() != school.getSchoolID()) {
+						&& !selectSchool.getSchoolID().equals(
+								school.getSchoolID())) {
 					apart = null;
 					apartTextView.setText("");
 				}

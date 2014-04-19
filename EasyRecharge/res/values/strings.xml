@@ -25,7 +25,7 @@
     <string name="activity_title_about">关&#160;&#160;&#160;于</string>
     <string name="activity_title_notice">《使用注意事项》</string>
     <string name="activity_title_school_chosen">请选择学校</string>
-    <string name="activity_title_building_chosen">请选择楼号</string>
+    <string name="activity_title_building_chosen">请选择公寓</string>
     <string name="activity_title_information">通知信息</string>
     <!-- same strings in inquiry, recharge, bind activities -->
     <string name="hint_select_school">请选择学校</string>
