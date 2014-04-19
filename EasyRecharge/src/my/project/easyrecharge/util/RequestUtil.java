@@ -6,8 +6,7 @@ import java.net.URL;
 import java.util.HashMap;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.contants.Key;
-import my.project.easyrecharge.model.ElecResult;
+import my.project.easyrecharge.model.ElecDetail;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -21,16 +20,19 @@ import de.timroes.axmlrpc.XMLRPCClient;
 
 public class RequestUtil {
 
-	public static ElecResult xmlrpcRequest(String apiName, Object... arg1)
+	public static ElecDetail xmlrpcRequest(String apiName, Object... arg1)
 			throws Exception {
 		XMLRPCClient client = new XMLRPCClient(new URL(F.XML_RPC_REQUEST_URL));
-		HashMap<String, String> result = (HashMap<String, String>) client.call(
+		HashMap<String, Object> result = (HashMap<String, Object>) client.call(
 				apiName, arg1);
-		ElecResult eResult = new ElecResult();
-		eResult.setResult(result.get(Key.RESULT));
-		eResult.setMessage(result.get(Key.MESSAGE));
-		eResult.setDescription(result.get(Key.DESCRIPTION));
-		return eResult;
+		ElecDetail detail = new ElecDetail();
+		detail.setUsedScore((String) result.get("usedScore"));
+		detail.setRemainScore((String) result.get("remainScore"));
+		detail.setIsHave((Integer) result.get("isHave"));
+		detail.setLastReadTime((String) result.get("lastReadTime"));
+		detail.setResult((Integer) result.get("result"));
+		detail.setDescription((String) result.get("description"));
+		return detail;
 	}
 
 	public static String httpRequest(String url) throws Exception {

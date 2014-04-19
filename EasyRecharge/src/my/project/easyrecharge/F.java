@@ -24,7 +24,7 @@ public class F {
 
 	public static class METHOD {
 
-		public static final String QUERY_SCORE = "score";
+		public static final String QUERY_SCORE = "query_score";
 
 		public static final String QUERY_VERSION = "version";
 

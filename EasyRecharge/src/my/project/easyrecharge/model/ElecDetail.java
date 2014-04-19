@@ -2,24 +2,35 @@ package my.project.easyrecharge.model;
 
 public class ElecDetail {
 
-	private String used;
-	private String remain;
+	private String usedScore;
+	private String remainScore;
+	private int isHave;
 	private String lastReadTime;
+	private int result;
+	private String description;
 
-	public String getUsed() {
-		return used;
+	public String getUsedScore() {
+		return usedScore;
 	}
 
-	public void setUsed(String used) {
-		this.used = used;
+	public void setUsedScore(String usedScore) {
+		this.usedScore = usedScore;
 	}
 
-	public String getRemain() {
-		return remain;
+	public String getRemainScore() {
+		return remainScore;
 	}
 
-	public void setRemain(String remain) {
-		this.remain = remain;
+	public void setRemainScore(String remainScore) {
+		this.remainScore = remainScore;
+	}
+
+	public int getIsHave() {
+		return isHave;
+	}
+
+	public void setIsHave(int isHave) {
+		this.isHave = isHave;
 	}
 
 	public String getLastReadTime() {
@@ -28,6 +39,22 @@ public class ElecDetail {
 
 	public void setLastReadTime(String lastReadTime) {
 		this.lastReadTime = lastReadTime;
+	}
+
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

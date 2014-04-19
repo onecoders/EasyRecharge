@@ -17,6 +17,14 @@
             android:layout_height="wrap_content"
             android:orientation="vertical" >
 
+            <TextView
+                android:id="@+id/bind_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:padding="10dip"
+                android:textSize="18sp" />
+
             <!-- basic info layout -->
 
             <include

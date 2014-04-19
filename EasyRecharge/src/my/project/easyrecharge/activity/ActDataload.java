@@ -2,7 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
-import my.project.easyrecharge.model.ElecResult;
+import my.project.easyrecharge.model.ElecDetail;
 import my.project.easyrecharge.util.RequestUtil;
 import android.os.AsyncTask;
 import android.util.Log;
@@ -28,7 +28,7 @@ public class ActDataload extends ActBase {
 	}
 
 	// asynctask with xml rpc request
-	class XMLRPCRequestTask extends AsyncTask<Object, Void, ElecResult> {
+	class XMLRPCRequestTask extends AsyncTask<Object, Void, ElecDetail> {
 
 		private String apiName;
 
@@ -43,17 +43,17 @@ public class ActDataload extends ActBase {
 		}
 
 		@Override
-		protected ElecResult doInBackground(Object... params) {
+		protected ElecDetail doInBackground(Object... params) {
 			return xmlrpcRequest(apiName, params);
 		}
 
 		@Override
-		protected void onPostExecute(ElecResult result) {
+		protected void onPostExecute(ElecDetail result) {
 			super.onPostExecute(result);
 			dismissProgressHUD();
 			if (result != null) {
-				if (result.isSuccess()) {
-					disposeResult(apiName, result.getMessage());
+				if (result.getIsHave() == 1) {
+					disposeResult(apiName, F.toJson(result));
 				} else {
 					showToast(result.getDescription());
 				}
@@ -65,7 +65,7 @@ public class ActDataload extends ActBase {
 	}
 
 	// request with xml rpc
-	private ElecResult xmlrpcRequest(String apiName, Object... arg1) {
+	private ElecDetail xmlrpcRequest(String apiName, Object... arg1) {
 		try {
 			return RequestUtil.xmlrpcRequest(apiName, arg1);
 		} catch (Exception e) {

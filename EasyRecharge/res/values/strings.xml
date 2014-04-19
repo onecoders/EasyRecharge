@@ -53,6 +53,8 @@
     <string name="btn_unbind_txt">解&#160;&#160;&#160;&#160;&#160;&#160;绑</string>
     <string name="no_bind">用户未绑定相关信息</string>
     <string name="bind_info_ok">绑定成功</string>
+    <string name="not_bind">--未绑定--</string>
+    <string name="already_bind">--已绑定--</string>
     <string name="bind_info_wrong">绑定信息不正确，请核实</string>
     <!-- setting activity -->
     <string name="current_version">当前版本&#160;&#160;V</string>

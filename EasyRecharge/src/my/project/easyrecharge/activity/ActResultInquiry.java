@@ -66,16 +66,16 @@ public class ActResultInquiry extends ActBase {
 		}
 	}
 
-	private void setViewContent(String schoolJson, String apartJson, String roomNum,
-			String elecJson) {
+	private void setViewContent(String schoolJson, String apartJson,
+			String roomNum, String elecJson) {
 		School school = F.fromJson(schoolJson, School.class);
 		Apart apart = F.fromJson(apartJson, Apart.class);
 		ElecDetail detail = F.fromJson(elecJson, ElecDetail.class);
 		setText(txtSchool, school.getSchoolName());
 		setText(txtApart, apart.getApartName());
 		setText(txtRoom, roomNum);
-		setText(txtUsed, detail.getUsed());
-		setText(txtRemain, detail.getRemain());
+		setText(txtUsed, detail.getUsedScore());
+		setText(txtRemain, detail.getRemainScore());
 		setText(txtLastReadTime, detail.getLastReadTime());
 	}
 

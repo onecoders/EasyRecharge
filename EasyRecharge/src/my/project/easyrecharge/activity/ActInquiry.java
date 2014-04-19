@@ -1,6 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
+import my.project.easyrecharge.F.METHOD;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import android.os.Bundle;
@@ -84,6 +85,10 @@ public class ActInquiry extends ActBasicInfo {
 
 	private void doInquiry() {
 		// do real inquiry
+		String pSchoolID = school.getSchoolID();
+		String pApartID = apart.getApartID();
+		String pRoomNum = roomNum;
+		loadDataXMLRPC(METHOD.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
 
 	}
 

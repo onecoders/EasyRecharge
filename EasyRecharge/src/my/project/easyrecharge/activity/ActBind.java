@@ -7,6 +7,7 @@ import my.project.easyrecharge.model.BindInfo;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Account Manager Page
@@ -22,6 +23,7 @@ import android.widget.Button;
 public class ActBind extends ActBasicInfo {
 
 	private Button btnBind, btnUnbind;
+	private TextView bindStatus;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +54,9 @@ public class ActBind extends ActBasicInfo {
 		btnBind = (Button) findViewById(R.id.btn_bind);
 		// unbind button
 		btnUnbind = (Button) findViewById(R.id.btn_unbind);
-		refreshBtn();
+		// bind status
+		bindStatus = (TextView) findViewById(R.id.bind_status);
+		refreshStatus();
 	}
 
 	@Override
@@ -108,12 +112,14 @@ public class ActBind extends ActBasicInfo {
 
 	private void refreshViews() {
 		refreshViewsAndModels();
-		refreshBtn();
+		refreshStatus();
 	}
 
-	private void refreshBtn() {
+	private void refreshStatus() {
 		btnUnbind.setVisibility(F.isBind() ? View.VISIBLE : View.GONE);
 		btnBind.setVisibility(F.isBind() ? View.GONE : View.VISIBLE);
+		bindStatus.setText(F.isBind() ? R.string.already_bind
+				: R.string.not_bind);
 	}
 
 	@Override

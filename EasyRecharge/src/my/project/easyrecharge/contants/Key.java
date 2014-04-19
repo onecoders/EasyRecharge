@@ -8,13 +8,6 @@ public class Key {
 	public static final String BIND_INFO = "bind_info";
 
 	//
-	public static final String RESULT = "result";
-
-	public static final String MESSAGE = "message";
-
-	public static final String DESCRIPTION = "description";
-
-	//
 	public static final String SCHOOL_ID = "school_id";
 
 	public static final String SCHOOL_JSON = "school_json";
