@@ -104,6 +104,7 @@ public class ActRecharge extends ActBasicInfo implements
 		noticeCheckbox.setOnCheckedChangeListener(this);
 		noticeTextView.setOnClickListener(this);
 		priceContainer.setOnClickListener(this);
+		priceTextView.addTextChangedListener(this);
 		btnRecharge.setOnClickListener(this);
 	}
 
