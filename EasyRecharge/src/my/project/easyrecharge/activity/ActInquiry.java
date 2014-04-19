@@ -2,6 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.contants.Key;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -83,6 +84,20 @@ public class ActInquiry extends ActBasicInfo {
 
 	private void doInquiry() {
 		// do real inquiry
+
+	}
+
+	@Override
+	protected void disposeResult(String apiName, String content) {
+		super.disposeResult(apiName, content);
+		if (!apiName.equals(F.METHOD.QUERY_SCORE))
+			return;
+		Bundle bundle = new Bundle();
+		bundle.putString(Key.SCHOOL_JSON, F.toJson(school));
+		bundle.putString(Key.APART_JSON, F.toJson(apart));
+		bundle.putString(Key.ROOM_NUM, roomNo);
+		bundle.putString(Key.ELEC_JSON, content);
+		switchActivityAndFinish(ActResultInquiry.class, bundle);
 	}
 
 	@Override

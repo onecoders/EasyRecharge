@@ -25,4 +25,8 @@ public class Key {
 
 	public static final String BIND_JSON = "bind_json";
 
+	public static final String ROOM_NUM = "room_num";
+
+	public static final String ELEC_JSON = "elec_json";
+
 }

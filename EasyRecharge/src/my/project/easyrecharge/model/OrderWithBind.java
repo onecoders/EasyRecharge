@@ -50,12 +50,12 @@ public class OrderWithBind extends Order {
 
 	@Override
 	public String getRoomNum() {
-		return bindInfo.getRoomNo();
+		return bindInfo.getRoomNum();
 	}
 
 	@Override
-	public void setRoomNum(String roomNo) {
-		bindInfo.setRoomNo(roomNo);
+	public void setRoomNum(String roomNum) {
+		bindInfo.setRoomNum(roomNum);
 	}
 
 	@Override

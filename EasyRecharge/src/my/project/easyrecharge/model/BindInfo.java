@@ -16,7 +16,7 @@ public class BindInfo {
 	// 公寓
 	private Apart apart;
 	// 房间号
-	private String roomNo;
+	private String roomNum;
 	// 是否绑定
 	private boolean isBind;
 
@@ -52,12 +52,12 @@ public class BindInfo {
 		return apart.getApartName();
 	}
 
-	public String getRoomNo() {
-		return roomNo;
+	public String getRoomNum() {
+		return roomNum;
 	}
 
-	public void setRoomNo(String roomNo) {
-		this.roomNo = roomNo;
+	public void setRoomNum(String roomNum) {
+		this.roomNum = roomNum;
 	}
 
 	// 获取partner id
@@ -86,7 +86,7 @@ public class BindInfo {
 	public void updateBindInfo(BindInfo bindInfo) {
 		setSchool(bindInfo.getSchool());
 		setApart(bindInfo.getApart());
-		setRoomNo(bindInfo.getRoomNo());
+		setRoomNum(bindInfo.getRoomNum());
 		setBind(bindInfo.isBind());
 	}
 

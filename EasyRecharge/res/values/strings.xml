@@ -101,6 +101,10 @@
     <string name="txt_room">房间：</string>
     <string name="confirm_exit">确定并返回</string>
     <string name="result_inquiry">电费信息</string>
+    <string name="txt_elec_detail">电费查询结果：</string>
+    <string name="txt_used">已使用：</string>
+    <string name="txt_remain">剩余：</string>
+    <string name="txt_last_read_time">上次抄表时间：</string>
     <string name="result_recharge">充值成功</string>
     <string name="txt_pay_success">您已成功支付：</string>
     <string name="rmb">元</string>

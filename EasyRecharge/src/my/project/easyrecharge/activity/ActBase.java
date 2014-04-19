@@ -191,6 +191,10 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 		MToast.showText(this, msg);
 	}
 
+	protected void setText(TextView tv, String txt) {
+		tv.setText(txt);
+	}
+
 	protected void switchActivity(Class<?> cls, Bundle extras) {
 		Intent intent = new Intent(this, cls);
 		if (extras != null) {

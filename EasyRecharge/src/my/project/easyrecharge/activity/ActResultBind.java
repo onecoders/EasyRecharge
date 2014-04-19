@@ -41,26 +41,30 @@ public class ActResultBind extends ActBase {
 	}
 
 	private void initViews() {
-		txtSchool = (TextView) findViewById(R.id.school_txt);
-		txtApart = (TextView) findViewById(R.id.apart_txt);
-		txtRoom = (TextView) findViewById(R.id.room_txt);
-		btnConfirm = (Button) findViewById(R.id.btn_confirm);
+		txtSchool = (TextView) findViewById(R.id.rb_school_txt);
+		txtApart = (TextView) findViewById(R.id.rb_apart_txt);
+		txtRoom = (TextView) findViewById(R.id.rb_room_txt);
+		btnConfirm = (Button) findViewById(R.id.rb_btn_confirm);
 
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			String bindJson = bundle.getString(Key.BIND_JSON);
-			BindInfo bindInfo = F.fromJson(bindJson, BindInfo.class);
-			txtSchool.setText(bindInfo.getSchoolName());
-			txtApart.setText(bindInfo.getApartName());
-			txtRoom.setText(bindInfo.getRoomNo());
+			setViewContent(bindJson);
 		}
 		btnConfirm.setOnClickListener(this);
+	}
+
+	private void setViewContent(String bindJson) {
+		BindInfo bindInfo = F.fromJson(bindJson, BindInfo.class);
+		setText(txtSchool, bindInfo.getSchoolName());
+		setText(txtApart, bindInfo.getApartName());
+		setText(txtRoom, bindInfo.getRoomNum());
 	}
 
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
-		if (v.getId() == R.id.btn_confirm) {
+		if (v.getId() == R.id.rb_btn_confirm) {
 			onBackPressed();
 		}
 	}
