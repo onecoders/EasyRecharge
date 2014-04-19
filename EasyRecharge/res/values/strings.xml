@@ -30,12 +30,12 @@
     <string name="activity_title_information">通知信息</string>
     <!-- same strings in inquiry, recharge, bind activities -->
     <string name="hint_select_school">请选择学校</string>
-    <string name="hint_select_building">请选择楼号</string>
+    <string name="hint_select_apart">请选择公寓</string>
     <string name="hint_input_room_no">请输入房间号</string>
     <string name="btn_inquiry_txt">查&#160;&#160;&#160;&#160;&#160;&#160;询</string>
     <!-- inquiry activity -->
     <string name="hint_choose_school">学校</string>
-    <string name="hint_choose_building">楼号</string>
+    <string name="hint_choose_apart">公寓</string>
     <string name="hint_input_room">请输入房间号</string>
     <string name="hint_choose_price">充值金额</string>
     <string name="hint_choose_school_first">请先选择学校</string>
@@ -94,6 +94,12 @@
     <string name="no_record">尚无充值记录</string>
     <!-- result activity -->
     <string name="result_bind">绑定成功</string>
+    <string name="txt_bind_success">您已绑定成功！</string>
+    <string name="txt_bind_info">绑定信息如下：</string>
+    <string name="txt_school">学校：</string>
+    <string name="txt_apart">公寓：</string>
+    <string name="txt_room">房间：</string>
+    <string name="confirm_exit">确定并返回</string>
     <string name="result_inquiry">电费信息</string>
     <string name="result_recharge">充值成功</string>
     <string name="txt_pay_success">您已成功支付：</string>

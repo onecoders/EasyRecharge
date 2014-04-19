@@ -23,4 +23,6 @@ public class Key {
 
 	public static final String PAY_PRICE = "pay_price";
 
+	public static final String BIND_JSON = "bind_json";
+
 }

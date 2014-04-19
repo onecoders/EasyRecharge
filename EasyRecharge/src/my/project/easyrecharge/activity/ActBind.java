@@ -2,6 +2,7 @@ package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
+import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
 import android.os.Bundle;
 import android.view.View;
@@ -80,7 +81,10 @@ public class ActBind extends ActBasicInfo {
 		BindInfo bindInfo = initBindInfo();
 		F.bind(bindInfo);
 		showToast(R.string.bind_info_ok);
-		// 显示绑定页面，隐藏选择页面
+		// 显示绑定成功页面
+		Bundle bundle = new Bundle();
+		bundle.putString(Key.BIND_JSON, F.toJson(bindInfo));
+		switchActivityAndFinish(ActResultBind.class, bundle);
 	}
 
 	private BindInfo initBindInfo() {

@@ -65,7 +65,7 @@
             android:layout_alignParentLeft="true"
             android:layout_centerVertical="true"
             android:duplicateParentState="true"
-            android:hint="@string/hint_choose_building"
+            android:hint="@string/hint_choose_apart"
             android:textColor="@color/text_color_selector"
             android:textSize="@dimen/basic_info_txt" />
     </RelativeLayout>
