@@ -88,7 +88,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/info_bg"
+        android:background="@drawable/background_view_rounded_top"
         android:orientation="vertical"
         android:padding="8dip" >
 
@@ -109,7 +109,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/info_bg"
+        android:background="@drawable/background_view_rounded_middle"
         android:orientation="vertical"
         android:padding="8dip" >
 
@@ -130,7 +130,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/info_bg"
+        android:background="@drawable/background_view_rounded_bottom"
         android:orientation="vertical"
         android:padding="8dip" >
 

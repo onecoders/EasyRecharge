@@ -81,7 +81,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 			for (Information info : newInfos)
 				sb.append(info.getMessage() + "\n");
 			sb.append("----------------------");
-			showDialog(R.string.exit_dialog_title, sb.toString(),
+			showDialog(R.string.info_dialog_title, sb.toString(),
 					R.string.confirm, true, 0, null);
 		}
 	}
