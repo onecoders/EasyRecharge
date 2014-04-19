@@ -90,7 +90,6 @@ public class ActBind extends ActBasicInfo {
 	protected void doAfterCheckOK() {
 		BindInfo bindInfo = initBindInfo();
 		F.bind(bindInfo);
-		showToast(R.string.bind_info_ok);
 		// 显示绑定成功页面
 		Bundle bundle = new Bundle();
 		bundle.putString(Key.BIND_JSON, F.toJson(bindInfo));

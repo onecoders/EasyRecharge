@@ -79,17 +79,15 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		boolean isBind = F.isBind();
 		school = isBind ? F.mBindInfo.getSchool() : null;
 		apart = isBind ? F.mBindInfo.getApart() : null;
-		roomNum = isBind ? F.mBindInfo.getRoomNum() : "";
+		String roomNumBind = isBind ? F.mBindInfo.getRoomNum() : "";
 
 		schoolTextView.setText(isBind ? school.getSchoolName() : "");
 		apartTextView.setText(isBind ? apart.getApartName() : "");
-		roomEdit.setText(roomNum);
+		roomEdit.setText(roomNumBind);
 
-		roomEdit.setEnabled(!isBind);
 		schoolContainer.setEnabled(!isBind);
-		schoolTextView.setEnabled(!isBind);
 		apartContainer.setEnabled(!isBind);
-		apartTextView.setEnabled(!isBind);
+		roomEdit.setEnabled(!isBind);
 	}
 
 	@Override
