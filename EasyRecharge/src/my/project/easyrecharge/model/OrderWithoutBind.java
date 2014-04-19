@@ -16,7 +16,17 @@ public class OrderWithoutBind extends Order {
 	// 公寓
 	private Apart apart;
 	// 房间号
-	private String roomNo;
+	private String roomNum;
+
+	public OrderWithoutBind() {
+
+	}
+
+	public OrderWithoutBind(School school, Apart apart, String roomNum) {
+		this.school = school;
+		this.apart = apart;
+		this.roomNum = roomNum;
+	}
 
 	@Override
 	public void setSchool(School school) {
@@ -50,12 +60,12 @@ public class OrderWithoutBind extends Order {
 
 	@Override
 	public String getRoomNum() {
-		return roomNo;
+		return roomNum;
 	}
 
 	@Override
 	public void setRoomNum(String roomNo) {
-		this.roomNo = roomNo;
+		this.roomNum = roomNo;
 	}
 
 	@Override

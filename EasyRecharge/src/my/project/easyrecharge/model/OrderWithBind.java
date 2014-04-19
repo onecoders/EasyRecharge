@@ -14,8 +14,16 @@ public class OrderWithBind extends Order {
 	// 绑定用户
 	private BindInfo bindInfo;
 
-	public void setUser(BindInfo Binder) {
-		this.bindInfo = Binder;
+	public OrderWithBind() {
+
+	}
+
+	public OrderWithBind(BindInfo bindInfo) {
+		this.bindInfo = bindInfo;
+	}
+
+	public void setBindInfo(BindInfo bindInfo) {
+		this.bindInfo = bindInfo;
 	}
 
 	@Override

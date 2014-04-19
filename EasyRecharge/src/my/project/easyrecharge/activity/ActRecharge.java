@@ -151,19 +151,16 @@ public class ActRecharge extends ActBasicInfo implements
 	}
 
 	private void initOrder() {
-		if (F.mBindInfo.isBind()) {
-			order = new OrderWithBind();
+		if (F.isBind()) {
+			order = new OrderWithBind(F.mBindInfo);
 		} else {
-			order = new OrderWithoutBind();
-			order.setSchool(school);
-			order.setApart(apart);
-			order.setRoomNum(roomNum);
+			order = new OrderWithoutBind(school, apart, roomNum);
 		}
 		order.setPrice(priceArr[checkedItem]);
 	}
 
 	private void go2Pay() {
-		if (F.mBindInfo.isBind()) {
+		if (F.isBind()) {
 			doPay();
 		} else {
 			checkFirst();
