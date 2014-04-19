@@ -10,7 +10,7 @@ public class Information {
 
 	private String UpdateTime;
 
-	private boolean NewFlag;
+	private boolean NewFLag;
 
 	public String getSchoolID() {
 		return SchoolID;
@@ -39,11 +39,11 @@ public class Information {
 	}
 
 	public boolean isNewFlag() {
-		return NewFlag;
+		return NewFLag;
 	}
 
 	public void setNewFlag(boolean newFlag) {
-		NewFlag = newFlag;
+		NewFLag = newFlag;
 	}
 
 }

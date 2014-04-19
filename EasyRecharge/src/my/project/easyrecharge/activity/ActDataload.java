@@ -52,7 +52,7 @@ public class ActDataload extends ActBase {
 			dismissProgressHUD();
 			if (result != null) {
 				if (result.isSuccess()) {
-					disposeResult(result.getMessage());
+					disposeResult(apiName, result.getMessage());
 				} else {
 					showToast(result.getDescription());
 				}
@@ -78,7 +78,7 @@ public class ActDataload extends ActBase {
 		String url = getHttpRequestUrl(apiName, params);
 		Log.d("Request", url);
 		if (isNetworkConnected()) {
-			new HttpRequestTask(needHint).execute(url);
+			new HttpRequestTask(needHint, apiName).execute(url);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}
@@ -96,9 +96,11 @@ public class ActDataload extends ActBase {
 	class HttpRequestTask extends AsyncTask<String, Void, String> {
 
 		private boolean needHint;
+		private String apiName;
 
-		public HttpRequestTask(boolean needHint) {
+		public HttpRequestTask(boolean needHint, String apiName) {
 			this.needHint = needHint;
+			this.apiName = apiName;
 		}
 
 		@Override
@@ -121,7 +123,7 @@ public class ActDataload extends ActBase {
 				dismissProgressHUD();
 			}
 			if (result != null) {
-				disposeResult(result);
+				disposeResult(apiName, result);
 			} else {
 				showToast(R.string.request_failed);
 			}
@@ -140,8 +142,8 @@ public class ActDataload extends ActBase {
 	}
 
 	// subclass invoke after respond OK, content is json string
-	protected void disposeResult(String content) {
-		Log.d("Response", content);
+	protected void disposeResult(String apiName, String content) {
+		Log.d(apiName, content);
 	}
 
 }

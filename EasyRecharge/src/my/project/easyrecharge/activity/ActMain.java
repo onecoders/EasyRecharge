@@ -1,9 +1,16 @@
 package my.project.easyrecharge.activity;
 
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
+
+import my.project.easyrecharge.F;
+import my.project.easyrecharge.F.METHOD;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
 import my.project.easyrecharge.model.IndexMenu.ActName;
+import my.project.easyrecharge.model.Information;
 import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
 import android.content.res.TypedArray;
 import android.os.Bundle;
@@ -11,6 +18,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
+
+import com.google.gson.reflect.TypeToken;
 
 /**
  * Index Page
@@ -35,9 +44,51 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 
 	private void init() {
 		checkUpdate(false);
+		loadInforData();
 		initActionBar();
 		initMenuList();
 		initGridMenu();
+	}
+
+	private void loadInforData() {
+		loadDataHttp(false, METHOD.QUERY_ANNOUNCEMENT, "?schoolId=1");
+	}
+
+	@Override
+	protected void disposeResult(String apiName, String content) {
+		super.disposeResult(apiName, content);
+		if (!apiName.equals(METHOD.QUERY_ANNOUNCEMENT)) {
+			return;
+		}
+		try {
+			Type collectionType = new TypeToken<List<Information>>() {
+			}.getType();
+			F.infoList = F.fromJson(content, collectionType);
+			initInfoDialog();
+		} catch (Exception e) {
+			showToast(R.string.error_data);
+		}
+	}
+
+	private void initInfoDialog() {
+		List<Information> newInfos = new ArrayList<Information>();
+		for (Information info : F.infoList) {
+			if (info.isNewFlag()) {
+				newInfos.add(info);
+			}
+		}
+		if (newInfos.size() > 0) {
+			StringBuilder sb = new StringBuilder();
+			int i = 1;
+			sb.append("----------------------\n");
+			for (Information info : newInfos) {
+				sb.append("*" + info.getMessage() + "\n");
+				i++;
+			}
+			sb.append("----------------------");
+			showDialog(R.string.exit_dialog_title, sb.toString(),
+					R.string.confirm, true, 0, null);
+		}
 	}
 
 	@Override

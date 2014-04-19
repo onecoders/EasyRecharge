@@ -1,9 +1,11 @@
 package my.project.easyrecharge;
 
 import java.lang.reflect.Type;
+import java.util.List;
 
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
+import my.project.easyrecharge.model.Information;
 import my.project.easyrecharge.util.VersionUtil;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -42,6 +44,8 @@ public class F {
 	public static BindInfo mBindInfo;
 	// 是否显示start_image_1
 	public static boolean isShowImage1;
+	// 通知信息
+	public static List<Information> infoList;
 
 	// shared preferences for saving bind info
 	private static SharedPreferences mPrefs;

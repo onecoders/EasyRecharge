@@ -123,8 +123,11 @@ public class ActChooseSchool extends ActDataload implements
 	}
 
 	@Override
-	protected void disposeResult(String content) {
-		super.disposeResult(content);
+	protected void disposeResult(String apiName, String content) {
+		super.disposeResult(apiName, content);
+		if (!apiName.equals(METHOD.QUERY_SHCOOL)) {
+			return;
+		}
 		list.clear();
 		try {
 			Type collectionType = new TypeToken<List<School>>() {
