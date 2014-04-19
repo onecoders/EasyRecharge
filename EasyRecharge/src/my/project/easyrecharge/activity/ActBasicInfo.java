@@ -34,11 +34,12 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	protected School school;
 	protected Apart apart;
-	protected String roomNo;
+	protected String roomNum;
 
 	protected void initBasicInfoViews(View basicInfoView) {
 		findView(basicInfoView);
 		setListener();
+		refreshViewsAndModels();
 	}
 
 	protected void findView(View basicInfoView) {
@@ -73,6 +74,23 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	}
 
 	protected abstract void setExtraListener();
+
+	protected void refreshViewsAndModels() {
+		boolean isBind = F.isBind();
+		school = isBind ? F.mBindInfo.getSchool() : null;
+		apart = isBind ? F.mBindInfo.getApart() : null;
+		roomNum = isBind ? F.mBindInfo.getRoomNum() : "";
+
+		schoolTextView.setText(isBind ? school.getSchoolName() : "");
+		apartTextView.setText(isBind ? apart.getApartName() : "");
+		roomEdit.setText(roomNum);
+
+		roomEdit.setEnabled(!isBind);
+		schoolContainer.setEnabled(!isBind);
+		schoolTextView.setEnabled(!isBind);
+		apartContainer.setEnabled(!isBind);
+		apartTextView.setEnabled(!isBind);
+	}
 
 	@Override
 	public void onClick(View v) {
@@ -147,8 +165,8 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	}
 
 	private boolean isBasicInfoEmpty() {
-		roomNo = roomEdit.getText().toString();
-		return school == null || apart == null || isEmpty(roomNo);
+		roomNum = roomEdit.getText().toString();
+		return school == null || apart == null || isEmpty(roomNum);
 	}
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);

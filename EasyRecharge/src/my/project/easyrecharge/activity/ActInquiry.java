@@ -70,7 +70,7 @@ public class ActInquiry extends ActBasicInfo {
 	}
 
 	private void go2Inquiry() {
-		if (F.mBindInfo.isBind()) {
+		if (F.isBind()) {
 			doInquiry();
 		} else {
 			checkFirst();
@@ -95,7 +95,7 @@ public class ActInquiry extends ActBasicInfo {
 		Bundle bundle = new Bundle();
 		bundle.putString(Key.SCHOOL_JSON, F.toJson(school));
 		bundle.putString(Key.APART_JSON, F.toJson(apart));
-		bundle.putString(Key.ROOM_NUM, roomNo);
+		bundle.putString(Key.ROOM_NUM, roomNum);
 		bundle.putString(Key.ELEC_JSON, content);
 		switchActivityAndFinish(ActResultInquiry.class, bundle);
 	}

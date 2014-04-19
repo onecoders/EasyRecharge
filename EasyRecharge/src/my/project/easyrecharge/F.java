@@ -91,6 +91,10 @@ public class F {
 		mBindInfo = fromJson(json, BindInfo.class);
 	}
 
+	public static boolean isBind() {
+		return mBindInfo.isBind();
+	}
+
 	public static void bind(BindInfo bindInfo) {
 		saveBindInfo(bindInfo);
 	}

@@ -33,6 +33,17 @@
                 android:layout_margin="@dimen/btn_margin"
                 android:enabled="false"
                 android:text="@string/btn_bind_txt" />
+
+            <!-- unbind button -->
+
+            <Button
+                android:id="@+id/btn_unbind"
+                style="@style/btnStyleAcapulco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:text="@string/btn_unbind_txt"
+                android:visibility="gone" />
         </LinearLayout>
     </ScrollView>
 

@@ -21,7 +21,7 @@ import android.widget.Button;
 
 public class ActBind extends ActBasicInfo {
 
-	private Button btnBind;
+	private Button btnBind, btnUnbind;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -32,9 +32,6 @@ public class ActBind extends ActBasicInfo {
 
 	private void init() {
 		initActionBar();
-		if (!F.mBindInfo.isBind()) {
-			showToast(R.string.no_bind);
-		}
 		initViews();
 	}
 
@@ -53,11 +50,15 @@ public class ActBind extends ActBasicInfo {
 	protected void findExtraView() {
 		// bind button
 		btnBind = (Button) findViewById(R.id.btn_bind);
+		// unbind button
+		btnUnbind = (Button) findViewById(R.id.btn_unbind);
+		refreshBtn();
 	}
 
 	@Override
 	protected void setExtraListener() {
 		btnBind.setOnClickListener(this);
+		btnUnbind.setOnClickListener(this);
 	}
 
 	@Override
@@ -67,13 +68,22 @@ public class ActBind extends ActBasicInfo {
 		case R.id.btn_bind:
 			doBind();
 			break;
+		case R.id.btn_unbind:
+			doUnbind();
+			break;
 		default:
 			break;
 		}
 	}
 
 	private void doBind() {
-		checkFirst();
+		// checkFirst();
+		doAfterCheckOK();
+	}
+
+	private void doUnbind() {
+		F.unbind();
+		refreshViews();
 	}
 
 	@Override
@@ -85,15 +95,26 @@ public class ActBind extends ActBasicInfo {
 		Bundle bundle = new Bundle();
 		bundle.putString(Key.BIND_JSON, F.toJson(bindInfo));
 		switchActivityAndFinish(ActResultBind.class, bundle);
+
 	}
 
 	private BindInfo initBindInfo() {
 		BindInfo bindInfo = new BindInfo();
 		bindInfo.setSchool(school);
 		bindInfo.setApart(apart);
-		bindInfo.setRoomNum(roomNo);
+		bindInfo.setRoomNum(roomNum);
 		bindInfo.setBind(true);
 		return bindInfo;
+	}
+
+	private void refreshViews() {
+		refreshViewsAndModels();
+		refreshBtn();
+	}
+
+	private void refreshBtn() {
+		btnUnbind.setVisibility(F.isBind() ? View.VISIBLE : View.GONE);
+		btnBind.setVisibility(F.isBind() ? View.GONE : View.VISIBLE);
 	}
 
 	@Override
