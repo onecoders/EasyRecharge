@@ -217,11 +217,12 @@ public class ActRecharge extends ActBasicInfo implements
 		sb.append("\"&body=\"");
 		sb.append(order.getBody());
 		sb.append("\"&total_fee=\"");
-		sb.append(order.getPrice());
+		// sb.append(order.getPrice());
+		sb.append(0.01);
 		sb.append("\"&notify_url=\"");
 
 		// 网址需要做URL编码
-		sb.append(URLEncoder.encode("http://notify.java.jpxx.org/index.jsp"));
+		sb.append(URLEncoder.encode(F.NOTIFY_URL));
 		sb.append("\"&service=\"mobile.securitypay.pay");
 		sb.append("\"&_input_charset=\"UTF-8");
 		sb.append("\"&return_url=\"");
