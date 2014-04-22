@@ -15,7 +15,7 @@ import java.security.spec.X509EncodedKeySpec;
 
 import javax.crypto.Cipher;
 
-import android.util.Log;
+import my.project.easyrecharge.util.L;
 
 public class Rsa {
 
@@ -82,6 +82,7 @@ public class Rsa {
 
 		return null;
 	}
+
 	public static String getMD5(String content) {
 		String s = null;
 		char hexDigits[] = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9',
@@ -105,6 +106,7 @@ public class Rsa {
 		}
 		return s;
 	}
+
 	public static boolean doCheck(String content, String sign, String publicKey) {
 		try {
 			KeyFactory keyFactory = KeyFactory.getInstance("RSA");
@@ -117,10 +119,10 @@ public class Rsa {
 
 			signature.initVerify(pubKey);
 			signature.update(content.getBytes("utf-8"));
-			Log.i("Result", "content :   "+content);
-			Log.i("Result", "sign:   "+sign);
+			L.i("Result", "content :   " + content);
+			L.i("Result", "sign:   " + sign);
 			boolean bverify = signature.verify(Base64.decode(sign));
-			Log.i("Result","bverify = " + bverify);
+			L.i("Result", "bverify = " + bverify);
 			return bverify;
 		} catch (Exception e) {
 			e.printStackTrace();

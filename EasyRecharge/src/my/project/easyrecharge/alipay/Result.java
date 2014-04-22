@@ -37,7 +37,7 @@ public class Result {
 		sResultStatus.put("4006", "订单支付失败");
 		sResultStatus.put("4010", "重新绑定账户");
 		sResultStatus.put("6000", "支付服务正在进行升级操作");
-		sResultStatus.put("6001", "支付操作已经取消");
+		sResultStatus.put("6001", "支付操作已取消");
 		sResultStatus.put("7001", "网页支付失败");
 	}
 

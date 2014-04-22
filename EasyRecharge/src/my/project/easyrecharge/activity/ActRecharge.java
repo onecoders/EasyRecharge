@@ -13,13 +13,13 @@ import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Order;
 import my.project.easyrecharge.model.OrderWithBind;
 import my.project.easyrecharge.model.OrderWithoutBind;
+import my.project.easyrecharge.util.L;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -179,9 +179,9 @@ public class ActRecharge extends ActBasicInfo implements
 			String sign = Rsa.sign(info, Keys.PRIVATE);
 			sign = URLEncoder.encode(sign);
 			info += "&sign=\"" + sign + "\"&" + getSignType();
-			Log.i(F.TAG, "start pay");
+			L.i(F.TAG, "start pay");
 			// start the pay.
-			Log.i(F.TAG, "info = " + info);
+			L.i(F.TAG, "info = " + info);
 			final String orderInfo = info;
 			new Thread() {
 
@@ -192,7 +192,7 @@ public class ActRecharge extends ActBasicInfo implements
 					// alipay.setSandBox(true);
 
 					String result = alipay.pay(orderInfo);
-					Log.i(F.TAG, "result = " + result);
+					L.i(F.TAG, "result = " + result);
 					Message msg = new Message();
 					msg.what = RQF_PAY;
 					msg.obj = result;
@@ -247,7 +247,7 @@ public class ActRecharge extends ActBasicInfo implements
 		java.util.Random r = new java.util.Random();
 		key += r.nextInt();
 		key = key.substring(0, 15);
-		Log.d(F.TAG, "outTradeNo: " + key);
+		L.d(F.TAG, "outTradeNo: " + key);
 		return key;
 	}
 

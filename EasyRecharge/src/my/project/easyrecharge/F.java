@@ -4,6 +4,7 @@ import java.lang.reflect.Type;
 
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
+import my.project.easyrecharge.util.L;
 import my.project.easyrecharge.util.VersionUtil;
 import android.content.Context;
 import android.content.SharedPreferences;
@@ -53,6 +54,7 @@ public class F {
 	private static Gson mGson;
 
 	public static void init(Context context) {
+		L.enableLogging();// enable Log
 		initPrefAndGson(context);
 		initVersionInfo(context);
 		loadShowImage1();
