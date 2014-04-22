@@ -8,11 +8,11 @@ import org.json.JSONObject;
 import android.util.Log;
 
 public class Result {
-	
+
 	private static final Map<String, String> sResultStatus;
 
 	private String mResult;
-	
+
 	String resultStatus = null;
 	String memo = null;
 	String result = null;
@@ -37,14 +37,14 @@ public class Result {
 		sResultStatus.put("7001", "网页支付失败");
 	}
 
-	public  String getResult() {
+	public String getResult() {
 		String src = mResult.replace("{", "");
 		src = src.replace("}", "");
 		return getContent(src, "memo=", ";result");
 	}
 
-	public  void parseResult() {
-		
+	public void parseResult() {
+
 		try {
 			String src = mResult.replace("{", "");
 			src = src.replace("}", "");
@@ -64,7 +64,13 @@ public class Result {
 		}
 	}
 
-	private  boolean checkSign(String result) {
+	public String getResultStatus() {
+		String src = mResult.replace("{", "");
+		src = src.replace("}", "");
+		return getContent(src, "resultStatus=", ";memo");
+	}
+
+	private boolean checkSign(String result) {
 		boolean retVal = false;
 		try {
 			JSONObject json = string2JSON(result, "&");
@@ -89,7 +95,7 @@ public class Result {
 		return retVal;
 	}
 
-	public  JSONObject string2JSON(String src, String split) {
+	public JSONObject string2JSON(String src, String split) {
 		JSONObject json = new JSONObject();
 
 		try {
@@ -105,7 +111,7 @@ public class Result {
 		return json;
 	}
 
-	private  String getContent(String src, String startTag, String endTag) {
+	private String getContent(String src, String startTag, String endTag) {
 		String content = src;
 		int start = src.indexOf(startTag);
 		start += startTag.length();
