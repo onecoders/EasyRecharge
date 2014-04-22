@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * Version info from server
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class VersionServer {
 
 	private int ID;

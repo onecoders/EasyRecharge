@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * Order info,send to server as json string
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class OrderInfo {
 
 	private String SchoolID;

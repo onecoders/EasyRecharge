@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * Information from server
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 import my.project.easyrecharge.util.Dateformat;
 
 public class Information {

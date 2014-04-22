@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * Apart
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class Apart {
 
 	// 学校id

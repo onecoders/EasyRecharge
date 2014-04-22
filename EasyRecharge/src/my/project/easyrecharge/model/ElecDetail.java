@@ -1,5 +1,12 @@
 package my.project.easyrecharge.model;
 
+/**
+ * Electricity detail
+ * 
+ * @author roy
+ * @email onecoders@gmail.com
+ */
+
 public class ElecDetail {
 
 	private String usedScore;
