@@ -43,7 +43,7 @@ public class ActResultRecharge extends ActBase {
 		btnInquiry = (Button) findViewById(R.id.btn_inquiry);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
-			String price = bundle.getString(Key.PAY_PRICE)
+			String price = bundle.getInt(Key.PAY_PRICE)
 					+ getString(R.string.rmb);
 			payPrice.setText(price);
 		}

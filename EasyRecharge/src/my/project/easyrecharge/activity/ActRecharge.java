@@ -260,9 +260,11 @@ public class ActRecharge extends ActBasicInfo implements
 			Result result = new Result((String) msg.obj);
 			switch (msg.what) {
 			case RQF_PAY:
-				Toast.makeText(ActRecharge.this, result.getResult(),
+				result.parseResult();
+				Toast.makeText(ActRecharge.this, result.getResultStatus(),
 						Toast.LENGTH_SHORT).show();
-				boolean success = false;
+				boolean success = result.getRs().equals(Result.STATUS_SUCCESS);
+				// success = success && result.isSignOk();
 				if (success) {
 					Bundle bundle = new Bundle();
 					bundle.putInt(Key.PAY_PRICE, order.getPrice());

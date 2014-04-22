@@ -8,15 +8,19 @@ import org.json.JSONObject;
 import android.util.Log;
 
 public class Result {
-	
+
+	public static final String STATUS_SUCCESS = "9000";
+
 	private static final Map<String, String> sResultStatus;
 
 	private String mResult;
-	
+
 	String resultStatus = null;
+
 	String memo = null;
-	String result = null;
+	String result = null;// body and sign
 	boolean isSignOk = false;
+	String rs;
 
 	public Result(String result) {
 		this.mResult = result;
@@ -33,28 +37,28 @@ public class Result {
 		sResultStatus.put("4006", "订单支付失败");
 		sResultStatus.put("4010", "重新绑定账户");
 		sResultStatus.put("6000", "支付服务正在进行升级操作");
-		sResultStatus.put("6001", "用户中途取消支付操作");
+		sResultStatus.put("6001", "支付操作已经取消");
 		sResultStatus.put("7001", "网页支付失败");
 	}
 
-	public  String getResult() {
+	public String getResult() {
 		String src = mResult.replace("{", "");
 		src = src.replace("}", "");
 		return getContent(src, "memo=", ";result");
 	}
 
 	public void parseResult() {
-		
+
 		try {
 			String src = mResult.replace("{", "");
 			src = src.replace("}", "");
-			String rs = getContent(src, "resultStatus=", ";memo");
+			rs = getContent(src, "resultStatus=", ";memo");
 			if (sResultStatus.containsKey(rs)) {
 				resultStatus = sResultStatus.get(rs);
 			} else {
 				resultStatus = "其他错误";
 			}
-			resultStatus += "(" + rs + ")";
+			// resultStatus += "(" + rs + ")";
 
 			memo = getContent(src, "memo=", ";result");
 			result = getContent(src, "result=", null);
@@ -64,7 +68,7 @@ public class Result {
 		}
 	}
 
-	private  boolean checkSign(String result) {
+	private boolean checkSign(String result) {
 		boolean retVal = false;
 		try {
 			JSONObject json = string2JSON(result, "&");
@@ -89,7 +93,7 @@ public class Result {
 		return retVal;
 	}
 
-	public  JSONObject string2JSON(String src, String split) {
+	public JSONObject string2JSON(String src, String split) {
 		JSONObject json = new JSONObject();
 
 		try {
@@ -105,7 +109,7 @@ public class Result {
 		return json;
 	}
 
-	private  String getContent(String src, String startTag, String endTag) {
+	private String getContent(String src, String startTag, String endTag) {
 		String content = src;
 		int start = src.indexOf(startTag);
 		start += startTag.length();
@@ -122,5 +126,17 @@ public class Result {
 		}
 
 		return content;
+	}
+
+	public String getResultStatus() {
+		return resultStatus;
+	}
+
+	public boolean isSignOk() {
+		return isSignOk;
+	}
+
+	public String getRs() {
+		return rs;
 	}
 }
