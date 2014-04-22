@@ -1,6 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
+import my.project.easyrecharge.F.METHOD;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
@@ -8,7 +9,6 @@ import my.project.easyrecharge.model.Apart;
 import my.project.easyrecharge.model.School;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
@@ -169,41 +169,21 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);
 
-	protected void checkFirst() {
-		new CheckExistTask().execute();
+	protected void doInquiryExist() {
+		String pSchoolID = school.getSchoolID();
+		String pApartID = apart.getApartID();
+		String pRoomNum = roomNum;
+		loadDataXMLRPC(METHOD.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
 	}
 
-	class CheckExistTask extends AsyncTask<Void, Void, Boolean> {
-
-		@Override
-		protected void onPreExecute() {
-			super.onPreExecute();
-			showProgressHUD();
-		}
-
-		@Override
-		protected Boolean doInBackground(Void... params) {
-			return checkExist();
-		}
-
-		@Override
-		protected void onPostExecute(Boolean result) {
-			super.onPostExecute(result);
-			dismissProgressHUD();
-			if (result) {
-				doAfterCheckOK();
-			} else {
-				showToast(R.string.room_not_exist);
-			}
-		}
-
+	@Override
+	protected void disposeResult(String apiName, String content) {
+		super.disposeResult(apiName, content);
+		if (!apiName.equals(METHOD.QUERY_SCORE))
+			return;
+		doAfterCheckOK(content);
 	}
 
-	private boolean checkExist() {
-		// do real check
-		return false;
-	}
-
-	protected abstract void doAfterCheckOK();
+	protected abstract void doAfterCheckOK(String content);
 
 }

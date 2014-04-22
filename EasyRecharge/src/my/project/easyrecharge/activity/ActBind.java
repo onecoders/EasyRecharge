@@ -81,8 +81,7 @@ public class ActBind extends ActBasicInfo {
 	}
 
 	private void doBind() {
-		// checkFirst();
-		doAfterCheckOK();
+		doInquiryExist();
 	}
 
 	private void doUnbind() {
@@ -91,14 +90,13 @@ public class ActBind extends ActBasicInfo {
 	}
 
 	@Override
-	protected void doAfterCheckOK() {
+	protected void doAfterCheckOK(String content) {
 		BindInfo bindInfo = initBindInfo();
 		F.bind(bindInfo);
 		// 显示绑定成功页面
 		Bundle bundle = new Bundle();
 		bundle.putString(Key.BIND_JSON, F.toJson(bindInfo));
 		switchActivityAndFinish(ActResultBind.class, bundle);
-
 	}
 
 	private BindInfo initBindInfo() {

@@ -1,7 +1,6 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import android.os.Bundle;
@@ -71,32 +70,11 @@ public class ActInquiry extends ActBasicInfo {
 	}
 
 	private void go2Inquiry() {
-		if (F.isBind()) {
-			doInquiry();
-		} else {
-			checkFirst();
-		}
+		doInquiryExist();
 	}
 
 	@Override
-	protected void doAfterCheckOK() {
-		doInquiry();
-	}
-
-	private void doInquiry() {
-		// do real inquiry
-		String pSchoolID = school.getSchoolID();
-		String pApartID = apart.getApartID();
-		String pRoomNum = roomNum;
-		loadDataXMLRPC(METHOD.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
-
-	}
-
-	@Override
-	protected void disposeResult(String apiName, String content) {
-		super.disposeResult(apiName, content);
-		if (!apiName.equals(F.METHOD.QUERY_SCORE))
-			return;
+	protected void doAfterCheckOK(String content) {
 		Bundle bundle = new Bundle();
 		bundle.putString(Key.SCHOOL_JSON, F.toJson(school));
 		bundle.putString(Key.APART_JSON, F.toJson(apart));

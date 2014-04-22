@@ -55,7 +55,7 @@ public class ActDataload extends ActBase {
 				if (result.getIsHave() == 1) {
 					disposeResult(apiName, F.toJson(result));
 				} else {
-					showToast(result.getDescription());
+					showToast(R.string.room_not_exist);
 				}
 			} else {
 				showToast(R.string.request_failed);

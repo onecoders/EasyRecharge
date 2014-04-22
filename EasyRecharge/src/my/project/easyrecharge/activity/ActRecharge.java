@@ -164,12 +164,12 @@ public class ActRecharge extends ActBasicInfo implements
 		if (F.isBind()) {
 			doPay();
 		} else {
-			checkFirst();
+			doInquiryExist();
 		}
 	}
 
 	@Override
-	protected void doAfterCheckOK() {
+	protected void doAfterCheckOK(String content) {
 		doPay();
 	}
 
