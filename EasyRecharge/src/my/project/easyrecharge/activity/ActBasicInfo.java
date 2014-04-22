@@ -193,7 +193,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			if (result) {
 				doAfterCheckOK();
 			} else {
-				showToast(R.string.bind_info_wrong);
+				showToast(R.string.room_not_exist);
 			}
 		}
 
