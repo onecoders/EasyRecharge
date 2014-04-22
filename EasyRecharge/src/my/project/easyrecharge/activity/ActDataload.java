@@ -17,6 +17,8 @@ import android.util.Log;
 
 public class ActDataload extends ActBase {
 
+	private static final int ROOM_EXIST_FLAG = 1;
+
 	// subclass invoke this method to request data with xml rpc
 	protected void loadDataXMLRPC(String apiName, Object... params) {
 		Log.d("XMLRPCRequest", apiName + params.toString());
@@ -52,7 +54,7 @@ public class ActDataload extends ActBase {
 			super.onPostExecute(result);
 			dismissProgressHUD();
 			if (result != null) {
-				if (result.getIsHave() == 1) {
+				if (result.getIsHave() == ROOM_EXIST_FLAG) {
 					disposeResult(apiName, F.toJson(result));
 				} else {
 					showToast(R.string.room_not_exist);
