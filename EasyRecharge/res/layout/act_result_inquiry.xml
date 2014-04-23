@@ -5,81 +5,97 @@
     android:background="@color/main_bg"
     android:gravity="center_vertical"
     android:orientation="vertical"
-    android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin" >
+    android:paddingRight="@dimen/activity_horizontal_margin" >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dip" >
+        android:padding="5dip" >
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right"
             android:text="@string/txt_school"
-            android:textColor="@color/TextColorGray" />
+            android:textColor="@color/TextColorGray"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ri_school_txt"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:singleLine="true" />
+            android:gravity="left"
+            android:paddingLeft="10dip"
+            android:singleLine="true"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dip" >
+        android:padding="5dip" >
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right"
             android:text="@string/txt_apart"
-            android:textColor="@color/TextColorGray" />
+            android:textColor="@color/TextColorGray"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ri_apart_txt"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:singleLine="true" />
+            android:gravity="left"
+            android:paddingLeft="10dip"
+            android:singleLine="true"
+            android:textSize="15sp" />
     </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:padding="10dip" >
+        android:padding="5dip" >
 
         <TextView
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:gravity="center"
+            android:gravity="right"
             android:text="@string/txt_room"
-            android:textColor="@color/TextColorGray" />
+            android:textColor="@color/TextColorGray"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/ri_room_txt"
             android:layout_width="0dip"
             android:layout_height="wrap_content"
             android:layout_weight="2"
-            android:singleLine="true" />
+            android:gravity="left"
+            android:paddingLeft="10dip"
+            android:singleLine="true"
+            android:textSize="15sp" />
     </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:layout_margin="8dip"
+        android:background="#B6B6B6" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
+        android:layout_marginBottom="8dip"
         android:gravity="center"
         android:text="@string/txt_elec_detail"
         android:textColor="@color/green"
@@ -95,6 +111,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dip"
             android:text="@string/txt_used"
             android:textSize="18sp" />
 
@@ -103,6 +120,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -116,6 +134,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dip"
             android:text="@string/txt_remain"
             android:textSize="18sp" />
 
@@ -124,6 +143,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -137,6 +157,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="2dip"
             android:text="@string/txt_last_read_time"
             android:textSize="18sp" />
 
@@ -145,6 +166,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -153,7 +175,7 @@
         style="@style/btnStyleAcapulco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dip"
+        android:layout_margin="10dip"
         android:text="@string/confirm_exit" />
 
 </LinearLayout>

@@ -20,9 +20,12 @@ import de.timroes.axmlrpc.XMLRPCClient;
 
 public class RequestUtil {
 
+	private static final int TIME_OUT = 5 * 1000;
+
 	public static ElecDetail xmlrpcRequest(String apiName, Object... arg1)
 			throws Exception {
 		XMLRPCClient client = new XMLRPCClient(new URL(F.XML_RPC_REQUEST_URL));
+		client.setTimeout(TIME_OUT);
 		HashMap<String, Object> result = (HashMap<String, Object>) client.call(
 				apiName, arg1);
 		ElecDetail detail = new ElecDetail();
@@ -41,7 +44,7 @@ public class RequestUtil {
 		HttpParams httpParams = client.getParams();
 		// 设置网络超时参数
 		HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
-		HttpConnectionParams.setSoTimeout(httpParams, 5000);
+		HttpConnectionParams.setSoTimeout(httpParams, TIME_OUT);
 		HttpResponse response = client.execute(new HttpGet(url));
 		HttpEntity entity = response.getEntity();
 		if (entity != null) {

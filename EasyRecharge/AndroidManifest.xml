@@ -96,7 +96,7 @@
             android:name=".activity.ActChooseSchool"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- 楼号选择 -->
+        <!-- 公寓选择 -->
         <activity
             android:name=".activity.ActChooseApart"
             android:screenOrientation="portrait" >

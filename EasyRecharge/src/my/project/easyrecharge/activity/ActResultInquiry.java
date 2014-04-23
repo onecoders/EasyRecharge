@@ -74,8 +74,8 @@ public class ActResultInquiry extends ActBase {
 		setText(txtSchool, school.getSchoolName());
 		setText(txtApart, apart.getApartName());
 		setText(txtRoom, roomNum);
-		setText(txtUsed, detail.getUsedScore());
-		setText(txtRemain, detail.getRemainScore());
+		setText(txtUsed, detail.getUsedScore() + " C");
+		setText(txtRemain, detail.getRemainScore() + " C");
 		setText(txtLastReadTime, detail.getLastReadTime());
 	}
 
