@@ -169,7 +169,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);
 
-	protected void doInquiryExist() {
+	protected void doCheckExist() {
 		String pSchoolID = school.getSchoolID();
 		String pApartID = apart.getApartID();
 		String pRoomNum = roomNum;

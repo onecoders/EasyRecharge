@@ -71,11 +71,12 @@ public class ActResultInquiry extends ActBase {
 		School school = F.fromJson(schoolJson, School.class);
 		Apart apart = F.fromJson(apartJson, Apart.class);
 		ElecDetail detail = F.fromJson(elecJson, ElecDetail.class);
+		String unit = getString(R.string.unit);
 		setText(txtSchool, school.getSchoolName());
 		setText(txtApart, apart.getApartName());
 		setText(txtRoom, roomNum);
-		setText(txtUsed, detail.getUsedScore() + " C");
-		setText(txtRemain, detail.getRemainScore() + " C");
+		setText(txtUsed, detail.getUsedScore() + unit);
+		setText(txtRemain, detail.getRemainScore() + unit);
 		setText(txtLastReadTime, detail.getLastReadTime());
 	}
 

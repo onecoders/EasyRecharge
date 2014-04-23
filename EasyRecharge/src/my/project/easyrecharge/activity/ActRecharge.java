@@ -164,7 +164,7 @@ public class ActRecharge extends ActBasicInfo implements
 		if (F.isBind()) {
 			doPay();
 		} else {
-			doInquiryExist();
+			doCheckExist();
 		}
 	}
 

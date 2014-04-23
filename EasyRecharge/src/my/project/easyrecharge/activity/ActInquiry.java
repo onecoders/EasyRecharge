@@ -70,7 +70,7 @@ public class ActInquiry extends ActBasicInfo {
 	}
 
 	private void go2Inquiry() {
-		doInquiryExist();
+		doCheckExist();
 	}
 
 	@Override

@@ -81,7 +81,7 @@ public class ActBind extends ActBasicInfo {
 	}
 
 	private void doBind() {
-		doInquiryExist();
+		doCheckExist();
 	}
 
 	private void doUnbind() {
