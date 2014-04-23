@@ -54,7 +54,7 @@ public class F {
 	private static Gson mGson;
 
 	public static void init(Context context) {
-		L.enableLogging();// enable Log
+		L.disableLogging();// enable log or disable log
 		initPrefAndGson(context);
 		initVersionInfo(context);
 		loadShowImage1();

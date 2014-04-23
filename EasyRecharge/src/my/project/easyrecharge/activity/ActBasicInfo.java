@@ -81,9 +81,9 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		apart = isBind ? F.mBindInfo.getApart() : null;
 		String roomNumBind = isBind ? F.mBindInfo.getRoomNum() : "";
 
-		schoolTextView.setText(isBind ? school.getSchoolName() : "");
-		apartTextView.setText(isBind ? apart.getApartName() : "");
-		roomEdit.setText(roomNumBind);
+		setText(schoolTextView, isBind ? school.getSchoolName() : "");
+		setText(apartTextView, isBind ? apart.getApartName() : "");
+		setText(roomEdit, roomNumBind);
 
 		schoolContainer.setEnabled(!isBind);
 		apartContainer.setEnabled(!isBind);
@@ -125,15 +125,15 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 						&& !selectSchool.getSchoolID().equals(
 								school.getSchoolID())) {
 					apart = null;
-					apartTextView.setText("");
+					setText(apartTextView, "");
 				}
 				school = selectSchool;
-				schoolTextView.setText(school.getSchoolName());
+				setText(schoolTextView, school.getSchoolName());
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				String apartJson = data.getStringExtra(Key.APART_JSON);
 				apart = F.fromJson(apartJson, Apart.class);
-				apartTextView.setText(apart.getApartName());
+				setText(apartTextView, apart.getApartName());
 				break;
 			default:
 				break;

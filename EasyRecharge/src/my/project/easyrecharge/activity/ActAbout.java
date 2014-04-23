@@ -36,7 +36,7 @@ public class ActAbout extends ActBase {
 	private void initAppInfo() {
 		appInfo = (TextView) findViewById(R.id.app_info);
 		String info = buildeAppInfo();
-		appInfo.setText(info);
+		setText(appInfo, info);
 	}
 
 	private String buildeAppInfo() {
