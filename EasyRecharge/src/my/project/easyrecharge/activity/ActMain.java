@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
 import my.project.easyrecharge.model.IndexMenu;
@@ -51,13 +51,13 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 	}
 
 	private void loadInforData() {
-		loadDataHttp(false, METHOD.QUERY_ANNOUNCEMENT, "?schoolId=1");
+		loadDataHttp(false, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_ANNOUNCEMENT))
+		if (!apiName.equals(Method.QUERY_ANNOUNCEMENT))
 			return;
 		try {
 			Type collectionType = new TypeToken<List<Information>>() {

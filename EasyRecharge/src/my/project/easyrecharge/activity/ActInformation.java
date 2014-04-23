@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaInfo;
 import my.project.easyrecharge.model.Information;
@@ -59,13 +59,13 @@ public class ActInformation extends ActDataload {
 	}
 
 	private void loadContent() {
-		loadDataHttp(true, METHOD.QUERY_ANNOUNCEMENT, "?schoolId=1");
+		loadDataHttp(true, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_ANNOUNCEMENT))
+		if (!apiName.equals(Method.QUERY_ANNOUNCEMENT))
 			return;
 		list.clear();
 		try {

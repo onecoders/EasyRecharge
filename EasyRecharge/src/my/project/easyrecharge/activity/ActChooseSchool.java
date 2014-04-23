@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Locale;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaSchool;
 import my.project.easyrecharge.contants.Key;
@@ -119,13 +119,13 @@ public class ActChooseSchool extends ActDataload implements
 	}
 
 	private void loadContent() {
-		loadDataHttp(true, METHOD.QUERY_SHCOOL, "");
+		loadDataHttp(true, Method.QUERY_SHCOOL, "");
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_SHCOOL))
+		if (!apiName.equals(Method.QUERY_SHCOOL))
 			return;
 		list.clear();
 		try {

@@ -1,7 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.model.VersionServer;
 import my.project.easyrecharge.util.UpdateApkUtil;
@@ -33,13 +33,13 @@ public class ActUpdateApk extends ActDataload {
 	// check update info from server
 	protected void checkUpdate(boolean needHint) {
 		this.needHint = needHint;
-		loadDataHttp(needHint, METHOD.QUERY_VERSION, "");
+		loadDataHttp(needHint, Method.QUERY_VERSION, "");
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_VERSION))
+		if (!apiName.equals(Method.QUERY_VERSION))
 			return;
 		try {
 			version = F.fromJson(content, VersionServer.class);

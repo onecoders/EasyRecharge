@@ -22,7 +22,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
+        android:layout_margin="10dip"
         android:text="@string/txt_bind_info"
         android:textSize="18sp" />
 
@@ -36,6 +36,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
             android:text="@string/txt_school"
             android:textSize="18sp" />
 
@@ -44,6 +45,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -57,6 +59,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
             android:text="@string/txt_apart"
             android:textSize="18sp" />
 
@@ -65,6 +68,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 
@@ -78,6 +82,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dip"
             android:text="@string/txt_room"
             android:textSize="18sp" />
 
@@ -86,6 +91,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:textColor="@color/green"
             android:textSize="16sp" />
     </LinearLayout>
 

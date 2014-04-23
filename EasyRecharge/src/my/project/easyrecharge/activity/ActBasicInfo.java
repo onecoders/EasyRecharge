@@ -1,7 +1,7 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
@@ -173,13 +173,13 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		String pSchoolID = school.getSchoolID();
 		String pApartID = apart.getApartID();
 		String pRoomNum = roomNum;
-		loadDataXMLRPC(METHOD.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
+		loadDataXMLRPC(Method.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_SCORE))
+		if (!apiName.equals(Method.QUERY_SCORE))
 			return;
 		doAfterCheckOK(content);
 	}

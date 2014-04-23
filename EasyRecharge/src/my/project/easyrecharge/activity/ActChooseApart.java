@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.METHOD;
+import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaApart;
 import my.project.easyrecharge.contants.Key;
@@ -85,13 +85,13 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 	}
 
 	private void loadBuildingInfo() {
-		loadDataHttp(true, METHOD.QUERY_APART, "?schoolId=" + schoolId);
+		loadDataHttp(true, Method.QUERY_APART, "?schoolId=" + schoolId);
 	}
 
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(METHOD.QUERY_APART))
+		if (!apiName.equals(Method.QUERY_APART))
 			return;
 		list.clear();
 		try {

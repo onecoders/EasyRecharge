@@ -25,7 +25,7 @@ public class F {
 
 	public static final String NOTIFY_URL = BASIC_URL + "Alipay/PayResult";
 
-	public static class METHOD {
+	public static class Method {
 
 		public static final String QUERY_SCORE = "query_score";
 
