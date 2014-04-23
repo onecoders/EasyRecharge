@@ -67,7 +67,7 @@
     <string name="network_connect">网络已连接</string>
     <string name="network_interupt">网络已断开</string>
     <string name="request_failed">获取信息失败！</string>
-    <string name="error_data">数据错误！</string>
+    <string name="error_data">数据格式错误！</string>
     <!-- feedback activity -->
     <string name="hint_input_advice">请填写您的意见或建议：</string>
     <string name="hint_input_here">输入意见或建议&#8230;</string>
