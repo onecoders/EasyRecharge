@@ -54,7 +54,7 @@ public class ActResultRecharge extends ActDataload {
 			order = F.fromJson(json, F.isBind() ? OrderWithBind.class
 					: OrderWithoutBind.class);
 			String price = order.getPrice() + getString(R.string.rmb);
-			payPrice.setText(price);
+			setText(payPrice, price);
 		}
 		btnInquiry.setOnClickListener(this);
 	}
