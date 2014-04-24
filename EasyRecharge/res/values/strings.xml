@@ -76,7 +76,7 @@
     <string name="hint_feedback_failed">反馈失败，请重试！</string>
     <string name="hint_input_invalid">请输入有效意见或建议！</string>
     <!-- about activity -->
-    <string name="about_version">YH智电宝\nAndroid版&#160;&#160;V</string>
+    <string name="about_version">YH&#160;智电宝\nAndroid版&#160;&#160;V</string>
     <string name="about_introduction">&#160;&#160;&#160;&#160;&#160;&#160;YH智电宝，是新一代掌上查询校园用电和便捷充值的智能平台移动客户端，通过支付宝便捷支付平台支付，支付成功后便可对指定的宿舍进行电费充值，方便学生日常用电查询和充值。</string>
     <!-- notice activity -->
     <string name="notice_title">YH智电宝使用注意事项</string>

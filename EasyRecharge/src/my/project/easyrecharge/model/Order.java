@@ -18,6 +18,8 @@ public abstract class Order {
 
 	public abstract void setSchool(School school);
 
+	public abstract School getSchool();
+
 	// 获取学校id
 	public abstract String getSchoolId();
 
@@ -25,6 +27,8 @@ public abstract class Order {
 	public abstract String getSchoolName();
 
 	public abstract void setApart(Apart apart);
+
+	public abstract Apart getApart();
 
 	// 获取公寓id
 	public abstract String getApartId();

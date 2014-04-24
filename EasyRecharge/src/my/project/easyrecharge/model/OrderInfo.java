@@ -1,7 +1,7 @@
 package my.project.easyrecharge.model;
 
 /**
- * Order info,send to server as json string
+ * Order info,send to server as json string through alipay server
  * 
  * @author roy
  * @email onecoders@gmail.com

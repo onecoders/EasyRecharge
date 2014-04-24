@@ -14,7 +14,7 @@ public class Key {
 
 	public static final String APART_JSON = "apart_json";
 
-	public static final String PAY_PRICE = "pay_price";
+	public static final String ORDER_JSON = "order_json";
 
 	public static final String BIND_JSON = "bind_json";
 

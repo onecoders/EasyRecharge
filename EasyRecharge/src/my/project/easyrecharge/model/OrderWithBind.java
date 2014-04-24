@@ -32,6 +32,11 @@ public class OrderWithBind extends Order {
 	}
 
 	@Override
+	public School getSchool() {
+		return bindInfo.getSchool();
+	}
+
+	@Override
 	public String getSchoolId() {
 		return bindInfo.getSchoolId();
 	}
@@ -44,6 +49,11 @@ public class OrderWithBind extends Order {
 	@Override
 	public void setApart(Apart apart) {
 		bindInfo.setApart(apart);
+	}
+
+	@Override
+	public Apart getApart() {
+		return bindInfo.getApart();
 	}
 
 	@Override

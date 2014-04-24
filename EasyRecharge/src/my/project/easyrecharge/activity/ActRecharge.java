@@ -27,7 +27,6 @@ import android.widget.CompoundButton;
 import android.widget.CompoundButton.OnCheckedChangeListener;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.alipay.android.app.sdk.AliPay;
 
@@ -138,7 +137,7 @@ public class ActRecharge extends ActBasicInfo implements
 					@Override
 					public void onClick(DialogInterface dialog, int which) {
 						checkedItem = which;
-						priceTextView.setText(priceList[which]);
+						setText(priceTextView, priceList[which]);
 						dialog.dismiss();
 					}
 				});
@@ -148,7 +147,7 @@ public class ActRecharge extends ActBasicInfo implements
 	private void doRecharge() {
 		initOrder();
 		// go2Pay();// must check first
-		doPay();
+		doPay();// only for test here
 	}
 
 	private void initOrder() {
@@ -201,8 +200,7 @@ public class ActRecharge extends ActBasicInfo implements
 			}.start();
 		} catch (Exception ex) {
 			ex.printStackTrace();
-			Toast.makeText(this, R.string.remote_call_failed,
-					Toast.LENGTH_SHORT).show();
+			showToast(R.string.remote_call_failed);
 		}
 	}
 
@@ -261,13 +259,12 @@ public class ActRecharge extends ActBasicInfo implements
 			switch (msg.what) {
 			case RQF_PAY:
 				result.parseResult();
-				Toast.makeText(ActRecharge.this, result.getResultStatus(),
-						Toast.LENGTH_SHORT).show();
+				showToast(result.getResultStatus());
 				boolean success = result.getRs().equals(Result.STATUS_SUCCESS);
 				// success = success && result.isSignOk();
 				if (success) {
 					Bundle bundle = new Bundle();
-					bundle.putInt(Key.PAY_PRICE, order.getPrice());
+					bundle.putString(Key.ORDER_JSON, F.toJson(order));
 					switchActivityAndFinish(ActResultRecharge.class, bundle);
 				}
 				break;
