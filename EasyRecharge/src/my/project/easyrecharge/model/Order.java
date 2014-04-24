@@ -21,20 +21,28 @@ public abstract class Order {
 	public abstract School getSchool();
 
 	// 获取学校id
-	public abstract String getSchoolId();
+	public String getSchoolId() {
+		return getSchool().getSchoolID();
+	}
 
 	// 获取学校名称
-	public abstract String getSchoolName();
+	public String getSchoolName() {
+		return getSchool().getSchoolName();
+	}
 
 	public abstract void setApart(Apart apart);
 
 	public abstract Apart getApart();
 
 	// 获取公寓id
-	public abstract String getApartId();
+	public String getApartId() {
+		return getApart().getApartID();
+	}
 
 	// 获取公寓名称
-	public abstract String getApartName();
+	public String getApartName() {
+		return getApart().getApartName();
+	}
 
 	// 获取房间号
 	public abstract String getRoomNum();
