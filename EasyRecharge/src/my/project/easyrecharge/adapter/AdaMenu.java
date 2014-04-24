@@ -18,18 +18,34 @@ public class AdaMenu extends ArrayAdapter<IndexMenu> {
 
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
-		IndexMenu item = getItem(position);
+		ViewHolder holder;
 		if (convertView == null) {
 			convertView = LayoutInflater.from(getContext()).inflate(
 					R.layout.view_item_menu, null);
+			holder = new ViewHolder(convertView);
+			convertView.setTag(holder);
+		} else {
+			holder = (ViewHolder) convertView.getTag();
 		}
-		ImageView menuIcon = (ImageView) convertView
-				.findViewById(R.id.menu_icon);
-		menuIcon.setImageResource(item.getIconId());
-		TextView menuTitle = (TextView) convertView
-				.findViewById(R.id.menu_title);
-		menuTitle.setText(item.getTitle());
+
+		IndexMenu item = getItem(position);
+		holder.setContent(item);
 		return convertView;
+	}
+
+	private final class ViewHolder {
+		ImageView menuIcon;
+		TextView menuTitle;
+
+		public ViewHolder(View v) {
+			menuIcon = (ImageView) v.findViewById(R.id.menu_icon);
+			menuTitle = (TextView) v.findViewById(R.id.menu_title);
+		}
+
+		public void setContent(IndexMenu item) {
+			menuIcon.setImageResource(item.getIconId());
+			menuTitle.setText(item.getTitle());
+		}
 	}
 
 }

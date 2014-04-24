@@ -30,7 +30,7 @@ public class AdaApart extends ArrayAdapter<Apart> {
 		}
 
 		Apart item = getItem(position);
-		holder.name.setText(item.getApartName());
+		holder.setContent(item);
 		return convertView;
 	}
 
@@ -39,6 +39,10 @@ public class AdaApart extends ArrayAdapter<Apart> {
 
 		public ViewHolder(View v) {
 			name = (TextView) v.findViewById(R.id.name);
+		}
+
+		public void setContent(Apart item) {
+			name.setText(item.getApartName());
 		}
 	}
 

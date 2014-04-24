@@ -30,8 +30,7 @@ public class AdaInfo extends ArrayAdapter<Information> {
 		}
 
 		Information item = getItem(position);
-		holder.time.setText(item.getUpdateTime());
-		holder.message.setText(item.getMessage());
+		holder.setContent(item);
 		return convertView;
 	}
 
@@ -42,6 +41,11 @@ public class AdaInfo extends ArrayAdapter<Information> {
 		public ViewHolder(View v) {
 			time = (TextView) v.findViewById(R.id.time);
 			message = (TextView) v.findViewById(R.id.message);
+		}
+
+		public void setContent(Information item) {
+			time.setText(item.getUpdateTime());
+			message.setText(item.getMessage());
 		}
 	}
 
