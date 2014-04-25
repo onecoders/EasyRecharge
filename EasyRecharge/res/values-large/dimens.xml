@@ -37,6 +37,16 @@
     <dimen name="container_height">68dip</dimen>
     <dimen name="container_margin">12dip</dimen>
 
+    <!-- result activity -->
+    <dimen name="reuslt_txt_margin">15dip</dimen>
+    <dimen name="bind_success_txt">28sp</dimen>
+    <dimen name="bind_info_hint">25sp</dimen>
+    <dimen name="container_padding">15dip</dimen>
+    <dimen name="txt_key_padding_left">10dip</dimen>
+    <dimen name="result_margin_bottom">15dip</dimen>
+    <dimen name="result_padding_left">18dip</dimen>
+    <dimen name="reuslt_txt_margin">5dip</dimen>
+
     <!-- text size -->
     <dimen name="ab_title_txt">22sp</dimen>
     <dimen name="ab_btn_txt">15sp</dimen>
@@ -52,5 +62,12 @@
     <dimen name="notice_txt">20sp</dimen>
     <dimen name="notice_title_txt">25sp</dimen>
     <dimen name="notice_content_txt">20sp</dimen>
+    <dimen name="pay_success_txt">25sp</dimen>
+    <dimen name="pay_success_hint_txt">20sp</dimen>
+    <dimen name="pay_price_txt">35sp</dimen>
+    <dimen name="result_txt_key">25sp</dimen>
+    <dimen name="result_txt_value">20sp</dimen>
+    <dimen name="inquiry_info_txt">22sp</dimen>
+    <dimen name="elec_detail_txt">28sp</dimen>
 
 </resources>

@@ -13,32 +13,33 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
+        android:layout_margin="@dimen/reuslt_txt_margin"
         android:text="@string/txt_pay_success"
         android:textColor="@color/TextColorGray"
-        android:textSize="20sp" />
+        android:textSize="@dimen/pay_success_txt" />
 
     <TextView
         android:id="@+id/pay_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
+        android:layout_margin="@dimen/reuslt_txt_margin"
         android:gravity="center"
         android:textColor="@color/dialog_tiltle_blue"
-        android:textSize="28sp" />
+        android:textSize="@dimen/pay_price_txt" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="5dip"
-        android:text="@string/txt_pay_hint" />
+        android:layout_margin="@dimen/reuslt_txt_margin"
+        android:text="@string/txt_pay_hint"
+        android:textSize="@dimen/pay_success_hint_txt" />
 
     <Button
         android:id="@+id/btn_inquiry"
         style="@style/btnStyleAcapulco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="15dip"
+        android:layout_margin="@dimen/btn_margin"
         android:text="@string/btn_inquiry_txt" />
 
 </LinearLayout>
