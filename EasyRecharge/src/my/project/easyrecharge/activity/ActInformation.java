@@ -9,6 +9,7 @@ import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaInfo;
 import my.project.easyrecharge.model.Information;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -104,7 +105,13 @@ public class ActInformation extends ActDataload {
 		}
 		ViewGroup.LayoutParams params = lv.getLayoutParams();
 		params.height = totalHeight
-				+ (lv.getDividerHeight() * (listAdapter.getCount() - 1)) + 50;
+				+ (lv.getDividerHeight() * (listAdapter.getCount() - 1))
+				+ (isTablet() ? 100 : 50);
 		lv.setLayoutParams(params);
+	}
+
+	private boolean isTablet() {
+		Configuration config = getResources().getConfiguration();
+		return (config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
 	}
 }

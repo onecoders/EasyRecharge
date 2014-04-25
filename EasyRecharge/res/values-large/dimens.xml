@@ -47,6 +47,12 @@
     <dimen name="result_padding_left">18dip</dimen>
     <dimen name="reuslt_txt_margin">5dip</dimen>
 
+    <!-- info activity -->
+    <dimen name="info_min_height">64dip</dimen>
+    <dimen name="info_container_padding">8dip</dimen>
+    <dimen name="txt_padding_left">12dip</dimen>
+    <dimen name="info_txt_margin">10dip</dimen>
+
     <!-- text size -->
     <dimen name="ab_title_txt">22sp</dimen>
     <dimen name="ab_btn_txt">15sp</dimen>
@@ -69,5 +75,7 @@
     <dimen name="result_txt_value">20sp</dimen>
     <dimen name="inquiry_info_txt">22sp</dimen>
     <dimen name="elec_detail_txt">28sp</dimen>
+    <dimen name="date_txt">22sp</dimen>
+    <dimen name="message_txt">20sp</dimen>
 
 </resources>
