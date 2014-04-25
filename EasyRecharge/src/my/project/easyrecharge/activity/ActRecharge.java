@@ -53,7 +53,7 @@ public class ActRecharge extends ActBasicInfo implements
 	private String price;
 	private int checkedItem;
 	private String[] priceList;
-	private int[] priceArr = new int[] { 5, 10, 20, 50, 100 };
+	private int[] priceArr = new int[] { 5, 10, 20, 30, 50, 100 };
 
 	private Order order;
 
