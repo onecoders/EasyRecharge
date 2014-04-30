@@ -89,6 +89,7 @@
         \n\n7.本应用中提供的充值记录仅对相应的宿舍进行查询，个人充值记录可查询个人的支付宝账户。
         \n\n8.如有其他未尽事宜，请咨询学校管理员。</string>
     <!-- record activity -->
+    <string name="txt_inquiry_record">查询充值记录</string>
     <string name="no_record">尚无充值记录</string>
     <!-- result activity -->
     <string name="result_bind">绑定成功</string>

@@ -12,6 +12,8 @@ public class Key {
 
 	public static final String SCHOOL_JSON = "school_json";
 
+	public static final String APART_ID = "apart_id";
+
 	public static final String APART_JSON = "apart_json";
 
 	public static final String ORDER_JSON = "order_json";

@@ -40,6 +40,8 @@ public class F {
 
 		public static final String QUERY_ANNOUNCEMENT = "announcement";
 
+		public static final String QUERY_RECORD = "";
+
 	}
 
 	// 版本信息，进入应用时读取

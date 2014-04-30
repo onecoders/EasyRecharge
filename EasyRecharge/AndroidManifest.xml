@@ -76,9 +76,14 @@
             android:name=".activity.ActResultBind"
             android:screenOrientation="portrait" >
         </activity>
-        <!-- 充值记录 -->
+        <!-- 充值记录查询 -->
         <activity
             android:name=".activity.ActRecord"
+            android:screenOrientation="portrait" >
+        </activity>
+        <!-- 充值记录显示 -->
+        <activity
+            android:name=".activity.ActResultRecord"
             android:screenOrientation="portrait" >
         </activity>
         <!-- 通知信息 -->
