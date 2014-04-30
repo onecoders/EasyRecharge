@@ -51,7 +51,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 	}
 
 	private void loadInforData() {
-		loadDataHttp(false, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
+		loadDataVolley(false, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
 	}
 
 	@Override

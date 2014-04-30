@@ -7,6 +7,10 @@ import my.project.easyrecharge.util.L;
 import my.project.easyrecharge.util.RequestUtil;
 import android.os.AsyncTask;
 
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+
 /**
  * Data Load Activity
  * 
@@ -16,8 +20,6 @@ import android.os.AsyncTask;
  */
 
 public class ActDataload extends ActBase {
-
-	private static final int ROOM_EXIST_FLAG = 1;
 
 	// subclass invoke this method to request data with xml rpc
 	protected void loadDataXMLRPC(String apiName, Object... params) {
@@ -31,6 +33,8 @@ public class ActDataload extends ActBase {
 
 	// asynctask with xml rpc request
 	class XMLRPCRequestTask extends AsyncTask<Object, Void, ElecDetail> {
+
+		private static final int ROOM_EXIST_FLAG = 1;
 
 		private String apiName;
 
@@ -142,6 +146,48 @@ public class ActDataload extends ActBase {
 			e.printStackTrace();
 		}
 		return null;
+	}
+
+	// subclass invoke this method to request data by volley
+	protected void loadDataVolley(boolean needHint, String apiName,
+			String params) {
+		String url = getHttpRequestUrl(apiName, params);
+		L.d("VolleyRequest", url);
+		if (isNetworkConnected()) {
+			volleyRequest(needHint, apiName, url);
+		} else {
+			showToast(R.string.network_ungelivable);
+		}
+	}
+
+	private void volleyRequest(final boolean needHint, final String apiName,
+			String url) {
+		if (needHint) {
+			showProgressHUD();
+		}
+		StringRequest request = new StringRequest(url,
+				new Response.Listener<String>() {
+
+					@Override
+					public void onResponse(String response) {
+						if (needHint) {
+							dismissProgressHUD();
+						}
+						disposeResult(apiName, response);
+					}
+
+				}, new Response.ErrorListener() {
+
+					@Override
+					public void onErrorResponse(VolleyError error) {
+						if (needHint) {
+							dismissProgressHUD();
+						}
+						showToast(R.string.request_failed);
+					}
+
+				});
+		F.add(request);
 	}
 
 	// subclass invoke after respond OK, content is json string

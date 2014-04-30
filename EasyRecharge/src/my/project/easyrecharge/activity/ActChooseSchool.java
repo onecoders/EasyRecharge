@@ -17,7 +17,6 @@ import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.School;
 import my.project.easyrecharge.view.AlphaView;
 import my.project.easyrecharge.view.AlphaView.OnAlphaChangedListener;
-import android.content.AsyncQueryHandler;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.PixelFormat;
@@ -54,7 +53,6 @@ public class ActChooseSchool extends ActDataload implements
 	private TextView overlay;
 
 	private WindowManager windowManager;
-	private AsyncQueryHandler queryHandler;
 	private AdaSchool adapter;
 	private HashMap<String, Integer> alphaIndexer;
 	private OverlayThread overlayThread;
@@ -119,7 +117,7 @@ public class ActChooseSchool extends ActDataload implements
 	}
 
 	private void loadContent() {
-		loadDataHttp(true, Method.QUERY_SHCOOL, "");
+		loadDataVolley(true, Method.QUERY_SHCOOL, "");
 	}
 
 	@Override

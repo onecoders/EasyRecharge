@@ -85,7 +85,7 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 	}
 
 	private void loadBuildingInfo() {
-		loadDataHttp(true, Method.QUERY_APART, "?schoolId=" + schoolId);
+		loadDataVolley(true, Method.QUERY_APART, "?schoolId=" + schoolId);
 	}
 
 	@Override

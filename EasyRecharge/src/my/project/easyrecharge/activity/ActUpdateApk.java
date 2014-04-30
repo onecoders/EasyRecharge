@@ -33,7 +33,7 @@ public class ActUpdateApk extends ActDataload {
 	// check update info from server
 	protected void checkUpdate(boolean needHint) {
 		this.needHint = needHint;
-		loadDataHttp(needHint, Method.QUERY_VERSION, "");
+		loadDataVolley(needHint, Method.QUERY_VERSION, "");
 	}
 
 	@Override

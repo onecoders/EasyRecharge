@@ -60,7 +60,7 @@ public class ActInformation extends ActDataload {
 	}
 
 	private void loadContent() {
-		loadDataHttp(true, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
+		loadDataVolley(true, Method.QUERY_ANNOUNCEMENT, "?schoolId=1");
 	}
 
 	@Override

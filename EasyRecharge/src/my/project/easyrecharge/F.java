@@ -11,6 +11,9 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.PackageManager.NameNotFoundException;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 
 public class F {
@@ -46,6 +49,9 @@ public class F {
 	// 是否显示start_image_1
 	public static boolean isShowImage1;
 
+	// volley queue
+	private static RequestQueue mVolleyQueue;
+
 	// shared preferences for saving bind info
 	private static SharedPreferences mPrefs;
 	private static Editor mEditor;
@@ -57,6 +63,7 @@ public class F {
 		L.disableLogging();// enable log or disable log
 		initPrefAndGson(context);
 		initVersionInfo(context);
+		initRequestQueue(context);
 		loadShowImage1();
 		loadBindInfo();
 	}
@@ -69,6 +76,10 @@ public class F {
 
 	private static void initVersionInfo(Context context) {
 		VERSION_NAME = getVersionName(context);
+	}
+
+	private static void initRequestQueue(Context context) {
+		mVolleyQueue = Volley.newRequestQueue(context);
 	}
 
 	private static String getVersionName(Context context) {
@@ -140,6 +151,10 @@ public class F {
 
 	public static <T> T fromJson(String json, Type typeOfT) {
 		return mGson.fromJson(json, typeOfT);
+	}
+
+	public static void add(Request<?> request) {
+		mVolleyQueue.add(request);
 	}
 
 }
