@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.HashMap;
+import java.util.Map;
 
 import my.project.easyrecharge.F;
 import my.project.easyrecharge.model.ElecDetail;
@@ -16,9 +17,17 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.Response.ErrorListener;
+import com.android.volley.Response.Listener;
+import com.android.volley.toolbox.StringRequest;
+
 import de.timroes.axmlrpc.XMLRPCClient;
 
 public class RequestUtil {
+
+	private static final int TIME_OUT = 5 * 1000;
 
 	public static ElecDetail xmlrpcRequest(String apiName, Object... arg1)
 			throws Exception {
@@ -42,8 +51,11 @@ public class RequestUtil {
 		HttpParams httpParams = client.getParams();
 		// 设置网络超时参数
 		HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
-		HttpConnectionParams.setSoTimeout(httpParams, 5000);
-		HttpResponse response = client.execute(new HttpGet(url));
+		HttpConnectionParams.setSoTimeout(httpParams, TIME_OUT);
+		HttpGet httpRequest = new HttpGet(url);
+		// httpRequest.setHeader("Content-Type", "Application/json");
+		// httpRequest.setHeader("AUTHORIZATION", "Owner Z2Nuc3Q=");
+		HttpResponse response = client.execute(httpRequest);
 		HttpEntity entity = response.getEntity();
 		if (entity != null) {
 			BufferedReader reader = new BufferedReader(new InputStreamReader(
@@ -55,6 +67,25 @@ public class RequestUtil {
 			reader.close();
 		}
 		return sb.toString();
+	}
+
+	public static void volleyRequest(String url, Listener<String> listener,
+			ErrorListener errorListener) {
+		StringRequest request = new StringRequest(url, listener, errorListener) {
+
+			@Override
+			public Map<String, String> getHeaders() throws AuthFailureError {
+				// HashMap<String, String> headers = new HashMap<String,
+				// String>();
+				// headers.put("CUSTOM_HEADER", "Yahoo");
+				// headers.put("ANOTHER_CUSTOM_HEADER", "Google");
+				// return headers;
+				return super.getHeaders();
+			}
+
+		};
+		request.setRetryPolicy(new DefaultRetryPolicy(TIME_OUT, 1, 1.0f));
+		F.add(request);
 	}
 
 }

@@ -9,7 +9,6 @@ import android.os.AsyncTask;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.android.volley.toolbox.StringRequest;
 
 /**
  * Data Load Activity
@@ -165,29 +164,27 @@ public class ActDataload extends ActBase {
 		if (needHint) {
 			showProgressHUD();
 		}
-		StringRequest request = new StringRequest(url,
-				new Response.Listener<String>() {
+		RequestUtil.volleyRequest(url, new Response.Listener<String>() {
 
-					@Override
-					public void onResponse(String response) {
-						if (needHint) {
-							dismissProgressHUD();
-						}
-						disposeResult(apiName, response);
-					}
+			@Override
+			public void onResponse(String response) {
+				if (needHint) {
+					dismissProgressHUD();
+				}
+				disposeResult(apiName, response);
+			}
 
-				}, new Response.ErrorListener() {
+		}, new Response.ErrorListener() {
 
-					@Override
-					public void onErrorResponse(VolleyError error) {
-						if (needHint) {
-							dismissProgressHUD();
-						}
-						showToast(R.string.request_failed);
-					}
+			@Override
+			public void onErrorResponse(VolleyError error) {
+				if (needHint) {
+					dismissProgressHUD();
+				}
+				showToast(R.string.request_failed);
+			}
 
-				});
-		F.add(request);
+		});
 	}
 
 	// subclass invoke after respond OK, content is json string
