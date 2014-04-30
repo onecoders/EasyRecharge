@@ -9,11 +9,7 @@ import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaInfo;
 import my.project.easyrecharge.model.Information;
-import android.content.res.Configuration;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.gson.reflect.TypeToken;
@@ -25,7 +21,7 @@ import com.google.gson.reflect.TypeToken;
  * @email onecoders@gmail.com
  */
 
-public class ActInformation extends ActDataload {
+public class ActInformation extends ActScrollEffectForListView {
 
 	private ListView listView;
 	private List<Information> list;
@@ -92,26 +88,4 @@ public class ActInformation extends ActDataload {
 		}
 	}
 
-	private void setListViewHeightBasedOnChildren(ListView lv) {
-		ListAdapter listAdapter = lv.getAdapter();
-		if (listAdapter == null) {
-			return;
-		}
-		int totalHeight = 0;
-		for (int i = 0; i < listAdapter.getCount(); i++) {
-			View listItem = listAdapter.getView(i, null, lv);
-			listItem.measure(0, 0);
-			totalHeight += listItem.getMeasuredHeight();
-		}
-		ViewGroup.LayoutParams params = lv.getLayoutParams();
-		params.height = totalHeight
-				+ (lv.getDividerHeight() * (listAdapter.getCount() - 1))
-				+ (isTablet() ? 100 : 50);
-		lv.setLayoutParams(params);
-	}
-
-	private boolean isTablet() {
-		Configuration config = getResources().getConfiguration();
-		return (config.screenLayout & Configuration.SCREENLAYOUT_SIZE_MASK) >= Configuration.SCREENLAYOUT_SIZE_LARGE;
-	}
 }

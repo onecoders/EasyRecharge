@@ -11,14 +11,11 @@ import my.project.easyrecharge.adapter.AdaRecord;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Record;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.gson.reflect.TypeToken;
 
-public class ActResultRecord extends ActDataload {
+public class ActResultRecord extends ActScrollEffectForListView {
 
 	private ListView listView;
 	private List<Record> list;
@@ -98,23 +95,6 @@ public class ActResultRecord extends ActDataload {
 		} else {
 			adapter.notifyDataSetChanged();
 		}
-	}
-
-	private void setListViewHeightBasedOnChildren(ListView lv) {
-		ListAdapter listAdapter = lv.getAdapter();
-		if (listAdapter == null) {
-			return;
-		}
-		int totalHeight = 0;
-		for (int i = 0; i < listAdapter.getCount(); i++) {
-			View listItem = listAdapter.getView(i, null, lv);
-			listItem.measure(0, 0);
-			totalHeight += listItem.getMeasuredHeight();
-		}
-		ViewGroup.LayoutParams params = lv.getLayoutParams();
-		params.height = totalHeight
-				+ (lv.getDividerHeight() * (listAdapter.getCount() - 1));
-		lv.setLayoutParams(params);
 	}
 
 }
