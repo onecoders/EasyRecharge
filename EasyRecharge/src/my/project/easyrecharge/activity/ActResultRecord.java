@@ -11,6 +11,9 @@ import my.project.easyrecharge.adapter.AdaRecord;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Record;
 import android.os.Bundle;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.google.gson.reflect.TypeToken;
@@ -39,7 +42,7 @@ public class ActResultRecord extends ActDataload {
 	}
 
 	private void initViews() {
-		listView = (ListView) findViewById(R.id.listview_info);
+		listView = (ListView) findViewById(R.id.listview_record);
 		list = new ArrayList<Record>();
 	}
 
@@ -71,7 +74,7 @@ public class ActResultRecord extends ActDataload {
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(Method.QUERY_ANNOUNCEMENT))
+		if (!apiName.equals(Method.QUERY_RECORD))
 			return;
 		list.clear();
 		try {
@@ -91,9 +94,27 @@ public class ActResultRecord extends ActDataload {
 		if (adapter == null) {
 			adapter = new AdaRecord(this, list);
 			listView.setAdapter(adapter);
+			setListViewHeightBasedOnChildren(listView);
 		} else {
 			adapter.notifyDataSetChanged();
 		}
+	}
+
+	private void setListViewHeightBasedOnChildren(ListView lv) {
+		ListAdapter listAdapter = lv.getAdapter();
+		if (listAdapter == null) {
+			return;
+		}
+		int totalHeight = 0;
+		for (int i = 0; i < listAdapter.getCount(); i++) {
+			View listItem = listAdapter.getView(i, null, lv);
+			listItem.measure(0, 0);
+			totalHeight += listItem.getMeasuredHeight();
+		}
+		ViewGroup.LayoutParams params = lv.getLayoutParams();
+		params.height = totalHeight
+				+ (lv.getDividerHeight() * (listAdapter.getCount() - 1));
+		lv.setLayoutParams(params);
 	}
 
 }
