@@ -64,6 +64,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 			List<Information> infoList = fromJson(content, collectionType);
 			initInfoDialog(infoList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
 	}

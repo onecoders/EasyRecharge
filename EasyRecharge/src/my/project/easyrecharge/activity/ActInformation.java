@@ -70,6 +70,7 @@ public class ActInformation extends ActScrollEffectForListView {
 			List<Information> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
 		if (list.size() > 0) {

@@ -99,6 +99,7 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 			List<Apart> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
 		if (list.size() > 0) {

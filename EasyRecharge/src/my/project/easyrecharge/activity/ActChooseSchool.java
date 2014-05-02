@@ -131,6 +131,7 @@ public class ActChooseSchool extends ActDataload implements
 			List<School> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
+			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
 		if (list.size() > 0) {

@@ -50,6 +50,7 @@ public class ActUpdateApk extends ActDataload {
 					noNewVersion();
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
 	}
