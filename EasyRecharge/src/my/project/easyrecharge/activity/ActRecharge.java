@@ -46,7 +46,7 @@ public class ActRecharge extends ActBasicInfo implements
 	private static final int RQF_PAY = 1;
 
 	private RelativeLayout priceContainer;
-	private TextView priceTextView, noticeTextView;
+	private TextView priceTextView, noticeTextView, unitPrice;
 	private CheckBox noticeCheckbox;
 	private Button btnRecharge;
 
@@ -85,6 +85,8 @@ public class ActRecharge extends ActBasicInfo implements
 
 	@Override
 	protected void findExtraView() {
+		// unit price
+		unitPrice = (TextView) findViewById(R.id.unit_price);
 		// price
 		priceContainer = (RelativeLayout) findViewById(R.id.price_container);
 		priceTextView = (TextView) findViewById(R.id.price_textview);
@@ -274,13 +276,19 @@ public class ActRecharge extends ActBasicInfo implements
 		};
 	};
 
+	protected void setUnitPrice() {
+		String unitPriceStr = school == null ? getString(R.string.default_price_hint)
+				: school.getUnitPrice();
+		unitPrice.setText(unitPriceStr);
+	};
+
 	@Override
 	public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-		resetButtonEnabled();
+		refreshButtonStatus();
 	}
 
 	@Override
-	protected void resetButtonEnabled(boolean isBasicInfoEmpty) {
+	protected void refreshButtonStatus(boolean isBasicInfoEmpty) {
 		price = priceTextView.getText().toString();
 		boolean isUnchecked = !noticeCheckbox.isChecked();
 		// recharge button enabled

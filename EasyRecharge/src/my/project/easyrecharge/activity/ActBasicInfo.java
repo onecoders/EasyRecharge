@@ -84,6 +84,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		setText(schoolTextView, isBind ? school.getSchoolName() : "");
 		setText(apartTextView, isBind ? apart.getApartName() : "");
 		setText(roomEdit, roomNumBind);
+		setUnitPrice();
 
 		schoolContainer.setEnabled(!isBind);
 		apartContainer.setEnabled(!isBind);
@@ -121,14 +122,16 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			case RequestCode.CHOOSE_SCHOOL:
 				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
 				School selectSchool = fromJson(schoolJson, School.class);
-				if (school != null
+				boolean resetApart = school != null
 						&& !selectSchool.getSchoolID().equals(
-								school.getSchoolID())) {
+								school.getSchoolID());
+				if (resetApart) {
 					apart = null;
 					setText(apartTextView, "");
 				}
 				school = selectSchool;
 				setText(schoolTextView, school.getSchoolName());
+				setUnitPrice();
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				String apartJson = data.getStringExtra(Key.APART_JSON);
@@ -139,6 +142,10 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				break;
 			}
 		}
+	}
+
+	protected void setUnitPrice() {
+		// override only in recharge activity
 	}
 
 	@Override
@@ -154,12 +161,12 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	@Override
 	public void onTextChanged(CharSequence s, int start, int before, int count) {
-		resetButtonEnabled();
+		refreshButtonStatus();
 	}
 
-	protected void resetButtonEnabled() {
+	protected void refreshButtonStatus() {
 		boolean isBasicInfoEmpty = isBasicInfoEmpty();
-		resetButtonEnabled(isBasicInfoEmpty);
+		refreshButtonStatus(isBasicInfoEmpty);
 	}
 
 	private boolean isBasicInfoEmpty() {
@@ -167,7 +174,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		return school == null || apart == null || isEmpty(roomNum);
 	}
 
-	protected abstract void resetButtonEnabled(boolean basicInfoNotEmpty);
+	protected abstract void refreshButtonStatus(boolean basicInfoNotEmpty);
 
 	protected void doCheckExist() {
 		String pSchoolID = school.getSchoolID();

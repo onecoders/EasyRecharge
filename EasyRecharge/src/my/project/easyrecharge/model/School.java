@@ -3,6 +3,7 @@ package my.project.easyrecharge.model;
 import java.util.regex.Pattern;
 
 import my.project.easyrecharge.util.LetterUtil;
+import android.text.TextUtils;
 
 /**
  * School
@@ -25,6 +26,8 @@ public class School {
 	private AlipayInfo alipayInfo = new AlipayInfo();
 	// 首字母
 	private String alpha;
+	// 电费单价
+	private String unitPrice;
 
 	public String getSchoolID() {
 		return SchoolID;
@@ -92,6 +95,15 @@ public class School {
 		} else {
 			return "#";
 		}
+	}
+
+	public String getUnitPrice() {
+		boolean showDefault = TextUtils.isEmpty(unitPrice);
+		return showDefault ? "--.--" : unitPrice;
+	}
+
+	public void setUnitPrice(String unitPrice) {
+		this.unitPrice = unitPrice;
 	}
 
 }

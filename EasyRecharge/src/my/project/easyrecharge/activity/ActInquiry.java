@@ -83,7 +83,7 @@ public class ActInquiry extends ActBasicInfo {
 	}
 
 	@Override
-	protected void resetButtonEnabled(boolean basicInfoNotEmpty) {
+	protected void refreshButtonStatus(boolean basicInfoNotEmpty) {
 		// inquiry button enabled
 		boolean enabled = !(basicInfoNotEmpty);
 		btnInquiry.setEnabled(enabled);

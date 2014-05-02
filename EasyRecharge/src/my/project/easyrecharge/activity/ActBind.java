@@ -121,7 +121,7 @@ public class ActBind extends ActBasicInfo {
 	}
 
 	@Override
-	protected void resetButtonEnabled(boolean basicInfoNotEmpty) {
+	protected void refreshButtonStatus(boolean basicInfoNotEmpty) {
 		// bind button enabled
 		boolean enabled = !(basicInfoNotEmpty);
 		btnBind.setEnabled(enabled);

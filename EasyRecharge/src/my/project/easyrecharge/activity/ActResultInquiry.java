@@ -70,7 +70,7 @@ public class ActResultInquiry extends ActBase {
 		School school = fromJson(schoolJson, School.class);
 		Apart apart = fromJson(apartJson, Apart.class);
 		ElecDetail detail = fromJson(elecJson, ElecDetail.class);
-		String unit = getString(R.string.unit);
+		String unit = getString(R.string.unit_of_elec);
 		setText(txtSchool, school.getSchoolName());
 		setText(txtApart, apart.getApartName());
 		setText(txtRoom, roomNum);
