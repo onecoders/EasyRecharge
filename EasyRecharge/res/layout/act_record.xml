@@ -32,7 +32,7 @@
                 android:layout_height="wrap_content"
                 android:layout_margin="@dimen/btn_margin"
                 android:enabled="false"
-                android:text="@string/txt_inquiry_record" />
+                android:text="@string/txt_inquiry" />
         </LinearLayout>
     </ScrollView>
 

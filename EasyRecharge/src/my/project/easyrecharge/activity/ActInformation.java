@@ -74,6 +74,8 @@ public class ActInformation extends ActScrollEffectForListView {
 		}
 		if (list.size() > 0) {
 			setAdatper();
+		} else {
+			showToast(R.string.no_information);
 		}
 	}
 
