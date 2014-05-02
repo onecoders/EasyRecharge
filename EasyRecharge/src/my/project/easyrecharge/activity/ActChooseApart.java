@@ -39,7 +39,7 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.act_choose_building);
+		setContentView(R.layout.act_choose_apart);
 		init();
 	}
 
