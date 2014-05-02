@@ -1,6 +1,5 @@
 package my.project.easyrecharge.activity;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Apart;
@@ -68,9 +67,9 @@ public class ActResultInquiry extends ActBase {
 
 	private void setViewContent(String schoolJson, String apartJson,
 			String roomNum, String elecJson) {
-		School school = F.fromJson(schoolJson, School.class);
-		Apart apart = F.fromJson(apartJson, Apart.class);
-		ElecDetail detail = F.fromJson(elecJson, ElecDetail.class);
+		School school = fromJson(schoolJson, School.class);
+		Apart apart = fromJson(apartJson, Apart.class);
+		ElecDetail detail = fromJson(elecJson, ElecDetail.class);
 		String unit = getString(R.string.unit);
 		setText(txtSchool, school.getSchoolName());
 		setText(txtApart, apart.getApartName());

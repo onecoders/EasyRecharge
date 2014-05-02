@@ -4,7 +4,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaRecord;
@@ -77,7 +76,7 @@ public class ActResultRecord extends ActScrollEffectForListView {
 		try {
 			Type collectionType = new TypeToken<List<Record>>() {
 			}.getType();
-			List<Record> newList = F.fromJson(content, collectionType);
+			List<Record> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
 			showToast(R.string.error_data);

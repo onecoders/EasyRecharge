@@ -4,7 +4,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaApart;
@@ -65,7 +64,7 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 			long id) {
 		Apart apart = list.get(position);
 		Intent intent = new Intent();
-		intent.putExtra(Key.APART_JSON, F.toJson(apart));
+		intent.putExtra(Key.APART_JSON, toJson(apart));
 		setResult(RESULT_OK, intent);
 		finish();
 	}
@@ -97,7 +96,7 @@ public class ActChooseApart extends ActDataload implements OnItemClickListener {
 		try {
 			Type collectionType = new TypeToken<List<Apart>>() {
 			}.getType();
-			List<Apart> newList = F.fromJson(content, collectionType);
+			List<Apart> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
 			showToast(R.string.error_data);

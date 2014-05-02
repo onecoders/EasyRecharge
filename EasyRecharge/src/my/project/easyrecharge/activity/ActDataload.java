@@ -58,7 +58,7 @@ public class ActDataload extends ActBase {
 			dismissProgressHUD();
 			if (result != null) {
 				if (result.getIsHave() == ROOM_EXIST_FLAG) {
-					disposeResult(apiName, F.toJson(result));
+					disposeResult(apiName, toJson(result));
 				} else {
 					showToast(R.string.room_not_exist);
 				}

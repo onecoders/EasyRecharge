@@ -120,7 +120,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 			switch (requestCode) {
 			case RequestCode.CHOOSE_SCHOOL:
 				String schoolJson = data.getStringExtra(Key.SCHOOL_JSON);
-				School selectSchool = F.fromJson(schoolJson, School.class);
+				School selectSchool = fromJson(schoolJson, School.class);
 				if (school != null
 						&& !selectSchool.getSchoolID().equals(
 								school.getSchoolID())) {
@@ -132,7 +132,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				String apartJson = data.getStringExtra(Key.APART_JSON);
-				apart = F.fromJson(apartJson, Apart.class);
+				apart = fromJson(apartJson, Apart.class);
 				setText(apartTextView, apart.getApartName());
 				break;
 			default:

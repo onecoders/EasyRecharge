@@ -4,7 +4,6 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaMenu;
@@ -62,7 +61,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 		try {
 			Type collectionType = new TypeToken<List<Information>>() {
 			}.getType();
-			List<Information> infoList = F.fromJson(content, collectionType);
+			List<Information> infoList = fromJson(content, collectionType);
 			initInfoDialog(infoList);
 		} catch (Exception e) {
 			showToast(R.string.error_data);

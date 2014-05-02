@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.adapter.AdaSchool;
@@ -105,7 +104,7 @@ public class ActChooseSchool extends ActDataload implements
 			long id) {
 		School school = list.get(position);
 		Intent intent = new Intent();
-		intent.putExtra(Key.SCHOOL_JSON, F.toJson(school));
+		intent.putExtra(Key.SCHOOL_JSON, toJson(school));
 		setResult(RESULT_OK, intent);
 		finish();
 	}
@@ -129,7 +128,7 @@ public class ActChooseSchool extends ActDataload implements
 		try {
 			Type collectionType = new TypeToken<List<School>>() {
 			}.getType();
-			List<School> newList = F.fromJson(content, collectionType);
+			List<School> newList = fromJson(content, collectionType);
 			list.addAll(newList);
 		} catch (Exception e) {
 			showToast(R.string.error_data);

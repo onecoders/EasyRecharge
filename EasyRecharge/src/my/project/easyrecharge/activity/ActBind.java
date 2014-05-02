@@ -95,7 +95,7 @@ public class ActBind extends ActBasicInfo {
 		F.bind(bindInfo);
 		// 显示绑定成功页面
 		Bundle bundle = new Bundle();
-		bundle.putString(Key.BIND_JSON, F.toJson(bindInfo));
+		bundle.putString(Key.BIND_JSON, toJson(bindInfo));
 		switchActivityAndFinish(ActResultBind.class, bundle);
 	}
 

@@ -264,7 +264,7 @@ public class ActRecharge extends ActBasicInfo implements
 				// success = success && result.isSignOk();
 				if (success) {
 					Bundle bundle = new Bundle();
-					bundle.putString(Key.ORDER_JSON, F.toJson(order));
+					bundle.putString(Key.ORDER_JSON, toJson(order));
 					switchActivityAndFinish(ActResultRecharge.class, bundle);
 				}
 				break;

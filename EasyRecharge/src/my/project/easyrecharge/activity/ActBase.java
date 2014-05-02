@@ -1,5 +1,8 @@
 package my.project.easyrecharge.activity;
 
+import java.lang.reflect.Type;
+
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.util.MToast;
 import my.project.easyrecharge.util.NetworkUtil;
@@ -253,6 +256,18 @@ public class ActBase extends SherlockActivity implements OnClickListener,
 
 	protected boolean isNetworkConnected() {
 		return NetworkUtil.isNetworkConnected(this);
+	}
+
+	protected String toJson(Object src) {
+		return F.toJson(src);
+	}
+
+	public static <T> T fromJson(String json, Class<T> classOfT) {
+		return F.fromJson(json, classOfT);
+	}
+
+	public static <T> T fromJson(String json, Type typeOfT) {
+		return F.fromJson(json, typeOfT);
 	}
 
 	@Override

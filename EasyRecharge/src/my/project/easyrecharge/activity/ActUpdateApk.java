@@ -1,6 +1,5 @@
 package my.project.easyrecharge.activity;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.model.VersionServer;
@@ -42,7 +41,7 @@ public class ActUpdateApk extends ActDataload {
 		if (!apiName.equals(Method.QUERY_VERSION))
 			return;
 		try {
-			version = F.fromJson(content, VersionServer.class);
+			version = fromJson(content, VersionServer.class);
 			needUpdate = version.getIinfo() > getVerCode();
 			if (needUpdate) {
 				doNewVersionUpdate();

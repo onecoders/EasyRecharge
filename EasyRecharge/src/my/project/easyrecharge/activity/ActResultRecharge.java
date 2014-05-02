@@ -51,7 +51,7 @@ public class ActResultRecharge extends ActDataload {
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			String json = bundle.getString(Key.ORDER_JSON);
-			order = F.fromJson(json, F.isBind() ? OrderWithBind.class
+			order = fromJson(json, F.isBind() ? OrderWithBind.class
 					: OrderWithoutBind.class);
 			String price = order.getPrice() + getString(R.string.rmb);
 			setText(payPrice, price);
@@ -76,8 +76,8 @@ public class ActResultRecharge extends ActDataload {
 		if (!apiName.equals(Method.QUERY_SCORE))
 			return;
 		Bundle bundle = new Bundle();
-		bundle.putString(Key.SCHOOL_JSON, F.toJson(order.getSchool()));
-		bundle.putString(Key.APART_JSON, F.toJson(order.getApart()));
+		bundle.putString(Key.SCHOOL_JSON, toJson(order.getSchool()));
+		bundle.putString(Key.APART_JSON, toJson(order.getApart()));
 		bundle.putString(Key.ROOM_NUM, order.getRoomNum());
 		bundle.putString(Key.ELEC_JSON, content);
 		switchActivityAndFinish(ActResultInquiry.class, bundle);

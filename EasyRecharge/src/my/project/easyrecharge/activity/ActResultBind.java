@@ -1,6 +1,5 @@
 package my.project.easyrecharge.activity;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
@@ -55,7 +54,7 @@ public class ActResultBind extends ActBase {
 	}
 
 	private void setViewContent(String bindJson) {
-		BindInfo bindInfo = F.fromJson(bindJson, BindInfo.class);
+		BindInfo bindInfo = fromJson(bindJson, BindInfo.class);
 		setText(txtSchool, bindInfo.getSchoolName());
 		setText(txtApart, bindInfo.getApartName());
 		setText(txtRoom, bindInfo.getRoomNum());

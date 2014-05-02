@@ -1,6 +1,5 @@
 package my.project.easyrecharge.activity;
 
-import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import android.os.Bundle;
@@ -76,8 +75,8 @@ public class ActInquiry extends ActBasicInfo {
 	@Override
 	protected void doAfterCheckOK(String content) {
 		Bundle bundle = new Bundle();
-		bundle.putString(Key.SCHOOL_JSON, F.toJson(school));
-		bundle.putString(Key.APART_JSON, F.toJson(apart));
+		bundle.putString(Key.SCHOOL_JSON, toJson(school));
+		bundle.putString(Key.APART_JSON, toJson(apart));
 		bundle.putString(Key.ROOM_NUM, roomNum);
 		bundle.putString(Key.ELEC_JSON, content);
 		switchActivityAndFinish(ActResultInquiry.class, bundle);
