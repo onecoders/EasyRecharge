@@ -7,6 +7,7 @@ import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.contants.RequestCode;
 import my.project.easyrecharge.model.Apart;
 import my.project.easyrecharge.model.School;
+import my.project.easyrecharge.model.VersionServer;
 import my.project.easyrecharge.view.ClearEditText;
 import android.content.Intent;
 import android.os.Bundle;
@@ -84,7 +85,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		setText(schoolTextView, isBind ? school.getSchoolName() : "");
 		setText(apartTextView, isBind ? apart.getApartName() : "");
 		setText(roomEdit, roomNumBind);
-		setUnitPrice();
+		showUnitPrice();
 
 		schoolContainer.setEnabled(!isBind);
 		apartContainer.setEnabled(!isBind);
@@ -131,7 +132,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 				}
 				school = selectSchool;
 				setText(schoolTextView, school.getSchoolName());
-				setUnitPrice();
+				showUnitPrice();
 				break;
 			case RequestCode.CHOOSE_BUILDING:
 				String apartJson = data.getStringExtra(Key.APART_JSON);
@@ -144,7 +145,7 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 		}
 	}
 
-	protected void setUnitPrice() {
+	protected void showUnitPrice() {
 		// override only in recharge activity
 	}
 
@@ -176,7 +177,16 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 
 	protected abstract void refreshButtonStatus(boolean basicInfoNotEmpty);
 
-	protected void doCheckExist() {
+	protected void checkAvailable() {
+		doCheckVersionStatus();
+	}
+
+	private void doCheckVersionStatus() {
+		loadDataVolley(true, Method.QUERY_CAN_USE, "?versioncode="
+				+ F.VERSION_CODE);
+	}
+
+	private void doCheckRoomExist() {
 		String pSchoolID = school.getSchoolID();
 		String pApartID = apart.getApartID();
 		String pRoomNum = roomNum;
@@ -186,9 +196,17 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	@Override
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
-		if (!apiName.equals(Method.QUERY_SCORE))
-			return;
-		doAfterCheckOK(content);
+		if (apiName.equals(Method.QUERY_CAN_USE)) {
+			VersionServer version = fromJson(content, VersionServer.class);
+			if (version.isCanUse()) {
+				// if version can use,then check room exist
+				doCheckRoomExist();
+			} else {
+				showToast(version.getDescription());
+			}
+		} else if (apiName.equals(Method.QUERY_SCORE)) {
+			doAfterCheckOK(content);
+		}
 	}
 
 	protected abstract void doAfterCheckOK(String content);

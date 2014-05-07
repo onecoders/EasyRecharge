@@ -148,8 +148,7 @@ public class ActRecharge extends ActBasicInfo implements
 
 	private void doRecharge() {
 		initOrder();
-		// go2Pay();// must check first
-		doPay();// only for test here
+		go2Pay();// must check first
 	}
 
 	private void initOrder() {
@@ -162,11 +161,7 @@ public class ActRecharge extends ActBasicInfo implements
 	}
 
 	private void go2Pay() {
-		if (F.isBind()) {
-			doPay();
-		} else {
-			doCheckExist();
-		}
+		checkAvailable();
 	}
 
 	@Override
@@ -276,9 +271,9 @@ public class ActRecharge extends ActBasicInfo implements
 		};
 	};
 
-	protected void setUnitPrice() {
+	protected void showUnitPrice() {
 		String unitPriceStr = school == null ? getString(R.string.default_price_hint)
-				: school.getUnitPrice();
+				: school.getPriceStr();
 		unitPrice.setText(unitPriceStr);
 	};
 

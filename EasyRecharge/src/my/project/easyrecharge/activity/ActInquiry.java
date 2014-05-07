@@ -69,7 +69,7 @@ public class ActInquiry extends ActBasicInfo {
 	}
 
 	private void go2Inquiry() {
-		doCheckExist();
+		checkAvailable();
 	}
 
 	@Override

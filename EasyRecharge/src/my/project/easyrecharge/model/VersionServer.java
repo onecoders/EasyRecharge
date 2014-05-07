@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Version info from server
  * 
@@ -9,41 +11,45 @@ package my.project.easyrecharge.model;
 
 public class VersionServer {
 
-	private int ID;
-	private String Sname;
-	private String Cinfo;
-	private int Iinfo;
+	@SerializedName("VersionCode")
+	private int versionCode;
+	@SerializedName("VersionName")
+	private String versionName;
+	@SerializedName("CanUse")
+	private boolean canUse;
+	@SerializedName("Description")
+	private String description;
 
-	public int getID() {
-		return ID;
+	public int getVersionCode() {
+		return versionCode;
 	}
 
-	public void setID(int iD) {
-		ID = iD;
+	public void setVersionCode(int versionCode) {
+		this.versionCode = versionCode;
 	}
 
-	public String getSname() {
-		return Sname;
+	public String getVersionName() {
+		return versionName;
 	}
 
-	public void setSname(String sname) {
-		Sname = sname;
+	public void setVersionName(String versionName) {
+		this.versionName = versionName;
 	}
 
-	public String getCinfo() {
-		return Cinfo;
+	public boolean isCanUse() {
+		return canUse;
 	}
 
-	public void setCinfo(String cinfo) {
-		Cinfo = cinfo;
+	public void setCanUse(boolean canUse) {
+		this.canUse = canUse;
 	}
 
-	public int getIinfo() {
-		return Iinfo;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setIinfo(int iinfo) {
-		Iinfo = iinfo;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 }

@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Apart
  * 
@@ -10,34 +12,37 @@ package my.project.easyrecharge.model;
 public class Apart {
 
 	// 学校id
-	private String SchoolID;
+	@SerializedName("SchoolID")
+	private String schoolID;
 	// 公寓id
-	private String ApartID;
+	@SerializedName("ApartID")
+	private String apartID;
 	// 公寓名称
-	private String ApartName;
+	@SerializedName("ApartName")
+	private String apartName;
 
 	public String getSchoolID() {
-		return SchoolID;
+		return schoolID;
 	}
 
 	public void setSchoolID(String schoolID) {
-		SchoolID = schoolID;
+		this.schoolID = schoolID;
 	}
 
 	public String getApartID() {
-		return ApartID;
+		return apartID;
 	}
 
 	public void setApartID(String apartID) {
-		ApartID = apartID;
+		this.apartID = apartID;
 	}
 
 	public String getApartName() {
-		return ApartName;
+		return apartName;
 	}
 
 	public void setApartName(String apartName) {
-		ApartName = apartName;
+		this.apartName = apartName;
 	}
 
 }

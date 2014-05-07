@@ -9,48 +9,51 @@ package my.project.easyrecharge.model;
 
 import my.project.easyrecharge.util.Dateformat;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Information {
 
-	private String SchoolID;
-
-	private String Message;
-
-	private String UpdateTime;
-
-	private boolean NewFLag;
+	@SerializedName("SchoolID")
+	private String schoolID;
+	@SerializedName("Message")
+	private String message;
+	@SerializedName("UpdateTime")
+	private String updateTime;
+	@SerializedName("NewFLag")
+	private boolean newFlag;
 
 	public String getSchoolID() {
-		return SchoolID;
+		return schoolID;
 	}
 
 	public void setSchoolID(String schoolID) {
-		SchoolID = schoolID;
+		this.schoolID = schoolID;
 	}
 
 	public String getMessage() {
-		return Message;
+		return message;
 	}
 
 	public void setMessage(String message) {
-		Message = message;
+		this.message = message;
 	}
 
 	public String getUpdateTime() {
-		String timestamp = UpdateTime.substring(UpdateTime.indexOf("(") + 1,
-				UpdateTime.indexOf(")"));
+		String timestamp = updateTime.substring(updateTime.indexOf("(") + 1,
+				updateTime.indexOf(")"));
 		return Dateformat.timestamp2DateStr(timestamp);
 	}
 
 	public void setUpdateTime(String updateTime) {
-		UpdateTime = updateTime;
+		this.updateTime = updateTime;
 	}
 
 	public boolean isNewFlag() {
-		return NewFLag;
+		return newFlag;
 	}
 
 	public void setNewFlag(boolean newFlag) {
-		NewFLag = newFlag;
+		this.newFlag = newFlag;
 	}
 
 }

@@ -44,8 +44,8 @@ public class AdaRecord extends ArrayAdapter<Record> {
 		}
 
 		public void setContent(Record item) {
-			time.setText(item.getDate());
-			record.setText(item.getPrice());
+			time.setText(item.getPosTime());
+			record.setText(item.getPosMoney());
 		}
 	}
 

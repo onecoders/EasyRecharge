@@ -62,7 +62,7 @@ public class ActResultRecord extends ActScrollEffectForListView {
 		sb.append(bundle.getString(Key.SCHOOL_ID));
 		sb.append("&apartId=");
 		sb.append(bundle.getString(Key.APART_ID));
-		sb.append("&roomNum=");
+		sb.append("&roomname=");
 		sb.append(bundle.getString(Key.ROOM_NUM));
 		return sb.toString();
 	}

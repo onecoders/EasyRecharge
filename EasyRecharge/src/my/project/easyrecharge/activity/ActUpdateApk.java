@@ -1,13 +1,12 @@
 package my.project.easyrecharge.activity;
 
+import my.project.easyrecharge.F;
 import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.model.VersionServer;
 import my.project.easyrecharge.util.UpdateApkUtil;
-import my.project.easyrecharge.util.VersionUtil;
 import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
 import android.content.Context;
-import android.content.pm.PackageManager.NameNotFoundException;
 import android.os.AsyncTask;
 
 /**
@@ -42,7 +41,7 @@ public class ActUpdateApk extends ActDataload {
 			return;
 		try {
 			version = fromJson(content, VersionServer.class);
-			needUpdate = version.getIinfo() > getVerCode();
+			needUpdate = version.getVersionCode() > F.VERSION_CODE;
 			if (needUpdate) {
 				doNewVersionUpdate();
 			} else {
@@ -53,16 +52,6 @@ public class ActUpdateApk extends ActDataload {
 			e.printStackTrace();
 			showToast(R.string.error_data);
 		}
-	}
-
-	// get local app's version info
-	private int getVerCode() {
-		try {
-			return VersionUtil.getVersionCode(this);
-		} catch (NameNotFoundException e) {
-			e.printStackTrace();
-		}
-		return 1;
 	}
 
 	// no new version available
@@ -100,7 +89,7 @@ public class ActUpdateApk extends ActDataload {
 	protected void doUpdate() {
 		task = new DownloadTask(this);
 		if (isNetworkConnected()) {
-			task.execute(version.getCinfo(), APK_SAVE_NAME);
+			task.execute(F.APK_DOWNLOAD_URL, APK_SAVE_NAME);
 		} else {
 			showToast(R.string.network_ungelivable);
 		}

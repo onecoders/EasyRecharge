@@ -26,13 +26,15 @@ public class F {
 
 	public static final String HTTP_REQUEST_URL = BASIC_URL + "client/";
 
+	public static final String APK_DOWNLOAD_URL = BASIC_URL + "file/getapk";
+
 	public static final String NOTIFY_URL = BASIC_URL + "Alipay/PayResult";
 
 	public static class Method {
 
 		public static final String QUERY_SCORE = "query_score";
 
-		public static final String QUERY_VERSION = "version";
+		public static final String QUERY_VERSION = "newestversion";
 
 		public static final String QUERY_SHCOOL = "school";
 
@@ -40,11 +42,14 @@ public class F {
 
 		public static final String QUERY_ANNOUNCEMENT = "announcement";
 
-		public static final String QUERY_RECORD = "";
+		public static final String QUERY_RECORD = "posrecord";
+
+		public static final String QUERY_CAN_USE = "canuse";
 
 	}
 
 	// 版本信息，进入应用时读取
+	public static int VERSION_CODE;
 	public static String VERSION_NAME;
 	// 用户绑定信息，用户绑定时保存，进入应用时读取
 	public static BindInfo mBindInfo;
@@ -62,7 +67,7 @@ public class F {
 	private static Gson mGson;
 
 	public static void init(Context context) {
-		L.disableLogging();// enable log or disable log
+		L.enableLogging();// enable log or disable log
 		initPrefAndGson(context);
 		initVersionInfo(context);
 		initRequestQueue(context);
@@ -77,6 +82,7 @@ public class F {
 	}
 
 	private static void initVersionInfo(Context context) {
+		VERSION_CODE = getVersionCode(context);
 		VERSION_NAME = getVersionName(context);
 	}
 
@@ -84,15 +90,22 @@ public class F {
 		mVolleyQueue = Volley.newRequestQueue(context);
 	}
 
-	private static String getVersionName(Context context) {
-		String versionName;
+	private static int getVersionCode(Context context) {
 		try {
-			versionName = VersionUtil.getVersionName(context);
+			return VersionUtil.getVersionCode(context);
 		} catch (NameNotFoundException e) {
 			e.printStackTrace();
-			versionName = context.getString(R.string.default_version_name);
 		}
-		return versionName;
+		return 1;
+	}
+
+	private static String getVersionName(Context context) {
+		try {
+			return VersionUtil.getVersionName(context);
+		} catch (NameNotFoundException e) {
+			e.printStackTrace();
+		}
+		return context.getString(R.string.default_version_name);
 	}
 
 	private static void loadShowImage1() {

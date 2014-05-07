@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import com.google.gson.annotations.SerializedName;
+
 /**
  * Recharge Record
  * 
@@ -12,34 +14,95 @@ package my.project.easyrecharge.model;
 public class Record {
 
 	// 充值日期
-	private String date;
-	// 充值用户名
-	private String userName;
-	// 充值金额
-	private String price;
+	@SerializedName("SchoolID")
+	private String schoolID;
+	@SerializedName("SchoolID")
+	private String apartID;
+	@SerializedName("SchoolID")
+	private String apartName;
+	@SerializedName("SchoolID")
+	private String roomName;
+	@SerializedName("SchoolID")
+	private String posMoney;
+	@SerializedName("SchoolID")
+	private String posTime;
+	@SerializedName("SchoolID")
+	private String stuNO;
+	@SerializedName("SchoolID")
+	private String stuName;
+	@SerializedName("SchoolID")
+	private String stuTel;
 
-	public String getDate() {
-		return date;
+	public String getSchoolID() {
+		return schoolID;
 	}
 
-	public void setDate(String date) {
-		this.date = date;
+	public void setSchoolID(String schoolID) {
+		this.schoolID = schoolID;
 	}
 
-	public String getUserName() {
-		return userName;
+	public String getApartID() {
+		return apartID;
 	}
 
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setApartID(String apartID) {
+		this.apartID = apartID;
 	}
 
-	public String getPrice() {
-		return price;
+	public String getApartName() {
+		return apartName;
 	}
 
-	public void setPrice(String price) {
-		this.price = price;
+	public void setApartName(String apartName) {
+		this.apartName = apartName;
+	}
+
+	public String getRoomName() {
+		return roomName;
+	}
+
+	public void setRoomName(String roomName) {
+		this.roomName = roomName;
+	}
+
+	public String getPosMoney() {
+		return posMoney;
+	}
+
+	public void setPosMoney(String posMoney) {
+		this.posMoney = posMoney;
+	}
+
+	public String getPosTime() {
+		return posTime;
+	}
+
+	public void setPosTime(String posTime) {
+		this.posTime = posTime;
+	}
+
+	public String getStuNO() {
+		return stuNO;
+	}
+
+	public void setStuNO(String stuNO) {
+		this.stuNO = stuNO;
+	}
+
+	public String getStuName() {
+		return stuName;
+	}
+
+	public void setStuName(String stuName) {
+		this.stuName = stuName;
+	}
+
+	public String getStuTel() {
+		return stuTel;
+	}
+
+	public void setStuTel(String stuTel) {
+		this.stuTel = stuTel;
 	}
 
 }

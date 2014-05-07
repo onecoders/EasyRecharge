@@ -3,7 +3,8 @@ package my.project.easyrecharge.model;
 import java.util.regex.Pattern;
 
 import my.project.easyrecharge.util.LetterUtil;
-import android.text.TextUtils;
+
+import com.google.gson.annotations.SerializedName;
 
 /**
  * School
@@ -17,40 +18,44 @@ import android.text.TextUtils;
 public class School {
 
 	// 学校id，唯一
-	private String SchoolID;
+	@SerializedName("SchoolID")
+	private String schoolID;
 	// 学校名称
-	private String SchoolName;
+	@SerializedName("SchoolName")
+	private String schoolName;
 	//
-	private String ZFBAccount;
+	@SerializedName("ZFBAccount")
+	private String zfbAccount;
 	// 学校对应的支付宝信息
 	private AlipayInfo alipayInfo = new AlipayInfo();
+	// 电费单价
+	@SerializedName("Price")
+	private double unitPrice;
 	// 首字母
 	private String alpha;
-	// 电费单价
-	private String unitPrice;
 
 	public String getSchoolID() {
-		return SchoolID;
+		return schoolID;
 	}
 
 	public void setSchoolID(String schoolID) {
-		SchoolID = schoolID;
+		this.schoolID = schoolID;
 	}
 
 	public String getSchoolName() {
-		return SchoolName;
+		return schoolName;
 	}
 
 	public void setSchoolName(String schoolName) {
-		SchoolName = schoolName;
+		this.schoolName = schoolName;
 	}
 
 	public String getZFBAccount() {
-		return ZFBAccount;
+		return zfbAccount;
 	}
 
-	public void setZFBAccount(String zFBAccount) {
-		ZFBAccount = zFBAccount;
+	public void setZFBAccount(String zfbAccount) {
+		this.zfbAccount = zfbAccount;
 	}
 
 	public AlipayInfo getAlipayInfo() {
@@ -77,7 +82,7 @@ public class School {
 	}
 
 	public String getAlpha() {
-		return formatAlpha(SchoolName);
+		return formatAlpha(schoolName);
 	}
 
 	private String formatAlpha(String str) {
@@ -97,13 +102,16 @@ public class School {
 		}
 	}
 
-	public String getUnitPrice() {
-		boolean showDefault = TextUtils.isEmpty(unitPrice);
-		return showDefault ? "--.--" : unitPrice;
+	public double getUnitPrice() {
+		return unitPrice;
 	}
 
-	public void setUnitPrice(String unitPrice) {
+	public void setUnitPrice(double unitPrice) {
 		this.unitPrice = unitPrice;
+	}
+
+	public String getPriceStr() {
+		return getUnitPrice() + "";
 	}
 
 }
