@@ -119,7 +119,11 @@ public class ActFeedback extends ActEdittextFocus {
 	}
 
 	private void doSubmit(String input) {
-		new SubmitTask().execute(input);
+		if (isNetworkConnected()) {
+			new SubmitTask().execute(input);
+		} else {
+			showToast(R.string.network_ungelivable);
+		}
 	}
 
 	class SubmitTask extends AsyncTask<String, Void, Boolean> {
@@ -147,12 +151,10 @@ public class ActFeedback extends ActEdittextFocus {
 		protected void onPostExecute(Boolean result) {
 			super.onPostExecute(result);
 			dismissProgressHUD();
-			if (result) {
+			if (result)
 				clearEdittext();
-				showToast(R.string.hint_feedback_succeed);
-			} else {
-				showToast(R.string.hint_feedback_failed);
-			}
+			showToast(result ? R.string.hint_feedback_succeed
+					: R.string.hint_feedback_failed);
 		}
 
 	}
