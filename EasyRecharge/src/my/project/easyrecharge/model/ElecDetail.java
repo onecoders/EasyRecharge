@@ -9,6 +9,8 @@ package my.project.easyrecharge.model;
 
 public class ElecDetail {
 
+	private static final int ROOM_EXIST_FLAG = 1;
+
 	private String usedScore;
 	private String remainScore;
 	private int isHave;
@@ -62,6 +64,11 @@ public class ElecDetail {
 
 	public void setDescription(String description) {
 		this.description = description;
+	}
+
+	// exist ? 1 : 0
+	public boolean isRoomExist() {
+		return getIsHave() == ROOM_EXIST_FLAG;
 	}
 
 }

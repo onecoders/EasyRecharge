@@ -33,8 +33,6 @@ public class ActDataload extends ActBase {
 	// asynctask with xml rpc request
 	class XMLRPCRequestTask extends AsyncTask<Object, Void, ElecDetail> {
 
-		private static final int ROOM_EXIST_FLAG = 1;
-
 		private String apiName;
 
 		public XMLRPCRequestTask(String apiName) {
@@ -57,7 +55,7 @@ public class ActDataload extends ActBase {
 			super.onPostExecute(result);
 			dismissProgressHUD();
 			if (result != null) {
-				if (result.getIsHave() == ROOM_EXIST_FLAG) {
+				if (result.isRoomExist()) {
 					disposeResult(apiName, toJson(result));
 				} else {
 					showToast(R.string.room_not_exist);
