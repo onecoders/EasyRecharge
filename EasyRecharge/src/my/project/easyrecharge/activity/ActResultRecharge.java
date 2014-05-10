@@ -1,7 +1,6 @@
 package my.project.easyrecharge.activity;
 
 import my.project.easyrecharge.F;
-import my.project.easyrecharge.F.Method;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.Order;
@@ -24,7 +23,7 @@ import android.widget.TextView;
 public class ActResultRecharge extends ActDataload {
 
 	private TextView payPrice;
-	private Button btnInquiry;
+	private Button btnBack;
 
 	private Order order;
 
@@ -46,8 +45,8 @@ public class ActResultRecharge extends ActDataload {
 	}
 
 	private void initViews() {
-		payPrice = (TextView) findViewById(R.id.pay_price);
-		btnInquiry = (Button) findViewById(R.id.btn_inquiry);
+		payPrice = (TextView) findViewById(R.id.rr_pay_price);
+		btnBack = (Button) findViewById(R.id.rr_btn_confirm);
 		Bundle bundle = getIntent().getExtras();
 		if (bundle != null) {
 			String json = bundle.getString(Key.ORDER_JSON);
@@ -56,31 +55,15 @@ public class ActResultRecharge extends ActDataload {
 			String price = order.getPrice() + getString(R.string.rmb);
 			setText(payPrice, price);
 		}
-		btnInquiry.setOnClickListener(this);
+		btnBack.setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		super.onClick(v);
-		if (v.getId() == R.id.btn_inquiry) {
-			String pSchoolID = order.getSchoolId();
-			String pApartID = order.getApartId();
-			String pRoomNum = order.getRoomNum();
-			loadDataXMLRPC(Method.QUERY_SCORE, pSchoolID, pApartID, pRoomNum);
+		if (v.getId() == R.id.rr_btn_confirm) {
+			onBackPressed();
 		}
-	}
-
-	@Override
-	protected void disposeResult(String apiName, String content) {
-		super.disposeResult(apiName, content);
-		if (!apiName.equals(Method.QUERY_SCORE))
-			return;
-		Bundle bundle = new Bundle();
-		bundle.putString(Key.SCHOOL_JSON, toJson(order.getSchool()));
-		bundle.putString(Key.APART_JSON, toJson(order.getApart()));
-		bundle.putString(Key.ROOM_NUM, order.getRoomNum());
-		bundle.putString(Key.ELEC_JSON, content);
-		switchActivityAndFinish(ActResultInquiry.class, bundle);
 	}
 
 }

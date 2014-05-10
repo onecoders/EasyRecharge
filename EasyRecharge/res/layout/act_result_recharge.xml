@@ -19,7 +19,7 @@
         android:textSize="@dimen/pay_success_txt" />
 
     <TextView
-        android:id="@+id/pay_price"
+        android:id="@+id/rr_pay_price"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/reuslt_txt_margin"
@@ -35,11 +35,11 @@
         android:textSize="@dimen/pay_success_hint_txt" />
 
     <Button
-        android:id="@+id/btn_inquiry"
+        android:id="@+id/rr_btn_confirm"
         style="@style/btnStyleAcapulco"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/btn_margin"
-        android:text="@string/btn_inquiry_txt" />
+        android:text="@string/confirm_exit" />
 
 </LinearLayout>

@@ -1,181 +1,196 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/main_bg"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin" >
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/container_padding" >
-
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="@string/txt_school"
-            android:textColor="@color/TextColorGray"
-            android:textSize="@dimen/inquiry_info_txt" />
-
-        <TextView
-            android:id="@+id/ri_school_txt"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:paddingLeft="@dimen/result_padding_left"
-            android:singleLine="true"
-            android:textSize="@dimen/inquiry_info_txt" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/container_padding" >
-
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="@string/txt_apart"
-            android:textColor="@color/TextColorGray"
-            android:textSize="@dimen/inquiry_info_txt" />
-
-        <TextView
-            android:id="@+id/ri_apart_txt"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:paddingLeft="@dimen/result_padding_left"
-            android:singleLine="true"
-            android:textSize="@dimen/inquiry_info_txt" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:padding="@dimen/container_padding" >
-
-        <TextView
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:gravity="right"
-            android:text="@string/txt_room"
-            android:textColor="@color/TextColorGray"
-            android:textSize="@dimen/inquiry_info_txt" />
-
-        <TextView
-            android:id="@+id/ri_room_txt"
-            android:layout_width="0dip"
-            android:layout_height="wrap_content"
-            android:layout_weight="2"
-            android:gravity="left"
-            android:paddingLeft="@dimen/result_padding_left"
-            android:singleLine="true"
-            android:textSize="@dimen/inquiry_info_txt" />
-    </LinearLayout>
+    android:background="@color/main_bg" >
 
     <View
-        android:layout_width="match_parent"
-        android:layout_height="1dip"
-        android:layout_margin="@dimen/result_margin_bottom"
-        android:background="#B6B6B6" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone" />
 
-    <TextView
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/result_margin_bottom"
-        android:gravity="center"
-        android:text="@string/txt_elec_detail"
-        android:textColor="@color/green"
-        android:textSize="@dimen/elec_detail_txt" />
+        android:layout_centerVertical="true" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_view_rounded_top"
-        android:orientation="vertical"
-        android:padding="@dimen/container_padding" >
-
-        <TextView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_margin="@dimen/reuslt_txt_margin"
-            android:text="@string/txt_used"
-            android:textSize="@dimen/result_txt_key" />
+            android:orientation="vertical"
+            android:paddingLeft="@dimen/activity_horizontal_margin"
+            android:paddingRight="@dimen/activity_horizontal_margin" >
 
-        <TextView
-            android:id="@+id/used_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/green"
-            android:textSize="@dimen/result_txt_value" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/container_padding" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_view_rounded_middle"
-        android:orientation="vertical"
-        android:padding="@dimen/container_padding" >
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/txt_school"
+                    android:textColor="@color/TextColorGray"
+                    android:textSize="@dimen/inquiry_info_txt" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/reuslt_txt_margin"
-            android:text="@string/txt_remain"
-            android:textSize="@dimen/result_txt_key" />
+                <TextView
+                    android:id="@+id/ri_school_txt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/result_padding_left"
+                    android:singleLine="true"
+                    android:textSize="@dimen/inquiry_info_txt" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/remain_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/green"
-            android:textSize="@dimen/result_txt_value" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/container_padding" >
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/background_view_rounded_bottom"
-        android:orientation="vertical"
-        android:padding="@dimen/container_padding" >
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/txt_apart"
+                    android:textColor="@color/TextColorGray"
+                    android:textSize="@dimen/inquiry_info_txt" />
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_margin="@dimen/reuslt_txt_margin"
-            android:text="@string/txt_last_read_time"
-            android:textSize="@dimen/result_txt_key" />
+                <TextView
+                    android:id="@+id/ri_apart_txt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/result_padding_left"
+                    android:singleLine="true"
+                    android:textSize="@dimen/inquiry_info_txt" />
+            </LinearLayout>
 
-        <TextView
-            android:id="@+id/last_read_time_txt"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="@color/green"
-            android:textSize="@dimen/result_txt_value" />
-    </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:padding="@dimen/container_padding" >
 
-    <Button
-        android:id="@+id/ri_btn_confirm"
-        style="@style/btnStyleAcapulco"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/btn_margin"
-        android:text="@string/confirm_exit" />
+                <TextView
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="right"
+                    android:text="@string/txt_room"
+                    android:textColor="@color/TextColorGray"
+                    android:textSize="@dimen/inquiry_info_txt" />
 
-</LinearLayout>
+                <TextView
+                    android:id="@+id/ri_room_txt"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="2"
+                    android:gravity="left"
+                    android:paddingLeft="@dimen/result_padding_left"
+                    android:singleLine="true"
+                    android:textSize="@dimen/inquiry_info_txt" />
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dip"
+                android:layout_margin="@dimen/result_margin_bottom"
+                android:background="#B6B6B6" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/result_margin_bottom"
+                android:gravity="center"
+                android:text="@string/txt_elec_detail"
+                android:textColor="@color/green"
+                android:textSize="@dimen/elec_detail_txt" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_top"
+                android:orientation="vertical"
+                android:padding="@dimen/container_padding" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/reuslt_txt_margin"
+                    android:text="@string/txt_used"
+                    android:textSize="@dimen/result_txt_key" />
+
+                <TextView
+                    android:id="@+id/used_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/result_txt_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_middle"
+                android:orientation="vertical"
+                android:padding="@dimen/container_padding" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/reuslt_txt_margin"
+                    android:text="@string/txt_remain"
+                    android:textSize="@dimen/result_txt_key" />
+
+                <TextView
+                    android:id="@+id/remain_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/result_txt_value" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/background_view_rounded_bottom"
+                android:orientation="vertical"
+                android:padding="@dimen/container_padding" >
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/reuslt_txt_margin"
+                    android:text="@string/txt_last_read_time"
+                    android:textSize="@dimen/result_txt_key" />
+
+                <TextView
+                    android:id="@+id/last_read_time_txt"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:textColor="@color/green"
+                    android:textSize="@dimen/result_txt_value" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/ri_btn_confirm"
+                style="@style/btnStyleAcapulco"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/btn_margin"
+                android:text="@string/confirm_exit" />
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
