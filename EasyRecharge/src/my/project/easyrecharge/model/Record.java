@@ -13,24 +13,32 @@ import com.google.gson.annotations.SerializedName;
 
 public class Record {
 
-	// 充值日期
+	//
 	@SerializedName("SchoolID")
 	private String schoolID;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("ApartID")
 	private String apartID;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("ApartName")
 	private String apartName;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("RoomName")
 	private String roomName;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("PosMoney")
 	private String posMoney;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("PosTime")
 	private String posTime;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("StuNO")
 	private String stuNO;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("StuName")
 	private String stuName;
-	@SerializedName("SchoolID")
+	//
+	@SerializedName("StuTel")
 	private String stuTel;
 
 	public String getSchoolID() {
