@@ -68,7 +68,7 @@ public abstract class Order {
 	public String getBody() {
 		OrderInfo info = getOrderInfo();
 		return "电费充值详情" + " 学校：" + getSchoolName() + "，楼号：" + getApartName()
-				+ "，房间号：" + getRoomNum() + "，充值金额：" + getPrice()
+				+ "，房间号：" + getRoomNum() + "，充值金额：" + getPrice() + "，参数："
 				+ F.toJson(info);
 	}
 
