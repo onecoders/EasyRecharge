@@ -67,7 +67,7 @@ public class F {
 	private static Gson mGson;
 
 	public static void init(Context context) {
-		L.enableLogging();// enable log or disable log
+		L.disableLogging();// enable log or disable log
 		initPrefAndGson(context);
 		initVersionInfo(context);
 		initRequestQueue(context);

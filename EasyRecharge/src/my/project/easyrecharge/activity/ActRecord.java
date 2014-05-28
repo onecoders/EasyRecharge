@@ -65,8 +65,7 @@ public class ActRecord extends ActBasicInfo {
 	}
 
 	private void go2Inquiry() {
-		//checkAvailable();
-		doAfterCheckOK("");
+		checkAvailable();
 	}
 
 	@Override
