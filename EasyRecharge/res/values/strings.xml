@@ -51,7 +51,7 @@
     <string name="btn_bind_txt">绑&#160;&#160;&#160;&#160;&#160;&#160;定</string>
     <string name="btn_unbind_txt">解&#160;&#160;&#160;&#160;&#160;&#160;绑</string>
     <string name="bind_info_ok">绑定成功</string>
-    <string name="hint_unbind_message">是否解绑该账户？</string>
+    <string name="hint_unbind_message">解绑该帐户？</string>
     <string name="not_bind">--未绑定--</string>
     <string name="already_bind">--已绑定--</string>
     <string name="room_not_exist">房间不存在，请核实后重试！</string>

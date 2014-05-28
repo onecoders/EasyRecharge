@@ -197,12 +197,17 @@ public abstract class ActBasicInfo extends ActEdittextFocus implements
 	protected void disposeResult(String apiName, String content) {
 		super.disposeResult(apiName, content);
 		if (apiName.equals(Method.QUERY_CAN_USE)) {
-			VersionServer version = fromJson(content, VersionServer.class);
-			if (version.isCanUse()) {
-				// if version can use,then check room exist
-				doCheckRoomExist();
-			} else {
-				showToast(version.getDescription());
+			try {
+				VersionServer version = fromJson(content, VersionServer.class);
+				if (version.isCanUse()) {
+					// if version can use,then check room exist
+					doCheckRoomExist();
+				} else {
+					showToast(version.getDescription());
+				}
+			} catch (Exception e) {
+				e.printStackTrace();
+				showToast(R.string.error_data);
 			}
 		} else if (apiName.equals(Method.QUERY_SCORE)) {
 			doAfterCheckOK(content);
