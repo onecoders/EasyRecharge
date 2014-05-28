@@ -13,12 +13,16 @@ import com.google.gson.annotations.SerializedName;
 
 public class Information {
 
+	//
 	@SerializedName("SchoolID")
 	private String schoolID;
+	//
 	@SerializedName("Message")
 	private String message;
+	//
 	@SerializedName("UpdateTime")
 	private String updateTime;
+	//
 	@SerializedName("NewFLag")
 	private boolean newFlag;
 

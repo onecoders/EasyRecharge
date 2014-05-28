@@ -4,6 +4,7 @@ import my.project.easyrecharge.F;
 import my.project.easyrecharge.R;
 import my.project.easyrecharge.contants.Key;
 import my.project.easyrecharge.model.BindInfo;
+import my.project.easyrecharge.view.NewAlertDialog.OnDialogBtnClickListener;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -73,7 +74,7 @@ public class ActBind extends ActBasicInfo {
 			doBind();
 			break;
 		case R.id.btn_unbind:
-			doUnbind();
+			hintUnbind();
 			break;
 		default:
 			break;
@@ -82,6 +83,23 @@ public class ActBind extends ActBasicInfo {
 
 	private void doBind() {
 		checkAvailable();
+	}
+
+	private void hintUnbind() {
+		showDialog(R.string.hint_title, R.string.hint_unbind_message,
+				R.string.confirm, R.string.cancel,
+				new OnDialogBtnClickListener() {
+
+					@Override
+					public void onLeftBtnClick() {
+						doUnbind();
+					}
+
+					@Override
+					public void onRightBtnClick() {
+
+					}
+				});
 	}
 
 	private void doUnbind() {

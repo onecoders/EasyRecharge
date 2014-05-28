@@ -35,17 +35,18 @@ public class AdaRecord extends ArrayAdapter<Record> {
 	}
 
 	private final class ViewHolder {
-		TextView time;
-		TextView record;
+		TextView tradeTime, tradeNo, tradeMoney;
 
 		public ViewHolder(View v) {
-			time = (TextView) v.findViewById(R.id.time);
-			record = (TextView) v.findViewById(R.id.message);
+			tradeTime = (TextView) v.findViewById(R.id.trade_time);
+			tradeNo = (TextView) v.findViewById(R.id.trade_no);
+			tradeMoney = (TextView) v.findViewById(R.id.trade_money);
 		}
 
 		public void setContent(Record item) {
-			time.setText(item.getPosTime());
-			record.setText(item.getPosMoney());
+			tradeTime.setText(item.getPosTime());
+			tradeNo.setText(item.getTradeNo());
+			tradeMoney.setText(item.getPosMoney());
 		}
 	}
 

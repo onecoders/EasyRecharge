@@ -1,5 +1,7 @@
 package my.project.easyrecharge.model;
 
+import my.project.easyrecharge.util.Dateformat;
+
 import com.google.gson.annotations.SerializedName;
 
 /**
@@ -27,7 +29,7 @@ public class Record {
 	private String roomName;
 	//
 	@SerializedName("PosMoney")
-	private String posMoney;
+	private double posMoney;
 	//
 	@SerializedName("PosTime")
 	private String posTime;
@@ -40,6 +42,18 @@ public class Record {
 	//
 	@SerializedName("StuTel")
 	private String stuTel;
+	//
+	@SerializedName("Sstate")
+	private int sstate;
+	//
+	@SerializedName("Rstate")
+	private int rstate;
+	//
+	@SerializedName("CRCstr")
+	private String crcstr;
+	//
+	@SerializedName("CreateDate")
+	private String createDate;
 
 	public String getSchoolID() {
 		return schoolID;
@@ -74,15 +88,17 @@ public class Record {
 	}
 
 	public String getPosMoney() {
-		return posMoney;
+		return posMoney + "";
 	}
 
-	public void setPosMoney(String posMoney) {
+	public void setPosMoney(double posMoney) {
 		this.posMoney = posMoney;
 	}
 
 	public String getPosTime() {
-		return posTime;
+		String timestamp = posTime.substring(posTime.indexOf("(") + 1,
+				posTime.indexOf(")"));
+		return Dateformat.timestamp2DateStr(timestamp);
 	}
 
 	public void setPosTime(String posTime) {
@@ -113,4 +129,41 @@ public class Record {
 		this.stuTel = stuTel;
 	}
 
+	public int getSstate() {
+		return sstate;
+	}
+
+	public void setSstate(int sstate) {
+		this.sstate = sstate;
+	}
+
+	public int getRstate() {
+		return rstate;
+	}
+
+	public void setRstate(int rstate) {
+		this.rstate = rstate;
+	}
+
+	public String getCrcstr() {
+		return crcstr;
+	}
+
+	public void setCrcstr(String crcstr) {
+		this.crcstr = crcstr;
+	}
+
+	public String getCreateDate() {
+		String timestamp = createDate.substring(createDate.indexOf("(") + 1,
+				createDate.indexOf(")"));
+		return Dateformat.timestamp2DateStr(timestamp);
+	}
+
+	public void setCreateDate(String createDate) {
+		this.createDate = createDate;
+	}
+
+	public String getTradeNo() {
+		return crcstr.split("&")[3].split("=")[1];
+	}
 }

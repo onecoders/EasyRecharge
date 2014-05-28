@@ -29,15 +29,29 @@
             android:orientation="vertical"
             android:paddingLeft="@dimen/txt_padding_left" >
 
-            <TextView
-                android:id="@+id/time"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/info_txt_margin"
-                android:singleLine="true"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="@color/TextColorGray"
-                android:textSize="@dimen/date_txt" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:text="@string/recharge_time"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/TextColorGray"
+                    android:textSize="@dimen/date_txt" />
+
+                <TextView
+                    android:id="@+id/trade_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="@color/TextColorGray"
+                    android:textSize="@dimen/date_txt" />
+            </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
@@ -46,14 +60,53 @@
                 android:layout_marginRight="@dimen/info_txt_margin"
                 android:background="#B6B6B6" />
 
-            <TextView
-                android:id="@+id/record"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="@dimen/info_txt_margin"
-                android:textAppearance="?android:textAppearanceMedium"
-                android:textColor="#333333"
-                android:textSize="@dimen/message_txt" />
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:text="@string/recharge_trade_no"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/message_txt" />
+
+                <TextView
+                    android:id="@+id/trade_no"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/message_txt" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:text="@string/recharge_money"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/message_txt" />
+
+                <TextView
+                    android:id="@+id/trade_money"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/info_txt_margin"
+                    android:textAppearance="?android:textAppearanceMedium"
+                    android:textColor="#333333"
+                    android:textSize="@dimen/message_txt" />
+            </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 

@@ -146,7 +146,7 @@ public class ActMain extends ActUpdateApk implements OnItemClickListener {
 
 	@Override
 	public void onBackPressed() {
-		showDialog(R.string.exit_dialog_title, R.string.exit_dialog_message,
+		showDialog(R.string.hint_title, R.string.exit_dialog_message,
 				R.string.confirm, R.string.cancel,
 				new OnDialogBtnClickListener() {
 

@@ -11,7 +11,7 @@
     <string name="txt_back_btn">返&#160;&#160;&#160;回</string>
     <string name="txt_exit_btn">退&#160;&#160;&#160;出</string>
     <!-- exit dialog -->
-    <string name="exit_dialog_title">提&#160;&#160;&#160;示</string>
+    <string name="hint_title">提&#160;&#160;&#160;示</string>
     <string name="exit_dialog_message">退出&#160;YH智电宝&#160;应用吗？</string>
     <string name="confirm">确&#160;&#160;&#160;定</string>
     <string name="cancel">取&#160;&#160;&#160;消</string>
@@ -51,6 +51,7 @@
     <string name="btn_bind_txt">绑&#160;&#160;&#160;&#160;&#160;&#160;定</string>
     <string name="btn_unbind_txt">解&#160;&#160;&#160;&#160;&#160;&#160;绑</string>
     <string name="bind_info_ok">绑定成功</string>
+    <string name="hint_unbind_message">是否解绑该账户？</string>
     <string name="not_bind">--未绑定--</string>
     <string name="already_bind">--已绑定--</string>
     <string name="room_not_exist">房间不存在，请核实后重试！</string>
@@ -93,6 +94,9 @@
         \n\n8.如有其他未尽事宜，请咨询学校管理员。</string>
     <!-- record activity -->
     <string name="no_record">尚无充值记录</string>
+    <string name="recharge_time">充值时间:</string>
+    <string name="recharge_trade_no">交易号:</string>
+    <string name="recharge_money">充值金额:</string>
     <!-- information activity -->
     <string name="no_information">尚无通知信息</string>
     <!-- result activity -->
