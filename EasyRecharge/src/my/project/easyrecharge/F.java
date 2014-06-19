@@ -20,7 +20,7 @@ public class F {
 
 	public static final String TAG = "easy-recharge";
 
-	private static final String BASIC_URL = "http://58.241.60.41:8080/";
+	private static final String BASIC_URL = "http://www.yheleccdb.com/";
 
 	public static final String XML_RPC_REQUEST_URL = BASIC_URL + "api";
 
