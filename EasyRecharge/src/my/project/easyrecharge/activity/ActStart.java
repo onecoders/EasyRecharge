@@ -13,7 +13,7 @@ import android.view.View;
  * @email onecoders@gmail.com
  */
 
-public class ActStart extends ActUpdateApk {
+public class ActStart extends ActBase {
 
 	private static final long DELAY_MILLIS = 3 * 1000;
 
