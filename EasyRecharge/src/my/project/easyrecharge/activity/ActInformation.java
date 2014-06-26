@@ -84,10 +84,10 @@ public class ActInformation extends ActScrollEffectForListView {
 		if (adapter == null) {
 			adapter = new AdaInfo(this, list);
 			listView.setAdapter(adapter);
-			setListViewHeightBasedOnChildren(listView);
 		} else {
 			adapter.notifyDataSetChanged();
 		}
+		setListViewHeightBasedOnChildren(listView);
 	}
 
 }

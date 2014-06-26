@@ -93,10 +93,10 @@ public class ActResultRecord extends ActScrollEffectForListView {
 		if (adapter == null) {
 			adapter = new AdaRecord(this, list);
 			listView.setAdapter(adapter);
-			setListViewHeightBasedOnChildren(listView);
 		} else {
 			adapter.notifyDataSetChanged();
 		}
+		setListViewHeightBasedOnChildren(listView);
 	}
 
 }
