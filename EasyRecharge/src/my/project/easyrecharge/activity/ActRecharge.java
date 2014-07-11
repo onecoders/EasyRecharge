@@ -212,8 +212,8 @@ public class ActRecharge extends ActBasicInfo implements
 		sb.append("\"&body=\"");
 		sb.append(order.getBody());
 		sb.append("\"&total_fee=\"");
-		// sb.append(order.getPrice());
-		sb.append(0.01);
+		sb.append(order.getPrice());
+		// sb.append(0.01);// for test
 		sb.append("\"&notify_url=\"");
 
 		// 网址需要做URL编码
